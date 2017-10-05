@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/org.moflon.maave.tests.testgen.diachase/gen" modelPluginID="org.moflon.maave.tests.testgen.diachase"
+    modelName="Diachase" updateClasspath="false" codeFormatting="true" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" usedGenPackages="../../org.gervarro.democles.specification.emf/model/specification.genmodel#//specification ../../org.gervarro.democles.specification.emf/model/emf.genmodel#//emf ../../org.gervarro.democles.specification.emf/model/relational.genmodel#//relational platform:/plugin/org.moflon.maave.tests.lang.enumlang/model/Enumlang.genmodel#//enumlang platform:/plugin/org.moflon.maave.tests.lang.mnoq/model/Mnoq.genmodel#//mnoq platform:/plugin/org.moflon.maave.tests.lang.abc/model/Abc.genmodel#//abc"
+    operationReflection="true">
+  <foreignModel>Diachase.ecore</foreignModel>
+  <genPackages prefix="Diachase" basePackage="org.moflon.maave.tests.testgen" disposableProviderFactory="true"
+      ecorePackage="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#/">
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//EnumTestPattern">
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//EnumTestPattern/testPattern1">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//EnumTestPattern/testPattern1/e"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//PaperExampleTest">
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//PaperExampleTest/ruleAddOne">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//PaperExampleTest/ruleAddOne/n"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//PaperExampleTest/ruleAddTwo">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//PaperExampleTest/ruleAddTwo/m"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//PaperExampleTest/ruleLarger4">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//PaperExampleTest/ruleLarger4/k"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//PaperExampleTest/ruleSmaller4">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//PaperExampleTest/ruleSmaller4/p"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//PaperExampleTest/ruleTimes">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//PaperExampleTest/ruleTimes/m"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//PaperExampleTest/ruleLarger4AddTwo">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//PaperExampleTest/ruleLarger4AddTwo/k"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DiaChaseTestGen">
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DiaChaseTestGen/testPattern">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DiaChaseTestGen/testPattern/n1"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DiaChaseTestGen/testPatternA">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DiaChaseTestGen/testPatternA/mA"/>
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DiaChaseTestGen/testPatternA/nA"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DiaChaseTestGen/testPatternA2">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DiaChaseTestGen/testPatternA2/mA"/>
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DiaChaseTestGen/testPatternA2/nA"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DiaChaseTestGen/testPatternB">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DiaChaseTestGen/testPatternB/qB"/>
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DiaChaseTestGen/testPatternB/mB"/>
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DiaChaseTestGen/testPatternB/nB"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DiaChaseTestGen/testPatternB2">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DiaChaseTestGen/testPatternB2/qB"/>
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DiaChaseTestGen/testPatternB2/mB"/>
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DiaChaseTestGen/testPatternB2/nB"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DiaChaseTestGen/testPatternC">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DiaChaseTestGen/testPatternC/mC"/>
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DiaChaseTestGen/testPatternC/oC"/>
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DiaChaseTestGen/testPatternC/nC"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DiaChaseTestGen/testPatternC2">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DiaChaseTestGen/testPatternC2/mC"/>
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DiaChaseTestGen/testPatternC2/oC"/>
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DiaChaseTestGen/testPatternC2/nC"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DiaChaseTestGen/testModel">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DiaChaseTestGen/testModel/n2"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DiaChaseTestGen/testPatternAdd">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DiaChaseTestGen/testPatternAdd/a"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DiaChaseTestGen/testPatternLarger4">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DiaChaseTestGen/testPatternLarger4/a"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DiaChaseTestGen/testPatternSmaller5">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DiaChaseTestGen/testPatternSmaller5/n"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DiaChaseTestGen/testPatternTempVar">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DiaChaseTestGen/testPatternTempVar/n"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DiaChaseTestGen/testRule">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DiaChaseTestGen/testRule/nRule"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//PatternGenerator">
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//PatternGenerator/testPattern1">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//PatternGenerator/testPattern1/a"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//PatternGenerator/testPattern2">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//PatternGenerator/testPattern2/a"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//PatternGenerator/testPattern3">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//PatternGenerator/testPattern3/a"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//PatternGenerator/testPattern4">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//PatternGenerator/testPattern4/a"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//PatternGenerator/testPattern5">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//PatternGenerator/testPattern5/a"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//PatternGenerator/testPattern6">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//PatternGenerator/testPattern6/a"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//PatternGenerator/testPattern7">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//PatternGenerator/testPattern7/a"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//PatternGenerator/testPattern8">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//PatternGenerator/testPattern8/a"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//NacPatternGenerator">
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//NacPatternGenerator/instanceTestPattern1Valid">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//NacPatternGenerator/instanceTestPattern1Valid/a"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//NacPatternGenerator/instanceTestPattern1Invalid">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//NacPatternGenerator/instanceTestPattern1Invalid/a"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//NacPatternGenerator/instanceTestPattern2InvalidA">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//NacPatternGenerator/instanceTestPattern2InvalidA/a"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//NacPatternGenerator/instanceTestPattern2InvalidB">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//NacPatternGenerator/instanceTestPattern2InvalidB/a"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//NacPatternGenerator/instanceTestPattern2InvalidC">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//NacPatternGenerator/instanceTestPattern2InvalidC/a"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//NacPatternGenerator/instanceTestPattern2valid">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//NacPatternGenerator/instanceTestPattern2valid/c"/>
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//NacPatternGenerator/instanceTestPattern2valid/a"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//NacPatternGenerator/instanceTestPattern4Invalid">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//NacPatternGenerator/instanceTestPattern4Invalid/a"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//NacPatternGenerator/instanceTestPattern4valid">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//NacPatternGenerator/instanceTestPattern4valid/a"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//NacPatternGenerator/nacTestPattern1">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//NacPatternGenerator/nacTestPattern1/a"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//NacPatternGenerator/nacTestPattern2">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//NacPatternGenerator/nacTestPattern2/c1"/>
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//NacPatternGenerator/nacTestPattern2/a"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//NacPatternGenerator/nacTestPattern3">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//NacPatternGenerator/nacTestPattern3/a"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//NacPatternGenerator/nacTestPattern4">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//NacPatternGenerator/nacTestPattern4/a"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//CPATest">
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//CPATest/noAttrRule2">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//CPATest/noAttrRule2/n2"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//CPATest/noAttrRule1">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//CPATest/noAttrRule1/n1"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//CPATest/noAttrRule3">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//CPATest/noAttrRule3/n3"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//InitialPushoutTest">
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//InitialPushoutTest/testPattern1">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//InitialPushoutTest/testPattern1/nP1"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//InitialPushoutTest/testModel1">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//InitialPushoutTest/testModel1/nM1"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//InitialPushoutTest/testPattern2">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//InitialPushoutTest/testPattern2/nP1"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//InitialPushoutTest/testModel2">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//InitialPushoutTest/testModel2/nM1"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//InitialPushoutTest/testRule1">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//InitialPushoutTest/testRule1/nP1"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//InitialPushoutTest/testModel3">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//InitialPushoutTest/testModel3/nM1"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//InitialPushoutTest/testModel4">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//InitialPushoutTest/testModel4/nM1"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//InitialPushoutTest/testRule4">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//InitialPushoutTest/testRule4/nM1"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//CPAwithNACTest">
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//CPAwithNACTest/rule1">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//CPAwithNACTest/rule1/n1"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//CPAwithNACTest/rule2">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//CPAwithNACTest/rule2/n2"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//SymbolicPushoutComplement">
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//SymbolicPushoutComplement/rule1">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//SymbolicPushoutComplement/rule1/n"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//PullbackTest">
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//PullbackTest/testPatternD">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//PullbackTest/testPatternD/n"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//PullbackTest/testPatternC">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//PullbackTest/testPatternC/n"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//PullbackTest/testPatternB">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//PullbackTest/testPatternB/n"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DirectDerivationTestCases">
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DirectDerivationTestCases/emptyRule"/>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DirectDerivationTestCases/testRule1">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DirectDerivationTestCases/testRule1/m"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DirectDerivationTestCases/testModel1">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DirectDerivationTestCases/testModel1/m"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DirectDerivationTestCases/testModel2">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DirectDerivationTestCases/testModel2/m"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DirectDerivationTestCases/testModel3">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//DirectDerivationTestCases/testModel3/m"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//NormalFormEquivalenceTestPatterns">
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//NormalFormEquivalenceTestPatterns/testPattern1">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//NormalFormEquivalenceTestPatterns/testPattern1/n1"/>
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//NormalFormEquivalenceTestPatterns/testPattern1/n2"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//NormalFormEquivalenceTestPatterns/testPattern2">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//NormalFormEquivalenceTestPatterns/testPattern2/n1"/>
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//NormalFormEquivalenceTestPatterns/testPattern2/n2"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//NormalFormEquivalenceTestPatterns/testPattern3">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//NormalFormEquivalenceTestPatterns/testPattern3/n1"/>
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//NormalFormEquivalenceTestPatterns/testPattern3/n2"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//NormalFormEquivalenceTestPatterns/testPattern4">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//NormalFormEquivalenceTestPatterns/testPattern4/n1"/>
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//NormalFormEquivalenceTestPatterns/testPattern4/n2"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//MorphismClassTestPatterns">
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//MorphismClassTestPatterns/testPattern1">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//MorphismClassTestPatterns/testPattern1/n1"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//MorphismClassTestPatterns/testPattern2">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//MorphismClassTestPatterns/testPattern2/n1"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//MorphismClassTestPatterns/testPattern3">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.diachase/model/Diachase.ecore#//MorphismClassTestPatterns/testPattern3/n1"/>
+      </genOperations>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

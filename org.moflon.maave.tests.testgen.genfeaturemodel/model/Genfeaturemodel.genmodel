@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/org.moflon.maave.tests.testgen.genfeaturemodel/gen"
+    modelPluginID="org.moflon.maave.tests.testgen.genfeaturemodel" modelName="Genfeaturemodel"
+    updateClasspath="false" codeFormatting="true" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" usedGenPackages="platform:/plugin/org.moflon.maave.tests.lang.featuremodel/model/Featuremodel.genmodel#//featuremodel"
+    operationReflection="true">
+  <foreignModel>Genfeaturemodel.ecore</foreignModel>
+  <genPackages prefix="Genfeaturemodel" basePackage="org.moflon.maave.tests.testgen"
+      disposableProviderFactory="true" ecorePackage="platform:/plugin/org.moflon.maave.tests.testgen.genfeaturemodel/model/Genfeaturemodel.ecore#/">
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.testgen.genfeaturemodel/model/Genfeaturemodel.ecore#//Rules">
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.genfeaturemodel/model/Genfeaturemodel.ecore#//Rules/ruleA">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.genfeaturemodel/model/Genfeaturemodel.ecore#//Rules/ruleA/f1"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.genfeaturemodel/model/Genfeaturemodel.ecore#//Rules/ruleB">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.genfeaturemodel/model/Genfeaturemodel.ecore#//Rules/ruleB/fx"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.genfeaturemodel/model/Genfeaturemodel.ecore#//Rules/ruleC">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.genfeaturemodel/model/Genfeaturemodel.ecore#//Rules/ruleC/fy"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.genfeaturemodel/model/Genfeaturemodel.ecore#//Rules/ruleA2">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.genfeaturemodel/model/Genfeaturemodel.ecore#//Rules/ruleA2/f1"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.genfeaturemodel/model/Genfeaturemodel.ecore#//Rules/ruleB2">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.genfeaturemodel/model/Genfeaturemodel.ecore#//Rules/ruleB2/fx"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.testgen.genfeaturemodel/model/Genfeaturemodel.ecore#//Rules/ruleC2">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.testgen.genfeaturemodel/model/Genfeaturemodel.ecore#//Rules/ruleC2/fy"/>
+      </genOperations>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

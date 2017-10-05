@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.moflon.maave.tests.lang.cms/gen" modelPluginID="org.moflon.maave.tests.lang.cms"
+    modelName="Cms" updateClasspath="false" codeFormatting="true" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" operationReflection="true">
+  <foreignModel>Cms.ecore</foreignModel>
+  <genPackages prefix="Cms" basePackage="org.moflon.maave.tests.lang" disposableProviderFactory="true"
+      ecorePackage="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//EN_STATE">
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//EN_STATE/STUDY"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//EN_STATE/THESIS"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//EN_STATE/FINISHED"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//EX_STATE">
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//EX_STATE/INIT"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//EX_STATE/REG_OPEN"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//EX_STATE/REG_CLOSED"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//EX_STATE/PERFORM"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//EX_STATE/CLOSED"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//EX_STATE/RECORDS"/>
+    </genEnums>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//UserDefinedConstraints">
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//UserDefinedConstraints/_NC_atMostOneRecordForModuleOffer">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//UserDefinedConstraints/_NC_atMostOneRecordForModuleOffer/enrolment"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//UserDefinedConstraints/_NC_onlyOneEntryForID">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//UserDefinedConstraints/_NC_onlyOneEntryForID/gradeFormular"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//UserDefinedConstraints/_NC_noTwoStudentsWithSameId">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//UserDefinedConstraints/_NC_noTwoStudentsWithSameId/studentA"/>
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//UserDefinedConstraints/_NC_noTwoStudentsWithSameId/studentB"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//UserDefinedConstraints/_NC_atMostOneRegistrationForExamPerEnrolment">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//UserDefinedConstraints/_NC_atMostOneRegistrationForExamPerEnrolment/enrolment"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//UserDefinedConstraints/_NC_onlyOneExamForFromular">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//UserDefinedConstraints/_NC_onlyOneExamForFromular/examB"/>
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//UserDefinedConstraints/_NC_onlyOneExamForFromular/examA"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Module">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Module/lectureType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Module/examType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Module/moduleOffer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Module/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Module/version"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//ExamPrototype"/>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Semester">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Semester/previous"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Semester/next"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Semester/offeredLectures"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Semester/exams"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Semester/startDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Semester/endDate"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//ThesisModule">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//ThesisModule/thesises"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//ThesisModule/id"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//ThesisRecord">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//ThesisRecord/thesisModule"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//ThesisRecord/thesis"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//ThesisRecord/grade"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//ThesisRecord/tries"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//ThesisRecord/running"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//degree">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//degree/degree"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//degree/successfull"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//CalendarDate">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//CalendarDate/location"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//CalendarDate/begin"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//CalendarDate/duration"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//LecturePrototype"/>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//ModuleOffer">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//ModuleOffer/exams"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//ModuleOffer/lectures"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//ModuleOffer/cp"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//ProgramManagement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//ProgramManagement/moduleOffers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//ProgramManagement/programs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//ProgramManagement/modules"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Sys">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Sys/currentTime"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//GradeFormular">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//GradeFormular/records"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//GradeFormular/nrOfEntries"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Entry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Entry/studentId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Entry/grade"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Enrollment">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Enrollment/student"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Enrollment/thesisRecord"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Enrollment/degree"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Enrollment/system"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Enrollment/records"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Enrollment/program"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Enrollment/cp"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Enrollment/state"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Enrollment/regCp"/>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Enrollment/registerForModule">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Enrollment/registerForModule/module"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Enrollment/registerForExam">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Enrollment/registerForExam/examREG"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Enrollment/unregisterFromExam">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Enrollment/unregisterFromExam/exam"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Enrollment/registerForThesisModule">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Enrollment/registerForThesisModule/thesisModule"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Enrollment/registerThesis"/>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Enrollment/registerForExam_v2">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Enrollment/registerForExam_v2/examREG"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Enrollment/unregisterFromExam_v2">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Enrollment/unregisterFromExam_v2/exam"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Student">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Student/enrollment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Student/id"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//LectureManagement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//LectureManagement/semesters"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//LectureManagement/current"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Record">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Record/enrollment"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Record/exam"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Record/moduleOffer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Record/grade"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Record/tries"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Room">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Room/reservations"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Room/capacity"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//StrudentAffairs">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//StrudentAffairs/students"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//CMS">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//CMS/programManagement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//CMS/roomManagement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//CMS/strudentManagements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//CMS/courseManagement"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//CMS/currentDate"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Exam">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Exam/registrations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Exam/gradeList"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Exam/location"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Exam/begin"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Exam/duration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Exam/regStudents"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Exam/state"/>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Exam/bookRoom">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Exam/bookRoom/room"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Exam/transscriptRecordPassed"/>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Exam/openREG_v2"/>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Exam/closeREG_v2"/>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Exam/bookRoom_v2">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Exam/bookRoom_v2/room"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Exam/transscriptRecord_v2"/>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Exam/uploadRecords_v2">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Exam/uploadRecords_v2/gradeFormular"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Exam/close_v2"/>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Exam/transscriptRecordFailed"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//RoomManagement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//RoomManagement/rooms"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Booking">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Booking/room"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Booking/begin"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Booking/end"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Program">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Program/modules"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Program/thesisModules"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Program/id"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Lecture">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//Lecture/lectureDates"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//ThesisOffer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//ThesisOffer/begin"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.moflon.maave.tests.lang.cms/model/Cms.ecore#//ThesisOffer/end"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

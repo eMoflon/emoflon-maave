@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.moflon.maave.tests.lang.enumlang/gen" modelPluginID="org.moflon.maave.tests.lang.enumlang"
+    modelName="Enumlang" updateClasspath="false" codeFormatting="true" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" operationReflection="true">
+  <foreignModel>Enumlang.ecore</foreignModel>
+  <genPackages prefix="Enumlang" basePackage="org.moflon.maave.tests.lang" disposableProviderFactory="true"
+      ecorePackage="platform:/plugin/org.moflon.maave.tests.lang.enumlang/model/Enumlang.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="platform:/plugin/org.moflon.maave.tests.lang.enumlang/model/Enumlang.ecore#//LEVEL">
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/org.moflon.maave.tests.lang.enumlang/model/Enumlang.ecore#//LEVEL/LOW"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/org.moflon.maave.tests.lang.enumlang/model/Enumlang.ecore#//LEVEL/HIGH"/>
+    </genEnums>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.lang.enumlang/model/Enumlang.ecore#//E">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.moflon.maave.tests.lang.enumlang/model/Enumlang.ecore#//E/level"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.moflon.maave.tests.lang.vwxyz/gen" modelPluginID="org.moflon.maave.tests.lang.vwxyz"
+    modelName="Vwxyz" updateClasspath="false" codeFormatting="true" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" operationReflection="true">
+  <foreignModel>Vwxyz.ecore</foreignModel>
+  <genPackages prefix="Vwxyz" basePackage="org.moflon.maave.tests.lang" disposableProviderFactory="true"
+      ecorePackage="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#/">
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//V">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//V/w"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//V/x"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//W">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//W/x"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//W/y"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//X">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//X/z"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//Y">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//Y/w"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//Y/next"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//Z">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//Z/next"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//Z/previous"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//CardinalityConstraintsTestPattern">
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//CardinalityConstraintsTestPattern/testPatternInvalid1">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//CardinalityConstraintsTestPattern/testPatternInvalid1/v1"/>
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//CardinalityConstraintsTestPattern/testPatternInvalid1/v2"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//CardinalityConstraintsTestPattern/testPatternInvalid2">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//CardinalityConstraintsTestPattern/testPatternInvalid2/v"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//CardinalityConstraintsTestPattern/testPatternInvalid3">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//CardinalityConstraintsTestPattern/testPatternInvalid3/w1"/>
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//CardinalityConstraintsTestPattern/testPatternInvalid3/w2"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//CardinalityConstraintsTestPattern/testPatternInvalid4">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//CardinalityConstraintsTestPattern/testPatternInvalid4/v"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//CardinalityConstraintsTestPattern/testPatternValid1">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//CardinalityConstraintsTestPattern/testPatternValid1/v"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//CardinalityConstraintsTestPattern/testPatternInvalid5">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//CardinalityConstraintsTestPattern/testPatternInvalid5/v"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//CardinalityConstraintsTestPattern/testPatternInvalid6">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//CardinalityConstraintsTestPattern/testPatternInvalid6/w1"/>
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//CardinalityConstraintsTestPattern/testPatternInvalid6/w2"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//CardinalityConstraintsTestPattern/testPatternInvalid7">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//CardinalityConstraintsTestPattern/testPatternInvalid7/w1"/>
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//CardinalityConstraintsTestPattern/testPatternInvalid7/w2"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//UserDefinedConstraints">
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//UserDefinedConstraints/_NC_SingeltonV">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//UserDefinedConstraints/_NC_SingeltonV/v2"/>
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//UserDefinedConstraints/_NC_SingeltonV/v1"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//UserDefinedConstraints/_NC_SingeltonW">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//UserDefinedConstraints/_NC_SingeltonW/w2"/>
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//UserDefinedConstraints/_NC_SingeltonW/w1"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//UserDefinedConstraints/_NC_smaller5">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//UserDefinedConstraints/_NC_smaller5/v"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//ConstraintToPostConditionPattern">
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//ConstraintToPostConditionPattern/rule1">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//ConstraintToPostConditionPattern/rule1/v"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//ConstraintToPostConditionPattern/testpattern1Inconsistent">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//ConstraintToPostConditionPattern/testpattern1Inconsistent/v"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//ConstraintToPostConditionPattern/testpattern2Inconsistent">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//ConstraintToPostConditionPattern/testpattern2Inconsistent/v"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//ConstraintToPostConditionPattern/testpattern2consistent">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//ConstraintToPostConditionPattern/testpattern2consistent/v"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//ConstraintToPostConditionPattern/rule2">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//ConstraintToPostConditionPattern/rule2/v"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//ConstraintToPostConditionPattern/testpattern22Inconsistent">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//ConstraintToPostConditionPattern/testpattern22Inconsistent/v"/>
+      </genOperations>
+      <genOperations ecoreOperation="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//ConstraintToPostConditionPattern/testpattern22Consistent">
+        <genParameters ecoreParameter="platform:/plugin/org.moflon.maave.tests.lang.vwxyz/model/Vwxyz.ecore#//ConstraintToPostConditionPattern/testpattern22Consistent/v"/>
+      </genOperations>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

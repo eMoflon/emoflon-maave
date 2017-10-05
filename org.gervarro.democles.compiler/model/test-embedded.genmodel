@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.gervarro.democles.prototype/src"
+    modelPluginID="org.gervarro.democles.prototype" modelName="Test-embedded" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false">
+  <foreignModel>test-embedded.ecore</foreignModel>
+  <genPackages prefix="Embedded" basePackage="org.gervarro.democles" disposableProviderFactory="true"
+      adapterFactory="false" ecorePackage="test-embedded.ecore#/">
+    <genDataTypes ecoreDataType="test-embedded.ecore#//SampleDataType"/>
+    <genClasses ecoreClass="test-embedded.ecore#//Sample">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test-embedded.ecore#//Sample/dataTypeAttribute"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference test-embedded.ecore#//Sample/toOneReference"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference test-embedded.ecore#//Sample/unidirectionaToManyReference"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="test-embedded.ecore#//SampleAbstractClass">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute test-embedded.ecore#//SampleAbstractClass/stringAttribute"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="test-embedded.ecore#//SampleInterface"/>
+    <genClasses image="false" ecoreClass="test-embedded.ecore#//SampleSuperInterface"/>
+  </genPackages>
+</genmodel:GenModel>
