@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://gervarro.org/democles/specification.ecore"
+            class="org.gervarro.democles.specification.emf.SpecificationPackage"
+            genModel="model/specification.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://gervarro.org/democles/constraint/emf.ecore"
+            class="org.gervarro.democles.specification.emf.constraint.emf.emf.EMFTypePackage"
+            genModel="model/emf.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://gervarro.org/democles/specification/constraint/relational.ecore"
+            class="org.gervarro.democles.specification.emf.constraint.relational.RelationalConstraintPackage"
+            genModel="model/relational.genmodel"/>
+   </extension>
+
+</plugin>

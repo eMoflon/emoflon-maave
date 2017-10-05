@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: EMFInterpreterOperation
+Bundle-SymbolicName: org.gervarro.democles.interpreter.emf
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.gervarro.democles.operation.emf
+Require-Bundle: org.eclipse.emf.ecore;bundle-version="2.9.0",
+ org.gervarro.democles.common;bundle-version="1.0.0",
+ org.gervarro.democles.emf;bundle-version="1.0.0",
+ org.gervarro.democles.interpreter;bundle-version="1.0.0"

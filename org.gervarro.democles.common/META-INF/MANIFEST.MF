@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Democles Common Module
+Bundle-SymbolicName: org.gervarro.democles.common;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.gervarro.democles.common,
+ org.gervarro.democles.common.runtime,
+ org.gervarro.democles.constraint,
+ org.gervarro.democles.event,
+ org.gervarro.democles.specification,
+ org.gervarro.democles.specification.impl,
+ org.gervarro.extension
+Bundle-ActivationPolicy: lazy

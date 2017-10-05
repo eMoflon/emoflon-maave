@@ -1,0 +1,103 @@
+
+import org.moflon.maave.tool.symbolicgraphs.SymbolicGraphMorphisms.MorphismClass;
+import org.moflon.maave.tool.symbolicgraphs.SymbolicGraphMorphisms.SymbolicGraphMorphism;
+import org.moflon.maave.tool.symbolicgraphs.SymbolicGraphMorphisms.SymbolicGraphMorphismsFactory;
+import org.moflon.maave.tool.symbolicgraphs.SymbolicGraphs.SymbolicGraphsFactory;
+import org.moflon.maave.tool.symbolicgraphs.secondorder.matching.ConfigurableMorphismFinder;
+import org.moflon.maave.tool.symbolicgraphs.secondorder.matching.MatchingFactory;
+import org.moflon.maave.tool.symbolicgraphs.secondorder.matching.MorphismFinderFactory;
+import org.moflon.maave.tool.symbolicgraphs.secondorder.matching.MorphismsSet;
+import org.moflon.maave.tool.symbolicgraphs.secondorder.matching.MatchingUtils.CategoryUtil;
+import org.moflon.maave.tool.symbolicgraphs.secondorder.matching.MatchingUtils.ConfigurableMorphismClassFactory;
+import org.moflon.maave.tool.symbolicgraphs.secondorder.matching.MatchingUtils.MatchingUtilsFactory;
+import java.util.List;
+import java.util.stream.Collectors;
+import org.moflon.maave.tool.symbolicgraphs.SymbolicGraphs.EGraphElement;
+import org.moflon.maave.tool.symbolicgraphs.SymbolicGraphs.LabelNode;
+import org.moflon.maave.tool.symbolicgraphs.SymbolicGraphs.SymbolicGraph;
+import org.moflon.maave.tool.maaveutil.MaaveutilFactory;
+
+partial class NormalFormBuilderImpl {
+
+@members <--
+
+   private void derivePossibleZ(SymbolicGraphMorphism morN_P, SymbolicGraphMorphism morZ_P)
+   {
+      SymbolicGraph graphZ3 = morZ_P.getDom();
+      List<LabelNode> remLabelNodeList = graphZ3.getLabelNodes().stream()
+            .filter(x -> ((morZ_P.imageOf(x)).getLabelEdge().isEmpty()) && (!morN_P.isInImage(morZ_P.imageOf(x)))).collect(Collectors.toList());
+      if (remLabelNodeList.isEmpty() == false)
+      {
+         if (graphZ3.getFormula().getQuantifier() == null)
+         {
+            graphZ3.getFormula().setQuantifier(SymbolicGraphsFactory.eINSTANCE.createExists());
+         }
+         for (LabelNode ln : remLabelNodeList)
+         {
+            graphZ3.getFormula().getQuantifier().getLabelNodes().add(ln);
+            morZ_P.removeMapping(ln);
+         }
+      }
+   }
+
+   private boolean isCommuting(SymbolicGraphMorphism morA_B, SymbolicGraphMorphism morB_C, SymbolicGraphMorphism morC_D, SymbolicGraphMorphism morA_D)
+   {
+
+      for (Object obj : morA_B.getDom().getAllElements())
+      {
+         if ((morC_D.imageOf(morB_C.imageOf(morA_B.imageOf((EGraphElement) obj))) == morA_D.imageOf((EGraphElement) obj)) == false)
+         {
+            return false;
+         }
+      }
+      return true;
+   }
+   
+-->
+
+@model checkZ (SymbolicGraphMorphism morN_P3, SymbolicGraphMorphism morN_P4) <--
+
+      CategoryUtil catUtil = MatchingUtilsFactory.eINSTANCE.createCategoryUtil();
+      ConfigurableMorphismClassFactory morClassFac = MatchingUtilsFactory.eINSTANCE.createConfigurableMorphismClassFactory();
+      MorphismClass morClassIso = morClassFac.createMorphismClass("B", "B", "B", "B", "<=>");
+      MorphismFinderFactory morFinderFac = MatchingFactory.eINSTANCE.createMorphismFinderFactory();
+
+      SymbolicGraph graphP3 = morN_P3.getCodom();
+      SymbolicGraphMorphism morZ3_P3 = catUtil.copyGraph(graphP3);
+      SymbolicGraphMorphism morN_Z3 = morN_P3.composeWith(catUtil.getInverseMorphism(morZ3_P3));
+      derivePossibleZ(morN_P3, morZ3_P3);
+      SymbolicGraph graphZ3 = morZ3_P3.getDom();
+
+      SymbolicGraph graphP4 = morN_P4.getCodom();
+      SymbolicGraphMorphism morZ4_P4 = catUtil.copyGraph(graphP4);
+      SymbolicGraphMorphism morN_Z4 = morN_P4.composeWith(catUtil.getInverseMorphism(morZ4_P4));
+      derivePossibleZ(morN_P4, morZ4_P4);
+      SymbolicGraph graphZ4 = morZ4_P4.getDom();
+
+      ConfigurableMorphismFinder morFinderForZ3 = morFinderFac.createMorphismFinder(graphZ3, morClassIso);
+      SymbolicGraphMorphism partialMatchZ3_Z4 = SymbolicGraphMorphismsFactory.eINSTANCE.createSymbolicGraphMorphism();
+      partialMatchZ3_Z4.setDom(graphZ3);
+      partialMatchZ3_Z4.setCodom(graphZ4);
+      for (Object obj : morN_P4.getDom().getAllElements())
+      {
+         EGraphElement elem = (EGraphElement) obj;
+         partialMatchZ3_Z4.addMapping(morN_Z3.imageOf(elem), morN_Z4.imageOf(elem));
+      }
+      MorphismsSet isoMorSetZ3_Z4 = morFinderForZ3.getAllMorphisms(partialMatchZ3_Z4);
+
+      Status status = MaaveutilFactory.eINSTANCE.createStatus();
+      status.setValid(false);
+      for (SymbolicGraphMorphism isoMorZ3_Z4 : isoMorSetZ3_Z4.getMorphisms())
+      {
+         SymbolicGraphMorphism isoMorZ4_Z3 = catUtil.getInverseMorphism(isoMorZ3_Z4);
+         if (isCommuting(morN_Z3, isoMorZ3_Z4, morZ4_P4, morN_P4) && isCommuting(morN_Z4, isoMorZ4_Z3, morZ3_P3, morN_P3))
+         {
+
+            status.setValid(true);
+            return status;
+         }
+      }
+      return status;
+-->
+
+}

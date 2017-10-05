@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: EMF Specific Code Generator Module
+Bundle-SymbolicName: org.gervarro.democles.codegen.emf;singleton:=true
+Bundle-Version: 0.3.2.qualifier
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.emf.ecore;bundle-version="2.9.0",
+ org.eclipse.emf.codegen.ecore;bundle-version="2.9.0",
+ org.gervarro.democles.common;bundle-version="1.0.0",
+ org.gervarro.democles.compiler;bundle-version="0.3.2",
+ org.gervarro.democles.emf;bundle-version="1.0.0"
+Export-Package: org.gervarro.democles.codegen.emf
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

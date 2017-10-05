@@ -1,0 +1,27 @@
+
+import org.moflon.maave.tool.symbolicgraphs.secondorder.matching.MatchingFactory;
+import org.moflon.maave.tool.symbolicgraphs.SymbolicGraphMorphisms.SymbolicGraphMorphism;
+import org.moflon.maave.tool.symbolicgraphs.SymbolicGraphs.SymbolicGraph;
+import org.moflon.maave.tool.symbolicgraphs.secondorder.matching.FOTransformationResult;
+import org.moflon.maave.tool.symbolicgraphs.secondorder.matching.MatchingPackage;
+import org.moflon.maave.tool.symbolicgraphs.secondorder.matching.MatchingUtils.CategoryUtil;
+import org.moflon.maave.tool.symbolicgraphs.secondorder.matching.MatchingUtils.MatchingUtilsFactory;
+
+partial class InjectiveEGraphMorphismFinderImpl {
+
+
+
+@model createFirstOrderPattern (SymbolicGraph symbolicGraph) <--
+
+      FOTransformationResult result = MatchingFactory.eINSTANCE.createFOTransformationResult();
+      result.init(symbolicGraph);
+      return result;
+-->
+
+@model checkMorphismValidity (SymbolicGraphMorphism morphism) <--
+
+      CategoryUtil catUtil = MatchingUtilsFactory.eINSTANCE.createCategoryUtil();
+      return catUtil.isValidEGraphMorphism(morphism) && catUtil.isInjectiveMorphism(morphism);
+-->
+
+}

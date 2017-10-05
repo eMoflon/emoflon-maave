@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Velocity Code Generator
+Bundle-SymbolicName: org.gervarro.democles.codegen.velocity;singleton:=true
+Bundle-Version: 0.3.2.qualifier
+Export-Package: org.apache.velocity.app,
+ org.apache.velocity.runtime,
+ org.gervarro.democles.codegen.velocity,
+ org.gervarro.democles.codegen.velocity.emf
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: .,
+ lib/velocity-1.6.4-dep.jar,
+ templates/
+Require-Bundle: org.eclipse.emf.ecore;bundle-version="2.5.0",
+ org.eclipse.emf.ecore.xmi;bundle-version="2.5.0",
+ org.eclipse.emf.codegen.ecore;bundle-version="2.5.0",
+ org.gervarro.democles.common;bundle-version="1.0.0",
+ org.gervarro.democles.emf;bundle-version="1.0.0",
+ org.gervarro.democles.plan;bundle-version="0.3.2",
+ org.gervarro.democles.specification.emf;bundle-version="1.0.0",
+ org.gervarro.democles.compiler;bundle-version="0.3.2"

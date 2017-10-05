@@ -1,0 +1,11 @@
+
+partial class ConfluenceAnalysisResultImpl {
+
+
+
+@model toString () <--
+
+      return super.toString();
+-->
+
+}

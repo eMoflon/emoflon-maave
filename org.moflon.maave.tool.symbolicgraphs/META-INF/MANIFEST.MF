@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: org.moflon.maave.tool.symbolicgraphs;singleton:=t
+ rue
+Export-Package: org.moflon.maave.tool.symbolicgraphs,
+ org.moflon.maave.tool.symbolicgraphs.Datastructures,
+ org.moflon.maave.tool.symbolicgraphs.SymbolicGraphMorphisms,
+ org.moflon.maave.tool.symbolicgraphs.SymbolicGraphMorphisms.impl,
+ org.moflon.maave.tool.symbolicgraphs.SymbolicGraphMorphisms.util,
+ org.moflon.maave.tool.symbolicgraphs.SymbolicGraphs,
+ org.moflon.maave.tool.symbolicgraphs.SymbolicGraphs.impl,
+ org.moflon.maave.tool.symbolicgraphs.SymbolicGraphs.util,
+ org.moflon.maave.tool.symbolicgraphs.impl,
+ org.moflon.maave.tool.symbolicgraphs.printing,
+ org.moflon.maave.tool.symbolicgraphs.util
+Bundle-Name: org.moflon.maave.tool.analysis.symbolicgraphs
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore.xmi,
+ org.moflon.core.utilities,
+ org.moflon.maave.tool.maaveutil;bundle-version="1.0.0"
+Bundle-ManifestVersion: 2
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-Vendor: TU Darmstadt

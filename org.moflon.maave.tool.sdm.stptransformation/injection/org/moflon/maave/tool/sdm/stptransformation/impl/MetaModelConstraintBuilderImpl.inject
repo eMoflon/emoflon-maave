@@ -1,0 +1,21 @@
+
+import org.moflon.maave.tool.category.CategoryFactory;
+
+partial class MetaModelConstraintBuilderImpl {
+
+@members <--
+
+   SymbolicGraph initialObject;
+   
+-->
+
+@model getIntialObject () <--
+
+      if (initialObject == null)
+      {
+         initialObject = CategoryFactory.eINSTANCE.createSymbolicGraphCat().getInitalInitalSG();
+      }
+      return initialObject;
+-->
+
+}

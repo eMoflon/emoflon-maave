@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.gervarro.democles.feature.specification"
+      label="Democles Pattern Specification"
+      version="0.3.2.qualifier">
+
+   <description url="http://95.140.46.126/democles/">
+      Pattern specification modules for the Democles pattern matching engine
+   </description>
+
+   <copyright url="http://www.gnu.org/licenses/">
+      Democles, Declarative Model Query Framework for Monitoring
+Heterogeneous Embedded Systems
+
+Copyright (C) 2010-2014  Gergely Varro
+
+This program is free software: you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation, either 
+version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+   </copyright>
+
+   <url>
+      <update label="Democles Update Site" url="http://95.140.46.126/democles/"/>
+   </url>
+
+   <plugin
+         id="org.gervarro.democles.common"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.gervarro.democles.emf"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.gervarro.democles.specification.emf"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+</feature>

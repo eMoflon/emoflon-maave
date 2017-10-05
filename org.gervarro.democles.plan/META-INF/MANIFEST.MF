@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Democles Search Plan Framework
+Bundle-SymbolicName: org.gervarro.democles.plan
+Bundle-Version: 0.3.2.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.gervarro.democles.common;bundle-version="1.0.0"
+Export-Package: org.gervarro.democles.plan,
+ org.gervarro.democles.plan.common
+Bundle-ActivationPolicy: lazy

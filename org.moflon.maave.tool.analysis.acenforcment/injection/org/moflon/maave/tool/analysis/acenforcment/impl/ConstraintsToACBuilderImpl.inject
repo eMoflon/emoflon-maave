@@ -1,0 +1,101 @@
+
+import org.moflon.maave.tool.graphtransformation.GlobalConstraint;
+import org.moflon.maave.tool.graphtransformation.GraphTransformationSystem;
+import org.moflon.maave.tool.graphtransformation.SymbGTRule;
+import org.moflon.maave.tool.symbolicgraphs.SymbolicGraphMorphisms.SymbolicGraphMorphism;
+import org.moflon.maave.tool.symbolicgraphs.SymbolicGraphMorphisms.SymbolicGraphMorphismsFactory;
+import org.moflon.maave.tool.analysis.acenforcment.AcenforcmentFactory;
+import org.moflon.maave.tool.analysis.acenforcment.NacAndPacMinimizer;
+import org.moflon.maave.tool.analysis.acenforcment.ACEnforcementResult;
+import org.moflon.maave.wsconfig.WsInfo;
+
+partial class ConstraintsToACBuilderImpl {
+
+
+
+@model verifyGTS (GraphTransformationSystem gts) <--
+
+      this.setConditionAlongMorphismShifter(AcenforcmentFactory.eINSTANCE.createConditionAlongMorphismShifter());
+      this.setConditionAlongRuleShifter(AcenforcmentFactory.eINSTANCE.createConditionAlongRuleShifter());
+      this.getConditionAlongMorphismShifter().setGraphTransformationSystem(gts);
+      this.getConditionAlongRuleShifter().setGraphTransformationSystem(gts);
+      this.setCurrentReport(AcenforcmentFactory.eINSTANCE.createACEnforcmentReport());
+      this.getCurrentReport().setNrOfRules(gts.getRules().size());
+
+      this.getCurrentReport().setNrOfConstraints(0);
+      for (GlobalConstraint gc : gts.getGlobalConstraints())
+      {
+         this.getCurrentReport().setNrOfConstraints(this.getCurrentReport().getNrOfConstraints() + gc.getConstraint().getConditions().size());
+      }
+      if (WsInfo.getVerboseLevel() >= 5)
+      {
+         System.out.println("=========Verifying constraints for GTS=========");
+      }
+
+      long absTimeStartOverall = System.currentTimeMillis();
+      for (SymbGTRule rule : gts.getRules())
+      {
+         if (WsInfo.getVerboseLevel() >= 5)
+         {
+            System.out.print("Verifying constraints for Rule: " + rule.getName());
+         }
+         ACEnforcementResult currentResult = this.getCurrentReport().lookupResult(rule);
+         long startTime = System.currentTimeMillis();
+         long absTimeStartShift = System.currentTimeMillis();
+         for (GlobalConstraint gc : gts.getGlobalConstraints())
+         {
+
+            SymbolicGraphMorphism morI_R = SymbolicGraphMorphismsFactory.eINSTANCE.createSymbolicGraphMorphism();
+            morI_R.setDom(gc.getConstraint());
+            morI_R.setCodom(rule.getRight().getCodom());
+
+            this.getConditionAlongMorphismShifter().shiftAllConditonsAlongMorphism(morI_R);
+
+         }
+         currentResult.setTimeForPostNacs(System.currentTimeMillis() - absTimeStartShift);
+         currentResult.setNrOfPostNACs(rule.getRight().getCodom().getConditions().size());
+
+         long absTimeStartPostToPre = System.currentTimeMillis();
+
+         this.getConditionAlongRuleShifter().shiftAllConditionsLeft(rule);
+         rule.getRight().getCodom().getConditions().clear();
+
+         currentResult.setTimePostToPre(System.currentTimeMillis() - absTimeStartPostToPre);
+         currentResult.setNrOfPreACRaw(rule.getLeft().getCodom().getConditions().size());
+
+         currentResult.setTimeConstToPrecond(System.currentTimeMillis() - startTime);
+
+         if (WsInfo.getVerboseLevel() >= 5)
+         {
+            System.out.print(" ::Finished \n");
+
+         }
+      }
+      long absTimeStartMimize = System.currentTimeMillis();
+      this.mimimize(gts);
+      this.getCurrentReport().setTimeMinimize(System.currentTimeMillis() - absTimeStartMimize);
+      this.getCurrentReport().setTimeOverall(System.currentTimeMillis() - absTimeStartOverall);
+      return this.getCurrentReport();
+-->
+
+@model mimimize (GraphTransformationSystem gts) <--
+
+      NacAndPacMinimizer nacAndPacMinimizer = AcenforcmentFactory.eINSTANCE.createNacAndPacMinimizer();
+      for (SymbGTRule rule : gts.getRules())
+      {
+         long absTimeStart = System.currentTimeMillis();
+         nacAndPacMinimizer.removeGuaranteeingAc(rule, gts);
+         long absTimeRemoveGuaranteeingAC = System.currentTimeMillis();
+
+         ACEnforcementResult currentResult = this.getCurrentReport().lookupResult(rule);
+
+         currentResult.setTimeRemoveGuaranteeingAC(absTimeRemoveGuaranteeingAC - absTimeStart);
+         currentResult.setNrOfPreAcRemGuaranteeingAC(rule.getLeft().getCodom().getConditions().size());
+
+         nacAndPacMinimizer.removeSubsumedAc(rule.getLeft().getCodom(), gts);
+         currentResult.setTimeMinimizeRedAC(System.currentTimeMillis() - absTimeRemoveGuaranteeingAC);
+         currentResult.setNrOfPreAC(rule.getLeft().getCodom().getConditions().size());
+      }
+-->
+
+}

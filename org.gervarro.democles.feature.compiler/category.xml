@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <description name="Democles Update Site" url="http://95.140.46.126/democles/">
+      Update site for the Democles pattern matching engine
+   </description>
+   <feature url="features/org.gervarro.democles.feature.compiler_0.3.2.qualifier.jar" id="org.gervarro.democles.feature.compiler" version="0.3.2.qualifier">
+      <category name="Democles Pattern Matcher"/>
+   </feature>
+   <category-def name="Democles Pattern Matcher" label="Democles Pattern Matcher">
+      <description>
+         Modules of the Democles pattern matching engine
+      </description>
+   </category-def>
+</site>

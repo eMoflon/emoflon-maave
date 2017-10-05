@@ -1,0 +1,71 @@
+
+import java.util.List;
+
+partial class SMTLibImpl {
+
+@members <--
+
+   @Override
+   public String getSmtLibPredicateInvocation(Predicate predicate, List<String> variableSymbols)
+   {
+      IPredicateSpec predSpec = this.getPredicateSpec().stream().filter(x -> x.matchesPredicate(predicate)).findFirst().orElse(null);
+      if (predSpec != null)
+      {
+         return predSpec.getSMTPredicateInvocation(predicate, variableSymbols);
+      }
+      throw new RuntimeException("No appropriate PredicateSpecification for predicate " + predicate.toString() + "in smtLib");
+   }
+   
+-->
+
+@model getSortDeclaration (EDataType eDatatype) <--
+
+      ISort sort = this.getSorts().stream().filter(x -> x.isForType(eDatatype)).findFirst().orElse(null);
+      if (sort != null)
+      {
+         return sort.getSMTDeclaration(eDatatype);
+      }
+      throw new RuntimeException("No appropriate sort for eDatatype " + eDatatype.getName() + "in smtLib");
+-->
+
+@model getSmtLibConstantValue (String constantSymbol, EDataType type) <--
+
+      ISort sort = this.getSorts().stream().filter(x -> x.isForType(type)).findFirst().orElse(null);
+      if (sort != null)
+      {
+         return sort.getSMTConstantValue(constantSymbol, type);
+      }
+      throw new RuntimeException("No appropriate sort for eDatatype " + type.getName() + "in smtLib");
+-->
+
+@model getSmtLibPredicateDeclaration (Predicate predicate) <--
+
+      IPredicateSpec predSpec = this.getPredicateSpec().stream().filter(x -> x.matchesPredicate(predicate)).findFirst().orElse(null);
+      if (predSpec != null)
+      {
+         return predSpec.getSMTDeclaration(predicate);
+      }
+      throw new RuntimeException("No appropriate PredicateSpecification for predicate " + predicate.toString() + "in smtLib");
+-->
+
+@model getSmtLibVariableDeclarations (String variableSymbol, EDataType type) <--
+
+      ISort sort = this.getSorts().stream().filter(x -> x.isForType(type)).findFirst().orElse(null);
+      if (sort != null)
+      {
+         return sort.getSMTVariableDeclaration(variableSymbol, type);
+      }
+      throw new RuntimeException("No appropriate sort for eDatatype " + type.getName() + "in smtLib");
+-->
+
+@model getSmtLibQuantifiedVarDeclaration (EDataType type, String variableSymbol) <--
+
+      ISort sort = this.getSorts().stream().filter(x -> x.isForType(type)).findFirst().orElse(null);
+      if (sort != null)
+      {
+         return sort.getSMTQuantfiedVarDeclaration(variableSymbol, type);
+      }
+      throw new RuntimeException("No appropriate sort for eDatatype " + type.getName() + "in smtLib");
+-->
+
+}

@@ -1,0 +1,109 @@
+
+import org.moflon.maave.tool.analysis.confluence.CpaResult;
+import org.moflon.maave.tool.analysis.confluence.ICriticalPairBuilder;
+import org.moflon.maave.wsconfig.WsInfo;
+import org.moflon.maave.tool.analysis.confluence.ConfluenceAnalysisResult;
+import org.moflon.maave.tool.graphtransformation.DirectDerivationPairSet;
+import org.moflon.maave.tool.analysis.confluence.ItterativeDirectDerivationIterator;
+import org.moflon.maave.tool.analysis.AnalysisFactory;
+import org.moflon.maave.tool.analysis.confluence.ConfluenceFactory;
+import org.moflon.maave.tool.analysis.JointlyEpiSetBuilder;
+
+partial class SubcommutativityModuloNFEQAnalyserImpl {
+
+
+
+@model checkConfluence (GraphTransformationSystem gts) <--
+
+      ICriticalPairBuilder criticalPairBuilder = ConfluenceFactory.eINSTANCE.createBasicSymbolicCriticalPairBuilder();
+      JointlyEpiSetBuilder jointlyEpiSetBuilder = AnalysisFactory.eINSTANCE.createStandartJointlyEpiSetBuilder();
+      this.setGraphTransformationSystem(gts);
+      ConfluenceAnalysisReport report = ConfluenceFactory.eINSTANCE.createConfluenceAnalysisReport();
+      long absTimeStart = System.currentTimeMillis();
+      for (int i = 0; i < gts.getRules().size(); i++)
+      {
+         for (int j = i; j < gts.getRules().size(); j++)
+         {
+
+            SymbGTRule rule1;
+            SymbGTRule rule2;
+            if (i == j)
+            {
+               rule1 = gts.getRules().get(i);
+               rule2 = rule1.createCopy();
+            } else
+            {
+               rule1 = gts.getRules().get(i);
+               rule2 = gts.getRules().get(j);
+            }
+            if (WsInfo.getVerboseLevel() >= 3)
+            {
+               System.out.println(
+                     "=============== Starting Confluence Analysis For Rule Pair: " + rule1.getName() + " | " + rule2.getName() + "====================");
+              
+            }
+            // Critical Pair analysis
+            CpaResult cpaResult = criticalPairBuilder.getAllCriticalPairs(rule1, rule2, gts, jointlyEpiSetBuilder);
+            DirectDerivationPairSet criticalPairSet = cpaResult.getDirectDerivationPairSet();
+            if (WsInfo.getVerboseLevel() >= 5)
+            {
+               System.out.println("Number of Critical Pairs=" + criticalPairSet.getPairsOfDirectDerivations().size());
+               for (int i1 = 0; i1 < criticalPairSet.getPairsOfDirectDerivations().size(); i1++)
+               {
+                  System.out.print("X");
+               }
+               System.out.println("");
+            }
+
+            ConfluenceAnalysisResult result = ConfluenceFactory.eINSTANCE.createConfluenceAnalysisResult();
+            result.setValid(false);
+            result.setRuleA(rule1.getName());
+            result.setRuleB(rule2.getName());
+            // Confluence Analysis 
+            if (WsInfo.getVerboseLevel() >= 5)
+            {
+               System.out.println("--------------------------------Starting Confluence Analysis -------------------------");
+            }
+            long absTimeConfluenceStart = System.currentTimeMillis();
+            for (DirectDerivationPair criticalPair : criticalPairSet.getPairsOfDirectDerivations())
+            {
+
+               if (this.checkDirectConfluence(criticalPair).isValid() == false)
+               {
+                  result.getNonConfluentCriticalPairs().add(criticalPair);
+               }
+               if (WsInfo.getVerboseLevel() >= 5)
+               {
+                  System.out.print("X");
+               }
+
+            }
+            if (WsInfo.getVerboseLevel() >= 5)
+            {
+               System.out.println("");
+            }
+            long absTimeStop = System.currentTimeMillis();
+            if (result.getNonConfluentCriticalPairs().isEmpty())
+            {
+               result.setValid(true);
+            }
+            result.setCpaResult(cpaResult);
+            result.setMessage("Confluence analysis result for Rules: " + rule1.getName() + " | " + rule2.getName());
+            result.setNrOfNonConfluentCriticalPairs(result.getNonConfluentCriticalPairs().size());
+            result.setTimeForConfluence(absTimeStop - absTimeConfluenceStart);
+            result.setTimeOverall(absTimeStop - absTimeStart);
+            report.getConfluenceStates().add(result);
+
+         }
+      }
+      return report;
+-->
+
+@model getDerivationItterator (SymbGTRule production, SymbolicGraphMorphism morN_P, SymbolicGraph graphG) <--
+
+      ItterativeDirectDerivationIterator derIter = ConfluenceFactory.eINSTANCE.createItterativeDirectDerivationIterator();
+      derIter.init(production, morN_P, this.getGraphTransformationSystem());
+      return derIter;
+-->
+
+}

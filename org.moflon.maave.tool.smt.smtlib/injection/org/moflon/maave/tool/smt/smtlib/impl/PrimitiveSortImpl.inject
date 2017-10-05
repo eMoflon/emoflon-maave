@@ -1,0 +1,90 @@
+
+import org.stringtemplate.v4.ST;
+
+partial class PrimitiveSortImpl {
+
+@members <--
+
+   private static final String QUANT_VAR_DECLARATION_TEMPLATE = "(<var> <type>)";
+   
+-->
+
+@model getSMTDeclaration () <--
+
+      return this.sortDeclaration;
+-->
+
+@model getSMTSortSymbol () <--
+
+      return this.sortSymbol;
+-->
+
+@model getSMTVariableDeclaration (String variableSymbol) <--
+
+      ST declST = new ST(this.getVariableDeclarationTemplate(), '$', '$');
+      declST.add("x", variableSymbol);
+      declST.add("t", this.getSortSymbol());
+      String template = declST.render();
+
+      return template;
+-->
+
+@model getSMTConstantValue (String constantString) <--
+
+      ST constST = new ST(this.getConstTemplate(), '$', '$');
+      constST.add("x", constantString);
+      return constST.render();
+-->
+
+@model getSMTQuantfiedVarDeclaration (String varSymbol, EDataType type) <--
+
+      ST declST = new ST(PrimitiveSortImpl.QUANT_VAR_DECLARATION_TEMPLATE, '<', '>');
+      declST.add("var", varSymbol);
+      declST.add("type", this.getSortSymbol());
+      String template = declST.render();
+
+      return template;
+-->
+
+@model getSMTConstantValue (String constantString, EDataType type) <--
+
+      if (isForType(type))
+      {
+         return this.getSMTConstantValue(constantString);
+      }
+      return null;
+-->
+
+@model getSMTDeclaration (EDataType type) <--
+
+      if (isForType(type))
+      {
+         return this.getSMTDeclaration();
+      }
+      return null;
+-->
+
+@model getSMTSortSymbol (EDataType type) <--
+
+      if (isForType(type))
+      {
+         return this.getSMTSortSymbol();
+      }
+      return null;
+-->
+
+@model getSMTVariableDeclaration (String variableSymbol, EDataType type) <--
+
+      if (isForType(type))
+      {
+         return this.getSMTVariableDeclaration(variableSymbol);
+      }
+      return null;
+-->
+
+@model isForType (EDataType type) <--
+
+      return this.getEDataType().stream().anyMatch(x -> x == type);
+-->
+
+}

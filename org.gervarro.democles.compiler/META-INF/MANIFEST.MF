@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Democles Pattern Matcher Compiler
+Bundle-SymbolicName: org.gervarro.democles.compiler;singleton:=true
+Bundle-Version: 0.3.2.qualifier
+Require-Bundle: org.eclipse.emf.ecore;bundle-version="2.5.0",
+ org.eclipse.emf.codegen.ecore;bundle-version="2.5.0",
+ org.eclipse.emf.ecore.xmi;bundle-version="2.5.0",
+ org.gervarro.democles.common;bundle-version="1.0.0",
+ org.gervarro.democles.plan;bundle-version="0.3.2",
+ org.gervarro.democles.emf;bundle-version="1.0.0",
+ org.gervarro.democles.specification.emf;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Export-Package: org.gervarro.democles.codegen,
+ org.gervarro.democles.compiler,
+ org.gervarro.democles.emf,
+ org.gervarro.democles.emf.codegen,
+ org.gervarro.democles.relational

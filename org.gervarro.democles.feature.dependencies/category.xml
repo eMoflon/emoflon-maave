@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <description name="Democles External Dependencies Update Site" url="http://95.140.46.126/external/">
+      Update site for the external dependencies of the Democles pattern matching engine
+   </description>
+   <bundle id="org.stringtemplate" version="4.2.1.qualifier">
+      <category name="Democles Pattern Matcher Dependencies"/>
+   </bundle>
+   <category-def name="Democles Pattern Matcher Dependencies" label="Democles Pattern Matcher Dependencies">
+      <description>
+         External dependencies of the Democles pattern matching engine
+      </description>
+   </category-def>
+</site>

@@ -1,0 +1,32 @@
+
+import org.moflon.maave.tool.symbolicgraphs.SymbolicGraphs.Condition;
+import org.moflon.maave.tool.maaveutil.MaaveutilFactory;
+import org.moflon.maave.tool.symbolicgraphs.SymbolicGraphMorphisms.SymbolicGraphMorphism;
+import org.moflon.maave.tool.symbolicgraphs.SymbolicGraphMorphisms.SymbolicGraphMorphismsFactory;
+
+partial class GlobalConstraintImpl {
+
+
+
+@model isConsistent (SymbolicGraph graphG) <--
+
+      Status status = MaaveutilFactory.eINSTANCE.createStatus();
+
+      SymbolicGraph graphI = this.getConstraint();
+      SymbolicGraphMorphism morI_G = SymbolicGraphMorphismsFactory.eINSTANCE.createSymbolicGraphMorphism();
+      morI_G.setDom(graphI);
+      morI_G.setCodom(graphG);
+      status.setValid(true);
+      for (Condition cond : graphI.getConditions())
+      {
+         if (cond.isSat(morI_G, matchMorphismClass) == false)
+         {
+            status.setValid(false);
+            return status;
+         }
+      }
+
+      return status;
+-->
+
+}
