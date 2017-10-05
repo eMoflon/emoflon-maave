@@ -1,0 +1,9 @@
+#if (${value.getPackageName()})package ${value.getPackageName()};
+
+#end
+public class ${value.getClassName()} extends org.gervarro.democles.runtime.NativeOperation {
+#foreach ($element in $children)##
+
+	$element
+#end
+}

@@ -1,0 +1,88 @@
+#*
+ * Democles, Declarative Model Query Framework for Monitoring Heterogeneous Embedded Systems
+ * Copyright (C) 2010-2012  Gergely Varro
+ * 
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *  
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *  
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *  
+ * Contributors:
+ * 		Gergely Varro <gervarro@cs.bme.hu> - initial API and implementation and/or initial documentation
+ *###
+#if (${package})package ${package};
+
+#end
+#if ($import.getImportList().size() > 0)
+#foreach ($importElement in $import.getImportList())
+import ${importElement};
+#end
+
+#end
+public class ${body.getDataFrameName()} extends ${import.getImportedName($body.getHeader().getFullyQualifiedDataFrameName())} {
+#if (${body.getInternalLocalVariables().size()} > 0)
+	static final int BOUNDARY = ${import.getImportedName($body.getHeader().getFullyQualifiedDataFrameName())}.BOUNDARY + ${body.getInternalLocalVariables().size()};
+	// Variable declarations
+#foreach ($variable in $body.getInternalLocalVariables())##
+	private ${import.getImportedName($variable.getType().getTypeName())} ${variable.getLowerCaseName($variable.getParameters().get(0).getSpecification().getName())};
+#end
+#end
+
+	// DataFrame constructor
+	${body.getDataFrameName()}(${import.getImportedName($body.getHeader().getFullyQualifiedDataFrameName())} original) {
+		super(original);
+	}
+	
+	// Compiled constructor
+	${body.getDataFrameName()}(#foreach ($variable in $body.getHeader().getInternalSymbolicParameters())#if (${velocityCount} > 0), #end${import.getImportedName($variable.getType().getTypeName())} ${variable.getLowerCaseName($variable.getParameters().get(0).getSpecification().getName())}#end#if($body.getInternalLocalVariables().size() > 0), #foreach ($variable in $body.getInternalLocalVariables())#if (${velocityCount} > 0), #end${import.getImportedName($variable.getType().getTypeName())} ${variable.getLowerCaseName($variable.getParameters().get(0).getSpecification().getName())}#end#end) {
+		super(#foreach ($variable in $body.getHeader().getInternalSymbolicParameters())#if (${velocityCount} > 0), #end${variable.getLowerCaseName($variable.getParameters().get(0).getSpecification().getName())}#end);
+#foreach ($variable in $body.getInternalLocalVariables())##
+		this.${variable.getLowerCaseName($variable.getParameters().get(0).getSpecification().getName())} = ${variable.getLowerCaseName($variable.getParameters().get(0).getSpecification().getName())};
+#end
+	}
+	
+#if ($body.getInternalLocalVariables().size() > 0)
+	public Object internalGet(int index) {
+		int diff = index - size();
+		if (diff < 0) {
+			return super.internalGet(index);
+		} else {
+			switch (index) {
+#foreach ($variable in $body.getInternalLocalVariables())##
+			case ${variable.getParameters().get(0).getIndex()}:
+			return ${variable.getLowerCaseName($variable.getParameters().get(0).getSpecification().getName())};
+#end
+			}
+		}
+		throw new IndexOutOfBoundsException("No such variable: " + index);
+	}
+	
+	public void internalSet(int index, Object value) {
+		int diff = index - size();
+		if (diff < 0) {
+			super.internalSet(index, value);
+		} else {
+			switch (index) {
+#foreach ($variable in $body.getInternalLocalVariables())##
+			case ${variable.getParameters().get(0).getIndex()}:
+			${variable.getLowerCaseName($variable.getParameters().get(0).getSpecification().getName())} = (${import.getImportedName($variable.getType().getTypeName())}) value;
+			return;
+#end
+			}
+		}
+		throw new IndexOutOfBoundsException("No such variable: " + index);
+	}
+
+	public int internalSize() {
+		return BOUNDARY;
+	}
+#end
+}

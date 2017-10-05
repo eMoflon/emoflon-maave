@@ -1,0 +1,14 @@
+public java.util.List<org.gervarro.democles.common.DataFrame> getAllData(org.gervarro.democles.common.DataFrame delta) {
+#if ($value && $value.size() > 0)##
+#foreach ($element in $value)##
+if (org.gervarro.democles.common.Adornment.${element.getAdornment().toString(false, true, "_")}#literal().equals(adornment)#end) {
+			return execute${element.getAdornment().toString(true, false, null)}(delta);
+		} else ##
+#end##
+{
+			throw new RuntimeException("Adornment " + adornment.toString() + " is unknown.");
+		}
+#else##
+		return EMPTY_LIST;
+#end
+}

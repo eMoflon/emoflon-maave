@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ASCII"?>
+<specification:Pattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:common="http://gervarro.org/democles/common.ecore" xmlns:emf="http://gervarro.org/democles/emf.ecore" xmlns:specification="http://gervarro.org/democles/specification.ecore" name="pattern">
+  <bodies>
+    <constraints parameters="C V">
+      <type xsi:type="emf:EMFConstraintType" href="http://gervarro.org/democles/specification.ecore#//Constraint/parameters"/>
+    </constraints>
+    <constraints parameters="PB C">
+      <type xsi:type="emf:EMFConstraintType" href="http://gervarro.org/democles/specification.ecore#//PatternBody/constraints"/>
+    </constraints>
+    <constraints parameters="PB V">
+      <type xsi:type="emf:EMFConstraintType" href="http://gervarro.org/democles/specification.ecore#//PatternBody/localVariables"/>
+    </constraints>
+    <constraints parameters="P PB">
+      <type xsi:type="emf:EMFConstraintType" href="http://gervarro.org/democles/specification.ecore#//Pattern/bodies"/>
+    </constraints>
+    <constraints parameters="C //@bodies.0/@constants.0">
+      <type xsi:type="common:ConstantConstraintType" href="valami"/>
+    </constraints>
+    <constraints parameters="V //@bodies.0/@constants.1">
+      <type xsi:type="common:ConstantConstraintType" href="valami"/>
+    </constraints>
+    <constraints parameters="PB //@bodies.0/@constants.2">
+      <type xsi:type="common:ConstantConstraintType" href="valami"/>
+    </constraints>
+    <constraints parameters="P //@bodies.0/@constants.3">
+      <type xsi:type="common:ConstantConstraintType" href="valami"/>
+    </constraints>
+    <constants value="ACED0005767200336F72672E676572766172726F2E64656D6F636C65732E73706563696669636174696F6E2E696D706C2E436F6E73747261696E7400000000000000000000007870"/>
+    <constants value="ACED0005767200316F72672E676572766172726F2E64656D6F636C65732E73706563696669636174696F6E2E696D706C2E5661726961626C6500000000000000000000007870"/>
+    <constants value="ACED0005767200346F72672E676572766172726F2E64656D6F636C65732E73706563696669636174696F6E2E696D706C2E5061747465726E426F647900000000000000000000007870"/>
+    <constants value="ACED0005767200306F72672E676572766172726F2E64656D6F636C65732E73706563696669636174696F6E2E696D706C2E5061747465726E00000000000000000000007870"/>
+  </bodies>
+  <symbolicParameters name="P"/>
+  <symbolicParameters name="PB"/>
+  <symbolicParameters name="C"/>
+  <symbolicParameters name="V"/>
+</specification:Pattern>

@@ -1,0 +1,5 @@
+// OperationBuilder methods
+public boolean isResponsibleFor(org.gervarro.democles.specification.ConstraintType type) {
+	${next}
+	return false;
+}

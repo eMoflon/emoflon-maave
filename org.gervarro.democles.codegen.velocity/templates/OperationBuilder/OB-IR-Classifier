@@ -1,0 +1,3 @@
+if (type instanceof ${value.getName()}) {
+	return ((${value.getName()}) type).getClassifier().getEPackage() == ePackage;
+}

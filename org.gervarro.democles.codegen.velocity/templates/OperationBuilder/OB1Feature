@@ -1,0 +1,4 @@
+if (cType instanceof ${value.getName()}) {
+	org.eclipse.emf.ecore.EStructuralFeature eStructuralFeature = ((${value.getName()}) cType).getStructuralFeature();
+	${next}
+}

@@ -1,0 +1,3 @@
+if (ePackage.get${value.getClassifierAccessorName()}() == eClassifier) {
+	${next}
+}

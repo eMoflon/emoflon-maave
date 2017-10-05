@@ -1,0 +1,3 @@
+if (ePackage.get${value.getFeatureAccessorName()}() == eStructuralFeature) {
+	${next}
+}

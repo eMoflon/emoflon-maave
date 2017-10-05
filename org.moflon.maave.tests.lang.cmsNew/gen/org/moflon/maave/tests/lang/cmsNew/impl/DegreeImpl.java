@@ -20,26 +20,29 @@ import org.moflon.maave.tests.lang.cmsNew.Degree;
  *
  * @generated
  */
-public class DegreeImpl extends EObjectImpl implements Degree {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DegreeImpl() {
-		super();
-	}
+public class DegreeImpl extends EObjectImpl implements Degree
+{
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   protected DegreeImpl()
+   {
+      super();
+   }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return CmsNewPackage.Literals.DEGREE;
-	}
-	// <-- [user code injected with eMoflon]
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   @Override
+   protected EClass eStaticClass()
+   {
+      return CmsNewPackage.Literals.DEGREE;
+   }
+   // <-- [user code injected with eMoflon]
 
-	// [user code injected with eMoflon] -->
+   // [user code injected with eMoflon] -->
 } //DegreeImpl

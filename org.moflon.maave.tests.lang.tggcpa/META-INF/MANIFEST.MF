@@ -3,7 +3,10 @@ Bundle-SymbolicName: org.moflon.maave.tests.lang.tggcpa;singleton:=tru
  e
 Export-Package: org.moflon.maave.tests.lang.tggcpa.util,
  org.moflon.maave.tests.lang.tggcpa,
- org.moflon.maave.tests.lang.tggcpa.impl
+ org.moflon.maave.tests.lang.tggcpa.impl,
+ tggcpa.util,
+ tggcpa.impl,
+ tggcpa
 Bundle-Name: org.moflon.maave.tests.lang.tggcpa
 Bundle-Version: 1.0.0.qualifier
 Require-Bundle: org.eclipse.emf.ecore,

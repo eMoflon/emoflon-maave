@@ -1,0 +1,3 @@
+if (((org.gervarro.democles.specification.impl.Variable) getConstraint().getParameters().get(${index})).check(${value.getConstraint().getParameters().get(${index}).getName()})) {
+	${next}
+}

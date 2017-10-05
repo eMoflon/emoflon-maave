@@ -1,0 +1,24 @@
+#if (${value.getPackageName()})package ${value.getPackageName()};
+
+#end
+public class ${value.getClassName()} extends org.gervarro.democles.runtime.NativeOperation {
+#foreach ($element in $children)##
+
+	$element
+#end
+
+	public java.util.List<org.gervarro.democles.runtime.DataFrame> getAllData(org.gervarro.democles.runtime.DataFrame delta) {
+#if ($children && $children.size() > 0)##
+#foreach ($element in $children)##
+if (org.gervarro.democles.common.Adornment.${element.getValue().getAdornment().toString(false, true, "_")}#literal().equals(adornment)#end) {
+			return execute${element.getValue().getAdornment().toString(true, false, null)}(delta);
+		} else ##
+#end##
+{
+			throw new RuntimeException("Adornment " + adornment.toString() + " is unknown.");
+		}
+#else##
+		return EMPTY_LIST;
+#end
+	}
+}

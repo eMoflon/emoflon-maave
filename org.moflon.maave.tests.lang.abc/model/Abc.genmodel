@@ -4,8 +4,7 @@
     modelName="Abc" updateClasspath="false" codeFormatting="true" importerID="org.eclipse.emf.importer.ecore"
     complianceLevel="8.0" copyrightFields="false" operationReflection="true">
   <foreignModel>Abc.ecore</foreignModel>
-  <genPackages prefix="Abc" basePackage="org.moflon.maave.tests.lang" disposableProviderFactory="true"
-      ecorePackage="platform:/plugin/org.moflon.maave.tests.lang.abc/model/Abc.ecore#/">
+  <genPackages prefix="Abc" disposableProviderFactory="true" ecorePackage="platform:/plugin/org.moflon.maave.tests.lang.abc/model/Abc.ecore#/">
     <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.lang.abc/model/Abc.ecore#//C">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.abc/model/Abc.ecore#//C/b"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.moflon.maave.tests.lang.abc/model/Abc.ecore#//C/x"/>

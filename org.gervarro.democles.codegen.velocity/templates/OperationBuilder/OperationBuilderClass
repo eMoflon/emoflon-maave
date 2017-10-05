@@ -1,0 +1,9 @@
+#if (${value.getPackageName()})package ${value.getPackageName()};
+
+#end
+public class ${value.getClassName()} implements org.gervarro.democles.common.OperationBuilder<org.gervarro.democles.runtime.RemappingOperation> {
+#foreach ($element in $children)##
+
+	$element
+#end
+}

@@ -1,0 +1,2 @@
+frame.internalSet(((org.gervarro.democles.specification.impl.Variable) getConstraint().getParameters().get(${index})).getIndex(),${value.getConstraint().getParameters().get(${index}).getName()});
+${next}

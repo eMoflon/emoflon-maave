@@ -1,0 +1,4 @@
+private java.util.List<org.gervarro.democles.common.DataFrame> execute${value.getAdornment().toString(true, false, null)}(org.gervarro.democles.common.DataFrame frame) {
+	$next
+	return EMPTY_LIST;
+}

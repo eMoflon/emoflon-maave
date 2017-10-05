@@ -1,0 +1,2 @@
+${value.getType().getTypes().get(${index})} ${value.getConstraint().getParameters().get(${index}).getName()} = (${value.getType().getTypes().get(${index})}) frame.internalGet(((org.gervarro.democles.specification.impl.Variable) getConstraint().getParameters().get(${index})).getIndex());
+${next}

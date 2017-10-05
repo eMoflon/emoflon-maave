@@ -4,8 +4,7 @@
     modelName="Mnoq" updateClasspath="false" codeFormatting="true" importerID="org.eclipse.emf.importer.ecore"
     complianceLevel="8.0" copyrightFields="false" operationReflection="true">
   <foreignModel>Mnoq.ecore</foreignModel>
-  <genPackages prefix="Mnoq" basePackage="org.moflon.maave.tests.lang" disposableProviderFactory="true"
-      ecorePackage="platform:/plugin/org.moflon.maave.tests.lang.mnoq/model/Mnoq.ecore#/">
+  <genPackages prefix="Mnoq" disposableProviderFactory="true" ecorePackage="platform:/plugin/org.moflon.maave.tests.lang.mnoq/model/Mnoq.ecore#/">
     <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.lang.mnoq/model/Mnoq.ecore#//Foo"/>
     <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.lang.mnoq/model/Mnoq.ecore#//O">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/org.moflon.maave.tests.lang.mnoq/model/Mnoq.ecore#//O/x"/>

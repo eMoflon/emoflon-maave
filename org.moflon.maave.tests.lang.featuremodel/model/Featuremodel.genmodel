@@ -5,8 +5,7 @@
     updateClasspath="false" codeFormatting="true" importerID="org.eclipse.emf.importer.ecore"
     complianceLevel="8.0" copyrightFields="false" operationReflection="true">
   <foreignModel>Featuremodel.ecore</foreignModel>
-  <genPackages prefix="Featuremodel" basePackage="org.moflon.maave.tests.lang" disposableProviderFactory="true"
-      ecorePackage="platform:/plugin/org.moflon.maave.tests.lang.featuremodel/model/Featuremodel.ecore#/">
+  <genPackages prefix="Featuremodel" disposableProviderFactory="true" ecorePackage="platform:/plugin/org.moflon.maave.tests.lang.featuremodel/model/Featuremodel.ecore#/">
     <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.lang.featuremodel/model/Featuremodel.ecore#//FeatureModel">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.featuremodel/model/Featuremodel.ecore#//FeatureModel/rootFeature"/>
     </genClasses>

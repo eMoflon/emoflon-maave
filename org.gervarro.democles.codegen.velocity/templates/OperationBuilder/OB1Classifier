@@ -1,0 +1,4 @@
+if (cType instanceof ${value.getName()}) {
+	org.eclipse.emf.ecore.EClassifier eClassifier = ((${value.getName()}) cType).getClassifier(); 
+	${next}
+}

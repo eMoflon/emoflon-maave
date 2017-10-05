@@ -1,0 +1,9 @@
+#if ($package)package $package;
+
+#end
+public class $class {
+
+#foreach ($method in $methods)##
+	$method
+#end
+}

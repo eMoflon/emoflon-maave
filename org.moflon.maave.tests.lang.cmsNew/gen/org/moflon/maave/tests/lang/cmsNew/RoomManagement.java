@@ -24,23 +24,24 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface RoomManagement extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Rooms</b></em>' containment reference list.
-	 * The list contents are of type {@link org.moflon.maave.tests.lang.cmsNew.Room}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Rooms</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Rooms</em>' containment reference list.
-	 * @see org.moflon.maave.tests.lang.cmsNew.CmsNewPackage#getRoomManagement_Rooms()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Room> getRooms();
-	// <-- [user code injected with eMoflon]
+public interface RoomManagement extends EObject
+{
+   /**
+    * Returns the value of the '<em><b>Rooms</b></em>' containment reference list.
+    * The list contents are of type {@link org.moflon.maave.tests.lang.cmsNew.Room}.
+    * <!-- begin-user-doc -->
+    * <p>
+    * If the meaning of the '<em>Rooms</em>' containment reference list isn't clear,
+    * there really should be more of a description here...
+    * </p>
+    * <!-- end-user-doc -->
+    * @return the value of the '<em>Rooms</em>' containment reference list.
+    * @see org.moflon.maave.tests.lang.cmsNew.CmsNewPackage#getRoomManagement_Rooms()
+    * @model containment="true"
+    * @generated
+    */
+   EList<Room> getRooms();
+   // <-- [user code injected with eMoflon]
 
-	// [user code injected with eMoflon] -->
+   // [user code injected with eMoflon] -->
 } // RoomManagement

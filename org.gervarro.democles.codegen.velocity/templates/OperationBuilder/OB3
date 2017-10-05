@@ -1,0 +1,7 @@
+## Requires a List<GeneratorOperation>
+#foreach ($element in $value)##		
+${element.getType().getPackageName()}.${element.getType().getClassName()} operation${velocityCount} = new ${element.getType().getPackageName()}.${element.getType().getClassName()}();
+operation${velocityCount}.setConstraint(constraint);
+operation${velocityCount}.setAdornment(org.gervarro.democles.common.Adornment.${element.getAdornment().toString(false, true, "_")});
+result.add(operation${velocityCount});
+#end

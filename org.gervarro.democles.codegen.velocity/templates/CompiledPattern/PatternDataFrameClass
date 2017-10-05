@@ -1,0 +1,91 @@
+#*
+ * Democles, Declarative Model Query Framework for Monitoring Heterogeneous Embedded Systems
+ * Copyright (C) 2010-2012  Gergely Varro
+ * 
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *  
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *  
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *  
+ * Contributors:
+ * 		Gergely Varro <gervarro@cs.bme.hu> - initial API and implementation and/or initial documentation
+ *###
+#if (${package})package ${package};
+
+#end
+#if ($import.getImportList().size() > 0)
+#foreach ($importElement in $import.getImportList())
+import ${importElement};
+#end
+
+#end
+public class ${pattern.getDataFrameName()} extends ${import.getImportedName("org.gervarro.democles.common.DataFrame")} {
+	static final int BOUNDARY = ${pattern.getInternalSymbolicParameters().size()};
+	// Variable declarations
+#foreach ($variable in $pattern.getInternalSymbolicParameters())##
+	private ${import.getImportedName($variable.getType().getTypeName())} ${variable.getLowerCaseName($variable.getParameters().get(0).getSpecification().getName())};
+#end
+	
+	// Empty constructor
+	${import.getImportedName($pattern.getFullyQualifiedDataFrameName())}() {
+		this(#foreach ($variable in $pattern.getSymbolicParameters())#if (${velocityCount} > 0), #{end}null#end);
+	}
+	
+	// DataFrame constructor
+	${import.getImportedName($pattern.getFullyQualifiedDataFrameName())}(${import.getImportedName($pattern.getFullyQualifiedDataFrameName())} original) {
+#foreach ($variable in $pattern.getInternalSymbolicParameters())##
+		this.${variable.getLowerCaseName($variable.getParameters().get(0).getSpecification().getName())} = original.${variable.getLowerCaseName($variable.getParameters().get(0).getSpecification().getName())};
+#end
+	}
+	
+	// Compiled constructor
+	${import.getImportedName($pattern.getFullyQualifiedDataFrameName())}(#foreach ($variable in $pattern.getInternalSymbolicParameters())#if (${velocityCount} > 0), #end${import.getImportedName($variable.getType().getTypeName())} ${variable.getLowerCaseName($variable.getParameters().get(0).getSpecification().getName())}#end) {
+#foreach ($variable in $pattern.getInternalSymbolicParameters())##
+		this.${variable.getLowerCaseName($variable.getParameters().get(0).getSpecification().getName())} = ${variable.getLowerCaseName($variable.getParameters().get(0).getSpecification().getName())};
+#end
+	}
+	
+	// Getter methods
+#foreach ($variable in $pattern.getInternalSymbolicParameters())##
+	public final ${import.getImportedName($variable.getType().getTypeName())} get${variable.getUpperCaseName($variable.getParameters().get(0).getSpecification().getName())}() {
+		return ${variable.getLowerCaseName($variable.getParameters().get(0).getSpecification().getName())};
+	}
+#end
+
+	public Object internalGet(int index) {
+		switch (index) {
+#foreach ($variable in $pattern.getInternalSymbolicParameters())##
+			case ${variable.getParameters().get(0).getIndex()}:
+			return ${variable.getLowerCaseName($variable.getParameters().get(0).getSpecification().getName())};
+#end
+		}
+		throw new IndexOutOfBoundsException("No such variable: " + index);
+	}
+	
+	public void internalSet(int index, Object value) {
+		switch (index) {
+#foreach ($variable in $pattern.getInternalSymbolicParameters())##
+			case ${variable.getParameters().get(0).getIndex()}:
+			${variable.getLowerCaseName($variable.getParameters().get(0).getSpecification().getName())} = (${import.getImportedName($variable.getType().getTypeName())}) value;
+			return;
+#end
+		}
+		throw new IndexOutOfBoundsException("No such variable: " + index);
+	}
+
+	public int internalSize() {
+		return BOUNDARY;
+	}
+	
+	public final int size() {
+		return BOUNDARY;
+	}
+}

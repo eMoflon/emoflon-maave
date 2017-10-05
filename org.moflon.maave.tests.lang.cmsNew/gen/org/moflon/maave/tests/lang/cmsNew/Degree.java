@@ -16,7 +16,8 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Degree extends EObject { // <-- [user code injected with eMoflon]
+public interface Degree extends EObject
+{ // <-- [user code injected with eMoflon]
 
-	// [user code injected with eMoflon] -->
+   // [user code injected with eMoflon] -->
 } // Degree

@@ -1,0 +1,3 @@
+if (type instanceof ${value.getName()}) {
+	return ((${value.getName()}) type).getStructuralFeature().getEContainingClass().getEPackage() == ePackage;
+}

@@ -2,7 +2,10 @@ Manifest-Version: 1.0
 Bundle-SymbolicName: org.moflon.maave.tests.lang.abc;singleton:=true
 Export-Package: org.moflon.maave.tests.lang.abc.impl,
  org.moflon.maave.tests.lang.abc.util,
- org.moflon.maave.tests.lang.abc
+ org.moflon.maave.tests.lang.abc,
+ abc.impl,
+ abc,
+ abc.util
 Bundle-Name: org.moflon.maave.tests.lang.abc
 Bundle-Version: 1.0.0.qualifier
 Require-Bundle: org.eclipse.emf.ecore,

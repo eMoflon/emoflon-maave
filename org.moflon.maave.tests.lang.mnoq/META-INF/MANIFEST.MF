@@ -2,7 +2,10 @@ Manifest-Version: 1.0
 Bundle-SymbolicName: org.moflon.maave.tests.lang.mnoq;singleton:=true
 Export-Package: org.moflon.maave.tests.lang.mnoq.impl,
  org.moflon.maave.tests.lang.mnoq.util,
- org.moflon.maave.tests.lang.mnoq
+ org.moflon.maave.tests.lang.mnoq,
+ mnoq,
+ mnoq.util,
+ mnoq.impl
 Bundle-Name: org.moflon.maave.tests.lang.mnoq
 Bundle-Version: 1.0.0.qualifier
 Require-Bundle: org.eclipse.emf.ecore,

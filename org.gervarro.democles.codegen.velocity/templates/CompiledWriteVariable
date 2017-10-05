@@ -1,0 +1,2 @@
+${value.getType().getTypeName()} ${value.getConstraint().getParameters().get(0).getName()} = (${value.getType().getTypeName()}) temp${value.getConstraint().getParameters().get(0).getName()};
+${next}

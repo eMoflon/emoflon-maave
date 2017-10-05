@@ -1,0 +1,25 @@
+#if (${value.getPackageName()})package ${value.getPackageName()};
+
+#end
+public class ${value.getClassName()} extends org.gervarro.democles.runtime.NativeOperation {
+
+	public boolean check(Object value) {
+		return ${next};
+	}
+
+	private java.util.List<org.gervarro.democles.runtime.DataFrame> executeBound(org.gervarro.democles.runtime.DataFrame frame) {
+		Object var0 = frame.internalGet(((org.gervarro.democles.specification.impl.Variable) getConstraint().getParameters().get(0)).getIndex());
+		if (check(var0)) {
+			((org.gervarro.democles.runtime.JoinOperation) getMatchEventListeners().get(0)).sendEvent(frame, org.gervarro.democles.runtime.MatchEvent.INSERT);
+		}
+		return EMPTY_LIST;
+	}
+	
+	public java.util.List<org.gervarro.democles.runtime.DataFrame> getAllData(org.gervarro.democles.runtime.DataFrame delta) {
+		if (org.gervarro.democles.common.Adornment.BOUND.equals(adornment)) {
+			return executeBound(delta);
+		} else {
+			throw new RuntimeException("Adornment " + adornment.toString() + " is unknown.");
+		}
+	}
+}

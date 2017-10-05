@@ -1,0 +1,3 @@
+public void execute${adornment}(#foreach ($variable in $boundVariables)#if($velocityCount > 0), #end${variable.getType().getTypeName()} ${variable.getElement().getName()}#end) {
+	$next
+}

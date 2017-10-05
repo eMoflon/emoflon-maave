@@ -1,0 +1,6 @@
+public java.util.List<org.gervarro.democles.runtime.RemappingOperation> getOperations(org.gervarro.democles.specification.impl.Constraint constraint) {
+	java.util.List<org.gervarro.democles.runtime.RemappingOperation> result = new java.util.LinkedList<org.gervarro.democles.runtime.RemappingOperation>();
+	org.gervarro.democles.specification.ConstraintType cType = constraint.getType();
+	${next}
+	return result;
+}
