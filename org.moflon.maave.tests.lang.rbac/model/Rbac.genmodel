@@ -4,7 +4,8 @@
     modelName="Rbac" updateClasspath="false" codeFormatting="true" importerID="org.eclipse.emf.importer.ecore"
     complianceLevel="8.0" copyrightFields="false" operationReflection="true">
   <foreignModel>Rbac.ecore</foreignModel>
-  <genPackages prefix="Rbac" disposableProviderFactory="true" ecorePackage="platform:/plugin/org.moflon.maave.tests.lang.rbac/model/Rbac.ecore#/">
+  <genPackages prefix="Rbac" basePackage="org.moflon.maave.tests.lang" disposableProviderFactory="true"
+      ecorePackage="platform:/plugin/org.moflon.maave.tests.lang.rbac/model/Rbac.ecore#/">
     <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.lang.rbac/model/Rbac.ecore#//SsdRelation">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/org.moflon.maave.tests.lang.rbac/model/Rbac.ecore#//SsdRelation/ssdExclusiveRoles"/>
     </genClasses>

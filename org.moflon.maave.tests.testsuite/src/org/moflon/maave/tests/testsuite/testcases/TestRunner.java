@@ -15,8 +15,8 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
-import org.moflon.dependency.PackageRemappingDependency;
-import org.moflon.eclipse.resource.SDMEnhancedEcoreResource;
+import org.moflon.emf.codegen.dependency.PackageRemappingDependency;
+import org.moflon.emf.codegen.dependency.SDMEnhancedEcoreResource;
 import org.moflon.maave.tool.category.CategoryPackage;
 import org.moflon.maave.tool.graphtransformation.SymbGTRule;
 import org.moflon.maave.wsconfig.WsInfo;
@@ -32,11 +32,11 @@ public class TestRunner {
 	public static void main(String[] args) {
 
 
-		
-		
+
+
 		Result result = JUnitCore.runClasses(AllTests.class);
-		
-		
+
+
 		for (Failure failure : result.getFailures()) {
 			System.out.println(failure.toString());
 			failure.getException().printStackTrace();
@@ -74,24 +74,24 @@ public class TestRunner {
 		rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put("xmi", new XMIResourceFactoryImpl());
 		rs.getURIConverter().getURIMap().put(URI.createPlatformResourceURI("/", true), URI.createFileURI(WsInfo.getCurrentWsLoc() + "\\"));
 		rs.getURIConverter().getURIMap().put(URI.createPlatformPluginURI("/TestGenerator/", true), URI.createPlatformResourceURI("/TestGenerator/", true));
-		
+
 		URI testGeneratorURI =URI.createURI("platform:/plugin/TestGenerator/model/TestGenerator.ecore",true);
 		SDMLanguagePackage.eINSTANCE.getClass();
 		PackageRemappingDependency d = new PackageRemappingDependency(testGeneratorURI, true, false);
-	
+
 		d.getResource(rs, true);
 		//TestLanguagePackage.eINSTANCE.getClass();
 		//TestGeneratorPackage.eINSTANCE.getClass();
 		CategoryPackage.eINSTANCE.getClass();
-		
-		
+
+
 
 		URI uri1=URI.createPlatformResourceURI("CathegoryLanguageTestSuite/instances/"+name+".xmi",false);
 		Resource r=rs.getResource(uri1,true);
 		EcoreUtil.resolveAll(r);
 		SymbGTRule rule=(SymbGTRule) r.getContents().get(0);
 		return rule;
-		
+
 	}
 	public static void saveTestResult(EObject obj,String name) {
 		ResourceSet rs =new ResourceSetImpl();

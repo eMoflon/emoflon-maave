@@ -2,13 +2,9 @@ package org.moflon.maave.tool.symbolicgraphs.printing;
 
 
 import java.util.LinkedList;
-
-
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
-
-
 import org.moflon.maave.tool.symbolicgraphs.SymbolicGraphMorphisms.SymbolicGraphMorphism;
 import org.moflon.maave.tool.symbolicgraphs.SymbolicGraphs.Conjunction;
 import org.moflon.maave.tool.symbolicgraphs.SymbolicGraphs.Constant;

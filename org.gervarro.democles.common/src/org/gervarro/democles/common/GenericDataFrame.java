@@ -20,8 +20,6 @@
  */
 package org.gervarro.democles.common;
 
-import org.gervarro.democles.common.DataFrame;
-
 public class GenericDataFrame extends DataFrame {
 	private final int size;
 	private final Object[] tuple;

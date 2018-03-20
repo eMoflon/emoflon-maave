@@ -26,7 +26,7 @@ import org.moflon.maave.tool.symbolicgraphs.secondorder.matching.MatchingUtils.M
 
 public class ConfluenceProjTestCMSnew {
 
-   @Ignore 
+   @Ignore
    @Test
    public void test_Combined_v0() {
       System.out.println("");
@@ -35,12 +35,12 @@ public class ConfluenceProjTestCMSnew {
 
       CmsNewPackage.eINSTANCE.getClass();
       EPackage pack=TestRunner.loadTestMM("org.moflon.maave.tests.lang.cmsNew", "CmsNew");
-      
+
       List<ConfluenceAnalysisReport> reports=new LinkedList<ConfluenceAnalysisReport>();
       for (int i = 0; i < 1; i++)
       {
-         
-      
+
+
       GraphTransformationSystem gts=GraphtransformationFactory.eINSTANCE.createGraphTransformationSystem();
 
       EClass clsExam=(EClass) pack.getEClassifier("Exam");
@@ -76,7 +76,7 @@ public class ConfluenceProjTestCMSnew {
       {
          System.out.println(rule.getName()+":"+EvalHelper.printElemStatistics(rule.getLeft().getCodom()) );
       }
-      
+
       //Add cardinality constraints
       ModelHelper.addCardinalityConstraintsToGTS(pack, gts);
       //Add user defined constraints
@@ -87,7 +87,7 @@ public class ConfluenceProjTestCMSnew {
 
 
       SubcommutativityModuloNFEQAnalyser directConfluenceAnalyser=ConfluenceFactory.eINSTANCE.createSubcommutativityModuloNFEQAnalyser();
-      
+
       long time=System.currentTimeMillis();
       reports.add(directConfluenceAnalyser.checkConfluence(gts));
       System.out.println("--------------- "+ i + "---------------------------"+(System.currentTimeMillis()-time));
@@ -101,8 +101,8 @@ public class ConfluenceProjTestCMSnew {
       EvalHelper.reportToFile(report);
       System.out.println("Time Finder="+String.valueOf((TimeWriter.timeMorFinder/15)));
       System.out.println("Time SolvingFinder="+String.valueOf((TimeWriter.timeSolving/15)));
-      
-   
+
+
 
 
    }
@@ -115,7 +115,7 @@ public class ConfluenceProjTestCMSnew {
 
       CmsNewPackage.eINSTANCE.getClass();
       EPackage pack=TestRunner.loadTestMM("org.moflon.maave.tests.lang.cmsNew", "CmsNew");
-      
+
       List<ConfluenceAnalysisReport> reports=new LinkedList<ConfluenceAnalysisReport>();
       for (int i = 0; i < 1; i++)
       {
@@ -150,13 +150,13 @@ public class ConfluenceProjTestCMSnew {
       ConfigurableMorphismClassFactory morClassFac =MatchingUtilsFactory.eINSTANCE.createConfigurableMorphismClassFactory();
       gts.setMatchMorphismClass(morClassFac.createMorphismClass("I", "I", "I", "I", "=>"));
       gts.setDirectDerivationBuilder(GraphtransformationFactory.eINSTANCE.createProjectiveDirectDerivationBuilder());
-      
+
       for (SymbGTRule rule : gts.getRules())
       {
          System.out.println(rule.getName()+":"+EvalHelper.printElemStatistics(rule.getLeft().getCodom()) );
       }
-     
-    
+
+
       //Add cardinality constraints
       ModelHelper.addCardinalityConstraintsToGTS(pack, gts);
       //Add user defined constraints
@@ -168,7 +168,7 @@ public class ConfluenceProjTestCMSnew {
       SubcommutativityModuloNFEQAnalyser directConfluenceAnalyser=ConfluenceFactory.eINSTANCE.createSubcommutativityModuloNFEQAnalyser();
       long time=System.currentTimeMillis();
       reports.add(directConfluenceAnalyser.checkConfluence(gts));
-     
+
       System.out.println("--------------- "+ i + "---------------------------"+(System.currentTimeMillis()-time));
       if(i==4)
       {
@@ -194,7 +194,7 @@ public class ConfluenceProjTestCMSnew {
 
       GraphTransformationSystem gts=GraphtransformationFactory.eINSTANCE.createGraphTransformationSystem();
 
-      EClass clsExam=(EClass) pack.getEClassifier("Exam");
+//      EClass clsExam=(EClass) pack.getEClassifier("Exam");
 //      gts.getRules().add(ModelHelper.getRule(clsExam,"bookRoom_v0"));
       //      gts.getRules().add(ModelHelper.getRule(clsExam,"uploadResults_v0"));
       //      gts.getRules().add(ModelHelper.getRule(clsExam,"zetDate_v0"));
@@ -202,7 +202,7 @@ public class ConfluenceProjTestCMSnew {
 //            gts.getRules().add(ModelHelper.getRule(clsExam,"transferResultPassed_v0"));
       //      gts.getRules().add(ModelHelper.getRule(clsExam,"transferResultFailed_v0"));
       //      gts.getRules().add(ModelHelper.getRule(clsExam,"closeExam_v0"));
-      //      
+      //
       EClass clsEnrollment=(EClass) pack.getEClassifier("Enrollment");
       gts.getRules().add(ModelHelper.getRule(clsEnrollment,"regForExam_v0"));
       //      gts.getRules().add(ModelHelper.getRule(clsEnrollment,"regForModule_v0"));
@@ -233,14 +233,14 @@ public class ConfluenceProjTestCMSnew {
 
 
       SubcommutativityModuloNFEQAnalyser directConfluenceAnalyser=ConfluenceFactory.eINSTANCE.createSubcommutativityModuloNFEQAnalyser();
-    
+
       ConfluenceAnalysisReport report=directConfluenceAnalyser.checkConfluence(gts);
       Function<ConfluenceAnalysisResult, String> function = x ->
-      {  
+      {
          return   "\\makecell{"+ x.getCpaResult().getNrOfMinContexts()+" \\\\ "+
                   x.getCpaResult().getNrOfConsistentMinContexts()+" \\\\ "+
                   x.getCpaResult().getNrOfCritPairs()+"}";
-        
+
       };
 
       System.out.println(ConfluenceAnalysisResultPrinter.confluenceReportToLatexTable(report,function));
@@ -260,7 +260,7 @@ public class ConfluenceProjTestCMSnew {
 
       GraphTransformationSystem gts=GraphtransformationFactory.eINSTANCE.createGraphTransformationSystem();
 
-      EClass clsExam=(EClass) pack.getEClassifier("Exam");
+      //      EClass clsExam=(EClass) pack.getEClassifier("Exam");
 //      gts.getRules().add(ModelHelper.getRule(clsExam,"bookRoom_v1"));
 //      gts.getRules().add(ModelHelper.getRule(clsExam,"uploadResults_v0"));
 //      gts.getRules().add(ModelHelper.getRule(clsExam,"zetDate_v0"));
@@ -269,7 +269,7 @@ public class ConfluenceProjTestCMSnew {
 //      gts.getRules().add(ModelHelper.getRule(clsExam,"transferResultFailed_v1"));
 //      gts.getRules().add(ModelHelper.getRule(clsExam,"closeExam_v0"));
 
-      EClass clsEnrollment=(EClass) pack.getEClassifier("Enrollment");
+//      EClass clsEnrollment=(EClass) pack.getEClassifier("Enrollment");
 //      gts.getRules().add(ModelHelper.getRule(clsEnrollment,"regForExam_v1"));
 //      gts.getRules().add(ModelHelper.getRule(clsEnrollment,"regForModule_v0"));
 //      gts.getRules().add(ModelHelper.getRule(clsEnrollment,"unregFromExam_v1"));
@@ -300,8 +300,7 @@ public class ConfluenceProjTestCMSnew {
 
 
       SubcommutativityModuloNFEQAnalyser directConfluenceAnalyser=ConfluenceFactory.eINSTANCE.createSubcommutativityModuloNFEQAnalyser();
-     
-      @SuppressWarnings("unused")
+
       ConfluenceAnalysisReport report=directConfluenceAnalyser.checkConfluence(gts);
       System.out.println(ConfluenceAnalysisResultPrinter.printConfluenceReport(report, true, false, true, true));
 

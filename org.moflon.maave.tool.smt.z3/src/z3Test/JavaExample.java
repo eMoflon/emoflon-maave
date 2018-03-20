@@ -18,10 +18,45 @@ Author:
 Notes:
     
 --*/
+import java.util.Date;
+import java.util.HashMap;
+import java.util.LinkedList;
 
-import java.util.*;
-
-import com.microsoft.z3.*;
+import com.microsoft.z3.AST;
+import com.microsoft.z3.ApplyResult;
+import com.microsoft.z3.ArithExpr;
+import com.microsoft.z3.ArrayExpr;
+import com.microsoft.z3.ArraySort;
+import com.microsoft.z3.BitVecExpr;
+import com.microsoft.z3.BitVecNum;
+import com.microsoft.z3.BitVecSort;
+import com.microsoft.z3.BoolExpr;
+import com.microsoft.z3.Constructor;
+import com.microsoft.z3.Context;
+import com.microsoft.z3.EnumSort;
+import com.microsoft.z3.Expr;
+import com.microsoft.z3.FiniteDomainSort;
+import com.microsoft.z3.FuncDecl;
+import com.microsoft.z3.Goal;
+import com.microsoft.z3.IntExpr;
+import com.microsoft.z3.IntNum;
+import com.microsoft.z3.IntSort;
+import com.microsoft.z3.IntSymbol;
+import com.microsoft.z3.ListSort;
+import com.microsoft.z3.Log;
+import com.microsoft.z3.Model;
+import com.microsoft.z3.Params;
+import com.microsoft.z3.Pattern;
+import com.microsoft.z3.RatNum;
+import com.microsoft.z3.Solver;
+import com.microsoft.z3.Sort;
+import com.microsoft.z3.Status;
+import com.microsoft.z3.StringSymbol;
+import com.microsoft.z3.Symbol;
+import com.microsoft.z3.Tactic;
+import com.microsoft.z3.TupleSort;
+import com.microsoft.z3.Version;
+import com.microsoft.z3.Z3Exception;
 
 class JavaExample
 {

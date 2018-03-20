@@ -8,7 +8,10 @@ import org.gervarro.democles.common.OperationRuntime;
 import org.gervarro.democles.plan.ReachabilityAnalyzer;
 import org.gervarro.democles.plan.WeightedOperation;
 
-import net.sf.javabdd.*;
+import net.sf.javabdd.BDD;
+import net.sf.javabdd.BDDDomain;
+import net.sf.javabdd.BDDFactory;
+import net.sf.javabdd.BDDPairing;
 
 public class BDDReachabilityAnalyzer<T extends Combiner<T,U>, U extends OperationRuntime, W extends Comparable<W>> implements ReachabilityAnalyzer {
 

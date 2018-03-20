@@ -4,10 +4,16 @@ package org.gervarro.democles.specification.emf.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
-
-import org.gervarro.democles.specification.emf.*;
+import org.gervarro.democles.specification.emf.Constant;
+import org.gervarro.democles.specification.emf.Constraint;
+import org.gervarro.democles.specification.emf.ConstraintParameter;
+import org.gervarro.democles.specification.emf.ConstraintVariable;
+import org.gervarro.democles.specification.emf.Pattern;
+import org.gervarro.democles.specification.emf.PatternBody;
+import org.gervarro.democles.specification.emf.PatternInvocationConstraint;
+import org.gervarro.democles.specification.emf.SpecificationPackage;
+import org.gervarro.democles.specification.emf.Variable;
 
 /**
  * <!-- begin-user-doc -->

@@ -4,9 +4,7 @@ package org.gervarro.democles.specification.emf.constraint.relational;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.gervarro.democles.specification.emf.SpecificationPackage;
 
 /**

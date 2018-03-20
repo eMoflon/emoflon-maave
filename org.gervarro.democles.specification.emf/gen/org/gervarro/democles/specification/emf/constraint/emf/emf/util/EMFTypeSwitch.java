@@ -6,14 +6,17 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.ETypedElement;
-
 import org.eclipse.emf.ecore.util.Switch;
-
 import org.gervarro.democles.specification.emf.Constraint;
 import org.gervarro.democles.specification.emf.ConstraintVariable;
 import org.gervarro.democles.specification.emf.Variable;
-
-import org.gervarro.democles.specification.emf.constraint.emf.emf.*;
+import org.gervarro.democles.specification.emf.constraint.emf.emf.Attribute;
+import org.gervarro.democles.specification.emf.constraint.emf.emf.EMFConstraint;
+import org.gervarro.democles.specification.emf.constraint.emf.emf.EMFTypePackage;
+import org.gervarro.democles.specification.emf.constraint.emf.emf.EMFVariable;
+import org.gervarro.democles.specification.emf.constraint.emf.emf.Operation;
+import org.gervarro.democles.specification.emf.constraint.emf.emf.Reference;
+import org.gervarro.democles.specification.emf.constraint.emf.emf.StructuralFeature;
 
 /**
  * <!-- begin-user-doc -->

@@ -21,7 +21,6 @@
 package org.gervarro.democles.emf.codegen;
 
 import org.eclipse.emf.codegen.ecore.genmodel.GenDataType;
-
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
 

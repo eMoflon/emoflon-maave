@@ -23,9 +23,6 @@ package org.gervarro.democles.codegen;
 import java.io.IOException;
 import java.io.Writer;
 
-import org.gervarro.democles.codegen.Generator;
-import org.gervarro.democles.codegen.WriterProvider;
-
 class MainTemplateController implements Generator {
 	private TemplateEngine engine;
 	private ImportManager importManager;

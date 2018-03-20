@@ -3,7 +3,6 @@
 package org.moflon.maave.tests.lang.cmsNew;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 // <-- [user defined imports]
 // [user defined imports] -->

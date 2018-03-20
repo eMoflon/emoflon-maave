@@ -20,10 +20,6 @@
  */
 package org.gervarro.democles.codegen;
 
-import org.gervarro.democles.codegen.Chain;
-import org.gervarro.democles.codegen.CodeGeneratorProvider;
-import org.gervarro.democles.codegen.GeneratorOperation;
-import org.gervarro.democles.codegen.TemplateController;
 import org.gervarro.democles.constraint.PatternInvocationConstraintType;
 
 public class PatternInvocationConstraintTemplateProvider implements

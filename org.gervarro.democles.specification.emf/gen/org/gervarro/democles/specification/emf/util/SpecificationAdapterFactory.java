@@ -4,12 +4,17 @@ package org.gervarro.democles.specification.emf.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
-import org.gervarro.democles.specification.emf.*;
+import org.gervarro.democles.specification.emf.Constant;
+import org.gervarro.democles.specification.emf.Constraint;
+import org.gervarro.democles.specification.emf.ConstraintParameter;
+import org.gervarro.democles.specification.emf.ConstraintVariable;
+import org.gervarro.democles.specification.emf.Pattern;
+import org.gervarro.democles.specification.emf.PatternBody;
+import org.gervarro.democles.specification.emf.PatternInvocationConstraint;
+import org.gervarro.democles.specification.emf.SpecificationPackage;
+import org.gervarro.democles.specification.emf.Variable;
 
 /**
  * <!-- begin-user-doc -->

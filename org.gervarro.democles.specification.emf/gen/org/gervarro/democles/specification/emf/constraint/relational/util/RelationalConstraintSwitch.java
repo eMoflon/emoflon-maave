@@ -4,12 +4,16 @@ package org.gervarro.democles.specification.emf.constraint.relational.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
-
 import org.gervarro.democles.specification.emf.Constraint;
-
-import org.gervarro.democles.specification.emf.constraint.relational.*;
+import org.gervarro.democles.specification.emf.constraint.relational.Equal;
+import org.gervarro.democles.specification.emf.constraint.relational.Larger;
+import org.gervarro.democles.specification.emf.constraint.relational.LargerOrEqual;
+import org.gervarro.democles.specification.emf.constraint.relational.RelationalConstraint;
+import org.gervarro.democles.specification.emf.constraint.relational.RelationalConstraintPackage;
+import org.gervarro.democles.specification.emf.constraint.relational.Smaller;
+import org.gervarro.democles.specification.emf.constraint.relational.SmallerOrEqual;
+import org.gervarro.democles.specification.emf.constraint.relational.Unequal;
 
 /**
  * <!-- begin-user-doc -->

@@ -21,12 +21,10 @@
 package org.gervarro.democles.emf.codegen;
 
 import org.eclipse.emf.codegen.ecore.genmodel.GenBase;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.ecore.EModelElement;
 
 public abstract class GenModelElementAdapter<E extends EModelElement, Gen extends GenBase> implements Adapter {

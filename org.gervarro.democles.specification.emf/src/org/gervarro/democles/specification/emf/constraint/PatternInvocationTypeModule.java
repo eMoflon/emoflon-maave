@@ -24,9 +24,9 @@ import org.eclipse.emf.ecore.util.Switch;
 import org.gervarro.democles.common.PatternMatcherPlugin;
 import org.gervarro.democles.specification.ConstraintType;
 import org.gervarro.democles.specification.VariableType;
-import org.gervarro.democles.specification.emf.TypeModule;
 import org.gervarro.democles.specification.emf.Pattern;
 import org.gervarro.democles.specification.emf.PatternInvocationConstraint;
+import org.gervarro.democles.specification.emf.TypeModule;
 import org.gervarro.democles.specification.emf.util.SpecificationSwitch;
 import org.gervarro.democles.specification.impl.PatternInvocationConstraintModule;
 

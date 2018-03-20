@@ -3,7 +3,6 @@ package org.moflon.maave.tests.testsuite.testcases;
 import java.util.LinkedList;
 import java.util.List;
 
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.junit.Ignore;
@@ -20,7 +19,6 @@ import org.moflon.maave.tool.graphtransformation.GraphtransformationFactory;
 import org.moflon.maave.tool.graphtransformation.SymbGTRule;
 import org.moflon.maave.tool.sdm.stptransformation.MetaModelConstraintBuilder;
 import org.moflon.maave.tool.sdm.stptransformation.StptransformationFactory;
-import org.moflon.maave.tool.symbolicgraphs.SymbolicGraphs.Condition;
 import org.moflon.maave.tool.symbolicgraphs.SymbolicGraphs.SymbolicGraph;
 import org.moflon.maave.tool.symbolicgraphs.secondorder.matching.MatchingUtils.ConfigurableMorphismClassFactory;
 import org.moflon.maave.tool.symbolicgraphs.secondorder.matching.MatchingUtils.MatchingUtilsFactory;
@@ -28,7 +26,7 @@ import org.moflon.maave.tool.symbolicgraphs.secondorder.matching.MatchingUtils.M
 
 public class ApplicationConditionTestCMSnew {
 
-       
+
    @Test
    public void test_Combined_v0() {
       System.out.println("");
@@ -72,7 +70,7 @@ public class ApplicationConditionTestCMSnew {
          {
             rule.getRight().getCodom().setName("L_"+rule.getName());
          }
-         
+
 //         for (SymbGTRule   rule  : gts.getRules())
 //         {
 //            System.out.println(rule.getName()+"="+(rule.getLeft().getCodom().getGraphNodes().size()+rule.getLeft().getCodom().getGraphEdges().size()));
@@ -85,7 +83,7 @@ public class ApplicationConditionTestCMSnew {
          ModelHelper.addCardinalityConstraintsToGTS(pack, gts);
          //Add user defined constraints
          gts.getGlobalConstraints().add(ModelHelper.getUserDefConstraints(pack));
-         //Add only sat cosntraitn  
+         //Add only sat cosntraitn
 //         gts.getGlobalConstraints().add(gts.getSatConstraint());
 
 
@@ -95,7 +93,7 @@ public class ApplicationConditionTestCMSnew {
          System.out.println("==============="+i+"============="+(System.currentTimeMillis()-start));
          if(i==0)System.out.println(report.printOverallCSVHeader());
          System.out.println(report.printOverallCSV());
-         
+
          //         System.out.println(report.printCSV());
 //         for (SymbGTRule rule : gts.getRules())
 //         {
@@ -105,7 +103,7 @@ public class ApplicationConditionTestCMSnew {
 //               System.out.println("--------------------------------------------------------------------------------------------");
 //               System.out.println(cond);
 //            }
-//            
+//
 //         }
 
       }
@@ -169,7 +167,7 @@ public class ApplicationConditionTestCMSnew {
       acBuilder.verifyGTS(gts);
 
    }
-   @Ignore   
+   @Ignore
    @Test
    public void test_noCompetingBookings_v0() {
       System.out.println("");
@@ -237,8 +235,8 @@ public class ApplicationConditionTestCMSnew {
       System.out.println(report.print());
 
    }
-   
- 
- 
- 
+
+
+
+
 }

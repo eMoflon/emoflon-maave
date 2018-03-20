@@ -3,10 +3,7 @@ Bundle-SymbolicName: org.moflon.maave.tests.lang.enumlang;singleton:=t
  rue
 Export-Package: org.moflon.maave.tests.lang.enumlang.util,
  org.moflon.maave.tests.lang.enumlang,
- org.moflon.maave.tests.lang.enumlang.impl,
- enumlang,
- enumlang.util,
- enumlang.impl
+ org.moflon.maave.tests.lang.enumlang.impl
 Bundle-Name: org.moflon.maave.tests.lang.enumlang
 Bundle-Version: 1.0.0.qualifier
 Require-Bundle: org.eclipse.emf.ecore,

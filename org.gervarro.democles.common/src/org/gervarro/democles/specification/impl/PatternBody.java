@@ -21,6 +21,7 @@
 package org.gervarro.democles.specification.impl;
 
 import java.util.List;
+
 import org.gervarro.democles.specification.Pattern;
 
 abstract public class PatternBody implements org.gervarro.democles.specification.PatternBody {

@@ -3,12 +3,9 @@
 package org.moflon.maave.tests.lang.cmsNew.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.moflon.maave.tests.lang.cmsNew.CmsNewPackage;
 import org.moflon.maave.tests.lang.cmsNew.Entry;
 // <-- [user defined imports]

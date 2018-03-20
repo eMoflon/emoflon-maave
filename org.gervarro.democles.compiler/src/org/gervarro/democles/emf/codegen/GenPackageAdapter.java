@@ -21,7 +21,6 @@
 package org.gervarro.democles.emf.codegen;
 
 import org.eclipse.emf.codegen.ecore.genmodel.GenPackage;
-
 import org.eclipse.emf.ecore.EPackage;
 
 public class GenPackageAdapter extends GenModelElementAdapter<EPackage, GenPackage> {

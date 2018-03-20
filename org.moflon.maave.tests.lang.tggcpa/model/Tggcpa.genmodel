@@ -4,7 +4,8 @@
     modelName="Tggcpa" updateClasspath="false" codeFormatting="true" importerID="org.eclipse.emf.importer.ecore"
     complianceLevel="8.0" copyrightFields="false" operationReflection="true">
   <foreignModel>Tggcpa.ecore</foreignModel>
-  <genPackages prefix="Tggcpa" disposableProviderFactory="true" ecorePackage="platform:/plugin/org.moflon.maave.tests.lang.tggcpa/model/Tggcpa.ecore#/">
+  <genPackages prefix="Tggcpa" basePackage="org.moflon.maave.tests.lang" disposableProviderFactory="true"
+      ecorePackage="platform:/plugin/org.moflon.maave.tests.lang.tggcpa/model/Tggcpa.ecore#/">
     <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.lang.tggcpa/model/Tggcpa.ecore#//Obj"/>
     <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.lang.tggcpa/model/Tggcpa.ecore#//Transl"/>
     <genClasses ecoreClass="platform:/plugin/org.moflon.maave.tests.lang.tggcpa/model/Tggcpa.ecore#//TypeA">

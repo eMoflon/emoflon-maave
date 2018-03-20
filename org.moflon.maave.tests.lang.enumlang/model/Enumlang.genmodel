@@ -4,7 +4,8 @@
     modelName="Enumlang" updateClasspath="false" codeFormatting="true" importerID="org.eclipse.emf.importer.ecore"
     complianceLevel="8.0" copyrightFields="false" operationReflection="true">
   <foreignModel>Enumlang.ecore</foreignModel>
-  <genPackages prefix="Enumlang" disposableProviderFactory="true" ecorePackage="platform:/plugin/org.moflon.maave.tests.lang.enumlang/model/Enumlang.ecore#/">
+  <genPackages prefix="Enumlang" basePackage="org.moflon.maave.tests.lang" disposableProviderFactory="true"
+      ecorePackage="platform:/plugin/org.moflon.maave.tests.lang.enumlang/model/Enumlang.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="platform:/plugin/org.moflon.maave.tests.lang.enumlang/model/Enumlang.ecore#//LEVEL">
       <genEnumLiterals ecoreEnumLiteral="platform:/plugin/org.moflon.maave.tests.lang.enumlang/model/Enumlang.ecore#//LEVEL/LOW"/>
       <genEnumLiterals ecoreEnumLiteral="platform:/plugin/org.moflon.maave.tests.lang.enumlang/model/Enumlang.ecore#//LEVEL/HIGH"/>

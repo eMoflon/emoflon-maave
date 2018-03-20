@@ -27,9 +27,9 @@ import org.apache.velocity.Template;
 import org.apache.velocity.exception.ParseErrorException;
 import org.apache.velocity.exception.ResourceNotFoundException;
 import org.apache.velocity.runtime.RuntimeInstance;
+import org.gervarro.democles.codegen.AbstractCodeGeneratorBuilder;
 import org.gervarro.democles.codegen.CodeGeneratorProvider;
 import org.gervarro.democles.codegen.GeneratorOperation;
-import org.gervarro.democles.codegen.AbstractCodeGeneratorBuilder;
 
 public class VelocityCodeGeneratorBuilder extends AbstractCodeGeneratorBuilder<VelocityTemplateController> {
 	private final List<CodeGeneratorProvider<VelocityTemplateController>> constraintTypeSpecificProviders = 

@@ -6,12 +6,38 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import org.moflon.maave.tests.lang.cmsNew.*;
+import org.moflon.maave.tests.lang.cmsNew.Booking;
+import org.moflon.maave.tests.lang.cmsNew.CMO_STATE;
+import org.moflon.maave.tests.lang.cmsNew.CMS;
+import org.moflon.maave.tests.lang.cmsNew.CmsNewFactory;
+import org.moflon.maave.tests.lang.cmsNew.CmsNewPackage;
+import org.moflon.maave.tests.lang.cmsNew.CoModOffer;
+import org.moflon.maave.tests.lang.cmsNew.CourseManagement;
+import org.moflon.maave.tests.lang.cmsNew.Date;
+import org.moflon.maave.tests.lang.cmsNew.Degree;
+import org.moflon.maave.tests.lang.cmsNew.EN_STATE;
+import org.moflon.maave.tests.lang.cmsNew.EX_STATE;
+import org.moflon.maave.tests.lang.cmsNew.Enrollment;
+import org.moflon.maave.tests.lang.cmsNew.Entry;
+import org.moflon.maave.tests.lang.cmsNew.Exam;
+import org.moflon.maave.tests.lang.cmsNew.GradeFormular;
+import org.moflon.maave.tests.lang.cmsNew.Lecture;
+import org.moflon.maave.tests.lang.cmsNew.Module;
+import org.moflon.maave.tests.lang.cmsNew.Program;
+import org.moflon.maave.tests.lang.cmsNew.Record;
+import org.moflon.maave.tests.lang.cmsNew.Room;
+import org.moflon.maave.tests.lang.cmsNew.RoomManagement;
+import org.moflon.maave.tests.lang.cmsNew.SEM_STATE;
+import org.moflon.maave.tests.lang.cmsNew.Semester;
+import org.moflon.maave.tests.lang.cmsNew.SystemTimer;
+import org.moflon.maave.tests.lang.cmsNew.TH_STATE;
+import org.moflon.maave.tests.lang.cmsNew.Thesis;
+import org.moflon.maave.tests.lang.cmsNew.ThesisModule;
+import org.moflon.maave.tests.lang.cmsNew.ThesisModuleOffer;
+import org.moflon.maave.tests.lang.cmsNew.ThesisRecord;
+import org.moflon.maave.tests.lang.cmsNew.UserDefinedConstraints;
 
 /**
  * <!-- begin-user-doc -->

@@ -2,10 +2,7 @@ Manifest-Version: 1.0
 Bundle-SymbolicName: org.moflon.maave.tests.lang.rbac;singleton:=true
 Export-Package: org.moflon.maave.tests.lang.rbac.impl,
  org.moflon.maave.tests.lang.rbac.util,
- org.moflon.maave.tests.lang.rbac,
- rbac,
- rbac.util,
- rbac.impl
+ org.moflon.maave.tests.lang.rbac
 Bundle-Name: org.moflon.maave.tests.lang.rbac
 Bundle-Version: 1.0.0.qualifier
 Require-Bundle: org.eclipse.emf.ecore,

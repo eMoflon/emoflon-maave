@@ -3,7 +3,6 @@
 package org.gervarro.democles.specification.emf;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**

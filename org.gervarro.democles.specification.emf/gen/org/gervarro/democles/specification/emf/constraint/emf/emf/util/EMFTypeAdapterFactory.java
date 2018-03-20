@@ -4,18 +4,20 @@ package org.gervarro.democles.specification.emf.constraint.emf.emf.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.ETypedElement;
-
 import org.gervarro.democles.specification.emf.Constraint;
 import org.gervarro.democles.specification.emf.ConstraintVariable;
 import org.gervarro.democles.specification.emf.Variable;
-
-import org.gervarro.democles.specification.emf.constraint.emf.emf.*;
+import org.gervarro.democles.specification.emf.constraint.emf.emf.Attribute;
+import org.gervarro.democles.specification.emf.constraint.emf.emf.EMFConstraint;
+import org.gervarro.democles.specification.emf.constraint.emf.emf.EMFTypePackage;
+import org.gervarro.democles.specification.emf.constraint.emf.emf.EMFVariable;
+import org.gervarro.democles.specification.emf.constraint.emf.emf.Operation;
+import org.gervarro.democles.specification.emf.constraint.emf.emf.Reference;
+import org.gervarro.democles.specification.emf.constraint.emf.emf.StructuralFeature;
 
 /**
  * <!-- begin-user-doc -->

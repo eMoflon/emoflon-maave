@@ -3,10 +3,7 @@ Bundle-SymbolicName: org.moflon.maave.tests.lang.featuremodel;singleto
  n:=true
 Export-Package: org.moflon.maave.tests.lang.featuremodel,
  org.moflon.maave.tests.lang.featuremodel.util,
- org.moflon.maave.tests.lang.featuremodel.impl,
- featuremodel.util,
- featuremodel,
- featuremodel.impl
+ org.moflon.maave.tests.lang.featuremodel.impl
 Bundle-Name: org.moflon.maave.tests.lang.featuremodel
 Bundle-Version: 1.0.0.qualifier
 Require-Bundle: org.eclipse.emf.ecore,
