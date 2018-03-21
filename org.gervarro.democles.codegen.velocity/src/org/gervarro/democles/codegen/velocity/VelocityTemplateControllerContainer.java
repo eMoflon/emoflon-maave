@@ -25,11 +25,10 @@ import java.util.List;
 
 import org.apache.velocity.Template;
 
-public class VelocityTemplateControllerContainer extends
-		VelocityTemplateController {
+public class VelocityTemplateControllerContainer extends VelocityTemplateController {
 	public static final String CHILDREN = "children";
 	private final List<VelocityTemplateController> children;
-	
+
 	public VelocityTemplateControllerContainer(Template template, List<VelocityTemplateController> children) {
 		super(template);
 		this.children = children;
@@ -38,11 +37,11 @@ public class VelocityTemplateControllerContainer extends
 	public VelocityTemplateControllerContainer(Template template, VelocityTemplateController... children) {
 		this(template, Arrays.asList(children));
 	}
-	
-    public Object internalGet(String key) {
-    	if (CHILDREN.equals(key)) {
-    		return children;
-    	}
-    	return super.internalGet(key);
-    }
+
+	public Object internalGet(String key) {
+		if (CHILDREN.equals(key)) {
+			return children;
+		}
+		return super.internalGet(key);
+	}
 }

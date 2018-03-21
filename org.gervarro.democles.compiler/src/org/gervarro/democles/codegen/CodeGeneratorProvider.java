@@ -22,5 +22,6 @@ package org.gervarro.democles.codegen;
 
 public interface CodeGeneratorProvider<T> {
 	public T getTemplateController(GeneratorOperation operation, T tail);
+
 	public boolean isResponsibleFor(GeneratorOperation operation);
 }

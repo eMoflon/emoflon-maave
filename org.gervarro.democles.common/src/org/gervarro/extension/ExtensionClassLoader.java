@@ -21,8 +21,7 @@
 package org.gervarro.extension;
 
 public interface ExtensionClassLoader {
-	public static final ExtensionClassLoader STANDALONE_CLASSLOADER = 
-		new JavaClassLoader(); 
-	
+	public static final ExtensionClassLoader STANDALONE_CLASSLOADER = new JavaClassLoader();
+
 	Class<?> loadClass(String className) throws ClassNotFoundException;
 }

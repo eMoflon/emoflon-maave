@@ -10,10 +10,9 @@ public class PatternInvocation extends AdornedOperation {
 	public PatternInvocation() {
 		super(AdornedOperation.BOUND_BOUND, AdornedOperation.BOUND_BOUND);
 	}
-	
+
 	@Override
-	public final InternalDataFrameProvider getDataFrame(RemappedDataFrame frame,
-			Adornment adornment) {
+	public final InternalDataFrameProvider getDataFrame(RemappedDataFrame frame, Adornment adornment) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -28,17 +28,17 @@ public class Adornment implements Iterable<Integer> {
 	public static final int BOUND = 0;
 	public static final int NOT_TYPECHECKED = 1;
 	public static final int FREE = 2;
-	
+
 	private final int[] bindings;
-	
+
 	public static final Adornment create(int... bindings) {
 		return new Adornment(bindings);
 	}
-	
+
 	public static final Adornment create(Adornment origin) {
 		return new Adornment(origin.bindings);
 	}
-	
+
 	public static final String getBindingConstant(int i) {
 		if (0 <= i && i <= 2) {
 			return BINDING_CONSTANTS[i];
@@ -46,7 +46,7 @@ public class Adornment implements Iterable<Integer> {
 			return null;
 		}
 	}
-	
+
 	public Adornment() {
 		this(0);
 	}
@@ -62,19 +62,19 @@ public class Adornment implements Iterable<Integer> {
 		this(bindings.length);
 		System.arraycopy(bindings, 0, this.bindings, 0, bindings.length);
 	}
-	
+
 	public final int get(int index) {
 		return bindings[index];
 	}
-	
+
 	public final void set(int index, int value) {
 		bindings[index] = value;
 	}
-	
+
 	public final int size() {
 		return bindings.length;
 	}
-	
+
 	public final int numberOfFrees() {
 		int result = 0;
 		for (int i = 0; i < bindings.length; i++) {
@@ -84,7 +84,7 @@ public class Adornment implements Iterable<Integer> {
 		}
 		return result;
 	}
-	
+
 	public final int cardinality() {
 		int result = 0;
 		for (int i = 0; i < bindings.length; i++) {
@@ -94,11 +94,11 @@ public class Adornment implements Iterable<Integer> {
 		}
 		return result;
 	}
-	
+
 	public final int[] getRawBindingInformation() {
 		return bindings;
 	}
-	
+
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		for (int i = 0; i < bindings.length; i++) {
@@ -141,7 +141,7 @@ public class Adornment implements Iterable<Integer> {
 			}
 		};
 	}
-	
+
 	public final Adornment applyOperationMask(final OperationRuntime operation) {
 		final Adornment result = Adornment.create(this);
 		final Adornment precondition = operation.getPrecondition();

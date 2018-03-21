@@ -26,7 +26,7 @@ public class Constant extends ConstraintVariable implements org.gervarro.democle
 	public Constant(org.gervarro.democles.specification.Constant constant) {
 		this(constant.getValue());
 	}
-	
+
 	public Constant(Object value) {
 		this.value = value;
 	}

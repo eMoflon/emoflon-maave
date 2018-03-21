@@ -27,17 +27,17 @@ import java.util.List;
 public class DefaultPattern extends org.gervarro.democles.specification.impl.Pattern {
 	private List<DefaultPatternBody> bodies;
 	private final List<Variable> symbolicParameters;
-	
+
 	DefaultPattern(String name, Variable[] symbolicParameters) {
 		super(name, symbolicParameters);
 		this.symbolicParameters = Collections.unmodifiableList(Arrays.asList(symbolicParameters));
 	}
-	
+
 	DefaultPattern(String name, DefaultPatternBody[] bodies, Variable[] symbolicParameters) {
 		this(name, symbolicParameters);
 		this.setBodies(bodies);
 	}
-	
+
 	public final List<DefaultPatternBody> getBodies() {
 		if (bodies != null) {
 			return bodies;
@@ -46,11 +46,11 @@ public class DefaultPattern extends org.gervarro.democles.specification.impl.Pat
 			return result;
 		}
 	}
-	
+
 	public final List<Variable> getSymbolicParameters() {
 		return symbolicParameters;
 	}
-	
+
 	final void setBodies(DefaultPatternBody[] bodies) {
 		if (this.bodies == null) {
 			this.bodies = Collections.unmodifiableList(Arrays.asList(bodies));

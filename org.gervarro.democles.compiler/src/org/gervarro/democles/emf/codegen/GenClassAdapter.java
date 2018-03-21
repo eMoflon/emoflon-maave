@@ -25,11 +25,11 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 
 public class GenClassAdapter extends GenModelElementAdapter<EClass, GenClass> {
-	
+
 	GenClassAdapter() {
 		super();
 	}
-	
+
 	public GenPackageAdapter getParent() {
 		EPackage ePackage = getEModelElement().getEPackage();
 		return (GenPackageAdapter) factory.adapt(ePackage, null);
@@ -38,19 +38,19 @@ public class GenClassAdapter extends GenModelElementAdapter<EClass, GenClass> {
 	public String getTypeName() {
 		boolean includeTemplateArguments = false;
 		EClass eClass = getEModelElement();
-	    return eClass.getInstanceClassName() != null ?
-	      includeTemplateArguments ? eClass.getInstanceTypeName() : eClass.getInstanceClassName() :
-	      getParent().getGenElement().getInterfacePackageName() + "." + genElement.getInterfaceName();
+		return eClass.getInstanceClassName() != null
+				? includeTemplateArguments ? eClass.getInstanceTypeName() : eClass.getInstanceClassName()
+				: getParent().getGenElement().getInterfacePackageName() + "." + genElement.getInterfaceName();
 	}
-	
+
 	public final String getPackageName() {
 		return getParent().getPackageName();
 	}
-	
+
 	public final String getClassName() {
 		return getGenElement().getName() + "Operation";
 	}
-	
+
 	public final String[] getTypes() {
 		return new String[] { getTypeName() };
 	}

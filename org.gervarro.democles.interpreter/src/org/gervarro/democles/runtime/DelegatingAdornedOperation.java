@@ -28,16 +28,14 @@ import org.gervarro.democles.interpreter.InterpretableOperation;
 public class DelegatingAdornedOperation extends AdornedOperation implements MatchEventListener {
 	private final InterpretableOperation delegate;
 
-	public DelegatingAdornedOperation(InterpretableOperation delegate,
-			Adornment precondition,
+	public DelegatingAdornedOperation(InterpretableOperation delegate, Adornment precondition,
 			Adornment postcondition) {
 		super(precondition, postcondition);
 		this.delegate = delegate;
 	}
 
 	@Override
-	public InternalDataFrameProvider getDataFrame(RemappedDataFrame frame,
-			Adornment adornment) {
+	public InternalDataFrameProvider getDataFrame(RemappedDataFrame frame, Adornment adornment) {
 		return delegate.getDataFrame(frame, adornment);
 	}
 

@@ -28,11 +28,11 @@ public class GenPackageAdapter extends GenModelElementAdapter<EPackage, GenPacka
 	GenPackageAdapter() {
 		super();
 	}
-	
+
 	public final String getPackageName() {
 		return getGenElement().getQualifiedPackageName() + ".operation";
 	}
-	
+
 	public final String getClassName() {
 		return getGenElement().getPackageInterfaceName() + "OperationBuilder";
 	}

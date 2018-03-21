@@ -30,9 +30,8 @@ import org.gervarro.democles.runtime.InterpretedDataFrame;
 import org.gervarro.democles.runtime.PatternBodyDataFrame;
 
 public class MultipleMatchSession extends PatternMatchingSession implements Iterable<InterpretedDataFrame> {
-	private List<InterpretedDataFrame> result =
-		new ArrayList<InterpretedDataFrame>();
-	
+	private List<InterpretedDataFrame> result = new ArrayList<InterpretedDataFrame>();
+
 	public MultipleMatchSession(Pattern pattern) {
 		this.pattern = pattern;
 	}

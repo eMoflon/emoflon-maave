@@ -27,9 +27,9 @@ import org.gervarro.democles.interpreter.PatternBody;
 
 abstract public class Operation extends MatchEventSource implements MatchEventListener {
 	protected PatternBody factory;
-	
+
 	abstract InternalDataFrameProvider getDataFrameProvider(DataFrame data);
-	
+
 	public final void setPatternBody(PatternBody body) {
 		this.factory = body;
 	}

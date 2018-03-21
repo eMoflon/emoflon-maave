@@ -18,262 +18,262 @@ import org.moflon.maave.tool.symbolicgraphs.secondorder.matching.MatchingUtils.C
 import org.moflon.maave.tool.symbolicgraphs.secondorder.matching.MatchingUtils.MatchingUtilsFactory;
 
 public class GlobalConditionsTest {
-     
 
-   @Test
-   public void test1() {
-      System.out.println("");
-      System.out.println("-------------------------------------------------------------");
-      System.out.println("Starting GlobalConditionsTest/Test1: " );
-      VwxyzPackage.eINSTANCE.getClass();
-      EPackage pack=TestRunner.loadTestMM("org.moflon.maave.tests.lang.vwxyz", "vwxyz");
-      EClass cls=(EClass) pack.getEClassifier("CardinalityConstraintsTestPattern");
+	@Test
+	public void test1() {
+		System.out.println("");
+		System.out.println("-------------------------------------------------------------");
+		System.out.println("Starting GlobalConditionsTest/Test1: ");
+		VwxyzPackage.eINSTANCE.getClass();
+		EPackage pack = TestRunner.loadTestMM("org.moflon.maave.tests.lang.vwxyz", "vwxyz");
+		EClass cls = (EClass) pack.getEClassifier("CardinalityConstraintsTestPattern");
 
+		ConfigurableMorphismClassFactory morClassFac = MatchingUtilsFactory.eINSTANCE
+				.createConfigurableMorphismClassFactory();
 
+		GraphTransformationSystem gts = GraphtransformationFactory.eINSTANCE.createGraphTransformationSystem();
+		gts.setMatchMorphismClass(morClassFac.createMorphismClass("I", "I", "I", "I", "=>"));
+		gts.setDirectDerivationBuilder(GraphtransformationFactory.eINSTANCE.createProjectiveDirectDerivationBuilder());
 
+		// Add ArityConstraints
+		MetaModelConstraintBuilder constraintBuilder = StptransformationFactory.eINSTANCE
+				.createMetaModelConstraintBuilder();
+		GlobalConstraint mmC = constraintBuilder.buildConstraints(pack);
+		gts.getGlobalConstraints().add(mmC);
 
+		SymbolicGraph graphG = ModelHelper.getRule(cls, "testPatternValid1").getLeft().getCodom();
 
-      
-     
+		assertTrue(gts.checkConsistency(graphG).isValid());
 
-      ConfigurableMorphismClassFactory morClassFac =MatchingUtilsFactory.eINSTANCE.createConfigurableMorphismClassFactory();
+	}
 
-      
-      GraphTransformationSystem gts=GraphtransformationFactory.eINSTANCE.createGraphTransformationSystem();
-      gts.setMatchMorphismClass(morClassFac.createMorphismClass("I", "I", "I", "I", "=>"));
-      gts.setDirectDerivationBuilder(GraphtransformationFactory.eINSTANCE.createProjectiveDirectDerivationBuilder());
+	@Test
+	public void test2() {
+		System.out.println("");
+		System.out.println("-------------------------------------------------------------");
+		System.out.println("Starting GlobalConditionsTest/Test2: ");
+		VwxyzPackage.eINSTANCE.getClass();
+		EPackage pack = TestRunner.loadTestMM("org.moflon.maave.tests.lang.vwxyz", "vwxyz");
 
-      //Add ArityConstraints
-      MetaModelConstraintBuilder constraintBuilder=StptransformationFactory.eINSTANCE.createMetaModelConstraintBuilder();
-      GlobalConstraint mmC=constraintBuilder.buildConstraints(pack);
-      gts.getGlobalConstraints().add(mmC);
+		EClass cls = (EClass) pack.getEClassifier("CardinalityConstraintsTestPattern");
 
-      SymbolicGraph graphG=ModelHelper.getRule(cls,"testPatternValid1").getLeft().getCodom();
+		ConfigurableMorphismClassFactory morClassFac = MatchingUtilsFactory.eINSTANCE
+				.createConfigurableMorphismClassFactory();
 
-      assertTrue(gts.checkConsistency(graphG).isValid());
+		GraphTransformationSystem gts = GraphtransformationFactory.eINSTANCE.createGraphTransformationSystem();
+		gts.setMatchMorphismClass(morClassFac.createMorphismClass("I", "I", "I", "I", "=>"));
+		gts.setDirectDerivationBuilder(GraphtransformationFactory.eINSTANCE.createProjectiveDirectDerivationBuilder());
 
+		// Add ArityConstraints
+		MetaModelConstraintBuilder constraintBuilder = StptransformationFactory.eINSTANCE
+				.createMetaModelConstraintBuilder();
+		GlobalConstraint mmC = constraintBuilder.buildConstraints(pack);
+		gts.getGlobalConstraints().add(mmC);
 
-   }
-   @Test
-   public void test2() {
-      System.out.println("");
-      System.out.println("-------------------------------------------------------------");
-      System.out.println("Starting GlobalConditionsTest/Test2: " );
-      VwxyzPackage.eINSTANCE.getClass();
-      EPackage pack=TestRunner.loadTestMM("org.moflon.maave.tests.lang.vwxyz", "vwxyz");
-      
-      EClass cls=(EClass) pack.getEClassifier("CardinalityConstraintsTestPattern");
+		SymbolicGraph graphG = ModelHelper.getRule(cls, "testPatternInvalid1").getLeft().getCodom();
 
-      ConfigurableMorphismClassFactory morClassFac =MatchingUtilsFactory.eINSTANCE.createConfigurableMorphismClassFactory();
+		assertFalse(gts.checkConsistency(graphG).isValid());
 
-      
-      GraphTransformationSystem gts=GraphtransformationFactory.eINSTANCE.createGraphTransformationSystem();
-      gts.setMatchMorphismClass(morClassFac.createMorphismClass("I", "I", "I", "I", "=>"));
-      gts.setDirectDerivationBuilder(GraphtransformationFactory.eINSTANCE.createProjectiveDirectDerivationBuilder());
+	}
 
-      //Add ArityConstraints
-      MetaModelConstraintBuilder constraintBuilder=StptransformationFactory.eINSTANCE.createMetaModelConstraintBuilder();
-      GlobalConstraint mmC=constraintBuilder.buildConstraints(pack);
-      gts.getGlobalConstraints().add(mmC);
+	@Test
+	public void test3() {
+		System.out.println("");
+		System.out.println("-------------------------------------------------------------");
+		System.out.println("Starting GlobalConditionsTest/Test3: ");
+		VwxyzPackage.eINSTANCE.getClass();
+		EPackage pack = TestRunner.loadTestMM("org.moflon.maave.tests.lang.vwxyz", "vwxyz");
 
-      SymbolicGraph graphG=ModelHelper.getRule(cls,"testPatternInvalid1").getLeft().getCodom();
+		EClass cls = (EClass) pack.getEClassifier("CardinalityConstraintsTestPattern");
 
-      assertFalse(gts.checkConsistency(graphG).isValid());
+		ConfigurableMorphismClassFactory morClassFac = MatchingUtilsFactory.eINSTANCE
+				.createConfigurableMorphismClassFactory();
 
+		GraphTransformationSystem gts = GraphtransformationFactory.eINSTANCE.createGraphTransformationSystem();
+		gts.setMatchMorphismClass(morClassFac.createMorphismClass("I", "I", "I", "I", "=>"));
+		gts.setDirectDerivationBuilder(GraphtransformationFactory.eINSTANCE.createProjectiveDirectDerivationBuilder());
 
-   }
-   @Test
-   public void test3() {
-      System.out.println("");
-      System.out.println("-------------------------------------------------------------");
-      System.out.println("Starting GlobalConditionsTest/Test3: " );
-      VwxyzPackage.eINSTANCE.getClass();
-      EPackage pack=TestRunner.loadTestMM("org.moflon.maave.tests.lang.vwxyz", "vwxyz");
-      
-      EClass cls=(EClass) pack.getEClassifier("CardinalityConstraintsTestPattern");
+		// Add ArityConstraints
+		MetaModelConstraintBuilder constraintBuilder = StptransformationFactory.eINSTANCE
+				.createMetaModelConstraintBuilder();
+		GlobalConstraint mmC = constraintBuilder.buildConstraints(pack);
+		gts.getGlobalConstraints().add(mmC);
 
-      ConfigurableMorphismClassFactory morClassFac =MatchingUtilsFactory.eINSTANCE.createConfigurableMorphismClassFactory();
+		SymbolicGraph graphG = ModelHelper.getRule(cls, "testPatternInvalid2").getLeft().getCodom();
 
-      
-      GraphTransformationSystem gts=GraphtransformationFactory.eINSTANCE.createGraphTransformationSystem();
-      gts.setMatchMorphismClass(morClassFac.createMorphismClass("I", "I", "I", "I", "=>"));
-      gts.setDirectDerivationBuilder(GraphtransformationFactory.eINSTANCE.createProjectiveDirectDerivationBuilder());
+		assertFalse(gts.checkConsistency(graphG).isValid());
 
-      //Add ArityConstraints
-      MetaModelConstraintBuilder constraintBuilder=StptransformationFactory.eINSTANCE.createMetaModelConstraintBuilder();
-      GlobalConstraint mmC=constraintBuilder.buildConstraints(pack);
-      gts.getGlobalConstraints().add(mmC);
+	}
 
-      SymbolicGraph graphG=ModelHelper.getRule(cls,"testPatternInvalid2").getLeft().getCodom();
+	@Test
+	public void test4() {
+		System.out.println("");
+		System.out.println("-------------------------------------------------------------");
+		System.out.println("Starting GlobalConditionsTest/Test4: ");
+		VwxyzPackage.eINSTANCE.getClass();
+		EPackage pack = TestRunner.loadTestMM("org.moflon.maave.tests.lang.vwxyz", "vwxyz");
 
-      assertFalse(gts.checkConsistency(graphG).isValid());
+		EClass cls = (EClass) pack.getEClassifier("CardinalityConstraintsTestPattern");
 
+		ConfigurableMorphismClassFactory morClassFac = MatchingUtilsFactory.eINSTANCE
+				.createConfigurableMorphismClassFactory();
 
-   }
-   @Test
-   public void test4() {
-      System.out.println("");
-      System.out.println("-------------------------------------------------------------");
-      System.out.println("Starting GlobalConditionsTest/Test4: " );
-      VwxyzPackage.eINSTANCE.getClass();
-      EPackage pack=TestRunner.loadTestMM("org.moflon.maave.tests.lang.vwxyz", "vwxyz");
-      
-      EClass cls=(EClass) pack.getEClassifier("CardinalityConstraintsTestPattern");
+		GraphTransformationSystem gts = GraphtransformationFactory.eINSTANCE.createGraphTransformationSystem();
+		gts.setMatchMorphismClass(morClassFac.createMorphismClass("I", "I", "I", "I", "=>"));
+		gts.setDirectDerivationBuilder(GraphtransformationFactory.eINSTANCE.createProjectiveDirectDerivationBuilder());
 
-      ConfigurableMorphismClassFactory morClassFac =MatchingUtilsFactory.eINSTANCE.createConfigurableMorphismClassFactory();
+		// Add ArityConstraints
+		MetaModelConstraintBuilder constraintBuilder = StptransformationFactory.eINSTANCE
+				.createMetaModelConstraintBuilder();
+		GlobalConstraint mmC = constraintBuilder.buildConstraints(pack);
+		gts.getGlobalConstraints().add(mmC);
 
-      
-      GraphTransformationSystem gts=GraphtransformationFactory.eINSTANCE.createGraphTransformationSystem();
-      gts.setMatchMorphismClass(morClassFac.createMorphismClass("I", "I", "I", "I", "=>"));
-      gts.setDirectDerivationBuilder(GraphtransformationFactory.eINSTANCE.createProjectiveDirectDerivationBuilder());
+		SymbolicGraph graphG = ModelHelper.getRule(cls, "testPatternInvalid3").getLeft().getCodom();
 
-      //Add ArityConstraints
-      MetaModelConstraintBuilder constraintBuilder=StptransformationFactory.eINSTANCE.createMetaModelConstraintBuilder();
-      GlobalConstraint mmC=constraintBuilder.buildConstraints(pack);
-      gts.getGlobalConstraints().add(mmC);
-
-      SymbolicGraph graphG=ModelHelper.getRule(cls,"testPatternInvalid3").getLeft().getCodom();
+		assertFalse(gts.checkConsistency(graphG).isValid());
 
-      assertFalse(gts.checkConsistency(graphG).isValid());
+	}
 
+	@Test
+	public void test5() {
+		System.out.println("");
+		System.out.println("-------------------------------------------------------------");
+		System.out.println("Starting GlobalConditionsTest/Test5: ");
+		VwxyzPackage.eINSTANCE.getClass();
+		EPackage pack = TestRunner.loadTestMM("org.moflon.maave.tests.lang.vwxyz", "vwxyz");
 
-   }
-   @Test
-   public void test5() {
-      System.out.println("");
-      System.out.println("-------------------------------------------------------------");
-      System.out.println("Starting GlobalConditionsTest/Test5: " );
-      VwxyzPackage.eINSTANCE.getClass();
-      EPackage pack=TestRunner.loadTestMM("org.moflon.maave.tests.lang.vwxyz", "vwxyz");
-      
-      EClass cls=(EClass) pack.getEClassifier("CardinalityConstraintsTestPattern");
+		EClass cls = (EClass) pack.getEClassifier("CardinalityConstraintsTestPattern");
 
-      ConfigurableMorphismClassFactory morClassFac =MatchingUtilsFactory.eINSTANCE.createConfigurableMorphismClassFactory();
+		ConfigurableMorphismClassFactory morClassFac = MatchingUtilsFactory.eINSTANCE
+				.createConfigurableMorphismClassFactory();
 
-      
-      GraphTransformationSystem gts=GraphtransformationFactory.eINSTANCE.createGraphTransformationSystem();
-      gts.setMatchMorphismClass(morClassFac.createMorphismClass("I", "I", "I", "I", "=>"));
-      gts.setDirectDerivationBuilder(GraphtransformationFactory.eINSTANCE.createProjectiveDirectDerivationBuilder());
+		GraphTransformationSystem gts = GraphtransformationFactory.eINSTANCE.createGraphTransformationSystem();
+		gts.setMatchMorphismClass(morClassFac.createMorphismClass("I", "I", "I", "I", "=>"));
+		gts.setDirectDerivationBuilder(GraphtransformationFactory.eINSTANCE.createProjectiveDirectDerivationBuilder());
 
-      //Add ArityConstraints
-      MetaModelConstraintBuilder constraintBuilder=StptransformationFactory.eINSTANCE.createMetaModelConstraintBuilder();
-      GlobalConstraint mmC=constraintBuilder.buildConstraints(pack);
-      gts.getGlobalConstraints().add(mmC);
-
-      SymbolicGraph graphG=ModelHelper.getRule(cls,"testPatternInvalid4").getLeft().getCodom();
+		// Add ArityConstraints
+		MetaModelConstraintBuilder constraintBuilder = StptransformationFactory.eINSTANCE
+				.createMetaModelConstraintBuilder();
+		GlobalConstraint mmC = constraintBuilder.buildConstraints(pack);
+		gts.getGlobalConstraints().add(mmC);
 
-      assertFalse(gts.checkConsistency(graphG).isValid());
+		SymbolicGraph graphG = ModelHelper.getRule(cls, "testPatternInvalid4").getLeft().getCodom();
 
+		assertFalse(gts.checkConsistency(graphG).isValid());
 
-   }
-   @Test
-   public void test6() {
-      System.out.println("");
-      System.out.println("-------------------------------------------------------------");
-      System.out.println("Starting GlobalConditionsTest/Test6: " );
-      VwxyzPackage.eINSTANCE.getClass();
-      EPackage pack=TestRunner.loadTestMM("org.moflon.maave.tests.lang.vwxyz", "vwxyz");
-      
-      EClass cls=(EClass) pack.getEClassifier("CardinalityConstraintsTestPattern");
+	}
 
-      ConfigurableMorphismClassFactory morClassFac =MatchingUtilsFactory.eINSTANCE.createConfigurableMorphismClassFactory();
+	@Test
+	public void test6() {
+		System.out.println("");
+		System.out.println("-------------------------------------------------------------");
+		System.out.println("Starting GlobalConditionsTest/Test6: ");
+		VwxyzPackage.eINSTANCE.getClass();
+		EPackage pack = TestRunner.loadTestMM("org.moflon.maave.tests.lang.vwxyz", "vwxyz");
 
-      
-      GraphTransformationSystem gts=GraphtransformationFactory.eINSTANCE.createGraphTransformationSystem();
-      gts.setMatchMorphismClass(morClassFac.createMorphismClass("I", "I", "I", "I", "=>"));
-      gts.setDirectDerivationBuilder(GraphtransformationFactory.eINSTANCE.createProjectiveDirectDerivationBuilder());
+		EClass cls = (EClass) pack.getEClassifier("CardinalityConstraintsTestPattern");
 
-      //Add ArityConstraints
-      MetaModelConstraintBuilder constraintBuilder=StptransformationFactory.eINSTANCE.createMetaModelConstraintBuilder();
-      GlobalConstraint mmC=constraintBuilder.buildConstraints(pack);
-      gts.getGlobalConstraints().add(mmC);
+		ConfigurableMorphismClassFactory morClassFac = MatchingUtilsFactory.eINSTANCE
+				.createConfigurableMorphismClassFactory();
 
-      SymbolicGraph graphG=ModelHelper.getRule(cls,"testPatternInvalid5").getLeft().getCodom();
+		GraphTransformationSystem gts = GraphtransformationFactory.eINSTANCE.createGraphTransformationSystem();
+		gts.setMatchMorphismClass(morClassFac.createMorphismClass("I", "I", "I", "I", "=>"));
+		gts.setDirectDerivationBuilder(GraphtransformationFactory.eINSTANCE.createProjectiveDirectDerivationBuilder());
 
-      assertFalse(gts.checkConsistency(graphG).isValid());
+		// Add ArityConstraints
+		MetaModelConstraintBuilder constraintBuilder = StptransformationFactory.eINSTANCE
+				.createMetaModelConstraintBuilder();
+		GlobalConstraint mmC = constraintBuilder.buildConstraints(pack);
+		gts.getGlobalConstraints().add(mmC);
 
+		SymbolicGraph graphG = ModelHelper.getRule(cls, "testPatternInvalid5").getLeft().getCodom();
 
-   }
-   @Test
-   public void test7() {
-      System.out.println("");
-      System.out.println("-------------------------------------------------------------");
-      System.out.println("Starting GlobalConditionsTest/Test7: " );
-      VwxyzPackage.eINSTANCE.getClass();
-      EPackage pack=TestRunner.loadTestMM("org.moflon.maave.tests.lang.vwxyz", "vwxyz");
-      
-      EClass cls=(EClass) pack.getEClassifier("CardinalityConstraintsTestPattern");
+		assertFalse(gts.checkConsistency(graphG).isValid());
 
-      ConfigurableMorphismClassFactory morClassFac =MatchingUtilsFactory.eINSTANCE.createConfigurableMorphismClassFactory();
+	}
 
-      
-      GraphTransformationSystem gts=GraphtransformationFactory.eINSTANCE.createGraphTransformationSystem();
-      gts.setMatchMorphismClass(morClassFac.createMorphismClass("I", "I", "I", "I", "=>"));
-      gts.setDirectDerivationBuilder(GraphtransformationFactory.eINSTANCE.createProjectiveDirectDerivationBuilder());
+	@Test
+	public void test7() {
+		System.out.println("");
+		System.out.println("-------------------------------------------------------------");
+		System.out.println("Starting GlobalConditionsTest/Test7: ");
+		VwxyzPackage.eINSTANCE.getClass();
+		EPackage pack = TestRunner.loadTestMM("org.moflon.maave.tests.lang.vwxyz", "vwxyz");
 
-      //Add ArityConstraints
-      MetaModelConstraintBuilder constraintBuilder=StptransformationFactory.eINSTANCE.createMetaModelConstraintBuilder();
-      GlobalConstraint mmC=constraintBuilder.buildConstraints(pack);
-      gts.getGlobalConstraints().add(mmC);
+		EClass cls = (EClass) pack.getEClassifier("CardinalityConstraintsTestPattern");
 
-      SymbolicGraph graphG=ModelHelper.getRule(cls,"testPatternInvalid6").getLeft().getCodom();
+		ConfigurableMorphismClassFactory morClassFac = MatchingUtilsFactory.eINSTANCE
+				.createConfigurableMorphismClassFactory();
 
-      assertFalse(gts.checkConsistency(graphG).isValid());
+		GraphTransformationSystem gts = GraphtransformationFactory.eINSTANCE.createGraphTransformationSystem();
+		gts.setMatchMorphismClass(morClassFac.createMorphismClass("I", "I", "I", "I", "=>"));
+		gts.setDirectDerivationBuilder(GraphtransformationFactory.eINSTANCE.createProjectiveDirectDerivationBuilder());
 
+		// Add ArityConstraints
+		MetaModelConstraintBuilder constraintBuilder = StptransformationFactory.eINSTANCE
+				.createMetaModelConstraintBuilder();
+		GlobalConstraint mmC = constraintBuilder.buildConstraints(pack);
+		gts.getGlobalConstraints().add(mmC);
 
-   }
-   @Test
-   public void test8() {
-      System.out.println("");
-      System.out.println("-------------------------------------------------------------");
-      System.out.println("Starting GlobalConditionsTest/Test8: " );
-      VwxyzPackage.eINSTANCE.getClass();
-      EPackage pack=TestRunner.loadTestMM("org.moflon.maave.tests.lang.vwxyz", "vwxyz");
-      
-      EClass cls=(EClass) pack.getEClassifier("CardinalityConstraintsTestPattern");
+		SymbolicGraph graphG = ModelHelper.getRule(cls, "testPatternInvalid6").getLeft().getCodom();
 
-      ConfigurableMorphismClassFactory morClassFac =MatchingUtilsFactory.eINSTANCE.createConfigurableMorphismClassFactory();
+		assertFalse(gts.checkConsistency(graphG).isValid());
 
-      
-      GraphTransformationSystem gts=GraphtransformationFactory.eINSTANCE.createGraphTransformationSystem();
-      gts.setMatchMorphismClass(morClassFac.createMorphismClass("I", "I", "I", "I", "=>"));
-      gts.setDirectDerivationBuilder(GraphtransformationFactory.eINSTANCE.createProjectiveDirectDerivationBuilder());
+	}
 
-      //Add ArityConstraints
-      MetaModelConstraintBuilder constraintBuilder=StptransformationFactory.eINSTANCE.createMetaModelConstraintBuilder();
-      GlobalConstraint mmC=constraintBuilder.buildConstraints(pack);
-      gts.getGlobalConstraints().add(mmC);
+	@Test
+	public void test8() {
+		System.out.println("");
+		System.out.println("-------------------------------------------------------------");
+		System.out.println("Starting GlobalConditionsTest/Test8: ");
+		VwxyzPackage.eINSTANCE.getClass();
+		EPackage pack = TestRunner.loadTestMM("org.moflon.maave.tests.lang.vwxyz", "vwxyz");
 
-      SymbolicGraph graphG=ModelHelper.getRule(cls,"testPatternInvalid7").getLeft().getCodom();
+		EClass cls = (EClass) pack.getEClassifier("CardinalityConstraintsTestPattern");
 
-      assertFalse(gts.checkConsistency(graphG).isValid());
+		ConfigurableMorphismClassFactory morClassFac = MatchingUtilsFactory.eINSTANCE
+				.createConfigurableMorphismClassFactory();
 
+		GraphTransformationSystem gts = GraphtransformationFactory.eINSTANCE.createGraphTransformationSystem();
+		gts.setMatchMorphismClass(morClassFac.createMorphismClass("I", "I", "I", "I", "=>"));
+		gts.setDirectDerivationBuilder(GraphtransformationFactory.eINSTANCE.createProjectiveDirectDerivationBuilder());
 
-   }
-   @Test
-   public void test9() {
-      System.out.println("");
-      System.out.println("-------------------------------------------------------------");
-      System.out.println("Starting GlobalConditionsTest/Test9: " );
-      VwxyzPackage.eINSTANCE.getClass();
-      EPackage pack=TestRunner.loadTestMM("org.moflon.maave.tests.lang.vwxyz", "vwxyz");
-      
-      EClass cls=(EClass) pack.getEClassifier("CardinalityConstraintsTestPattern");
+		// Add ArityConstraints
+		MetaModelConstraintBuilder constraintBuilder = StptransformationFactory.eINSTANCE
+				.createMetaModelConstraintBuilder();
+		GlobalConstraint mmC = constraintBuilder.buildConstraints(pack);
+		gts.getGlobalConstraints().add(mmC);
 
-      ConfigurableMorphismClassFactory morClassFac =MatchingUtilsFactory.eINSTANCE.createConfigurableMorphismClassFactory();
+		SymbolicGraph graphG = ModelHelper.getRule(cls, "testPatternInvalid7").getLeft().getCodom();
 
-      
-      GraphTransformationSystem gts=GraphtransformationFactory.eINSTANCE.createGraphTransformationSystem();
-      gts.setMatchMorphismClass(morClassFac.createMorphismClass("I", "I", "I", "I", "=>"));
-      gts.setDirectDerivationBuilder(GraphtransformationFactory.eINSTANCE.createProjectiveDirectDerivationBuilder());
+		assertFalse(gts.checkConsistency(graphG).isValid());
 
-      //Add ArityConstraints
-      gts.getGlobalConstraints().add(ModelHelper.getUserDefConstraints(pack));
+	}
 
-      SymbolicGraph graphG=ModelHelper.getRule(cls,"testPatternInvalid1").getLeft().getCodom();
+	@Test
+	public void test9() {
+		System.out.println("");
+		System.out.println("-------------------------------------------------------------");
+		System.out.println("Starting GlobalConditionsTest/Test9: ");
+		VwxyzPackage.eINSTANCE.getClass();
+		EPackage pack = TestRunner.loadTestMM("org.moflon.maave.tests.lang.vwxyz", "vwxyz");
 
-      assertFalse(gts.checkConsistency(graphG).isValid());
-      SymbolicGraph graphG2=ModelHelper.getRule(cls,"testPatternInvalid2").getLeft().getCodom();
-      assertTrue(gts.checkConsistency(graphG2).isValid());
-   }
+		EClass cls = (EClass) pack.getEClassifier("CardinalityConstraintsTestPattern");
+
+		ConfigurableMorphismClassFactory morClassFac = MatchingUtilsFactory.eINSTANCE
+				.createConfigurableMorphismClassFactory();
+
+		GraphTransformationSystem gts = GraphtransformationFactory.eINSTANCE.createGraphTransformationSystem();
+		gts.setMatchMorphismClass(morClassFac.createMorphismClass("I", "I", "I", "I", "=>"));
+		gts.setDirectDerivationBuilder(GraphtransformationFactory.eINSTANCE.createProjectiveDirectDerivationBuilder());
+
+		// Add ArityConstraints
+		gts.getGlobalConstraints().add(ModelHelper.getUserDefConstraints(pack));
+
+		SymbolicGraph graphG = ModelHelper.getRule(cls, "testPatternInvalid1").getLeft().getCodom();
+
+		assertFalse(gts.checkConsistency(graphG).isValid());
+		SymbolicGraph graphG2 = ModelHelper.getRule(cls, "testPatternInvalid2").getLeft().getCodom();
+		assertTrue(gts.checkConsistency(graphG2).isValid());
+	}
 }

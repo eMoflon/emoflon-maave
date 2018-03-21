@@ -29,12 +29,11 @@ import org.gervarro.democles.constraint.CoreConstraintModule;
 import org.gervarro.democles.constraint.CoreConstraintType;
 import org.gervarro.democles.specification.ConstraintType;
 
-public final class RelationalConstraintTemplateProvider implements
-		CodeGeneratorProvider<Chain<TemplateController>> {
+public final class RelationalConstraintTemplateProvider implements CodeGeneratorProvider<Chain<TemplateController>> {
 
 	@Override
-	public final Chain<TemplateController> getTemplateController(
-			GeneratorOperation operation, Chain<TemplateController> tail) {
+	public final Chain<TemplateController> getTemplateController(GeneratorOperation operation,
+			Chain<TemplateController> tail) {
 		Adornment adornment = operation.getPrecondition();
 		if (adornment.get(0) == Adornment.BOUND && adornment.get(1) == Adornment.BOUND) {
 			ConstraintType type = (ConstraintType) operation.getType();

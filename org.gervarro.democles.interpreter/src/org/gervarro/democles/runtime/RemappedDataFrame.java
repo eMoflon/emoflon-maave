@@ -30,15 +30,15 @@ public class RemappedDataFrame extends DataFrame implements InternalDataFramePro
 		this.operation = operation;
 		this.frame = frame;
 	}
-	
+
 	public PatternBodyDataFrame getDataFrame() {
 		return frame;
 	}
-	
+
 	public RemappingOperation getOperation() {
 		return operation;
 	}
-	
+
 	public final Object internalGet(int index) {
 		if (index < 0 || index >= size()) {
 			throw new IndexOutOfBoundsException("No such variable: " + index);

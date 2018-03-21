@@ -22,5 +22,6 @@ package org.gervarro.democles.specification;
 
 public interface Variable extends ConstraintVariable {
 	String getName();
+
 	VariableType getType();
 } // Variable

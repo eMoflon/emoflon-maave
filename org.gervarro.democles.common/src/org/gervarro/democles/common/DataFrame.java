@@ -22,14 +22,14 @@ package org.gervarro.democles.common;
 
 // Tuple
 abstract public class DataFrame {
-	
+
 	public final Object getValue(int index) {
 		if (index < 0 || index >= size()) {
 			throw new IndexOutOfBoundsException("No such variable: " + index);
 		}
 		return internalGet(index);
 	}
-	
+
 	public final void setValue(int index, Object value) {
 		if (index < 0 || index >= size()) {
 			throw new IndexOutOfBoundsException("No such variable: " + index);
@@ -39,13 +39,15 @@ abstract public class DataFrame {
 		}
 		internalSet(index, value);
 	}
-	
+
 	abstract public int size();
-	
+
 	abstract public Object internalGet(int index);
+
 	abstract public void internalSet(int index, Object value);
+
 	abstract public int internalSize();
-	
+
 	// TODO rendesen megcsinalni
 	public final boolean equals(Object other) {
 		throw new UnsupportedOperationException();

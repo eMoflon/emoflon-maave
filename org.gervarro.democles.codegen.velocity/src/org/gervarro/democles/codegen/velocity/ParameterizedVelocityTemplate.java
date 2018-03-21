@@ -29,21 +29,19 @@ public class ParameterizedVelocityTemplate {
 	private final String template;
 	private final String[] keys;
 
-	public ParameterizedVelocityTemplate(final VelocityEngine engine,
-			final String template,
-			final String... keys) {
+	public ParameterizedVelocityTemplate(final VelocityEngine engine, final String template, final String... keys) {
 		this.engine = engine;
 		this.template = template;
 		this.keys = keys.length > 0 ? keys : new String[] {};
 	}
 
-    public final Renderable apply(Object[] params) {
-    	if (keys.length == params.length) {
-    		params = params.length > 0 ? params : new Object[] {};
-    		return new ParameterizedVelocityTemplateInvocation(engine, template, keys, params);
-    	} else {
-    		throw new VelocityException("Template " + template +
-    				": " + keys.length + " parameters required, but invoked with " + params.length + " parameters");
-    	}
-    }
+	public final Renderable apply(Object[] params) {
+		if (keys.length == params.length) {
+			params = params.length > 0 ? params : new Object[] {};
+			return new ParameterizedVelocityTemplateInvocation(engine, template, keys, params);
+		} else {
+			throw new VelocityException("Template " + template + ": " + keys.length
+					+ " parameters required, but invoked with " + params.length + " parameters");
+		}
+	}
 }

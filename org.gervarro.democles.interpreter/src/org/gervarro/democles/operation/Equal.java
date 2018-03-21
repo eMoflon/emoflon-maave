@@ -30,7 +30,7 @@ public final class Equal extends AdornedOperation {
 	public Equal() {
 		super(AdornedOperation.BOUND_BOUND, AdornedOperation.BOUND_BOUND);
 	}
-	
+
 	public final InternalDataFrameProvider getDataFrame(RemappedDataFrame frame, Adornment adornment) {
 		if (adornment.get(0) == Adornment.BOUND && adornment.get(1) == Adornment.BOUND) {
 			Object src = frame.getValue(0);

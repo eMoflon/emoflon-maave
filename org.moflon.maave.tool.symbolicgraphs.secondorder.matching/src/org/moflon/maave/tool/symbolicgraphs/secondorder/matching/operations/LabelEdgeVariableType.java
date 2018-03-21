@@ -5,11 +5,9 @@ import org.moflon.maave.tool.symbolicgraphs.secondorder.matching.emf.constraint.
 
 public class LabelEdgeVariableType extends GraphElementVariableType {
 
-	public LabelEdgeVariableType(EModelElement typeGraphElement,SymbolicGraphConstraintModule module) {
+	public LabelEdgeVariableType(EModelElement typeGraphElement, SymbolicGraphConstraintModule module) {
 		super(typeGraphElement, module);
 		// TODO Auto-generated constructor stub
 	}
-	
-	
 
 }

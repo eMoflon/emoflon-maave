@@ -32,26 +32,23 @@ import org.gervarro.democles.plan.OperationCategory;
 import org.gervarro.democles.plan.WeightedOperation;
 import org.gervarro.democles.specification.impl.Constraint;
 
-abstract public class SearchPlan<C extends OperationCombiner<C,O>, O extends OperationRuntime, W extends Comparable<W>, SP extends SearchPlan<C,O,W,SP>> implements org.gervarro.democles.plan.SearchPlan<O,W,SP>, Comparable<SP> {
+abstract public class SearchPlan<C extends OperationCombiner<C, O>, O extends OperationRuntime, W extends Comparable<W>, SP extends SearchPlan<C, O, W, SP>>
+		implements org.gervarro.democles.plan.SearchPlan<O, W, SP>, Comparable<SP> {
 	private boolean hasFreshLists;
 	private final C root;
 	private Adornment adornment;
 	private Set<Constraint> uncheckedConstraints;
 	private final W cost;
-	private List<WeightedOperation<O,W>> present;
-	private List<WeightedOperation<O,W>> future;
+	private List<WeightedOperation<O, W>> present;
+	private List<WeightedOperation<O, W>> future;
 
 	@SuppressWarnings("unchecked")
 	private static <U, W extends Comparable<W>> WeightedOperation<U, W>[] createArray(int size) {
 		return new WeightedOperation[size];
 	}
-	
-	protected SearchPlan(C root,
-			Adornment adornment,
-			final Set<Constraint> uncheckedConstraints,
-			final W cost,
-			List<WeightedOperation<O, W>> present,
-			List<WeightedOperation<O, W>> future) {
+
+	protected SearchPlan(C root, Adornment adornment, final Set<Constraint> uncheckedConstraints, final W cost,
+			List<WeightedOperation<O, W>> present, List<WeightedOperation<O, W>> future) {
 		this.hasFreshLists = false;
 		this.root = root;
 		this.adornment = adornment;
@@ -60,7 +57,7 @@ abstract public class SearchPlan<C extends OperationCombiner<C,O>, O extends Ope
 		this.present = present;
 		this.future = future;
 	}
-	
+
 	private final OperationCategory categorize(O operation) {
 		OperationCategory result = OperationCategory.PRESENT;
 		final Adornment precondition = operation.getPrecondition();
@@ -76,7 +73,7 @@ abstract public class SearchPlan<C extends OperationCombiner<C,O>, O extends Ope
 		}
 		return result;
 	}
-	
+
 	boolean hasSameOrigin(O operation) {
 		return root.getLast() != null ? root.getLast().getOrigin() == operation.getOrigin() : false;
 	}
@@ -88,26 +85,25 @@ abstract public class SearchPlan<C extends OperationCombiner<C,O>, O extends Ope
 			public Iterator<SP> iterator() {
 				return new SearchPlanIterator();
 			}
-			
+
 		};
 	}
-	
+
 	public final void refreshOperationLists() {
 		if (hasFreshLists) {
 			return;
 		}
-		
-		WeightedOperation<O,W>[] pArray = createArray(present.size());
+
+		WeightedOperation<O, W>[] pArray = createArray(present.size());
 		pArray = present.toArray(pArray);
-		WeightedOperation<O,W>[] fArray = createArray(future.size());
+		WeightedOperation<O, W>[] fArray = createArray(future.size());
 		fArray = future.toArray(fArray);
-		present = new LinkedList<WeightedOperation<O,W>>();
-		future = new LinkedList<WeightedOperation<O,W>>();
-		
-		for (int p = 0, f = 0; p < pArray.length || f < fArray.length; ) {
-			WeightedOperation<O,W> smaller = 
-				p < pArray.length && (f >= fArray.length || pArray[p].compareTo(fArray[f]) <= 0) ? 
-						pArray[p++] : fArray[f++];
+		present = new LinkedList<WeightedOperation<O, W>>();
+		future = new LinkedList<WeightedOperation<O, W>>();
+
+		for (int p = 0, f = 0; p < pArray.length || f < fArray.length;) {
+			WeightedOperation<O, W> smaller = p < pArray.length
+					&& (f >= fArray.length || pArray[p].compareTo(fArray[f]) <= 0) ? pArray[p++] : fArray[f++];
 			if (!hasSameOrigin(smaller.getOperation())) {
 				final OperationCategory category = categorize(smaller.getOperation());
 				if (category == OperationCategory.FUTURE) {
@@ -120,11 +116,11 @@ abstract public class SearchPlan<C extends OperationCombiner<C,O>, O extends Ope
 		}
 		hasFreshLists = true;
 	}
-	
+
 	public final Adornment getAdornment() {
 		return adornment;
 	}
-	
+
 	protected final Set<Constraint> getUncheckedConstraints() {
 		return uncheckedConstraints;
 	}
@@ -136,21 +132,22 @@ abstract public class SearchPlan<C extends OperationCombiner<C,O>, O extends Ope
 	public final C getRoot() {
 		return root;
 	}
-	
-	public final List<WeightedOperation<O,W>> getPresentOperations() {
+
+	public final List<WeightedOperation<O, W>> getPresentOperations() {
 		return present;
 	}
-	
-	protected final List<WeightedOperation<O,W>> getFutureOperations() {
+
+	protected final List<WeightedOperation<O, W>> getFutureOperations() {
 		return future;
 	}
-	
+
 	abstract public int compareTo(SP o);
-	abstract public SP combine(WeightedOperation<O,W> operation);
-	
+
+	abstract public SP combine(WeightedOperation<O, W> operation);
+
 	private class SearchPlanIterator implements Iterator<SP> {
-		private final Iterator<WeightedOperation<O,W>> iterator;
-		
+		private final Iterator<WeightedOperation<O, W>> iterator;
+
 		private SearchPlanIterator() {
 			this.iterator = present.iterator();
 		}

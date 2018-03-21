@@ -29,24 +29,27 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 
 public class ResourceProxy extends XMIResourceImpl {
-	
+
 	public ResourceProxy(URI uri) {
 		super(uri);
 	}
-	
+
 	public EObject getEObject(String uriFragment) {
 		EObject result = super.getEObject(uriFragment);
 		if (isLoaded && !isLoading && result instanceof EModelElement) {
 			for (EObject current = result; current != null; current = current.eContainer()) {
 				if (current instanceof EPackage) {
 					EPackage ePackageInFile = (EPackage) current;
-//					String prefix = getURIFragment(ePackageInFile);
-//					if (uriFragment.startsWith(prefix)) {
-//						InternalEObject proxy = (InternalEObject) EcorePackage.eINSTANCE.getEcoreFactory().create(result.eClass());
-//						proxy.eSetProxyURI(URI.createURI(ePackageInFile.getNsURI()).appendFragment("/" + uriFragment.substring(prefix.length())));
-//						return proxy;
-//					}
-					InternalEObject proxy = (InternalEObject) EcorePackage.eINSTANCE.getEcoreFactory().create(result.eClass());
+					// String prefix = getURIFragment(ePackageInFile);
+					// if (uriFragment.startsWith(prefix)) {
+					// InternalEObject proxy = (InternalEObject)
+					// EcorePackage.eINSTANCE.getEcoreFactory().create(result.eClass());
+					// proxy.eSetProxyURI(URI.createURI(ePackageInFile.getNsURI()).appendFragment("/"
+					// + uriFragment.substring(prefix.length())));
+					// return proxy;
+					// }
+					InternalEObject proxy = (InternalEObject) EcorePackage.eINSTANCE.getEcoreFactory()
+							.create(result.eClass());
 					proxy.eSetProxyURI(URI.createURI(ePackageInFile.getNsURI()).appendFragment(uriFragment));
 					return proxy;
 				}
@@ -54,7 +57,7 @@ public class ResourceProxy extends XMIResourceImpl {
 		}
 		return result;
 	}
-	
+
 	public void doUnload() {
 		super.doUnload();
 	}

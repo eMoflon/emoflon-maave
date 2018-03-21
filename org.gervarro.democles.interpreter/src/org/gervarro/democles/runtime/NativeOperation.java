@@ -23,7 +23,7 @@ package org.gervarro.democles.runtime;
 import org.gervarro.democles.event.MatchEventSource;
 
 public class NativeOperation extends MatchEventSource {
-	
+
 	protected final RemappedDataFrame createDataFrame(RemappedDataFrame data) {
 		RemappingOperation ro = data.getOperation();
 		PatternBodyDataFrame oldDataFrame = data.getDataFrame();

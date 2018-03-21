@@ -30,20 +30,20 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 import org.gervarro.democles.common.PatternMatcherPlugin;
 
 public class PatternResource extends XMIResourceImpl {
-	
+
 	public PatternResource(URI uri) {
 		super(uri);
 	}
-	
+
 	private final PatternMatcherPluginAdapter getPluginAdapter() {
 		EList<Adapter> adapters = getResourceSet().eAdapters();
 		return (PatternMatcherPluginAdapter) EcoreUtil.getAdapter(adapters, PatternMatcherPluginAdapter.class);
 	}
-	
+
 	final PatternMatcherPlugin getPlugin() {
 		return getPluginAdapter().getPlugin();
 	}
-	
+
 	public NotificationChain basicSetResourceSet(ResourceSet newResourceSet, NotificationChain notifications) {
 		NotificationChain result = super.basicSetResourceSet(newResourceSet, notifications);
 		if (getResourceSet() != null) {
@@ -56,7 +56,7 @@ public class PatternResource extends XMIResourceImpl {
 		}
 		return result;
 	}
-	
+
 	protected final Helper createXMLHelper() {
 		return new Helper(this);
 	}

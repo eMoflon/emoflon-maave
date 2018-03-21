@@ -26,19 +26,17 @@ import org.gervarro.democles.common.OperationCombiner;
 public class SimpleCombiner implements OperationCombiner<SimpleCombiner, GeneratorOperation> {
 	private final Adornment adornment;
 	private final Chain<GeneratorOperation> last;
-	
+
 	public SimpleCombiner(final Adornment adornment) {
 		this.adornment = adornment;
 		this.last = null;
 	}
-	
-	private SimpleCombiner(final SimpleCombiner src,
-			final Adornment adornment,
-			final GeneratorOperation second) {
+
+	private SimpleCombiner(final SimpleCombiner src, final Adornment adornment, final GeneratorOperation second) {
 		this.adornment = adornment;
 		this.last = new Chain<GeneratorOperation>(second, src.last);
 	}
-	
+
 	public final SimpleCombiner combine(final GeneratorOperation second) {
 		return new SimpleCombiner(this, adornment.applyOperationMask(second), second);
 	}

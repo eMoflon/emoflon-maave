@@ -27,8 +27,8 @@ import org.gervarro.extension.ExtensionStub;
 public class TypeModuleProxy extends ExtensionStub<TypeModule> implements TypeModule {
 	private final String moduleName;
 
-	public TypeModuleProxy(ExtensionClassLoader extensionClassLoader,
-			String className, ExtensionLoader extensionLoader, String moduleName) {
+	public TypeModuleProxy(ExtensionClassLoader extensionClassLoader, String className, ExtensionLoader extensionLoader,
+			String moduleName) {
 		super(extensionClassLoader, className, extensionLoader);
 		this.moduleName = moduleName;
 	}
@@ -37,7 +37,7 @@ public class TypeModuleProxy extends ExtensionStub<TypeModule> implements TypeMo
 		super(origin);
 		this.moduleName = origin.moduleName;
 	}
-	
+
 	public final void resolve() {
 		getDelegate();
 	}

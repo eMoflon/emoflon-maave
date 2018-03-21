@@ -27,7 +27,7 @@ public final class Reference extends StructuralFeature<EReference> {
 	public Reference(EMFConstraintModule module, EReference linkedElement) {
 		super(module, linkedElement);
 	}
-	
+
 	public final boolean isBidirectional() {
 		return getLinkedElement().getEOpposite() != null;
 	}

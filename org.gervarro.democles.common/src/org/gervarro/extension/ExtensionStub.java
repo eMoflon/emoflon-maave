@@ -26,17 +26,17 @@ public class ExtensionStub<T> {
 	private ExtensionLoader extensionLoader;
 	private T realObject;
 	private boolean forceCreate = true;
-	
+
 	public ExtensionStub(ExtensionClassLoader extensionClassLoader, String className, ExtensionLoader extensionLoader) {
 		this.extensionClassLoader = extensionClassLoader;
 		this.className = className;
 		this.extensionLoader = extensionLoader;
 	}
-	
+
 	public ExtensionStub(ExtensionStub<T> origin) {
 		this(origin.extensionClassLoader, origin.className, origin.extensionLoader);
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	protected synchronized final T getDelegate() {
 		if (realObject == null && forceCreate) {
@@ -53,11 +53,11 @@ public class ExtensionStub<T> {
 		}
 		return realObject;
 	}
-	
+
 	public synchronized final boolean isProxy() {
 		return realObject == null;
 	}
-	
+
 	public synchronized final boolean isValid() {
 		return forceCreate;
 	}

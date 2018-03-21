@@ -1,7 +1,6 @@
 
 package org.moflon.maave.tool.symbolicgraphs.secondorder.matching.operations;
 
-
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.gervarro.democles.common.Adornment;
@@ -17,7 +16,6 @@ import org.gervarro.democles.specification.ConstraintType;
 import org.gervarro.democles.specification.impl.Constraint;
 import org.gervarro.democles.specification.impl.Variable;
 
-
 public class EGraphGraphWeightedOperationBuilder<T extends OperationRuntime> extends EMFWeightedOperationBuilder<T> {
 	public int getWeight(T operation) {
 		Adornment adornment = operation.getPrecondition();
@@ -27,7 +25,8 @@ public class EGraphGraphWeightedOperationBuilder<T extends OperationRuntime> ext
 			ConstraintType cType = constraint.getType();
 
 			if (adornment.numberOfFrees() == 0) {
-				if (cType instanceof PatternInvocationConstraintType && !((PatternInvocationConstraintType) cType).isPositive()) {
+				if (cType instanceof PatternInvocationConstraintType
+						&& !((PatternInvocationConstraintType) cType).isPositive()) {
 					return 5;
 				}
 				if (cType instanceof EMFConstraint<?>) {
@@ -35,7 +34,7 @@ public class EGraphGraphWeightedOperationBuilder<T extends OperationRuntime> ext
 				}
 				return -10;
 			}
-			
+
 			if (cType instanceof Reference && ((Reference) cType).isBidirectional()) {
 				Reference emfType = (Reference) cType;
 				if (adornment.get(0) == Adornment.BOUND && adornment.get(1) == Adornment.FREE) {
@@ -48,7 +47,7 @@ public class EGraphGraphWeightedOperationBuilder<T extends OperationRuntime> ext
 				}
 			} else if (cType instanceof StructuralFeature<?>) {
 				StructuralFeature<?> emfType = (StructuralFeature<?>) cType;
-				if(emfType.getLinkedElement().getEContainingClass().getName().startsWith("SymbolicGraph")){
+				if (emfType.getLinkedElement().getEContainingClass().getName().startsWith("SymbolicGraph")) {
 					return 50;
 				}
 				if (adornment.get(0) == Adornment.BOUND && adornment.get(1) == Adornment.FREE) {
@@ -59,7 +58,8 @@ public class EGraphGraphWeightedOperationBuilder<T extends OperationRuntime> ext
 				return -5;
 			} else if (cType == CoreConstraintModule.EQUAL) {
 				return -5;
-			} else if (cType instanceof PatternInvocationConstraintType && ((PatternInvocationConstraintType) cType).isPositive()) {
+			} else if (cType instanceof PatternInvocationConstraintType
+					&& ((PatternInvocationConstraintType) cType).isPositive()) {
 				return 10;
 			}
 		} else if (object instanceof Variable) {

@@ -26,7 +26,7 @@ import java.util.NoSuchElementException;
 public class ChainIterator<E extends Chain<V>, V> implements Iterator<V> {
 	private E head;
 	private E last = null;
-	
+
 	ChainIterator(final E head) {
 		this.head = head;
 	}
@@ -46,7 +46,7 @@ public class ChainIterator<E extends Chain<V>, V> implements Iterator<V> {
 			throw new NoSuchElementException();
 		}
 	}
-	
+
 	@Override
 	public void remove() {
 		if (last != null) {

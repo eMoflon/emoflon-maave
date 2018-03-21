@@ -17,26 +17,25 @@ import org.gervarro.democles.specification.emf.SpecificationPackage;
 import org.gervarro.democles.specification.emf.Variable;
 
 /**
- * <!-- begin-user-doc -->
- * The <b>Adapter Factory</b> for the model.
- * It provides an adapter <code>createXXX</code> method for each class of the model.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> The <b>Adapter Factory</b> for the model. It provides
+ * an adapter <code>createXXX</code> method for each class of the model. <!--
+ * end-user-doc -->
+ * 
  * @see org.gervarro.democles.specification.emf.SpecificationPackage
  * @generated
  */
 public class SpecificationAdapterFactory extends AdapterFactoryImpl {
 	/**
-	 * The cached model package.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached model package. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected static SpecificationPackage modelPackage;
 
 	/**
-	 * Creates an instance of the adapter factory.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Creates an instance of the adapter factory. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public SpecificationAdapterFactory() {
@@ -46,10 +45,11 @@ public class SpecificationAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Returns whether this factory is applicable for the type of the object.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns <code>true</code> if the object is either the model's package or is an instance object of the model.
+	 * Returns whether this factory is applicable for the type of the object. <!--
+	 * begin-user-doc --> This implementation returns <code>true</code> if the
+	 * object is either the model's package or is an instance object of the model.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return whether this factory is applicable for the type of the object.
 	 * @generated
 	 */
@@ -59,77 +59,85 @@ public class SpecificationAdapterFactory extends AdapterFactoryImpl {
 			return true;
 		}
 		if (object instanceof EObject) {
-			return ((EObject)object).eClass().getEPackage() == modelPackage;
+			return ((EObject) object).eClass().getEPackage() == modelPackage;
 		}
 		return false;
 	}
 
 	/**
-	 * The switch that delegates to the <code>createXXX</code> methods.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The switch that delegates to the <code>createXXX</code> methods. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	protected SpecificationSwitch<Adapter> modelSwitch =
-		new SpecificationSwitch<Adapter>() {
-			@Override
-			public Adapter casePattern(Pattern object) {
-				return createPatternAdapter();
-			}
-			@Override
-			public Adapter casePatternBody(PatternBody object) {
-				return createPatternBodyAdapter();
-			}
-			@Override
-			public Adapter caseConstraint(Constraint object) {
-				return createConstraintAdapter();
-			}
-			@Override
-			public Adapter caseConstraintVariable(ConstraintVariable object) {
-				return createConstraintVariableAdapter();
-			}
-			@Override
-			public Adapter caseVariable(Variable object) {
-				return createVariableAdapter();
-			}
-			@Override
-			public Adapter caseConstant(Constant object) {
-				return createConstantAdapter();
-			}
-			@Override
-			public Adapter casePatternInvocationConstraint(PatternInvocationConstraint object) {
-				return createPatternInvocationConstraintAdapter();
-			}
-			@Override
-			public Adapter caseConstraintParameter(ConstraintParameter object) {
-				return createConstraintParameterAdapter();
-			}
-			@Override
-			public Adapter defaultCase(EObject object) {
-				return createEObjectAdapter();
-			}
-		};
+	protected SpecificationSwitch<Adapter> modelSwitch = new SpecificationSwitch<Adapter>() {
+		@Override
+		public Adapter casePattern(Pattern object) {
+			return createPatternAdapter();
+		}
+
+		@Override
+		public Adapter casePatternBody(PatternBody object) {
+			return createPatternBodyAdapter();
+		}
+
+		@Override
+		public Adapter caseConstraint(Constraint object) {
+			return createConstraintAdapter();
+		}
+
+		@Override
+		public Adapter caseConstraintVariable(ConstraintVariable object) {
+			return createConstraintVariableAdapter();
+		}
+
+		@Override
+		public Adapter caseVariable(Variable object) {
+			return createVariableAdapter();
+		}
+
+		@Override
+		public Adapter caseConstant(Constant object) {
+			return createConstantAdapter();
+		}
+
+		@Override
+		public Adapter casePatternInvocationConstraint(PatternInvocationConstraint object) {
+			return createPatternInvocationConstraintAdapter();
+		}
+
+		@Override
+		public Adapter caseConstraintParameter(ConstraintParameter object) {
+			return createConstraintParameterAdapter();
+		}
+
+		@Override
+		public Adapter defaultCase(EObject object) {
+			return createEObjectAdapter();
+		}
+	};
 
 	/**
-	 * Creates an adapter for the <code>target</code>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param target the object to adapt.
+	 * Creates an adapter for the <code>target</code>. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @param target
+	 *            the object to adapt.
 	 * @return the adapter for the <code>target</code>.
 	 * @generated
 	 */
 	@Override
 	public Adapter createAdapter(Notifier target) {
-		return modelSwitch.doSwitch((EObject)target);
+		return modelSwitch.doSwitch((EObject) target);
 	}
 
-
 	/**
-	 * Creates a new adapter for an object of class '{@link org.gervarro.democles.specification.emf.Pattern <em>Pattern</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
+	 * Creates a new adapter for an object of class
+	 * '{@link org.gervarro.democles.specification.emf.Pattern <em>Pattern</em>}'.
+	 * <!-- begin-user-doc --> This default implementation returns null so that we
+	 * can easily ignore cases; it's useful to ignore a case when inheritance will
+	 * catch all the cases anyway. <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.gervarro.democles.specification.emf.Pattern
 	 * @generated
@@ -139,11 +147,12 @@ public class SpecificationAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.gervarro.democles.specification.emf.PatternBody <em>Pattern Body</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
+	 * Creates a new adapter for an object of class
+	 * '{@link org.gervarro.democles.specification.emf.PatternBody <em>Pattern
+	 * Body</em>}'. <!-- begin-user-doc --> This default implementation returns null
+	 * so that we can easily ignore cases; it's useful to ignore a case when
+	 * inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.gervarro.democles.specification.emf.PatternBody
 	 * @generated
@@ -153,11 +162,12 @@ public class SpecificationAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.gervarro.democles.specification.emf.Constraint <em>Constraint</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
+	 * Creates a new adapter for an object of class
+	 * '{@link org.gervarro.democles.specification.emf.Constraint
+	 * <em>Constraint</em>}'. <!-- begin-user-doc --> This default implementation
+	 * returns null so that we can easily ignore cases; it's useful to ignore a case
+	 * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.gervarro.democles.specification.emf.Constraint
 	 * @generated
@@ -167,11 +177,13 @@ public class SpecificationAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.gervarro.democles.specification.emf.ConstraintVariable <em>Constraint Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
+	 * Creates a new adapter for an object of class
+	 * '{@link org.gervarro.democles.specification.emf.ConstraintVariable
+	 * <em>Constraint Variable</em>}'. <!-- begin-user-doc --> This default
+	 * implementation returns null so that we can easily ignore cases; it's useful
+	 * to ignore a case when inheritance will catch all the cases anyway. <!--
+	 * end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.gervarro.democles.specification.emf.ConstraintVariable
 	 * @generated
@@ -181,11 +193,12 @@ public class SpecificationAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.gervarro.democles.specification.emf.Variable <em>Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
+	 * Creates a new adapter for an object of class
+	 * '{@link org.gervarro.democles.specification.emf.Variable <em>Variable</em>}'.
+	 * <!-- begin-user-doc --> This default implementation returns null so that we
+	 * can easily ignore cases; it's useful to ignore a case when inheritance will
+	 * catch all the cases anyway. <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.gervarro.democles.specification.emf.Variable
 	 * @generated
@@ -195,11 +208,12 @@ public class SpecificationAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.gervarro.democles.specification.emf.Constant <em>Constant</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
+	 * Creates a new adapter for an object of class
+	 * '{@link org.gervarro.democles.specification.emf.Constant <em>Constant</em>}'.
+	 * <!-- begin-user-doc --> This default implementation returns null so that we
+	 * can easily ignore cases; it's useful to ignore a case when inheritance will
+	 * catch all the cases anyway. <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.gervarro.democles.specification.emf.Constant
 	 * @generated
@@ -209,11 +223,13 @@ public class SpecificationAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.gervarro.democles.specification.emf.PatternInvocationConstraint <em>Pattern Invocation Constraint</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * Creates a new adapter for an object of class
+	 * '{@link org.gervarro.democles.specification.emf.PatternInvocationConstraint
+	 * <em>Pattern Invocation Constraint</em>}'. <!-- begin-user-doc --> This
+	 * default implementation returns null so that we can easily ignore cases; it's
+	 * useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.gervarro.democles.specification.emf.PatternInvocationConstraint
 	 * @generated
@@ -223,11 +239,13 @@ public class SpecificationAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.gervarro.democles.specification.emf.ConstraintParameter <em>Constraint Parameter</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
+	 * Creates a new adapter for an object of class
+	 * '{@link org.gervarro.democles.specification.emf.ConstraintParameter
+	 * <em>Constraint Parameter</em>}'. <!-- begin-user-doc --> This default
+	 * implementation returns null so that we can easily ignore cases; it's useful
+	 * to ignore a case when inheritance will catch all the cases anyway. <!--
+	 * end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.gervarro.democles.specification.emf.ConstraintParameter
 	 * @generated
@@ -237,10 +255,9 @@ public class SpecificationAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for the default case.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null.
-	 * <!-- end-user-doc -->
+	 * Creates a new adapter for the default case. <!-- begin-user-doc --> This
+	 * default implementation returns null. <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @generated
 	 */
@@ -248,4 +265,4 @@ public class SpecificationAdapterFactory extends AdapterFactoryImpl {
 		return null;
 	}
 
-} //SpecificationAdapterFactory
+} // SpecificationAdapterFactory

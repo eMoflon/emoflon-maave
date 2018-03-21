@@ -21,12 +21,13 @@ import org.moflon.maave.tool.symbolicgraphs.secondorder.matching.MatchingUtils.M
 import de.tudarmstadt.maki.modeling.jvlc.JvlcPackage;
 
 /**
- * Setup instructions
- * * Confirmed to work with eMoflon 2.31.0
- * * VM Arguments (for Z3)
- *    * -Djava.library.path=${workspace_loc}/org.moflon.maave.tool.smt.z3/lib/z3-4.3.2-x64-win/bin
- * * PATH=${workspace_loc}/org.moflon.maave.tool.smt.z3/lib/z3-4.3.2-x64-win/bin;${env_var:PATH}
- * * java.library.path=${workspace_loc}/org.moflon.maave.tool.smt.z3/lib/z3-4.3.2-x64-win/bin
+ * Setup instructions * Confirmed to work with eMoflon 2.31.0 * VM Arguments
+ * (for Z3) *
+ * -Djava.library.path=${workspace_loc}/org.moflon.maave.tool.smt.z3/lib/z3-4.3.2-x64-win/bin
+ * *
+ * PATH=${workspace_loc}/org.moflon.maave.tool.smt.z3/lib/z3-4.3.2-x64-win/bin;${env_var:PATH}
+ * *
+ * java.library.path=${workspace_loc}/org.moflon.maave.tool.smt.z3/lib/z3-4.3.2-x64-win/bin
  * * CurrentWSLoc=${workspace_loc}
  * 
  * @author Frederik Deckwerth
@@ -45,7 +46,8 @@ public class kTCExample {
 		EPackage pack = TestRunner.loadTestMM("de.tudarmstadt.maki.modeling.jvlc", "Jvlc");
 		EClass clsSemester = (EClass) pack.getEClassifier("DistanceKTC");
 		SymbGTRule rule1 = ModelHelper.getPattern(clsSemester, "runOnNode", "FindTriangle");
-//		SymbGTRule rule2 = ModelHelper.getPattern(clsSemester, "runOnNode", "FindTriangle2");
+		// SymbGTRule rule2 = ModelHelper.getPattern(clsSemester, "runOnNode",
+		// "FindTriangle2");
 		ConfigurableMorphismClassFactory morClassFac = MatchingUtilsFactory.eINSTANCE
 				.createConfigurableMorphismClassFactory();
 
@@ -56,25 +58,26 @@ public class kTCExample {
 		gts.setMatchMorphismClass(morClassFac.createMorphismClass("I", "I", "I", "I", "=>"));
 		gts.setDirectDerivationBuilder(GraphtransformationFactory.eINSTANCE.createProjectiveDirectDerivationBuilder());
 
-		 //Add ArityConstraints
-      MetaModelConstraintBuilder constraintBuilder=StptransformationFactory.eINSTANCE.createMetaModelConstraintBuilder();
-      GlobalConstraint mmC=constraintBuilder.buildConstraints(pack);
-      gts.getGlobalConstraints().add(mmC);
-      //Add user defined constraints
-      /*
-		 * Instructions
-		 * - Create a class 'UserDefinedConstraints'
-		 * - Operations starting with '_NC_'
-		 * - In each operation: SDM with single pattern that specifies **valid** metamodel instances
+		// Add ArityConstraints
+		MetaModelConstraintBuilder constraintBuilder = StptransformationFactory.eINSTANCE
+				.createMetaModelConstraintBuilder();
+		GlobalConstraint mmC = constraintBuilder.buildConstraints(pack);
+		gts.getGlobalConstraints().add(mmC);
+		// Add user defined constraints
+		/*
+		 * Instructions - Create a class 'UserDefinedConstraints' - Operations starting
+		 * with '_NC_' - In each operation: SDM with single pattern that specifies
+		 * **valid** metamodel instances
 		 */
-      gts.getGlobalConstraints().add(ModelHelper.getUserDefConstraints(pack));
+		gts.getGlobalConstraints().add(ModelHelper.getUserDefConstraints(pack));
 
 		SubcommutativityModuloNFEQAnalyser directConfluenceAnalyser = ConfluenceFactory.eINSTANCE
 				.createSubcommutativityModuloNFEQAnalyser();
 		ConfluenceAnalysisReport report = directConfluenceAnalyser.checkConfluence(gts);
 		System.out.println(report);
 
-//		System.out.println(ConfluenceAnalysisResultPrinter.printConfluenceReport(report, true, false, true, true));
+		// System.out.println(ConfluenceAnalysisResultPrinter.printConfluenceReport(report,
+		// true, false, true, true));
 
 		System.out.println("Finished at " + new Date());
 

@@ -21,5 +21,5 @@
 package org.gervarro.democles.specification.impl;
 
 public abstract class ConstraintVariable implements org.gervarro.democles.specification.ConstraintVariable {
-	
+
 }

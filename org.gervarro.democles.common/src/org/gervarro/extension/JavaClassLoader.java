@@ -21,7 +21,7 @@
 package org.gervarro.extension;
 
 class JavaClassLoader implements ExtensionClassLoader {
-	
+
 	JavaClassLoader() {
 		// Do nothing
 	}

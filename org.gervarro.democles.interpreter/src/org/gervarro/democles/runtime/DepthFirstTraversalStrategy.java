@@ -25,7 +25,7 @@ public class DepthFirstTraversalStrategy implements SchedulingStrategy {
 	public final boolean requiresNewDataFrame() {
 		return false;
 	}
-	
+
 	public int compare(Task t1, Task t2) {
 		return getID(t1) - getID(t2);
 	}

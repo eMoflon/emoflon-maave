@@ -26,274 +26,291 @@ import SDMLanguage.activities.MoflonEOperation;
 import SDMLanguage.activities.StoryNode;
 
 public class ConfluenceProjTestGAMPaper {
-     
 
-   @Test
-   public void test1() {
-      System.out.println("Starting ConfluenceProjTestGAMPaper/Test1" );
-      DiachasePackage.eINSTANCE.getClass();
-      MnoqPackage.eINSTANCE.getClass();
-      
-      EPackage pack=TestRunner.loadTestMM("org.moflon.maave.tests.testgen.diachase", "Diachase");
-      EClass cls=(EClass) pack.getEClassifier("PaperExampleTest");
-      MoflonEOperation op1=(MoflonEOperation) cls.getEOperations().stream().filter(x->x.getName().equals("ruleAddOne")).findFirst().get();
-      MoflonEOperation op2=(MoflonEOperation) cls.getEOperations().stream().filter(x->x.getName().equals("ruleLarger4")).findFirst().get();
-      Assert.assertTrue("FailedAssert: 0",op1!=null && op2!=null);
-      StoryNode stn1=(StoryNode) op1.getActivity().getOwnedActivityNode().stream().filter(x->x instanceof StoryNode).collect(Collectors.toList()).get(0);
-      StoryNode stn2=(StoryNode) op2.getActivity().getOwnedActivityNode().stream().filter(x->x instanceof StoryNode).collect(Collectors.toList()).get(0);
+	@Test
+	public void test1() {
+		System.out.println("Starting ConfluenceProjTestGAMPaper/Test1");
+		DiachasePackage.eINSTANCE.getClass();
+		MnoqPackage.eINSTANCE.getClass();
 
-      Transformer transformer=StptransformationFactory.eINSTANCE.createTransformer();
-      SymbGTRule rule1=transformer.transformStpToProjGTRule(stn1.getStoryPattern());
-      SymbGTRule rule2=transformer.transformStpToProjGTRule(stn2.getStoryPattern());
-      
-      ConfigurableMorphismClassFactory morClassFac =MatchingUtilsFactory.eINSTANCE.createConfigurableMorphismClassFactory();
-       
-      
-      GraphTransformationSystem gts=GraphtransformationFactory.eINSTANCE.createGraphTransformationSystem();
-      gts.getRules().add(rule1);
-      gts.getRules().add(rule2);
-      gts.setMatchMorphismClass(morClassFac.createMorphismClass("I", "I", "I", "I", "=>"));
-      gts.setDirectDerivationBuilder(GraphtransformationFactory.eINSTANCE.createProjectiveDirectDerivationBuilder());
-      
-      SubcommutativityModuloNFEQAnalyser directConfluenceAnalyser=ConfluenceFactory.eINSTANCE.createSubcommutativityModuloNFEQAnalyser();
-      
-      ConfluenceAnalysisReport report=directConfluenceAnalyser.checkConfluence(gts);
-      
-      assertTrue(report.getConfluenceStates().stream().allMatch(x->x.isValid()));
+		EPackage pack = TestRunner.loadTestMM("org.moflon.maave.tests.testgen.diachase", "Diachase");
+		EClass cls = (EClass) pack.getEClassifier("PaperExampleTest");
+		MoflonEOperation op1 = (MoflonEOperation) cls.getEOperations().stream()
+				.filter(x -> x.getName().equals("ruleAddOne")).findFirst().get();
+		MoflonEOperation op2 = (MoflonEOperation) cls.getEOperations().stream()
+				.filter(x -> x.getName().equals("ruleLarger4")).findFirst().get();
+		Assert.assertTrue("FailedAssert: 0", op1 != null && op2 != null);
+		StoryNode stn1 = (StoryNode) op1.getActivity().getOwnedActivityNode().stream()
+				.filter(x -> x instanceof StoryNode).collect(Collectors.toList()).get(0);
+		StoryNode stn2 = (StoryNode) op2.getActivity().getOwnedActivityNode().stream()
+				.filter(x -> x instanceof StoryNode).collect(Collectors.toList()).get(0);
 
+		Transformer transformer = StptransformationFactory.eINSTANCE.createTransformer();
+		SymbGTRule rule1 = transformer.transformStpToProjGTRule(stn1.getStoryPattern());
+		SymbGTRule rule2 = transformer.transformStpToProjGTRule(stn2.getStoryPattern());
 
+		ConfigurableMorphismClassFactory morClassFac = MatchingUtilsFactory.eINSTANCE
+				.createConfigurableMorphismClassFactory();
 
-   }
-   
-   @Test
-   public void test2() {
-      System.out.println("Starting ConfluenceProjTestGAMPaper/Test2" );
-      DiachasePackage.eINSTANCE.getClass();
-      MnoqPackage.eINSTANCE.getClass();
-      
-      EPackage pack=TestRunner.loadTestMM("org.moflon.maave.tests.testgen.diachase", "Diachase");
-      EClass cls=(EClass) pack.getEClassifier("PaperExampleTest");
-      MoflonEOperation op1=(MoflonEOperation) cls.getEOperations().stream().filter(x->x.getName().equals("ruleAddOne")).findFirst().get();
-      MoflonEOperation op2=(MoflonEOperation) cls.getEOperations().stream().filter(x->x.getName().equals("ruleSmaller4")).findFirst().get();
-      Assert.assertTrue("FailedAssert: 0",op1!=null && op2!=null);
-      StoryNode stn1=(StoryNode) op1.getActivity().getOwnedActivityNode().stream().filter(x->x instanceof StoryNode).collect(Collectors.toList()).get(0);
-      StoryNode stn2=(StoryNode) op2.getActivity().getOwnedActivityNode().stream().filter(x->x instanceof StoryNode).collect(Collectors.toList()).get(0);
+		GraphTransformationSystem gts = GraphtransformationFactory.eINSTANCE.createGraphTransformationSystem();
+		gts.getRules().add(rule1);
+		gts.getRules().add(rule2);
+		gts.setMatchMorphismClass(morClassFac.createMorphismClass("I", "I", "I", "I", "=>"));
+		gts.setDirectDerivationBuilder(GraphtransformationFactory.eINSTANCE.createProjectiveDirectDerivationBuilder());
 
-      Transformer transformer=StptransformationFactory.eINSTANCE.createTransformer();
-      SymbGTRule rule1=transformer.transformStpToProjGTRule(stn1.getStoryPattern());
-      SymbGTRule rule2=transformer.transformStpToProjGTRule(stn2.getStoryPattern());
-      
-      ConfigurableMorphismClassFactory morClassFac =MatchingUtilsFactory.eINSTANCE.createConfigurableMorphismClassFactory();
-       
-      
-      GraphTransformationSystem gts=GraphtransformationFactory.eINSTANCE.createGraphTransformationSystem();
-      gts.getRules().add(rule1);
-      gts.getRules().add(rule2);
-      gts.setMatchMorphismClass(morClassFac.createMorphismClass("I", "I", "I", "I", "=>"));
-      gts.setDirectDerivationBuilder(GraphtransformationFactory.eINSTANCE.createProjectiveDirectDerivationBuilder());
-      
-      SubcommutativityModuloNFEQAnalyser directConfluenceAnalyser=ConfluenceFactory.eINSTANCE.createSubcommutativityModuloNFEQAnalyser();
-      
-      ConfluenceAnalysisReport report=directConfluenceAnalyser.checkConfluence(gts);
-      assertFalse(report.getConfluenceStates().stream().allMatch(x->x.isValid()));
+		SubcommutativityModuloNFEQAnalyser directConfluenceAnalyser = ConfluenceFactory.eINSTANCE
+				.createSubcommutativityModuloNFEQAnalyser();
 
+		ConfluenceAnalysisReport report = directConfluenceAnalyser.checkConfluence(gts);
 
-   }
-   @Test
-   public void test3() {
-      System.out.println("Starting ConfluenceProjTestGAMPaper/Test3" );
-      DiachasePackage.eINSTANCE.getClass();
-      MnoqPackage.eINSTANCE.getClass();
-      
-      EPackage pack=TestRunner.loadTestMM("org.moflon.maave.tests.testgen.diachase", "Diachase");
-      EClass cls=(EClass) pack.getEClassifier("PaperExampleTest");
-      MoflonEOperation op1=(MoflonEOperation) cls.getEOperations().stream().filter(x->x.getName().equals("ruleAddOne")).findFirst().get();
-      MoflonEOperation op2=(MoflonEOperation) cls.getEOperations().stream().filter(x->x.getName().equals("ruleAddTwo")).findFirst().get();
-      Assert.assertTrue("FailedAssert: 0",op1!=null && op2!=null);
-      StoryNode stn1=(StoryNode) op1.getActivity().getOwnedActivityNode().stream().filter(x->x instanceof StoryNode).collect(Collectors.toList()).get(0);
-      StoryNode stn2=(StoryNode) op2.getActivity().getOwnedActivityNode().stream().filter(x->x instanceof StoryNode).collect(Collectors.toList()).get(0);
+		assertTrue(report.getConfluenceStates().stream().allMatch(x -> x.isValid()));
 
-      Transformer transformer=StptransformationFactory.eINSTANCE.createTransformer();
-      SymbGTRule rule1=transformer.transformStpToProjGTRule(stn1.getStoryPattern());
-      SymbGTRule rule2=transformer.transformStpToProjGTRule(stn2.getStoryPattern());
-      
-      ConfigurableMorphismClassFactory morClassFac =MatchingUtilsFactory.eINSTANCE.createConfigurableMorphismClassFactory();
-       
-      
-      GraphTransformationSystem gts=GraphtransformationFactory.eINSTANCE.createGraphTransformationSystem();
-      gts.getRules().add(rule1);
-      gts.getRules().add(rule2);
-      gts.setMatchMorphismClass(morClassFac.createMorphismClass("I", "I", "I", "I", "=>"));
-      gts.setDirectDerivationBuilder(GraphtransformationFactory.eINSTANCE.createProjectiveDirectDerivationBuilder());
-      
-      SubcommutativityModuloNFEQAnalyser directConfluenceAnalyser=ConfluenceFactory.eINSTANCE.createSubcommutativityModuloNFEQAnalyser();
-      
-      ConfluenceAnalysisReport report=directConfluenceAnalyser.checkConfluence(gts);
-      assertTrue(report.getConfluenceStates().stream().allMatch(x->x.isValid()));
+	}
 
+	@Test
+	public void test2() {
+		System.out.println("Starting ConfluenceProjTestGAMPaper/Test2");
+		DiachasePackage.eINSTANCE.getClass();
+		MnoqPackage.eINSTANCE.getClass();
 
+		EPackage pack = TestRunner.loadTestMM("org.moflon.maave.tests.testgen.diachase", "Diachase");
+		EClass cls = (EClass) pack.getEClassifier("PaperExampleTest");
+		MoflonEOperation op1 = (MoflonEOperation) cls.getEOperations().stream()
+				.filter(x -> x.getName().equals("ruleAddOne")).findFirst().get();
+		MoflonEOperation op2 = (MoflonEOperation) cls.getEOperations().stream()
+				.filter(x -> x.getName().equals("ruleSmaller4")).findFirst().get();
+		Assert.assertTrue("FailedAssert: 0", op1 != null && op2 != null);
+		StoryNode stn1 = (StoryNode) op1.getActivity().getOwnedActivityNode().stream()
+				.filter(x -> x instanceof StoryNode).collect(Collectors.toList()).get(0);
+		StoryNode stn2 = (StoryNode) op2.getActivity().getOwnedActivityNode().stream()
+				.filter(x -> x instanceof StoryNode).collect(Collectors.toList()).get(0);
 
+		Transformer transformer = StptransformationFactory.eINSTANCE.createTransformer();
+		SymbGTRule rule1 = transformer.transformStpToProjGTRule(stn1.getStoryPattern());
+		SymbGTRule rule2 = transformer.transformStpToProjGTRule(stn2.getStoryPattern());
 
-   }
-   @Test
-   public void test4() {
-      System.out.println("Starting ConfluenceProjTestGAMPaper/Test4" );
-      DiachasePackage.eINSTANCE.getClass();
-      MnoqPackage.eINSTANCE.getClass();
-      
-      EPackage pack=TestRunner.loadTestMM("org.moflon.maave.tests.testgen.diachase", "Diachase");
-      EClass cls=(EClass) pack.getEClassifier("PaperExampleTest");
-      MoflonEOperation op1=(MoflonEOperation) cls.getEOperations().stream().filter(x->x.getName().equals("ruleSmaller4")).findFirst().get();
-      MoflonEOperation op2=(MoflonEOperation) cls.getEOperations().stream().filter(x->x.getName().equals("ruleAddTwo")).findFirst().get();
-      Assert.assertTrue("FailedAssert: 0",op1!=null && op2!=null);
-      StoryNode stn1=(StoryNode) op1.getActivity().getOwnedActivityNode().stream().filter(x->x instanceof StoryNode).collect(Collectors.toList()).get(0);
-      StoryNode stn2=(StoryNode) op2.getActivity().getOwnedActivityNode().stream().filter(x->x instanceof StoryNode).collect(Collectors.toList()).get(0);
+		ConfigurableMorphismClassFactory morClassFac = MatchingUtilsFactory.eINSTANCE
+				.createConfigurableMorphismClassFactory();
 
-      Transformer transformer=StptransformationFactory.eINSTANCE.createTransformer();
-      SymbGTRule rule1=transformer.transformStpToProjGTRule(stn1.getStoryPattern());
-      SymbGTRule rule2=transformer.transformStpToProjGTRule(stn2.getStoryPattern());
-      
-      ConfigurableMorphismClassFactory morClassFac =MatchingUtilsFactory.eINSTANCE.createConfigurableMorphismClassFactory();
-       
-      
-      GraphTransformationSystem gts=GraphtransformationFactory.eINSTANCE.createGraphTransformationSystem();
-      gts.getRules().add(rule1);
-      gts.getRules().add(rule2);
-      gts.setMatchMorphismClass(morClassFac.createMorphismClass("I", "I", "I", "I", "=>"));
-      gts.setDirectDerivationBuilder(GraphtransformationFactory.eINSTANCE.createProjectiveDirectDerivationBuilder());
-      
-      SubcommutativityModuloNFEQAnalyser directConfluenceAnalyser=ConfluenceFactory.eINSTANCE.createSubcommutativityModuloNFEQAnalyser();
-      
-      ConfluenceAnalysisReport report=directConfluenceAnalyser.checkConfluence(gts);
-      assertFalse(report.getConfluenceStates().stream().allMatch(x->x.isValid()));
+		GraphTransformationSystem gts = GraphtransformationFactory.eINSTANCE.createGraphTransformationSystem();
+		gts.getRules().add(rule1);
+		gts.getRules().add(rule2);
+		gts.setMatchMorphismClass(morClassFac.createMorphismClass("I", "I", "I", "I", "=>"));
+		gts.setDirectDerivationBuilder(GraphtransformationFactory.eINSTANCE.createProjectiveDirectDerivationBuilder());
 
+		SubcommutativityModuloNFEQAnalyser directConfluenceAnalyser = ConfluenceFactory.eINSTANCE
+				.createSubcommutativityModuloNFEQAnalyser();
 
+		ConfluenceAnalysisReport report = directConfluenceAnalyser.checkConfluence(gts);
+		assertFalse(report.getConfluenceStates().stream().allMatch(x -> x.isValid()));
 
-   }
-   @Test
-   public void test5() {
-      System.out.println("Starting ConfluenceProjTestGAMPaper/Test5" );
-      DiachasePackage.eINSTANCE.getClass();
-      MnoqPackage.eINSTANCE.getClass();
-      
-      EPackage pack=TestRunner.loadTestMM("org.moflon.maave.tests.testgen.diachase", "Diachase");
-      EClass cls=(EClass) pack.getEClassifier("PaperExampleTest");
-      MoflonEOperation op1=(MoflonEOperation) cls.getEOperations().stream().filter(x->x.getName().equals("ruleLarger4")).findFirst().get();
-      MoflonEOperation op2=(MoflonEOperation) cls.getEOperations().stream().filter(x->x.getName().equals("ruleAddTwo")).findFirst().get();
-      Assert.assertTrue("FailedAssert: 0",op1!=null && op2!=null);
-      StoryNode stn1=(StoryNode) op1.getActivity().getOwnedActivityNode().stream().filter(x->x instanceof StoryNode).collect(Collectors.toList()).get(0);
-      StoryNode stn2=(StoryNode) op2.getActivity().getOwnedActivityNode().stream().filter(x->x instanceof StoryNode).collect(Collectors.toList()).get(0);
+	}
 
-      Transformer transformer=StptransformationFactory.eINSTANCE.createTransformer();
-      SymbGTRule rule1=transformer.transformStpToProjGTRule(stn1.getStoryPattern());
-      SymbGTRule rule2=transformer.transformStpToProjGTRule(stn2.getStoryPattern());
-      
-      
-       
-      
-      ConfigurableMorphismClassFactory morClassFac =MatchingUtilsFactory.eINSTANCE.createConfigurableMorphismClassFactory();
-       
-      
-      GraphTransformationSystem gts=GraphtransformationFactory.eINSTANCE.createGraphTransformationSystem();
-      gts.getRules().add(rule1);
-      gts.getRules().add(rule2);
-      gts.setMatchMorphismClass(morClassFac.createMorphismClass("I", "I", "I", "I", "=>"));
-      gts.setDirectDerivationBuilder(GraphtransformationFactory.eINSTANCE.createProjectiveDirectDerivationBuilder());
-      
-      SubcommutativityModuloNFEQAnalyser directConfluenceAnalyser=ConfluenceFactory.eINSTANCE.createSubcommutativityModuloNFEQAnalyser();
-      
-      ConfluenceAnalysisReport report=directConfluenceAnalyser.checkConfluence(gts);
-      assertTrue(report.getConfluenceStates().stream().allMatch(x->x.isValid()));
+	@Test
+	public void test3() {
+		System.out.println("Starting ConfluenceProjTestGAMPaper/Test3");
+		DiachasePackage.eINSTANCE.getClass();
+		MnoqPackage.eINSTANCE.getClass();
 
+		EPackage pack = TestRunner.loadTestMM("org.moflon.maave.tests.testgen.diachase", "Diachase");
+		EClass cls = (EClass) pack.getEClassifier("PaperExampleTest");
+		MoflonEOperation op1 = (MoflonEOperation) cls.getEOperations().stream()
+				.filter(x -> x.getName().equals("ruleAddOne")).findFirst().get();
+		MoflonEOperation op2 = (MoflonEOperation) cls.getEOperations().stream()
+				.filter(x -> x.getName().equals("ruleAddTwo")).findFirst().get();
+		Assert.assertTrue("FailedAssert: 0", op1 != null && op2 != null);
+		StoryNode stn1 = (StoryNode) op1.getActivity().getOwnedActivityNode().stream()
+				.filter(x -> x instanceof StoryNode).collect(Collectors.toList()).get(0);
+		StoryNode stn2 = (StoryNode) op2.getActivity().getOwnedActivityNode().stream()
+				.filter(x -> x instanceof StoryNode).collect(Collectors.toList()).get(0);
 
+		Transformer transformer = StptransformationFactory.eINSTANCE.createTransformer();
+		SymbGTRule rule1 = transformer.transformStpToProjGTRule(stn1.getStoryPattern());
+		SymbGTRule rule2 = transformer.transformStpToProjGTRule(stn2.getStoryPattern());
 
-   }
-   @Test
-   public void test6() {
-      System.out.println("Starting ConfluenceProjTestGAMPaper/Test6" );
-      DiachasePackage.eINSTANCE.getClass();
-      MnoqPackage.eINSTANCE.getClass();
-      
-      EPackage pack=TestRunner.loadTestMM("org.moflon.maave.tests.testgen.diachase", "Diachase");
-      EClass cls=(EClass) pack.getEClassifier("PaperExampleTest");
-      MoflonEOperation op1=(MoflonEOperation) cls.getEOperations().stream().filter(x->x.getName().equals("ruleTimes")).findFirst().get();
-      MoflonEOperation op2=(MoflonEOperation) cls.getEOperations().stream().filter(x->x.getName().equals("ruleAddTwo")).findFirst().get();
-      Assert.assertTrue("FailedAssert: 0",op1!=null && op2!=null);
-      StoryNode stn1=(StoryNode) op1.getActivity().getOwnedActivityNode().stream().filter(x->x instanceof StoryNode).collect(Collectors.toList()).get(0);
-      StoryNode stn2=(StoryNode) op2.getActivity().getOwnedActivityNode().stream().filter(x->x instanceof StoryNode).collect(Collectors.toList()).get(0);
+		ConfigurableMorphismClassFactory morClassFac = MatchingUtilsFactory.eINSTANCE
+				.createConfigurableMorphismClassFactory();
 
-      Transformer transformer=StptransformationFactory.eINSTANCE.createTransformer();
-      SymbGTRule rule1=transformer.transformStpToProjGTRule(stn1.getStoryPattern());
-      SymbGTRule rule2=transformer.transformStpToProjGTRule(stn2.getStoryPattern());
-      rule1.getLeft().getCodom().setName("L1");
-      rule1.getLeft().getDom().setName("K1");
-      rule1.getRight().getCodom().setName("R1");
-      rule2.getLeft().getCodom().setName("L2");
-      rule2.getLeft().getDom().setName("K2");
-      rule2.getRight().getCodom().setName("R2");
+		GraphTransformationSystem gts = GraphtransformationFactory.eINSTANCE.createGraphTransformationSystem();
+		gts.getRules().add(rule1);
+		gts.getRules().add(rule2);
+		gts.setMatchMorphismClass(morClassFac.createMorphismClass("I", "I", "I", "I", "=>"));
+		gts.setDirectDerivationBuilder(GraphtransformationFactory.eINSTANCE.createProjectiveDirectDerivationBuilder());
 
+		SubcommutativityModuloNFEQAnalyser directConfluenceAnalyser = ConfluenceFactory.eINSTANCE
+				.createSubcommutativityModuloNFEQAnalyser();
 
-      
-      ConfigurableMorphismClassFactory morClassFac =MatchingUtilsFactory.eINSTANCE.createConfigurableMorphismClassFactory();
-       
-      
-      GraphTransformationSystem gts=GraphtransformationFactory.eINSTANCE.createGraphTransformationSystem();
-      gts.getRules().add(rule1);
-      gts.getRules().add(rule2);
-      gts.setMatchMorphismClass(morClassFac.createMorphismClass("I", "I", "I", "I", "=>"));
-      gts.setDirectDerivationBuilder(GraphtransformationFactory.eINSTANCE.createProjectiveDirectDerivationBuilder());
-      
-      SubcommutativityModuloNFEQAnalyser directConfluenceAnalyser=ConfluenceFactory.eINSTANCE.createSubcommutativityModuloNFEQAnalyser();
-      
-      ConfluenceAnalysisReport report=directConfluenceAnalyser.checkConfluence(gts);
-      assertFalse(report.getConfluenceStates().stream().allMatch(x->x.isValid()));
+		ConfluenceAnalysisReport report = directConfluenceAnalyser.checkConfluence(gts);
+		assertTrue(report.getConfluenceStates().stream().allMatch(x -> x.isValid()));
 
+	}
 
+	@Test
+	public void test4() {
+		System.out.println("Starting ConfluenceProjTestGAMPaper/Test4");
+		DiachasePackage.eINSTANCE.getClass();
+		MnoqPackage.eINSTANCE.getClass();
 
+		EPackage pack = TestRunner.loadTestMM("org.moflon.maave.tests.testgen.diachase", "Diachase");
+		EClass cls = (EClass) pack.getEClassifier("PaperExampleTest");
+		MoflonEOperation op1 = (MoflonEOperation) cls.getEOperations().stream()
+				.filter(x -> x.getName().equals("ruleSmaller4")).findFirst().get();
+		MoflonEOperation op2 = (MoflonEOperation) cls.getEOperations().stream()
+				.filter(x -> x.getName().equals("ruleAddTwo")).findFirst().get();
+		Assert.assertTrue("FailedAssert: 0", op1 != null && op2 != null);
+		StoryNode stn1 = (StoryNode) op1.getActivity().getOwnedActivityNode().stream()
+				.filter(x -> x instanceof StoryNode).collect(Collectors.toList()).get(0);
+		StoryNode stn2 = (StoryNode) op2.getActivity().getOwnedActivityNode().stream()
+				.filter(x -> x instanceof StoryNode).collect(Collectors.toList()).get(0);
 
-   }
-   @Test
-   public void test7() {
-      System.out.println("Starting ConfluenceProjTestGAMPaper/Test7" );
-      DiachasePackage.eINSTANCE.getClass();
-      MnoqPackage.eINSTANCE.getClass();
-      
-      EPackage pack=TestRunner.loadTestMM("org.moflon.maave.tests.testgen.diachase", "Diachase");
-      EClass cls=(EClass) pack.getEClassifier("PaperExampleTest");
-      MoflonEOperation op1=(MoflonEOperation) cls.getEOperations().stream().filter(x->x.getName().equals("ruleLarger4AddTwo")).findFirst().get();
-      MoflonEOperation op2=(MoflonEOperation) cls.getEOperations().stream().filter(x->x.getName().equals("ruleAddOne")).findFirst().get();
-      Assert.assertTrue("FailedAssert: 0",op1!=null && op2!=null);
-      StoryNode stn1=(StoryNode) op1.getActivity().getOwnedActivityNode().stream().filter(x->x instanceof StoryNode).collect(Collectors.toList()).get(0);
-      StoryNode stn2=(StoryNode) op2.getActivity().getOwnedActivityNode().stream().filter(x->x instanceof StoryNode).collect(Collectors.toList()).get(0);
+		Transformer transformer = StptransformationFactory.eINSTANCE.createTransformer();
+		SymbGTRule rule1 = transformer.transformStpToProjGTRule(stn1.getStoryPattern());
+		SymbGTRule rule2 = transformer.transformStpToProjGTRule(stn2.getStoryPattern());
 
-      Transformer transformer=StptransformationFactory.eINSTANCE.createTransformer();
-      SymbGTRule rule1=transformer.transformStpToProjGTRule(stn1.getStoryPattern());
-      SymbGTRule rule2=transformer.transformStpToProjGTRule(stn2.getStoryPattern());
-      rule1.getLeft().getCodom().setName("L1");
-      rule1.getLeft().getDom().setName("K1");
-      rule1.getRight().getCodom().setName("R1");
-      rule2.getLeft().getCodom().setName("L2");
-      rule2.getLeft().getDom().setName("K2");
-      rule2.getRight().getCodom().setName("R2");
+		ConfigurableMorphismClassFactory morClassFac = MatchingUtilsFactory.eINSTANCE
+				.createConfigurableMorphismClassFactory();
 
+		GraphTransformationSystem gts = GraphtransformationFactory.eINSTANCE.createGraphTransformationSystem();
+		gts.getRules().add(rule1);
+		gts.getRules().add(rule2);
+		gts.setMatchMorphismClass(morClassFac.createMorphismClass("I", "I", "I", "I", "=>"));
+		gts.setDirectDerivationBuilder(GraphtransformationFactory.eINSTANCE.createProjectiveDirectDerivationBuilder());
 
-      
-      ConfigurableMorphismClassFactory morClassFac =MatchingUtilsFactory.eINSTANCE.createConfigurableMorphismClassFactory();
-       
-      
-      GraphTransformationSystem gts=GraphtransformationFactory.eINSTANCE.createGraphTransformationSystem();
-      gts.getRules().add(rule1);
-      gts.getRules().add(rule2);
-      gts.setMatchMorphismClass(morClassFac.createMorphismClass("I", "I", "I", "I", "=>"));
-      gts.setDirectDerivationBuilder(GraphtransformationFactory.eINSTANCE.createProjectiveDirectDerivationBuilder());
-      
-      SubcommutativityModuloNFEQAnalyser directConfluenceAnalyser=ConfluenceFactory.eINSTANCE.createSubcommutativityModuloNFEQAnalyser();
-      
-      ConfluenceAnalysisReport report=directConfluenceAnalyser.checkConfluence(gts);
-      assertTrue(report.getConfluenceStates().stream().allMatch(x->x.isValid()));
+		SubcommutativityModuloNFEQAnalyser directConfluenceAnalyser = ConfluenceFactory.eINSTANCE
+				.createSubcommutativityModuloNFEQAnalyser();
 
+		ConfluenceAnalysisReport report = directConfluenceAnalyser.checkConfluence(gts);
+		assertFalse(report.getConfluenceStates().stream().allMatch(x -> x.isValid()));
 
+	}
 
-   }
-  
+	@Test
+	public void test5() {
+		System.out.println("Starting ConfluenceProjTestGAMPaper/Test5");
+		DiachasePackage.eINSTANCE.getClass();
+		MnoqPackage.eINSTANCE.getClass();
+
+		EPackage pack = TestRunner.loadTestMM("org.moflon.maave.tests.testgen.diachase", "Diachase");
+		EClass cls = (EClass) pack.getEClassifier("PaperExampleTest");
+		MoflonEOperation op1 = (MoflonEOperation) cls.getEOperations().stream()
+				.filter(x -> x.getName().equals("ruleLarger4")).findFirst().get();
+		MoflonEOperation op2 = (MoflonEOperation) cls.getEOperations().stream()
+				.filter(x -> x.getName().equals("ruleAddTwo")).findFirst().get();
+		Assert.assertTrue("FailedAssert: 0", op1 != null && op2 != null);
+		StoryNode stn1 = (StoryNode) op1.getActivity().getOwnedActivityNode().stream()
+				.filter(x -> x instanceof StoryNode).collect(Collectors.toList()).get(0);
+		StoryNode stn2 = (StoryNode) op2.getActivity().getOwnedActivityNode().stream()
+				.filter(x -> x instanceof StoryNode).collect(Collectors.toList()).get(0);
+
+		Transformer transformer = StptransformationFactory.eINSTANCE.createTransformer();
+		SymbGTRule rule1 = transformer.transformStpToProjGTRule(stn1.getStoryPattern());
+		SymbGTRule rule2 = transformer.transformStpToProjGTRule(stn2.getStoryPattern());
+
+		ConfigurableMorphismClassFactory morClassFac = MatchingUtilsFactory.eINSTANCE
+				.createConfigurableMorphismClassFactory();
+
+		GraphTransformationSystem gts = GraphtransformationFactory.eINSTANCE.createGraphTransformationSystem();
+		gts.getRules().add(rule1);
+		gts.getRules().add(rule2);
+		gts.setMatchMorphismClass(morClassFac.createMorphismClass("I", "I", "I", "I", "=>"));
+		gts.setDirectDerivationBuilder(GraphtransformationFactory.eINSTANCE.createProjectiveDirectDerivationBuilder());
+
+		SubcommutativityModuloNFEQAnalyser directConfluenceAnalyser = ConfluenceFactory.eINSTANCE
+				.createSubcommutativityModuloNFEQAnalyser();
+
+		ConfluenceAnalysisReport report = directConfluenceAnalyser.checkConfluence(gts);
+		assertTrue(report.getConfluenceStates().stream().allMatch(x -> x.isValid()));
+
+	}
+
+	@Test
+	public void test6() {
+		System.out.println("Starting ConfluenceProjTestGAMPaper/Test6");
+		DiachasePackage.eINSTANCE.getClass();
+		MnoqPackage.eINSTANCE.getClass();
+
+		EPackage pack = TestRunner.loadTestMM("org.moflon.maave.tests.testgen.diachase", "Diachase");
+		EClass cls = (EClass) pack.getEClassifier("PaperExampleTest");
+		MoflonEOperation op1 = (MoflonEOperation) cls.getEOperations().stream()
+				.filter(x -> x.getName().equals("ruleTimes")).findFirst().get();
+		MoflonEOperation op2 = (MoflonEOperation) cls.getEOperations().stream()
+				.filter(x -> x.getName().equals("ruleAddTwo")).findFirst().get();
+		Assert.assertTrue("FailedAssert: 0", op1 != null && op2 != null);
+		StoryNode stn1 = (StoryNode) op1.getActivity().getOwnedActivityNode().stream()
+				.filter(x -> x instanceof StoryNode).collect(Collectors.toList()).get(0);
+		StoryNode stn2 = (StoryNode) op2.getActivity().getOwnedActivityNode().stream()
+				.filter(x -> x instanceof StoryNode).collect(Collectors.toList()).get(0);
+
+		Transformer transformer = StptransformationFactory.eINSTANCE.createTransformer();
+		SymbGTRule rule1 = transformer.transformStpToProjGTRule(stn1.getStoryPattern());
+		SymbGTRule rule2 = transformer.transformStpToProjGTRule(stn2.getStoryPattern());
+		rule1.getLeft().getCodom().setName("L1");
+		rule1.getLeft().getDom().setName("K1");
+		rule1.getRight().getCodom().setName("R1");
+		rule2.getLeft().getCodom().setName("L2");
+		rule2.getLeft().getDom().setName("K2");
+		rule2.getRight().getCodom().setName("R2");
+
+		ConfigurableMorphismClassFactory morClassFac = MatchingUtilsFactory.eINSTANCE
+				.createConfigurableMorphismClassFactory();
+
+		GraphTransformationSystem gts = GraphtransformationFactory.eINSTANCE.createGraphTransformationSystem();
+		gts.getRules().add(rule1);
+		gts.getRules().add(rule2);
+		gts.setMatchMorphismClass(morClassFac.createMorphismClass("I", "I", "I", "I", "=>"));
+		gts.setDirectDerivationBuilder(GraphtransformationFactory.eINSTANCE.createProjectiveDirectDerivationBuilder());
+
+		SubcommutativityModuloNFEQAnalyser directConfluenceAnalyser = ConfluenceFactory.eINSTANCE
+				.createSubcommutativityModuloNFEQAnalyser();
+
+		ConfluenceAnalysisReport report = directConfluenceAnalyser.checkConfluence(gts);
+		assertFalse(report.getConfluenceStates().stream().allMatch(x -> x.isValid()));
+
+	}
+
+	@Test
+	public void test7() {
+		System.out.println("Starting ConfluenceProjTestGAMPaper/Test7");
+		DiachasePackage.eINSTANCE.getClass();
+		MnoqPackage.eINSTANCE.getClass();
+
+		EPackage pack = TestRunner.loadTestMM("org.moflon.maave.tests.testgen.diachase", "Diachase");
+		EClass cls = (EClass) pack.getEClassifier("PaperExampleTest");
+		MoflonEOperation op1 = (MoflonEOperation) cls.getEOperations().stream()
+				.filter(x -> x.getName().equals("ruleLarger4AddTwo")).findFirst().get();
+		MoflonEOperation op2 = (MoflonEOperation) cls.getEOperations().stream()
+				.filter(x -> x.getName().equals("ruleAddOne")).findFirst().get();
+		Assert.assertTrue("FailedAssert: 0", op1 != null && op2 != null);
+		StoryNode stn1 = (StoryNode) op1.getActivity().getOwnedActivityNode().stream()
+				.filter(x -> x instanceof StoryNode).collect(Collectors.toList()).get(0);
+		StoryNode stn2 = (StoryNode) op2.getActivity().getOwnedActivityNode().stream()
+				.filter(x -> x instanceof StoryNode).collect(Collectors.toList()).get(0);
+
+		Transformer transformer = StptransformationFactory.eINSTANCE.createTransformer();
+		SymbGTRule rule1 = transformer.transformStpToProjGTRule(stn1.getStoryPattern());
+		SymbGTRule rule2 = transformer.transformStpToProjGTRule(stn2.getStoryPattern());
+		rule1.getLeft().getCodom().setName("L1");
+		rule1.getLeft().getDom().setName("K1");
+		rule1.getRight().getCodom().setName("R1");
+		rule2.getLeft().getCodom().setName("L2");
+		rule2.getLeft().getDom().setName("K2");
+		rule2.getRight().getCodom().setName("R2");
+
+		ConfigurableMorphismClassFactory morClassFac = MatchingUtilsFactory.eINSTANCE
+				.createConfigurableMorphismClassFactory();
+
+		GraphTransformationSystem gts = GraphtransformationFactory.eINSTANCE.createGraphTransformationSystem();
+		gts.getRules().add(rule1);
+		gts.getRules().add(rule2);
+		gts.setMatchMorphismClass(morClassFac.createMorphismClass("I", "I", "I", "I", "=>"));
+		gts.setDirectDerivationBuilder(GraphtransformationFactory.eINSTANCE.createProjectiveDirectDerivationBuilder());
+
+		SubcommutativityModuloNFEQAnalyser directConfluenceAnalyser = ConfluenceFactory.eINSTANCE
+				.createSubcommutativityModuloNFEQAnalyser();
+
+		ConfluenceAnalysisReport report = directConfluenceAnalyser.checkConfluence(gts);
+		assertTrue(report.getConfluenceStates().stream().allMatch(x -> x.isValid()));
+
+	}
+
 }

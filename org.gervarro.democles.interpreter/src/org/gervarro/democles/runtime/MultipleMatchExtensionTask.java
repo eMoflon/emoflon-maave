@@ -27,12 +27,12 @@ import org.gervarro.democles.common.DataFrame;
 public class MultipleMatchExtensionTask implements Task {
 	private final JoinOperation joinOperation;
 	private final Iterator<DataFrame> iterator;
-	
+
 	public MultipleMatchExtensionTask(JoinOperation joinOperation, Iterator<DataFrame> iterator) {
 		this.joinOperation = joinOperation;
 		this.iterator = iterator;
 	}
-	
+
 	public final void perform() {
 		DataFrame frame = iterator.next();
 		if (frame != null) {
@@ -42,7 +42,7 @@ public class MultipleMatchExtensionTask implements Task {
 			joinOperation.getScheduler().schedule(this);
 		}
 	}
-	
+
 	final int getID() {
 		return joinOperation.getDepth();
 	}

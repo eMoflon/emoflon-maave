@@ -21,11 +21,11 @@
 package org.gervarro.extension;
 
 class NoArgumentConstructor implements ExtensionLoader {
-	
+
 	NoArgumentConstructor() {
 		// Do nothing
 	}
-	
+
 	public Object create(Class<?> clazz) throws InstantiationException, IllegalAccessException {
 		return clazz.newInstance();
 	}

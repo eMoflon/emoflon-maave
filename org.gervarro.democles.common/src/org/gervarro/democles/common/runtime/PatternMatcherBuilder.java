@@ -37,12 +37,11 @@ import org.gervarro.democles.specification.impl.Pattern;
 import org.gervarro.democles.specification.impl.PatternBody;
 import org.gervarro.democles.specification.impl.Variable;
 
-abstract public class PatternMatcherBuilder<P,PB,O extends OperationRuntime,V extends VariableRuntime, OB extends OperationBuilder<O,V>, C extends Combiner<C, O>> implements OperationBuilder<O,V> {
-	private final List<OB> operationBuilders =
-		new LinkedList<OB>();
+abstract public class PatternMatcherBuilder<P, PB, O extends OperationRuntime, V extends VariableRuntime, OB extends OperationBuilder<O, V>, C extends Combiner<C, O>>
+		implements OperationBuilder<O, V> {
+	private final List<OB> operationBuilders = new LinkedList<OB>();
 	private SearchPlanAlgorithm<C, O> algorithm;
-	protected final Map<String, P> patternMap =
-			new HashMap<String, P>();
+	protected final Map<String, P> patternMap = new HashMap<String, P>();
 
 	public final SearchPlanAlgorithm<C, O> getAlgorithm() {
 		return algorithm;
@@ -55,33 +54,34 @@ abstract public class PatternMatcherBuilder<P,PB,O extends OperationRuntime,V ex
 	public final void addOperationBuilder(OB builder) {
 		operationBuilders.add(builder);
 	}
-	
+
 	public final void removeOperationBuilder(OB builder) {
 		operationBuilders.remove(builder);
 	}
-	
+
 	public final P build(Pattern pattern) {
 		// TODO Rewrite this
 		List<? extends PatternBody> bodies = pattern.getBodies();
-		final List<PB> newBodies = new ArrayList<PB>(bodies.size()); 
+		final List<PB> newBodies = new ArrayList<PB>(bodies.size());
 		for (int i = 0; i < bodies.size(); i++) {
 			PatternBody body = bodies.get(i);
 			newBodies.add(i, createPatternBody(body.getLocalVariables(), body.getConstants(), body.getConstraints()));
 		}
 		P newPattern = createPattern(pattern.getName(), pattern.getSymbolicParameters());
 		setBodies(newPattern, newBodies);
-		patternMap.put(PatternMatcherPlugin.getIdentifier(pattern.getName(), pattern.getSymbolicParameters().size()), newPattern);
+		patternMap.put(PatternMatcherPlugin.getIdentifier(pattern.getName(), pattern.getSymbolicParameters().size()),
+				newPattern);
 		return newPattern;
 	}
-	
+
 	abstract protected P createPattern(String name, List<? extends Variable> symbolicParameters);
 
 	abstract protected void setBodies(P pattern, List<PB> bodies);
 
-	abstract protected PB createPatternBody(List<Variable> localVariables, List<Constant> constants, List<Constraint> constraints);
-	
-	public final O buildVariableOperation(Variable variable, 
-			V runtimeVariable) {
+	abstract protected PB createPatternBody(List<Variable> localVariables, List<Constant> constants,
+			List<Constraint> constraints);
+
+	public final O buildVariableOperation(Variable variable, V runtimeVariable) {
 		for (OB operationBuilder : operationBuilders) {
 			O result = operationBuilder.getVariableOperation(variable, runtimeVariable);
 			if (result != null) {
@@ -90,9 +90,8 @@ abstract public class PatternMatcherBuilder<P,PB,O extends OperationRuntime,V ex
 		}
 		throw new RuntimeException("No handler exists for constraint " + variable.toString());
 	}
-	
-	public final List<O> buildConstraintOperations(Constraint constraint, 
-			Map<ConstraintVariable, V> slotMap) {
+
+	public final List<O> buildConstraintOperations(Constraint constraint, Map<ConstraintVariable, V> slotMap) {
 		List<ConstraintVariable> parameters = constraint.getParameters();
 		List<V> newParameters = new ArrayList<V>(parameters.size());
 		for (int j = 0; j < parameters.size(); j++) {
@@ -103,20 +102,18 @@ abstract public class PatternMatcherBuilder<P,PB,O extends OperationRuntime,V ex
 				newParameters.add(j, lookupConstant((Constant) parameter, slotMap));
 			}
 		}
-		
+
 		for (OB operationBuilder : operationBuilders) {
-			List<O> result = 
-				operationBuilder.getConstraintOperations(constraint, newParameters);
+			List<O> result = operationBuilder.getConstraintOperations(constraint, newParameters);
 			if (result != null && !result.isEmpty()) {
 				return result;
 			}
 		}
 		throw new RuntimeException("No handler exists for constraint " + constraint.toString());
 	}
-	
+
 	public final List<V> createVariableRuntimes(List<? extends ConstraintVariable> variables, int offset) {
-		final List<V> newVariables =
-			new ArrayList<V>(variables.size());
+		final List<V> newVariables = new ArrayList<V>(variables.size());
 		for (int i = 0; i < variables.size(); i++) {
 			ConstraintVariable variableSpec = variables.get(i);
 			V runtimeVariable = createVariableRuntime(variableSpec, offset + i);
@@ -124,30 +121,27 @@ abstract public class PatternMatcherBuilder<P,PB,O extends OperationRuntime,V ex
 		}
 		return newVariables;
 	}
-	
+
 	abstract protected V createVariableRuntime(ConstraintVariable variable, int index);
-	
-	private V lookupVariable(Variable variable,
-			Map<ConstraintVariable, V> map) {
+
+	private V lookupVariable(Variable variable, Map<ConstraintVariable, V> map) {
 		V result = map.get(variable);
 		if (result == null) {
 			throw new RuntimeException("Variable " + variable.getName() + " not found");
 		}
 		return result;
 	}
-	
-	private V lookupConstant(Constant constant,
-			Map<ConstraintVariable, V> map) {
+
+	private V lookupConstant(Constant constant, Map<ConstraintVariable, V> map) {
 		V result = map.get(constant);
 		if (result == null) {
 			throw new RuntimeException("Constant " + constant.getValue().toString() + " not found");
 		}
 		return result;
 	}
-	
+
 	@Override
-	public final O getVariableOperation(Variable variable,
-			V runtimeVariable) {
+	public final O getVariableOperation(Variable variable, V runtimeVariable) {
 		return null;
 	}
 }

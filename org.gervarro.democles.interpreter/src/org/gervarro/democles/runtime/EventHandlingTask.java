@@ -25,7 +25,7 @@ import org.gervarro.democles.event.MatchEvent;
 public class EventHandlingTask implements Task {
 	private final JoinOperation operation;
 	private final MatchEvent event;
-	
+
 	public EventHandlingTask(MatchEvent event, JoinOperation target) {
 		this.operation = target;
 		this.event = event;
@@ -34,7 +34,7 @@ public class EventHandlingTask implements Task {
 	public void perform() {
 		operation.execute(event.getMatching(), (Operation) event.getSource(), event.getEventType());
 	}
-	
+
 	final int getID() {
 		return operation.getDepth();
 	}

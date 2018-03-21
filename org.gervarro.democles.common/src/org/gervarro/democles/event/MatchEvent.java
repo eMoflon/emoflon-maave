@@ -32,10 +32,10 @@ public class MatchEvent extends EventObject {
 	private static final long serialVersionUID = 1452495147391570770L;
 	public static final String INSERT = "insert";
 	public static final String DELETE = "delete";
-	
+
 	private final DataFrame data;
 	private final String eventType;
-	
+
 	public MatchEvent(MatchEventSource source, DataFrame data, String eventType) {
 		super(source);
 		this.data = data;
@@ -45,11 +45,11 @@ public class MatchEvent extends EventObject {
 	public MatchEventSource getSource() {
 		return (MatchEventSource) source;
 	}
-	
+
 	public DataFrame getMatching() {
 		return data;
 	}
-	
+
 	public String getEventType() {
 		return eventType;
 	}

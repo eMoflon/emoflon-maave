@@ -26,14 +26,13 @@ import java.util.List;
 import java.util.TreeSet;
 
 /*
- * Bron–Kerbosch algorithm is an algorithm for finding maximal cliques in an undirected graph.
+ * Bronï¿½Kerbosch algorithm is an algorithm for finding maximal cliques in an undirected graph.
  * http://en.wikipedia.org/wiki/Bron-Kerbosch_algorithm
  */
 public class BronKerbosch {
 	ArrayList<TreeSet<Integer>> neighbours;
-	LinkedList<TreeSet<Integer>> result =
-		new LinkedList<TreeSet<Integer>>();
-	
+	LinkedList<TreeSet<Integer>> result = new LinkedList<TreeSet<Integer>>();
+
 	public BronKerbosch(ArrayList<TreeSet<Integer>> neighbours) {
 		this.neighbours = neighbours;
 		TreeSet<Integer> p = new TreeSet<Integer>();
@@ -42,11 +41,11 @@ public class BronKerbosch {
 		}
 		recursion(new TreeSet<Integer>(), p, new TreeSet<Integer>());
 	}
-	
+
 	List<TreeSet<Integer>> getResult() {
 		return result;
 	}
-	
+
 	final void recursion(TreeSet<Integer> r, TreeSet<Integer> p, TreeSet<Integer> x) {
 		if (p.isEmpty() && x.isEmpty()) {
 			// r is a maximal clique
@@ -68,7 +67,7 @@ public class BronKerbosch {
 
 				// Recursive invocation
 				recursion(rInternal, pInternal, xInternal);
-				
+
 				// P := P minus {node}
 				p.remove(node);
 				// X := X union {node}

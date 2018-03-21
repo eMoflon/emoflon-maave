@@ -20,27 +20,27 @@
  */
 package org.gervarro.democles.plan;
 
-public class WeightedOperation<O,W extends Comparable<W>> implements Comparable<WeightedOperation<O,W>> {
+public class WeightedOperation<O, W extends Comparable<W>> implements Comparable<WeightedOperation<O, W>> {
 	private final O operation;
 	private final W weight;
-	
+
 	private WeightedOperation(final O operation, final W weight) {
 		this.operation = operation;
 		this.weight = weight;
 	}
-	
-	public int compareTo(WeightedOperation<O,W> o) {
+
+	public int compareTo(WeightedOperation<O, W> o) {
 		return weight.compareTo(o.weight);
 	}
-	
+
 	public final O getOperation() {
 		return operation;
 	}
-	
+
 	public final W getWeight() {
 		return weight;
 	}
-	
+
 	public String toString() {
 		if (operation != null) {
 			StringBuilder result = new StringBuilder(operation.toString());
@@ -51,8 +51,8 @@ public class WeightedOperation<O,W extends Comparable<W>> implements Comparable<
 			return super.toString();
 		}
 	}
-	
-	public static final <O,W extends Comparable<W>> WeightedOperation<O,W> createOperation(O operation, W weight) {
+
+	public static final <O, W extends Comparable<W>> WeightedOperation<O, W> createOperation(O operation, W weight) {
 		return new WeightedOperation<O, W>(operation, weight);
 	}
 }

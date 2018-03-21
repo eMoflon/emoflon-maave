@@ -23,7 +23,7 @@ package org.gervarro.democles.constraint.emf;
 import org.eclipse.emf.ecore.EOperation;
 
 public final class Operation extends EMFConstraint<EOperation> {
-	
+
 	public Operation(EMFConstraintModule module, EOperation eOperation) {
 		super(module, eOperation);
 	}

@@ -30,7 +30,7 @@ import org.gervarro.democles.runtime.IteratorBasedSingleFreeVariableHandler;
 import org.gervarro.democles.runtime.RemappedDataFrame;
 
 public class BidirectionalManyToOneOperation extends BidirectionalReference {
-	
+
 	public BidirectionalManyToOneOperation(EMFConstraintModule module, EReference eReference) {
 		super(module, eReference);
 	}

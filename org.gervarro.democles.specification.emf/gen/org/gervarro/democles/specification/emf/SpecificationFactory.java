@@ -9,45 +9,44 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 /**
- * <!-- begin-user-doc -->
- * The <b>Factory</b> for the model.
- * It provides a create method for each non-abstract class of the model.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> The <b>Factory</b> for the model. It provides a
+ * create method for each non-abstract class of the model. <!-- end-user-doc -->
+ * 
  * @see org.gervarro.democles.specification.emf.SpecificationPackage
  * @generated
  */
 public class SpecificationFactory extends EFactoryImpl {
 	/**
-	 * The singleton instance of the factory.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The singleton instance of the factory. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final SpecificationFactory eINSTANCE = init();
 
 	/**
-	 * Creates the default factory implementation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Creates the default factory implementation. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static SpecificationFactory init() {
 		try {
-			SpecificationFactory theSpecificationFactory = (SpecificationFactory)EPackage.Registry.INSTANCE.getEFactory(SpecificationPackage.eNS_URI);
+			SpecificationFactory theSpecificationFactory = (SpecificationFactory) EPackage.Registry.INSTANCE
+					.getEFactory(SpecificationPackage.eNS_URI);
 			if (theSpecificationFactory != null) {
 				return theSpecificationFactory;
 			}
-		}
-		catch (Exception exception) {
+		} catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new SpecificationFactory();
 	}
 
 	/**
-	 * Creates an instance of the factory.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @generated
 	 */
 	public SpecificationFactory() {
@@ -55,26 +54,31 @@ public class SpecificationFactory extends EFactoryImpl {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case SpecificationPackage.PATTERN: return (EObject)createPattern();
-			case SpecificationPackage.PATTERN_BODY: return (EObject)createPatternBody();
-			case SpecificationPackage.CONSTANT: return (EObject)createConstant();
-			case SpecificationPackage.PATTERN_INVOCATION_CONSTRAINT: return (EObject)createPatternInvocationConstraint();
-			case SpecificationPackage.CONSTRAINT_PARAMETER: return (EObject)createConstraintParameter();
-			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		case SpecificationPackage.PATTERN:
+			return (EObject) createPattern();
+		case SpecificationPackage.PATTERN_BODY:
+			return (EObject) createPatternBody();
+		case SpecificationPackage.CONSTANT:
+			return (EObject) createConstant();
+		case SpecificationPackage.PATTERN_INVOCATION_CONSTRAINT:
+			return (EObject) createPatternInvocationConstraint();
+		case SpecificationPackage.CONSTRAINT_PARAMETER:
+			return (EObject) createConstraintParameter();
+		default:
+			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Pattern createPattern() {
@@ -83,8 +87,8 @@ public class SpecificationFactory extends EFactoryImpl {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public PatternBody createPatternBody() {
@@ -93,8 +97,8 @@ public class SpecificationFactory extends EFactoryImpl {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Constant createConstant() {
@@ -103,8 +107,8 @@ public class SpecificationFactory extends EFactoryImpl {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public PatternInvocationConstraint createPatternInvocationConstraint() {
@@ -113,8 +117,8 @@ public class SpecificationFactory extends EFactoryImpl {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ConstraintParameter createConstraintParameter() {
@@ -123,17 +127,17 @@ public class SpecificationFactory extends EFactoryImpl {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public SpecificationPackage getSpecificationPackage() {
-		return (SpecificationPackage)getEPackage();
+		return (SpecificationPackage) getEPackage();
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @deprecated
 	 * @generated
 	 */
@@ -142,4 +146,4 @@ public class SpecificationFactory extends EFactoryImpl {
 		return SpecificationPackage.eINSTANCE;
 	}
 
-} //SpecificationFactory
+} // SpecificationFactory

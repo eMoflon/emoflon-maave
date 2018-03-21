@@ -33,7 +33,7 @@ public final class JoinOperation extends Operation {
 		this.leftOperation = left;
 		this.rightOperation = right;
 	}
-	
+
 	public Operation getLeftOperation() {
 		return leftOperation;
 	}
@@ -41,31 +41,31 @@ public final class JoinOperation extends Operation {
 	public Operation getRightOperation() {
 		return rightOperation;
 	}
-	
+
 	final Scheduler getScheduler() {
 		if (scheduler == null) {
 			scheduler = factory.getHeader().getEngine().getScheduler();
 		}
 		return scheduler;
 	}
-	
+
 	public final int getDepth() {
 		return depth;
 	}
-	
+
 	public final void setDepth(int depth) {
 		this.depth = depth;
 	}
-	
+
 	public void handleEvent(MatchEvent event) {
 		EventHandlingTask task = new EventHandlingTask(event, this);
 		getScheduler().schedule(task);
 	}
-	
+
 	InternalDataFrameProvider getDataFrameProvider(DataFrame data) {
 		return null;
 	}
-	
+
 	public final void execute(DataFrame frame, Operation source, String eventType) {
 		InternalDataFrameProvider provider = null;
 		if (getLeftOperation() == source) {
@@ -73,30 +73,31 @@ public final class JoinOperation extends Operation {
 		} else if (getRightOperation() == source) {
 			provider = getLeftOperation().getDataFrameProvider(frame);
 		}
-		if (provider instanceof IteratorBasedHandler<?,?>) {
-			MultipleMatchExtensionTask task =
-				new MultipleMatchExtensionTask(this, (IteratorBasedHandler<?,?>) provider);
+		if (provider instanceof IteratorBasedHandler<?, ?>) {
+			MultipleMatchExtensionTask task = new MultipleMatchExtensionTask(this,
+					(IteratorBasedHandler<?, ?>) provider);
 			scheduler.schedule(task);
 		} else if (provider != null) {
 			sendEvent(provider.getDataFrame(), eventType);
 		}
 	}
-	
-//	private final boolean join(DataFrame deltaSideFrame, DataFrame fullSideFrame) {
-//		if (deltaSideFrame == fullSideFrame) {
-//			return true;
-//		}
-//		for (int i = 0; i < fullSideFrame.internalSize(); i++) {
-//			if (deltaSideFrame.internalGet(i) != null) {
-//				if (fullSideFrame.internalGet(i) == null) {
-//					fullSideFrame.internalSet(i, deltaSideFrame.internalGet(i));
-//				} else if (fullSideFrame.internalGet(i) != deltaSideFrame.internalGet(i)) {
-//					return false;
-//				}
-//			}
-//		}
-//		return true;
-//	}
+
+	// private final boolean join(DataFrame deltaSideFrame, DataFrame fullSideFrame)
+	// {
+	// if (deltaSideFrame == fullSideFrame) {
+	// return true;
+	// }
+	// for (int i = 0; i < fullSideFrame.internalSize(); i++) {
+	// if (deltaSideFrame.internalGet(i) != null) {
+	// if (fullSideFrame.internalGet(i) == null) {
+	// fullSideFrame.internalSet(i, deltaSideFrame.internalGet(i));
+	// } else if (fullSideFrame.internalGet(i) != deltaSideFrame.internalGet(i)) {
+	// return false;
+	// }
+	// }
+	// }
+	// return true;
+	// }
 
 	final void internalSendEvent(final DataFrame data, final String eventType) {
 		sendEvent(data, eventType);

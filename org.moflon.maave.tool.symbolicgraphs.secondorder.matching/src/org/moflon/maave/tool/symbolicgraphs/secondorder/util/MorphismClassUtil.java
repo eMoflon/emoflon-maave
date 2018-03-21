@@ -20,36 +20,45 @@ import org.moflon.maave.tool.symbolicgraphs.secondorder.matching.MatchingUtils.M
 import org.moflon.maave.wsconfig.WsInfo;
 
 public class MorphismClassUtil {
-	
-	
-	public static <T> boolean checkMappingMode(Mapping<T> mapping,Collection<T>dom,Collection<T>coDom,MorMappingMode mode) {
-		
-	   if(MappingUtil.isTotal(mapping, dom)==false)
-	   {
-	      return false;
-	   }
-	   
+
+	public static <T> boolean checkMappingMode(Mapping<T> mapping, Collection<T> dom, Collection<T> coDom,
+			MorMappingMode mode) {
+
+		if (MappingUtil.isTotal(mapping, dom) == false) {
+			return false;
+		}
+
 		switch (mode) {
-		case INJ: return MappingUtil.isInjective(mapping);	
-		case BIJ: return MappingUtil.isBijective(mapping, coDom); 
-		case SURJ: return MappingUtil.isSurjective(mapping, coDom);
-		case ARBIT: return true;
-		default: return false;
-			
+		case INJ:
+			return MappingUtil.isInjective(mapping);
+		case BIJ:
+			return MappingUtil.isBijective(mapping, coDom);
+		case SURJ:
+			return MappingUtil.isSurjective(mapping, coDom);
+		case ARBIT:
+			return true;
+		default:
+			return false;
+
 		}
 	}
 
 	public static boolean checkFormulaMode(SymbolicGraphMorphism morphism, FormulaMode formulaMode) {
 		switch (formulaMode) {
-		case IMPL: return checkImplication(morphism);	
-		case BIIMPL: return checkBiImplication(morphism); 
-		case PROJ: return checkProjection(morphism);
-		case ARBIT: return true;
-		default: return false;
-			
+		case IMPL:
+			return checkImplication(morphism);
+		case BIIMPL:
+			return checkBiImplication(morphism);
+		case PROJ:
+			return checkProjection(morphism);
+		case ARBIT:
+			return true;
+		default:
+			return false;
+
 		}
 	}
-	
+
 	private static boolean checkBiImplication(SymbolicGraphMorphism morphism) {
 		IAttribSolver solver = new Z3AttribSolver();
 		return solver.hasEquivalentFormulas(morphism);
@@ -58,24 +67,24 @@ public class MorphismClassUtil {
 	private static boolean checkImplication(SymbolicGraphMorphism morphism) {
 		IAttribSolver solver = new Z3AttribSolver();
 		return solver.checkImplication(morphism);
-		
+
 	}
-	
+
 	private static boolean checkProjection(SymbolicGraphMorphism morC_B) {
-      
-	   //   D----------morD_B---|
-	   //   |                   |
-	   // morD_C                |
-	   //   !                   !
-	   //   C------morC_B------>B
-	   CategoryUtil catUtil=MatchingUtilsFactory.eINSTANCE.createCategoryUtil();
-	   SymbolicGraphMorphism morD_C=catUtil.copyGraph(morC_B.getDom());
-	   SymbolicGraphMorphism morD_B=morD_C.composeWith(morC_B);
-	   morD_B.getDom().setFormula(FormulaUtil.createFalseFormula());
-	   FormulaUtil.disjunctDomFormulawithCodomFormula(morD_B);
-	   return checkBiImplication(morD_C);
-      
-   }
+
+		// D----------morD_B---|
+		// | |
+		// morD_C |
+		// ! !
+		// C------morC_B------>B
+		CategoryUtil catUtil = MatchingUtilsFactory.eINSTANCE.createCategoryUtil();
+		SymbolicGraphMorphism morD_C = catUtil.copyGraph(morC_B.getDom());
+		SymbolicGraphMorphism morD_B = morD_C.composeWith(morC_B);
+		morD_B.getDom().setFormula(FormulaUtil.createFalseFormula());
+		FormulaUtil.disjunctDomFormulawithCodomFormula(morD_B);
+		return checkBiImplication(morD_C);
+
+	}
 
 	private static void reportSimilarURIs(EObject typeA, EObject typeB) {
 		String uriA = EcoreUtil.getURI(typeA).toString();
@@ -85,21 +94,22 @@ public class MorphismClassUtil {
 		}
 
 	}
+
 	public static boolean isCorrectlyTyped(SymbolicGraphMorphism morphism) {
-		
+
 		for (GraphEdge ge : morphism.getDom().getGraphEdges()) {
 			if (!(ge.getType() == morphism.imageOf(ge).getType())) {
-				if (WsInfo.getVerboseLevel()==6) {
+				if (WsInfo.getVerboseLevel() == 6) {
 					reportSimilarURIs(ge.getType(), morphism.imageOf(ge).getType());
 				}
-				if (WsInfo.getVerboseLevel()==6) {
+				if (WsInfo.getVerboseLevel() == 6) {
 					System.out.println(
 							" type(" + ge.getDebugId() + ")!=type(f_GE(" + morphism.imageOf(ge).getDebugId() + "))");
 				}
 				return false;
 			}
 			if (!(morphism.imageOf(ge.getSource()) == morphism.imageOf(ge).getSource())) {
-				if (WsInfo.getVerboseLevel()==6) {
+				if (WsInfo.getVerboseLevel() == 6) {
 					System.out.println(" f_GN s_GE (" + ge.getDebugId() + ")="
 							+ morphism.imageOf(ge.getSource()).getDebugId() + " not equal to s_GE f_GE ("
 							+ ge.getDebugId() + ")=" + morphism.imageOf(ge).getSource().getDebugId());
@@ -107,7 +117,7 @@ public class MorphismClassUtil {
 				return false;
 			}
 			if (!(morphism.imageOf(ge.getTarget()) == morphism.imageOf(ge).getTarget())) {
-				if (WsInfo.getVerboseLevel()==6) {
+				if (WsInfo.getVerboseLevel() == 6) {
 					System.out.println(" f_GN t_GE (" + ge.getDebugId() + ")="
 							+ morphism.imageOf(ge.getTarget()).getDebugId() + " not equal to t_GE f_GE ("
 							+ ge.getDebugId() + ")=" + morphism.imageOf(ge).getTarget().getDebugId());
@@ -119,17 +129,17 @@ public class MorphismClassUtil {
 		for (LabelEdge le : morphism.getDom().getLabelEdges()) {
 			if (!(le.getType() == morphism.imageOf(le).getType())) {
 
-				if (WsInfo.getVerboseLevel()==3) {
+				if (WsInfo.getVerboseLevel() == 3) {
 					reportSimilarURIs(le.getType(), morphism.imageOf(le).getType());
 				}
-				if (WsInfo.getVerboseLevel()==6) {
+				if (WsInfo.getVerboseLevel() == 6) {
 					System.out.println(
 							" type(" + le.getDebugId() + ")!=type(f_LE(" + morphism.imageOf(le).getDebugId() + "))");
 				}
 				return false;
 			}
 			if (!(morphism.imageOf(le.getSource()) == morphism.imageOf(le).getSource())) {
-				if (WsInfo.getVerboseLevel()==6) {
+				if (WsInfo.getVerboseLevel() == 6) {
 					System.out.println(" f_GN s_LE (" + le.getDebugId() + ")="
 							+ morphism.imageOf(le.getSource()).getDebugId() + " not equal to s_LE f_LE ("
 							+ le.getDebugId() + ")=" + morphism.imageOf(le).getSource().getDebugId());
@@ -137,7 +147,7 @@ public class MorphismClassUtil {
 				return false;
 			}
 			if (!(morphism.imageOf(le.getTarget()) == morphism.imageOf(le).getTarget())) {
-				if (WsInfo.getVerboseLevel()==6) {
+				if (WsInfo.getVerboseLevel() == 6) {
 					System.out.println(" f_GN t_LE (" + le.getDebugId() + ")="
 							+ morphism.imageOf(le.getTarget()).getLabel() + " not equal to s_LE f_LE ("
 							+ le.getDebugId() + ")=" + morphism.imageOf(le).getTarget().getLabel());
@@ -147,10 +157,10 @@ public class MorphismClassUtil {
 		}
 		for (GraphNode gn : morphism.getDom().getGraphNodes()) {
 			if (!(gn.getType() == morphism.imageOf(gn).getType())) {
-				if (WsInfo.getVerboseLevel()==3) {
+				if (WsInfo.getVerboseLevel() == 3) {
 					reportSimilarURIs(gn.getType(), morphism.imageOf(gn).getType());
 				}
-				if (WsInfo.getVerboseLevel()==6) {
+				if (WsInfo.getVerboseLevel() == 6) {
 					System.out.println(
 							" type(" + gn.getDebugId() + ")!=type(f_GN(" + morphism.imageOf(gn).getDebugId() + "))");
 				}
@@ -161,10 +171,10 @@ public class MorphismClassUtil {
 
 		for (LabelNode ln : morphism.getDom().getLabelNodes()) {
 			if (!(ln.getType() == morphism.imageOf(ln).getType())) {
-				if (WsInfo.getVerboseLevel()==3) {
+				if (WsInfo.getVerboseLevel() == 3) {
 					reportSimilarURIs(ln.getType(), morphism.imageOf(ln).getType());
 				}
-				if (WsInfo.getVerboseLevel()==6) {
+				if (WsInfo.getVerboseLevel() == 6) {
 					System.out.println(
 							" type(" + ln.getLabel() + ")!=type(f_LN(" + morphism.imageOf(ln).getLabel() + "))");
 				}
@@ -175,6 +185,4 @@ public class MorphismClassUtil {
 		return true;
 	}
 
-	
-	
 }

@@ -4,24 +4,24 @@ import org.moflon.maave.tool.symbolicgraphs.SymbolicGraphs.Predicate;
 
 public abstract class PredicateSymbolSwitch {
 
-	protected static final String SUBTRACTION_OP="-";
-	protected static final String ADDITION_OP="+";
-	protected static final String LARGER_EQUAL_OP=">=";
-	protected static final String LARGER_OP=">";
-	protected static final String SMALLER_EQUAL_OP="<=";
-	protected static final String SMALLER_OP="<";
-	protected static final String EQUAL_OP="=";
-	protected static final String CONST_TRUE="#T";
-	protected static final String CONST_FALSE="#F";
-	protected static final String IMPL_CH_FUN="IMPL?";
-	protected static final String LARGER_EQUAL_CH_FUN=">=?";
-	protected static final String SUBTRACTION_CH_FUN="-?";
-	protected static final String ADDITION_CH_FUN="+?";
-	protected static final String LARGER_CH_FUN=">?";
-	protected static final String SMALLER_EQUAL_CH_FUN="<=?";
-	protected static final String SMALLER_CH_FUN="<?";
-	protected static final String EQUAL_CH_FUN="=?";
-	
+	protected static final String SUBTRACTION_OP = "-";
+	protected static final String ADDITION_OP = "+";
+	protected static final String LARGER_EQUAL_OP = ">=";
+	protected static final String LARGER_OP = ">";
+	protected static final String SMALLER_EQUAL_OP = "<=";
+	protected static final String SMALLER_OP = "<";
+	protected static final String EQUAL_OP = "=";
+	protected static final String CONST_TRUE = "#T";
+	protected static final String CONST_FALSE = "#F";
+	protected static final String IMPL_CH_FUN = "IMPL?";
+	protected static final String LARGER_EQUAL_CH_FUN = ">=?";
+	protected static final String SUBTRACTION_CH_FUN = "-?";
+	protected static final String ADDITION_CH_FUN = "+?";
+	protected static final String LARGER_CH_FUN = ">?";
+	protected static final String SMALLER_EQUAL_CH_FUN = "<=?";
+	protected static final String SMALLER_CH_FUN = "<?";
+	protected static final String EQUAL_CH_FUN = "=?";
+
 	protected String doSwitch(Predicate predicate) {
 		switch (predicate.getSymbol()) {
 		case IMPL_CH_FUN: {
@@ -131,10 +131,8 @@ public abstract class PredicateSymbolSwitch {
 		}
 	}
 
-	
-	
 	protected abstract String caseImplChFun(Predicate predicate);
-	
+
 	protected abstract String caseSubChFun(Predicate predicate);
 
 	protected abstract String caseAddChFun(Predicate predicate);
@@ -148,7 +146,7 @@ public abstract class PredicateSymbolSwitch {
 	protected abstract String caseSmallerChFun(Predicate predicate);
 
 	protected abstract String caseEqualChFun(Predicate predicate);
-	
+
 	protected abstract String caseConstFalse(Predicate predicate);
 
 	protected abstract String caseConstTrue(Predicate predicate);

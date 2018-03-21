@@ -31,31 +31,24 @@ import org.gervarro.democles.common.OperationRuntime;
 import org.gervarro.democles.plan.WeightedOperation;
 import org.gervarro.democles.specification.impl.Constraint;
 
-class DefaultSearchPlan<C extends OperationCombiner<C,O>, O extends OperationRuntime> extends SearchPlan<C,O,Integer,DefaultSearchPlan<C,O>> implements Combiner<DefaultSearchPlan<C,O>, WeightedOperation<O,Integer>> {
-	
-	DefaultSearchPlan(C root,
-			Adornment adornment,
-			final Set<Constraint> uncheckedConstraints,
-			final int cost,
-			List<WeightedOperation<O, Integer>> present,
-			List<WeightedOperation<O, Integer>> future) {
+class DefaultSearchPlan<C extends OperationCombiner<C, O>, O extends OperationRuntime>
+		extends SearchPlan<C, O, Integer, DefaultSearchPlan<C, O>>
+		implements Combiner<DefaultSearchPlan<C, O>, WeightedOperation<O, Integer>> {
+
+	DefaultSearchPlan(C root, Adornment adornment, final Set<Constraint> uncheckedConstraints, final int cost,
+			List<WeightedOperation<O, Integer>> present, List<WeightedOperation<O, Integer>> future) {
 		super(root, adornment, uncheckedConstraints, cost, present, future);
 	}
-	
-	public final int compareTo(DefaultSearchPlan<C,O> o) {
+
+	public final int compareTo(DefaultSearchPlan<C, O> o) {
 		return getCost() - o.getCost();
 	}
 
-	public DefaultSearchPlan<C, O> combine(WeightedOperation<O,Integer> operation) {
-		final Set<Constraint> uncheckedConstraints =
-				new HashSet<Constraint>(getUncheckedConstraints());
+	public DefaultSearchPlan<C, O> combine(WeightedOperation<O, Integer> operation) {
+		final Set<Constraint> uncheckedConstraints = new HashSet<Constraint>(getUncheckedConstraints());
 		uncheckedConstraints.remove(operation.getOperation().getOrigin());
-		return new DefaultSearchPlan<C,O>(
-				getRoot().combine(operation.getOperation()),
-				getAdornment().applyOperationMask(operation.getOperation()),
-				uncheckedConstraints,
-				getCost() + operation.getWeight(),
-				getPresentOperations(),
-				getFutureOperations());
+		return new DefaultSearchPlan<C, O>(getRoot().combine(operation.getOperation()),
+				getAdornment().applyOperationMask(operation.getOperation()), uncheckedConstraints,
+				getCost() + operation.getWeight(), getPresentOperations(), getFutureOperations());
 	}
 }

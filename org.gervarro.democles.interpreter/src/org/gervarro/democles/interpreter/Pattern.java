@@ -36,22 +36,21 @@ import org.gervarro.democles.runtime.RemappingOperation;
 import org.gervarro.democles.specification.impl.ConstraintVariable;
 import org.gervarro.democles.specification.impl.Variable;
 
-public class Pattern extends org.gervarro.democles.common.PatternMatcher<InterpretedDataFrame> implements MatchEventListener,org.gervarro.democles.specification.Pattern {
+public class Pattern extends org.gervarro.democles.common.PatternMatcher<InterpretedDataFrame>
+		implements MatchEventListener, org.gervarro.democles.specification.Pattern {
 	private PatternMatcherModule engine;
 	private List<PatternBody> bodies;
 	private final List<Variable> symbolicParameters;
 	private List<VariableRuntime> internalSymbolicParameters;
 	private List<RemappingOperation> symbolicParameterOperations;
-	private Map<Adornment, MagicSet> magicSets =
-		new HashMap<Adornment, MagicSet>();
-	
+	private Map<Adornment, MagicSet> magicSets = new HashMap<Adornment, MagicSet>();
+
 	Pattern(PatternMatcherModule module, String name, List<? extends Variable> symbolicParameters) {
 		super(name);
 		this.engine = module;
-		this.symbolicParameters =
-			new ArrayList<Variable>(symbolicParameters);
+		this.symbolicParameters = new ArrayList<Variable>(symbolicParameters);
 	}
-	
+
 	public final List<PatternBody> getBodies() {
 		if (bodies != null) {
 			return bodies;
@@ -60,7 +59,7 @@ public class Pattern extends org.gervarro.democles.common.PatternMatcher<Interpr
 			return emptyList;
 		}
 	}
-	
+
 	final void setBodies(List<PatternBody> bodies) {
 		if (this.bodies == null) {
 			this.bodies = bodies;
@@ -69,34 +68,32 @@ public class Pattern extends org.gervarro.democles.common.PatternMatcher<Interpr
 			}
 		}
 	}
-	
+
 	public final List<Variable> getSymbolicParameters() {
 		return symbolicParameters;
 	}
-	
+
 	final List<VariableRuntime> getRuntimeSymbolicParameters() {
 		if (internalSymbolicParameters == null) {
 			internalSymbolicParameters = engine.createVariableRuntimes(getSymbolicParameters(), 0);
 		}
 		return internalSymbolicParameters;
 	}
-	
+
 	final Map<ConstraintVariable, VariableRuntime> getVariableMap() {
-		final Map<ConstraintVariable, VariableRuntime> variableMap =
-				new HashMap<ConstraintVariable, VariableRuntime>();
+		final Map<ConstraintVariable, VariableRuntime> variableMap = new HashMap<ConstraintVariable, VariableRuntime>();
 		for (int i = 0; i < getSymbolicParameters().size(); i++) {
 			variableMap.put(getSymbolicParameters().get(i), getRuntimeSymbolicParameters().get(i));
 		}
 		return variableMap;
 	}
-	
+
 	final List<RemappingOperation> getSymbolicParameterOperations() {
 		if (symbolicParameterOperations == null) {
-			symbolicParameterOperations =
-				new ArrayList<RemappingOperation>(getSymbolicParameters().size());
+			symbolicParameterOperations = new ArrayList<RemappingOperation>(getSymbolicParameters().size());
 			for (int i = 0; i < getSymbolicParameters().size(); i++) {
-				final RemappingOperation newOperation =
-					engine.buildVariableOperation(getSymbolicParameters().get(i), getRuntimeSymbolicParameters().get(i));
+				final RemappingOperation newOperation = engine.buildVariableOperation(getSymbolicParameters().get(i),
+						getRuntimeSymbolicParameters().get(i));
 				symbolicParameterOperations.add(newOperation);
 			}
 		}
@@ -112,20 +109,19 @@ public class Pattern extends org.gervarro.democles.common.PatternMatcher<Interpr
 		magicSets.put(adornment, ms);
 		return ms;
 	}
-	
+
 	MagicSet getMagicSet(Adornment adornment) {
 		return magicSets.get(adornment);
 	}
-	
+
 	protected final Iterable<InterpretedDataFrame> matchAll(InterpretedDataFrame input, Adornment adornment) {
 		return new MultipleMatchSession(this).match(input, adornment);
 	}
-	
-	protected final InterpretedDataFrame matchSingle(InterpretedDataFrame input,
-			Adornment adornment) {
+
+	protected final InterpretedDataFrame matchSingle(InterpretedDataFrame input, Adornment adornment) {
 		return new SingleMatchSession(this).match(input, adornment);
 	}
-	
+
 	public final InterpretedDataFrame createDataFrame() {
 		return new InterpretedDataFrame(symbolicParameters.size());
 	}

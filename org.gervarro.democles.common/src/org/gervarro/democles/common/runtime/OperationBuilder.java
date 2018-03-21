@@ -25,7 +25,8 @@ import java.util.List;
 import org.gervarro.democles.specification.impl.Constraint;
 import org.gervarro.democles.specification.impl.Variable;
 
-public interface OperationBuilder<O,V extends VariableRuntime> {
+public interface OperationBuilder<O, V extends VariableRuntime> {
 	public List<O> getConstraintOperations(Constraint constraint, List<V> parameters);
+
 	public O getVariableOperation(Variable variable, V runtimeVariable);
 }

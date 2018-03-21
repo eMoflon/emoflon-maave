@@ -22,21 +22,18 @@ package org.gervarro.democles.specification.impl;
 
 public final class DefaultPatternFactory implements PatternFactory<DefaultPattern, DefaultPatternBody> {
 
-	public final void setBodies(final DefaultPattern pattern,
-			final DefaultPatternBody[] bodies) {
+	public final void setBodies(final DefaultPattern pattern, final DefaultPatternBody[] bodies) {
 		pattern.setBodies(bodies);
 		for (int i = 0; i < bodies.length; i++) {
 			bodies[i].setParent(pattern);
 		}
 	}
-	
-	public final DefaultPattern createPattern(final String name,
-			final Variable[] symbolicParameters) {
+
+	public final DefaultPattern createPattern(final String name, final Variable[] symbolicParameters) {
 		return new DefaultPattern(name, symbolicParameters);
 	}
-	
-	public final DefaultPatternBody createPatternBody(final Variable[] localVariables,
-			final Constraint[] constraints,
+
+	public final DefaultPatternBody createPatternBody(final Variable[] localVariables, final Constraint[] constraints,
 			final Constant[] constants) {
 		return new DefaultPatternBody(localVariables, constraints, constants);
 	}

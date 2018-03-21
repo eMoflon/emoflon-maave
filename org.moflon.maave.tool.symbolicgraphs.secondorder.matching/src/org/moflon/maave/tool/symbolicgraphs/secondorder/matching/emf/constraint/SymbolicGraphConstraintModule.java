@@ -44,51 +44,52 @@ import org.moflon.maave.tool.symbolicgraphs.secondorder.matching.operations.Labe
 
 public class SymbolicGraphConstraintModule implements TypeModule {
 	private final EPackage.Registry registry;
-//	private final Map<EModelElement, EMFConstraint<?>> constraintTypeMapping =
-//		new HashMap<EModelElement, EMFConstraint<?>>();
-	private final Map<EClassifier, GraphNodeVariableType> graphNodeVariableTypeMapping =
-		new HashMap<EClassifier, GraphNodeVariableType>();
-	private final Map<EReference, GraphEdgeVariableType> graphEdgeVariableTypeMapping =
-			new HashMap<EReference, GraphEdgeVariableType>();
-	private Map<EAttribute, LabelEdgeVariableType> labelEdgeVariableTypeMapping=new HashMap<EAttribute, LabelEdgeVariableType>();
-	private Map<EDataType, LabelNodeVariableType> labelNodeVariableTypeMapping=new HashMap<EDataType, LabelNodeVariableType>();
-	
+	// private final Map<EModelElement, EMFConstraint<?>> constraintTypeMapping =
+	// new HashMap<EModelElement, EMFConstraint<?>>();
+	private final Map<EClassifier, GraphNodeVariableType> graphNodeVariableTypeMapping = new HashMap<EClassifier, GraphNodeVariableType>();
+	private final Map<EReference, GraphEdgeVariableType> graphEdgeVariableTypeMapping = new HashMap<EReference, GraphEdgeVariableType>();
+	private Map<EAttribute, LabelEdgeVariableType> labelEdgeVariableTypeMapping = new HashMap<EAttribute, LabelEdgeVariableType>();
+	private Map<EDataType, LabelNodeVariableType> labelNodeVariableTypeMapping = new HashMap<EDataType, LabelNodeVariableType>();
+
 	public SymbolicGraphConstraintModule(Registry registry) {
 		this.registry = registry;
 	}
-	
+
 	public SymbolicGraphConstraintModule(ResourceSet resourceSet) {
 		this(resourceSet.getPackageRegistry());
 	}
-	
+
 	public boolean isAdapterForType(Object type) {
 		return type instanceof Class<?> && getClass().isAssignableFrom((Class<?>) type);
 	}
-	
+
 	public final String getName() {
 		return "SymbolicGraphsConstraintTypeModule";
 	}
-	
-//	public final EMFConstraint<?> getConstraintType(EModelElement eModelElement) {
-////		EMFConstraint<?> constraintType = constraintTypeMapping.get(eModelElement);
-////		if (constraintType == null) {
-////			if (EcorePackage.eINSTANCE.getEAttribute().isInstance(eModelElement)) {
-////				EAttribute eAttribute = (EAttribute) eModelElement;
-////				constraintType = new Attribute(this, eAttribute);
-////			} else if (EcorePackage.eINSTANCE.getEReference().isInstance(eModelElement)) {
-////				EReference eReference = (EReference) eModelElement;
-////				constraintType = new Reference(this, eReference);
-////			} else if (EcorePackage.eINSTANCE.getEOperation().isInstance(eModelElement)) {
-////				EOperation eReference = (EOperation) eModelElement;
-////				constraintType = new Operation(this, eReference);
-////			} else {
-////				return null;
-////			}
-////			constraintTypeMapping.put(eModelElement, constraintType);
-////		}
-////		return constraintType;
-//		return null;
-//	}
+
+	// public final EMFConstraint<?> getConstraintType(EModelElement eModelElement)
+	// {
+	//// EMFConstraint<?> constraintType = constraintTypeMapping.get(eModelElement);
+	//// if (constraintType == null) {
+	//// if (EcorePackage.eINSTANCE.getEAttribute().isInstance(eModelElement)) {
+	//// EAttribute eAttribute = (EAttribute) eModelElement;
+	//// constraintType = new Attribute(this, eAttribute);
+	//// } else if
+	// (EcorePackage.eINSTANCE.getEReference().isInstance(eModelElement)) {
+	//// EReference eReference = (EReference) eModelElement;
+	//// constraintType = new Reference(this, eReference);
+	//// } else if
+	// (EcorePackage.eINSTANCE.getEOperation().isInstance(eModelElement)) {
+	//// EOperation eReference = (EOperation) eModelElement;
+	//// constraintType = new Operation(this, eReference);
+	//// } else {
+	//// return null;
+	//// }
+	//// constraintTypeMapping.put(eModelElement, constraintType);
+	//// }
+	//// return constraintType;
+	// return null;
+	// }
 
 	public final GraphElementVariableType getVariableType(GraphNodeVariable gn) {
 		EClass typeGraphElement = gn.getType();
@@ -99,6 +100,7 @@ public class SymbolicGraphConstraintModule implements TypeModule {
 		}
 		return graphNodeVariableType;
 	}
+
 	public final GraphElementVariableType getVariableType(GraphEdgeVariable ge) {
 		EReference typeGraphElement = ge.getType();
 		GraphEdgeVariableType graphEdgeVariableType = graphEdgeVariableTypeMapping.get(typeGraphElement);
@@ -108,6 +110,7 @@ public class SymbolicGraphConstraintModule implements TypeModule {
 		}
 		return graphEdgeVariableType;
 	}
+
 	public final GraphElementVariableType getVariableType(LabelEdgeVariable le) {
 		EAttribute typeGraphElement = le.getType();
 		LabelEdgeVariableType labelEdgeVariableType = labelEdgeVariableTypeMapping.get(typeGraphElement);
@@ -117,6 +120,7 @@ public class SymbolicGraphConstraintModule implements TypeModule {
 		}
 		return labelEdgeVariableType;
 	}
+
 	public final GraphElementVariableType getVariableType(LabelNodeVariable ln) {
 		EDataType typeGraphElement = ln.getType();
 		LabelNodeVariableType labelNodeVariableType = labelNodeVariableTypeMapping.get(typeGraphElement);
@@ -126,7 +130,7 @@ public class SymbolicGraphConstraintModule implements TypeModule {
 		}
 		return labelNodeVariableType;
 	}
-	
+
 	public final Registry getRegistry() {
 		return registry;
 	}

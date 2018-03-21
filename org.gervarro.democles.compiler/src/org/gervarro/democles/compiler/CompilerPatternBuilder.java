@@ -39,7 +39,8 @@ import org.gervarro.democles.specification.impl.Constraint;
 import org.gervarro.democles.specification.impl.ConstraintVariable;
 import org.gervarro.democles.specification.impl.Variable;
 
-public class CompilerPatternBuilder extends PatternMatcherBuilder<CompilerPattern, CompilerPatternBody, GeneratorOperation, GeneratorVariable, OperationBuilder<GeneratorOperation,GeneratorVariable>, SimpleCombiner> {
+public class CompilerPatternBuilder extends
+		PatternMatcherBuilder<CompilerPattern, CompilerPatternBody, GeneratorOperation, GeneratorVariable, OperationBuilder<GeneratorOperation, GeneratorVariable>, SimpleCombiner> {
 	private final String packageName;
 
 	public CompilerPatternBuilder() {
@@ -54,65 +55,62 @@ public class CompilerPatternBuilder extends PatternMatcherBuilder<CompilerPatter
 	public final String getPackageName() {
 		return packageName != null ? packageName : "";
 	}
-	
+
 	public final String getPackagePrefix() {
 		return packageName != null ? packageName + "." : "";
 	}
-	
+
 	public final String getPatternSuffix() {
 		return "Pattern";
 	}
-	
+
 	public final String getBodySuffix() {
 		return "Body";
 	}
-	
+
 	public final String getDataFrameSuffix() {
 		return "DataFrame";
 	}
-	
-	public final Chain<GeneratorOperation> generateReverseSearchPlan(List<GeneratorOperation> operations, Adornment inputAdornment) {
+
+	public final Chain<GeneratorOperation> generateReverseSearchPlan(List<GeneratorOperation> operations,
+			Adornment inputAdornment) {
 		SimpleCombiner initialCombiner = new SimpleCombiner(inputAdornment);
 		SimpleCombiner finalCombiner = getAlgorithm().generateSearchPlan(initialCombiner, operations, inputAdornment);
 		return finalCombiner.getRoot();
 	}
-	
-	protected final CompilerPattern createPattern(String name,
-			List<? extends Variable> symbolicParameters) {
+
+	protected final CompilerPattern createPattern(String name, List<? extends Variable> symbolicParameters) {
 		return new CompilerPattern(this, name, symbolicParameters);
 	}
 
-	protected final void setBodies(CompilerPattern pattern,
-			List<CompilerPatternBody> bodies) {
+	protected final void setBodies(CompilerPattern pattern, List<CompilerPatternBody> bodies) {
 		pattern.setBodies(bodies);
 	}
 
-	protected final CompilerPatternBody createPatternBody(List<Variable> localVariables,
-			List<Constant> constants,
+	protected final CompilerPatternBody createPatternBody(List<Variable> localVariables, List<Constant> constants,
 			List<Constraint> constraints) {
 		return new CompilerPatternBody(localVariables, constants, constraints);
 	}
-	
+
 	protected final GeneratorVariable createVariableRuntime(ConstraintVariable variable, int index) {
 		return new GeneratorVariable(variable, index);
 	}
 
 	@Override
-	public final List<GeneratorOperation> getConstraintOperations(
-			Constraint constraint, List<GeneratorVariable> parameters) {
+	public final List<GeneratorOperation> getConstraintOperations(Constraint constraint,
+			List<GeneratorVariable> parameters) {
 		ConstraintType cType = constraint.getType();
 		if (cType instanceof PatternInvocationConstraintType) {
 			PatternInvocationConstraintType invocation = (PatternInvocationConstraintType) cType;
-			String invokedPatternIdentifier = PatternMatcherPlugin.getIdentifier(invocation.getInvokedPattern().getName(), parameters.size());
+			String invokedPatternIdentifier = PatternMatcherPlugin
+					.getIdentifier(invocation.getInvokedPattern().getName(), parameters.size());
 			CompilerPattern invokedPattern = patternMap.get(invokedPatternIdentifier);
 			if (invokedPattern != null && !invocation.isPositive()) {
 				int[] allBoundArray = new int[parameters.size()];
 				Arrays.fill(allBoundArray, Adornment.BOUND);
 				List<GeneratorOperation> result = new LinkedList<GeneratorOperation>();
-				result.add(new GeneratorOperation(constraint, parameters,
-						Adornment.create(allBoundArray),
-						Adornment.create(allBoundArray),
-						invocation));
+				result.add(new GeneratorOperation(constraint, parameters, Adornment.create(allBoundArray),
+						Adornment.create(allBoundArray), invocation));
 				return result;
 			}
 		}

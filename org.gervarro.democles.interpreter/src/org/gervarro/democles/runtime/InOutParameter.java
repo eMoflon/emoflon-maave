@@ -26,9 +26,9 @@ public class InOutParameter<T> {
 	public InOutParameter(T value) {
 		this.value = value;
 	}
-	
+
 	public final T getValue() {
 		return value;
 	}
-	
+
 }

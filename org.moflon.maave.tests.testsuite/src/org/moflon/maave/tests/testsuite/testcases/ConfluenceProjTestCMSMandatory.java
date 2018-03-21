@@ -17,138 +17,115 @@ import org.moflon.maave.tool.graphtransformation.SymbGTRule;
 import org.moflon.maave.tool.symbolicgraphs.secondorder.matching.MatchingUtils.ConfigurableMorphismClassFactory;
 import org.moflon.maave.tool.symbolicgraphs.secondorder.matching.MatchingUtils.MatchingUtilsFactory;
 
-
 public class ConfluenceProjTestCMSMandatory {
 
+	@Test
+	public void test1() {
+		System.out.println("");
+		System.out.println("-------------------------------------------------------------");
+		System.out.println("Starting ConfluenceProjTestCMSMandatory/Test1: ");
+		CmsPackage.eINSTANCE.getClass();
+		EPackage pack = TestRunner.loadTestMM("org.moflon.maave.tests.lang.cms", "Cms");
+		EClass clsEnrollment = (EClass) pack.getEClassifier("Enrollment");
+		EClass clsExam = (EClass) pack.getEClassifier("Exam");
 
-   @Test
-   public void test1() {
-      System.out.println("");
-      System.out.println("-------------------------------------------------------------");
-      System.out.println("Starting ConfluenceProjTestCMSMandatory/Test1: " );
-      CmsPackage.eINSTANCE.getClass();
-      EPackage pack=TestRunner.loadTestMM("org.moflon.maave.tests.lang.cms", "Cms");
-      EClass clsEnrollment=(EClass) pack.getEClassifier("Enrollment");
-      EClass clsExam=(EClass) pack.getEClassifier("Exam");
+		SymbGTRule rule1 = ModelHelper.getRule(clsEnrollment, "registerForExam");
+		SymbGTRule rule6 = ModelHelper.getRule(clsExam, "bookRoom");
 
+		ConfigurableMorphismClassFactory morClassFac = MatchingUtilsFactory.eINSTANCE
+				.createConfigurableMorphismClassFactory();
 
+		GraphTransformationSystem gts = GraphtransformationFactory.eINSTANCE.createGraphTransformationSystem();
+		gts.getRules().add(rule1);
+		gts.getRules().add(rule6);
 
+		gts.setMatchMorphismClass(morClassFac.createMorphismClass("I", "I", "I", "I", "=>"));
+		gts.setDirectDerivationBuilder(GraphtransformationFactory.eINSTANCE.createProjectiveDirectDerivationBuilder());
 
+		// Add cardinality constraints
+		ModelHelper.addCardinalityConstraintsToGTS(pack, gts);
+		// Add user defined constraints
+		gts.getGlobalConstraints().add(ModelHelper.getUserDefConstraints(pack));
+		// Add nonemptySemantic constraint
+		gts.getGlobalConstraints().add(gts.getSatConstraint());
 
-      SymbGTRule rule1=ModelHelper.getRule(clsEnrollment,"registerForExam");
-      SymbGTRule rule6=ModelHelper.getRule(clsExam,"bookRoom");
+		SubcommutativityModuloNFEQAnalyser directConfluenceAnalyser = ConfluenceFactory.eINSTANCE
+				.createSubcommutativityModuloNFEQAnalyser();
+		ConfluenceAnalysisReport report = directConfluenceAnalyser.checkConfluence(gts);
+		assertFalse(report.getConfluenceStates().stream().allMatch(x -> x.isValid()));
 
-      ConfigurableMorphismClassFactory morClassFac =MatchingUtilsFactory.eINSTANCE.createConfigurableMorphismClassFactory();
+	}
 
+	@Test
+	public void test2() {
+		System.out.println("Starting ConfluenceProjTestCMSMandatory/Test2: ");
+		CmsPackage.eINSTANCE.getClass();
+		EPackage pack = TestRunner.loadTestMM("org.moflon.maave.tests.lang.cms", "Cms");
+		EClass clsEnrollment = (EClass) pack.getEClassifier("Enrollment");
 
-      GraphTransformationSystem gts=GraphtransformationFactory.eINSTANCE.createGraphTransformationSystem();
-      gts.getRules().add(rule1);
-      gts.getRules().add(rule6);
+		SymbGTRule rule1 = ModelHelper.getRule(clsEnrollment, "registerForExam");
+		SymbGTRule rule6 = ModelHelper.getRule(clsEnrollment, "unregisterFromExam");
 
+		ConfigurableMorphismClassFactory morClassFac = MatchingUtilsFactory.eINSTANCE
+				.createConfigurableMorphismClassFactory();
 
-      gts.setMatchMorphismClass(morClassFac.createMorphismClass("I", "I", "I", "I", "=>"));
-      gts.setDirectDerivationBuilder(GraphtransformationFactory.eINSTANCE.createProjectiveDirectDerivationBuilder());
+		GraphTransformationSystem gts = GraphtransformationFactory.eINSTANCE.createGraphTransformationSystem();
+		gts.getRules().add(rule1);
+		gts.getRules().add(rule6);
 
-      //Add cardinality constraints
-      ModelHelper.addCardinalityConstraintsToGTS(pack, gts);
-      //Add user defined constraints
-      gts.getGlobalConstraints().add(ModelHelper.getUserDefConstraints(pack));
-      //Add nonemptySemantic constraint
-      gts.getGlobalConstraints().add(gts.getSatConstraint());
+		gts.setMatchMorphismClass(morClassFac.createMorphismClass("I", "I", "I", "I", "=>"));
+		gts.setDirectDerivationBuilder(GraphtransformationFactory.eINSTANCE.createProjectiveDirectDerivationBuilder());
 
+		// Add cardinality constraints
+		ModelHelper.addCardinalityConstraintsToGTS(pack, gts);
+		// Add user defined constraints
+		gts.getGlobalConstraints().add(ModelHelper.getUserDefConstraints(pack));
+		// Add nonemptySemantic constraint
+		gts.getGlobalConstraints().add(gts.getSatConstraint());
 
+		SubcommutativityModuloNFEQAnalyser directConfluenceAnalyser = ConfluenceFactory.eINSTANCE
+				.createSubcommutativityModuloNFEQAnalyser();
+		ConfluenceAnalysisReport report = directConfluenceAnalyser.checkConfluence(gts);
+		assertTrue(report.getConfluenceStates().stream().allMatch(x -> x.isValid()));
+		assertTrue(report.getConfluenceStates().stream().anyMatch(x -> x.getCpaResult().getNrOfCritPairs() > 0));
 
-      SubcommutativityModuloNFEQAnalyser directConfluenceAnalyser=ConfluenceFactory.eINSTANCE.createSubcommutativityModuloNFEQAnalyser();
-      ConfluenceAnalysisReport report=directConfluenceAnalyser.checkConfluence(gts);
-      assertFalse(report.getConfluenceStates().stream().allMatch(x->x.isValid()));
+	}
 
+	@Test
+	public void test3() {
+		System.out.println("Starting ConfluenceProjTestCMSMandatory/Test3: ");
+		CmsPackage.eINSTANCE.getClass();
+		EPackage pack = TestRunner.loadTestMM("org.moflon.maave.tests.lang.cms", "Cms");
 
-   }
+		EClass clsExam = (EClass) pack.getEClassifier("Exam");
 
-   @Test
-   public void test2() {
-      System.out.println("Starting ConfluenceProjTestCMSMandatory/Test2: " );
-      CmsPackage.eINSTANCE.getClass();
-      EPackage pack=TestRunner.loadTestMM("org.moflon.maave.tests.lang.cms", "Cms");
-      EClass clsEnrollment=(EClass) pack.getEClassifier("Enrollment");
+		ConfigurableMorphismClassFactory morClassFac = MatchingUtilsFactory.eINSTANCE
+				.createConfigurableMorphismClassFactory();
 
+		GraphTransformationSystem gts = GraphtransformationFactory.eINSTANCE.createGraphTransformationSystem();
+		gts.getRules().add(ModelHelper.getRule(clsExam, "transscriptRecordPassed"));
+		gts.getRules().add(ModelHelper.getRule(clsExam, "transscriptRecordFailed"));
 
+		gts.setMatchMorphismClass(morClassFac.createMorphismClass("I", "I", "I", "I", "=>"));
+		gts.setDirectDerivationBuilder(GraphtransformationFactory.eINSTANCE.createProjectiveDirectDerivationBuilder());
 
-      SymbGTRule rule1=ModelHelper.getRule(clsEnrollment,"registerForExam");
-      SymbGTRule rule6=ModelHelper.getRule(clsEnrollment,"unregisterFromExam");
+		// Add cardinality constraints
+		ModelHelper.addCardinalityConstraintsToGTS(pack, gts);
+		// Add user defined constraints
+		gts.getGlobalConstraints().add(ModelHelper.getUserDefConstraints(pack));
+		// Add nonemptySemantic constraint
+		gts.getGlobalConstraints().add(gts.getSatConstraint());
 
-      ConfigurableMorphismClassFactory morClassFac =MatchingUtilsFactory.eINSTANCE.createConfigurableMorphismClassFactory();
+		for (int i = 0; i < 1; i++) {
 
+			SubcommutativityModuloNFEQAnalyser directConfluenceAnalyser = ConfluenceFactory.eINSTANCE
+					.createSubcommutativityModuloNFEQAnalyser();
+			ConfluenceAnalysisReport report = directConfluenceAnalyser.checkConfluence(gts);
+			assertTrue(report.getConfluenceStates().stream().allMatch(x -> x.isValid()));
+			assertTrue(report.getConfluenceStates().stream().allMatch(x -> x.getCpaResult().getNrOfCritPairs() > 0));
 
-      GraphTransformationSystem gts=GraphtransformationFactory.eINSTANCE.createGraphTransformationSystem();
-      gts.getRules().add(rule1);
-      gts.getRules().add(rule6);
+		}
 
-
-      gts.setMatchMorphismClass(morClassFac.createMorphismClass("I", "I", "I", "I", "=>"));
-      gts.setDirectDerivationBuilder(GraphtransformationFactory.eINSTANCE.createProjectiveDirectDerivationBuilder());
-
-      //Add cardinality constraints
-      ModelHelper.addCardinalityConstraintsToGTS(pack, gts);
-      //Add user defined constraints
-      gts.getGlobalConstraints().add(ModelHelper.getUserDefConstraints(pack));
-      //Add nonemptySemantic constraint
-      gts.getGlobalConstraints().add(gts.getSatConstraint());
-
-
-
-      SubcommutativityModuloNFEQAnalyser directConfluenceAnalyser=ConfluenceFactory.eINSTANCE.createSubcommutativityModuloNFEQAnalyser();
-      ConfluenceAnalysisReport report=directConfluenceAnalyser.checkConfluence(gts);
-      assertTrue(report.getConfluenceStates().stream().allMatch(x->x.isValid()));
-      assertTrue(report.getConfluenceStates().stream().anyMatch(x->x.getCpaResult().getNrOfCritPairs()>0));
-
-
-
-   }
-   @Test
-   public void test3() {
-      System.out.println("Starting ConfluenceProjTestCMSMandatory/Test3: " );
-      CmsPackage.eINSTANCE.getClass();
-      EPackage pack=TestRunner.loadTestMM("org.moflon.maave.tests.lang.cms", "Cms");
-
-      EClass clsExam=(EClass) pack.getEClassifier("Exam");
-
-
-
-
-
-      ConfigurableMorphismClassFactory morClassFac =MatchingUtilsFactory.eINSTANCE.createConfigurableMorphismClassFactory();
-
-
-      GraphTransformationSystem gts=GraphtransformationFactory.eINSTANCE.createGraphTransformationSystem();
-      gts.getRules().add(ModelHelper.getRule(clsExam,"transscriptRecordPassed"));
-      gts.getRules().add(ModelHelper.getRule(clsExam,"transscriptRecordFailed"));
-
-
-      gts.setMatchMorphismClass(morClassFac.createMorphismClass("I", "I", "I", "I", "=>"));
-      gts.setDirectDerivationBuilder(GraphtransformationFactory.eINSTANCE.createProjectiveDirectDerivationBuilder());
-
-      //Add cardinality constraints
-      ModelHelper.addCardinalityConstraintsToGTS(pack, gts);
-      //Add user defined constraints
-      gts.getGlobalConstraints().add(ModelHelper.getUserDefConstraints(pack));
-      //Add nonemptySemantic constraint
-      gts.getGlobalConstraints().add(gts.getSatConstraint());
-
-      for (int i = 0; i < 1; i++)
-      {
-
-
-         SubcommutativityModuloNFEQAnalyser directConfluenceAnalyser=ConfluenceFactory.eINSTANCE.createSubcommutativityModuloNFEQAnalyser();
-         ConfluenceAnalysisReport report=directConfluenceAnalyser.checkConfluence(gts);
-         assertTrue(report.getConfluenceStates().stream().allMatch(x->x.isValid()));
-         assertTrue(report.getConfluenceStates().stream().allMatch(x->x.getCpaResult().getNrOfCritPairs()>0));
-
-      }
-
-
-   }
-
-
+	}
 
 }

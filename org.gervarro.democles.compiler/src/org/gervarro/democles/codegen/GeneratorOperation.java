@@ -27,28 +27,21 @@ import org.gervarro.democles.common.OperationRuntime;
 
 public class GeneratorOperation implements OperationRuntime {
 	public static final int ALWAYS_SUCCESSFUL = 0x1;
-	
+
 	private final Object origin;
 	private final List<GeneratorVariable> parameters;
 	private final Adornment precondition;
 	private final Adornment postcondition;
 	private final Object type;
 	private final int options;
-	
-	public GeneratorOperation(Object origin,
-			List<GeneratorVariable> parameters,
-			Adornment precondition,
-			Adornment postcondition,
-			Object type) {
+
+	public GeneratorOperation(Object origin, List<GeneratorVariable> parameters, Adornment precondition,
+			Adornment postcondition, Object type) {
 		this(origin, parameters, precondition, postcondition, type, 0);
 	}
-	
-	public GeneratorOperation(Object origin,
-			List<GeneratorVariable> parameters,
-			Adornment precondition,
-			Adornment postcondition,
-			Object type,
-			int options) {
+
+	public GeneratorOperation(Object origin, List<GeneratorVariable> parameters, Adornment precondition,
+			Adornment postcondition, Object type, int options) {
 		this.origin = origin;
 		this.parameters = parameters;
 		this.precondition = precondition;
@@ -56,7 +49,7 @@ public class GeneratorOperation implements OperationRuntime {
 		this.type = type;
 		this.options = options;
 	}
-	
+
 	public final Adornment getPrecondition() {
 		return precondition;
 	}
@@ -68,23 +61,23 @@ public class GeneratorOperation implements OperationRuntime {
 	public final Object getOrigin() {
 		return origin;
 	}
-	
+
 	public final List<GeneratorVariable> getParameters() {
 		return parameters;
 	}
-	
+
 	public final Object getType() {
 		return type;
 	}
-	
+
 	public final boolean isAlwaysSuccessful() {
 		return (options & ALWAYS_SUCCESSFUL) != 0;
 	}
-	
+
 	public String toString() {
 		return origin.toString() + "^" + precondition.toString() + "->" + postcondition.toString();
 	}
-	
+
 	public String getLowerCaseName(String original) {
 		if (Character.isUpperCase(original.charAt(0))) {
 			return original.substring(0, 1).toLowerCase() + original.substring(1);
@@ -92,7 +85,7 @@ public class GeneratorOperation implements OperationRuntime {
 			return original;
 		}
 	}
-	
+
 	public String getUpperCaseName(String original) {
 		if (Character.isLowerCase(original.charAt(0))) {
 			return original.substring(0, 1).toUpperCase() + original.substring(1);

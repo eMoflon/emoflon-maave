@@ -7,14 +7,14 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
- * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Variable</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object
+ * '<em><b>Variable</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.gervarro.democles.specification.emf.Variable#getName <em>Name</em>}</li>
+ * <li>{@link org.gervarro.democles.specification.emf.Variable#getName
+ * <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -24,9 +24,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public abstract class Variable extends ConstraintVariable {
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -34,9 +34,9 @@ public abstract class Variable extends ConstraintVariable {
 	protected static final String NAME_EDEFAULT = "";
 
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -44,8 +44,8 @@ public abstract class Variable extends ConstraintVariable {
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected Variable() {
@@ -53,8 +53,8 @@ public abstract class Variable extends ConstraintVariable {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -63,14 +63,14 @@ public abstract class Variable extends ConstraintVariable {
 	}
 
 	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * The default value is <code>""</code>.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Name</b></em>' attribute. The default value
+	 * is <code>""</code>. <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear, there really
+	 * should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.gervarro.democles.specification.emf.SpecificationPackage#getVariable_Name()
@@ -82,10 +82,12 @@ public abstract class Variable extends ConstraintVariable {
 	}
 
 	/**
-	 * Sets the value of the '{@link org.gervarro.democles.specification.emf.Variable#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * Sets the value of the
+	 * '{@link org.gervarro.democles.specification.emf.Variable#getName
+	 * <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Name</em>' attribute.
 	 * @see #getName()
 	 * @generated
 	 */
@@ -97,71 +99,72 @@ public abstract class Variable extends ConstraintVariable {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SpecificationPackage.VARIABLE__NAME:
-				return getName();
+		case SpecificationPackage.VARIABLE__NAME:
+			return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SpecificationPackage.VARIABLE__NAME:
-				setName((String)newValue);
-				return;
+		case SpecificationPackage.VARIABLE__NAME:
+			setName((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SpecificationPackage.VARIABLE__NAME:
-				setName(NAME_EDEFAULT);
-				return;
+		case SpecificationPackage.VARIABLE__NAME:
+			setName(NAME_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SpecificationPackage.VARIABLE__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+		case SpecificationPackage.VARIABLE__NAME:
+			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if (eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");

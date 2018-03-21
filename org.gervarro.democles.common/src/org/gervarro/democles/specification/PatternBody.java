@@ -24,7 +24,10 @@ import java.util.List;
 
 public interface PatternBody {
 	Pattern getHeader();
+
 	List<? extends Variable> getLocalVariables();
+
 	List<? extends Constraint> getConstraints();
+
 	List<? extends Constant> getConstants();
 } // PatternBody

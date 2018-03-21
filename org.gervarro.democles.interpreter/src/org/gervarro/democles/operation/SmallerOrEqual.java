@@ -30,7 +30,7 @@ public final class SmallerOrEqual extends AdornedOperation {
 	public SmallerOrEqual() {
 		super(AdornedOperation.BOUND_BOUND, AdornedOperation.BOUND_BOUND);
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public final InternalDataFrameProvider getDataFrame(RemappedDataFrame frame, Adornment adornment) {
 		if (adornment.get(0) == Adornment.BOUND && adornment.get(1) == Adornment.BOUND) {

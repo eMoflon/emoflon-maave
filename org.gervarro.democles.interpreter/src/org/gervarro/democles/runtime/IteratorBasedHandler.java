@@ -25,10 +25,11 @@ import java.util.NoSuchElementException;
 
 import org.gervarro.democles.common.DataFrame;
 
-abstract public class IteratorBasedHandler<E, I extends Iterator<E>> implements Iterator<DataFrame>,InternalDataFrameProvider {
+abstract public class IteratorBasedHandler<E, I extends Iterator<E>>
+		implements Iterator<DataFrame>, InternalDataFrameProvider {
 	protected final RemappedDataFrame frame;
 	protected final I iterator;
-	
+
 	public IteratorBasedHandler(RemappedDataFrame frame, I iterator) {
 		this.frame = frame;
 		this.iterator = iterator;
@@ -53,14 +54,13 @@ abstract public class IteratorBasedHandler<E, I extends Iterator<E>> implements 
 	public final PatternBodyDataFrame getDataFrame() {
 		return frame.getDataFrame();
 	}
-	
+
 	protected final RemappedDataFrame createDataFrame() {
 		RemappingOperation ro = frame.getOperation();
 		PatternBodyDataFrame oldDataFrame = frame.getDataFrame();
 		PatternBodyDataFrame newDataFrame = ro.factory.createDataFrame(oldDataFrame);
-		return oldDataFrame == newDataFrame ? frame : 
-				new RemappedDataFrame(ro, newDataFrame);
+		return oldDataFrame == newDataFrame ? frame : new RemappedDataFrame(ro, newDataFrame);
 	}
-	
+
 	abstract protected DataFrame getNextFrame();
 }

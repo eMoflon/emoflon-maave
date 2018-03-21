@@ -44,30 +44,36 @@ public class EMFOperationBuilder extends BasicEMFOperationBuilder {
 					EReference eReference = ((Reference) cType).getLinkedElement();
 					result.add(new GeneratorOperation(constraint, parameters,
 							Adornment.create(Adornment.BOUND, Adornment.BOUND),
-							Adornment.create(Adornment.BOUND, Adornment.BOUND),
-							cType));
-					final boolean isTargetTypeCheckNeeded = !lookupEClass(parameters.get(1)).isSuperTypeOf((EClass) eReference.getEType());
-					result.add(new GeneratorOperation(constraint, parameters,
-							Adornment.create(Adornment.BOUND, Adornment.FREE),
-							Adornment.create(Adornment.BOUND, isTargetTypeCheckNeeded ? Adornment.NOT_TYPECHECKED : Adornment.BOUND),
-							cType));
-					final boolean isSourceTypeCheckNeeded = !lookupEClass(parameters.get(0)).isSuperTypeOf(eReference.getEContainingClass());
+							Adornment.create(Adornment.BOUND, Adornment.BOUND), cType));
+					final boolean isTargetTypeCheckNeeded = !lookupEClass(parameters.get(1))
+							.isSuperTypeOf((EClass) eReference.getEType());
+					result.add(
+							new GeneratorOperation(constraint, parameters,
+									Adornment.create(Adornment.BOUND, Adornment.FREE),
+									Adornment.create(Adornment.BOUND,
+											isTargetTypeCheckNeeded ? Adornment.NOT_TYPECHECKED : Adornment.BOUND),
+									cType));
+					final boolean isSourceTypeCheckNeeded = !lookupEClass(parameters.get(0))
+							.isSuperTypeOf(eReference.getEContainingClass());
 					result.add(new GeneratorOperation(constraint, parameters,
 							Adornment.create(Adornment.FREE, Adornment.BOUND),
-							Adornment.create(isSourceTypeCheckNeeded ? Adornment.NOT_TYPECHECKED : Adornment.BOUND, Adornment.BOUND),
+							Adornment.create(isSourceTypeCheckNeeded ? Adornment.NOT_TYPECHECKED : Adornment.BOUND,
+									Adornment.BOUND),
 							cType));
 					return result;
 				} else {
 					EReference eReference = reference.getLinkedElement();
 					result.add(new GeneratorOperation(constraint, parameters,
 							Adornment.create(Adornment.BOUND, Adornment.BOUND),
-							Adornment.create(Adornment.BOUND, Adornment.BOUND),
-							cType));
-					final boolean isTargetTypeCheckNeeded = !lookupEClass(parameters.get(1)).isSuperTypeOf((EClass) eReference.getEType());
-					result.add(new GeneratorOperation(constraint, parameters,
-							Adornment.create(Adornment.BOUND, Adornment.FREE),
-							Adornment.create(Adornment.BOUND, isTargetTypeCheckNeeded ? Adornment.NOT_TYPECHECKED : Adornment.BOUND),
-							cType));
+							Adornment.create(Adornment.BOUND, Adornment.BOUND), cType));
+					final boolean isTargetTypeCheckNeeded = !lookupEClass(parameters.get(1))
+							.isSuperTypeOf((EClass) eReference.getEType());
+					result.add(
+							new GeneratorOperation(constraint, parameters,
+									Adornment.create(Adornment.BOUND, Adornment.FREE),
+									Adornment.create(Adornment.BOUND,
+											isTargetTypeCheckNeeded ? Adornment.NOT_TYPECHECKED : Adornment.BOUND),
+									cType));
 					return result;
 				}
 			} else {

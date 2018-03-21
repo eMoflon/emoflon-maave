@@ -45,22 +45,21 @@ public class CompilerPatternBody extends PatternBody {
 	private List<GeneratorOperation> localVariableOperations;
 	private List<GeneratorOperation> operations;
 
-	protected CompilerPatternBody(List<Variable> localVariables,
-			List<Constant> constants,
+	protected CompilerPatternBody(List<Variable> localVariables, List<Constant> constants,
 			List<Constraint> constraints) {
 		this.localVariables = new ArrayList<Variable>(localVariables);
 		this.constants = new ArrayList<Constant>(constants);
 		this.constraints = constraints;
 	}
-	
+
 	public final CompilerPattern getHeader() {
 		return pattern;
 	}
-	
+
 	final void setHeader(CompilerPattern pattern) {
 		this.pattern = pattern;
 	}
-	
+
 	public final List<Variable> getLocalVariables() {
 		return localVariables;
 	}
@@ -70,24 +69,24 @@ public class CompilerPatternBody extends PatternBody {
 			final int offset = getHeader().getSymbolicParameters().size();
 			runtimeSlots = new ArrayList<GeneratorVariable>(getLocalVariables().size() + getConstants().size());
 			runtimeSlots.addAll(getHeader().getBuilder().createVariableRuntimes(getLocalVariables(), offset));
-			runtimeSlots.addAll(getHeader().getBuilder().createVariableRuntimes(getConstants(), offset + getLocalVariables().size()));
+			runtimeSlots.addAll(getHeader().getBuilder().createVariableRuntimes(getConstants(),
+					offset + getLocalVariables().size()));
 		}
 		return runtimeSlots;
 	}
-	
+
 	final List<GeneratorOperation> getLocalVariableOperations() {
 		if (localVariableOperations == null) {
-			localVariableOperations =
-				new ArrayList<GeneratorOperation>(getLocalVariables().size());
+			localVariableOperations = new ArrayList<GeneratorOperation>(getLocalVariables().size());
 			for (int i = 0; i < getLocalVariables().size(); i++) {
-				final GeneratorOperation newOperation =
-					getHeader().getBuilder().buildVariableOperation(getLocalVariables().get(i), getRuntimeSlots().get(i));
+				final GeneratorOperation newOperation = getHeader().getBuilder()
+						.buildVariableOperation(getLocalVariables().get(i), getRuntimeSlots().get(i));
 				localVariableOperations.add(newOperation);
 			}
 		}
 		return localVariableOperations;
 	}
-	
+
 	final List<GeneratorOperation> getConstraintOperations() {
 		if (operations == null) {
 			CompilerPatternBuilder module = getHeader().getBuilder();
@@ -98,7 +97,7 @@ public class CompilerPatternBody extends PatternBody {
 			}
 			int offset = localVariables.size();
 			for (int i = 0; i < constants.size(); i++) {
-				variableMap.put(constants.get(i), getRuntimeSlots().get(offset+i));
+				variableMap.put(constants.get(i), getRuntimeSlots().get(offset + i));
 			}
 
 			this.operations = new LinkedList<GeneratorOperation>();
@@ -113,12 +112,12 @@ public class CompilerPatternBody extends PatternBody {
 	public List<GeneratorOperation> getInternalLocalVariables() {
 		return getLocalVariableOperations();
 	}
-	
+
 	public final VariableRuntime getRuntimeVariable(int index) {
 		final int diff = index - pattern.getSymbolicParameters().size();
 		return diff < 0 ? pattern.getRuntimeSymbolicParameters().get(index) : getRuntimeSlots().get(diff);
 	}
-	
+
 	public final List<Constraint> getConstraints() {
 		return constraints;
 	}
@@ -126,7 +125,7 @@ public class CompilerPatternBody extends PatternBody {
 	public final List<Constant> getConstants() {
 		return constants;
 	}
-	
+
 	public final int getIndex() {
 		return index;
 	}
@@ -134,19 +133,19 @@ public class CompilerPatternBody extends PatternBody {
 	final void setIndex(int index) {
 		this.index = index;
 	}
-	
+
 	public final List<GeneratorOperation> getOperations() {
-		final List<GeneratorOperation> result =
-			new LinkedList<GeneratorOperation>(getHeader().getSymbolicParameterOperations());
+		final List<GeneratorOperation> result = new LinkedList<GeneratorOperation>(
+				getHeader().getSymbolicParameterOperations());
 		result.addAll(getLocalVariableOperations());
 		result.addAll(getConstraintOperations());
 		return result;
 	}
-	
+
 	public final int frameSize() {
 		return getHeader().getSymbolicParameters().size() + getLocalVariables().size();
 	}
-	
+
 	public Adornment calculateAdornment(Adornment input) {
 		int numberOfSymbolicParameters = getHeader().getSymbolicParameters().size();
 		int numberOfVariables = numberOfSymbolicParameters + getLocalVariables().size();
@@ -159,7 +158,8 @@ public class CompilerPatternBody extends PatternBody {
 		for (int i = numberOfSymbolicParameters; i < numberOfVariables; i++) {
 			adornment.set(i, Adornment.FREE);
 		}
-		// Constants are bound (nothing to do as values of adornments are bound by default)
+		// Constants are bound (nothing to do as values of adornments are bound by
+		// default)
 		return adornment;
 	}
 
@@ -170,17 +170,17 @@ public class CompilerPatternBody extends PatternBody {
 		}
 		return builder.toString();
 	}
-	
+
 	public final String getDataFrameName() {
 		return getClassName() + getHeader().getBuilder().getDataFrameSuffix();
 	}
-	
+
 	public final String getFullyQualifiedClassName() {
 		StringBuilder builder = new StringBuilder(getHeader().getBuilder().getPackagePrefix());
 		builder.append(getClassName());
 		return builder.toString();
 	}
-	
+
 	public final String getFullyQualifiedDataFrameName() {
 		StringBuilder builder = new StringBuilder(getHeader().getBuilder().getPackagePrefix());
 		builder.append(getDataFrameName());

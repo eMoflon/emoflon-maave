@@ -25,7 +25,7 @@ import java.util.Map;
 
 import org.gervarro.democles.common.PatternMatcherPlugin;
 
-abstract public class PatternBuilder<P extends Pattern,PB> {
+abstract public class PatternBuilder<P extends Pattern, PB> {
 	protected final PatternFactory<P, PB> factory;
 	protected final Map<String, P> patternRegistry;
 
@@ -33,14 +33,14 @@ abstract public class PatternBuilder<P extends Pattern,PB> {
 		this.factory = factory;
 		this.patternRegistry = new HashMap<String, P>();
 	}
-	
+
 	public final P createPattern(String name, PB[] bodies, Variable[] symbolicParameters) {
 		P pattern = factory.createPattern(name, symbolicParameters);
 		factory.setBodies(pattern, bodies);
 		patternRegistry.put(PatternMatcherPlugin.getIdentifier(name, symbolicParameters.length), pattern);
 		return pattern;
 	}
-	
+
 	public final PB createPatternBody(Variable[] localVariables, Constraint[] constraints, Constant[] constants) {
 		return factory.createPatternBody(localVariables, constraints, constants);
 	}

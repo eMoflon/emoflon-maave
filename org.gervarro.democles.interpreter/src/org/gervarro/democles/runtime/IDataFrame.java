@@ -22,8 +22,8 @@ package org.gervarro.democles.runtime;
 
 public interface IDataFrame {
 	public Object getValue(int index);
-	
+
 	public void setValue(int index, Object value);
-	
+
 	public int size();
 }

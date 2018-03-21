@@ -22,11 +22,11 @@ package org.gervarro.democles.common.runtime;
 
 public class VariableRuntime {
 	private final int index;
-	
+
 	public VariableRuntime(int index) {
 		this.index = index;
 	}
-	
+
 	public final int getIndex() {
 		return index;
 	}

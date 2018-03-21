@@ -19,31 +19,28 @@ import org.gervarro.democles.specification.emf.constraint.emf.emf.Reference;
 import org.gervarro.democles.specification.emf.constraint.emf.emf.StructuralFeature;
 
 /**
- * <!-- begin-user-doc -->
- * The <b>Switch</b> for the model's inheritance hierarchy.
- * It supports the call {@link #doSwitch(EObject) doSwitch(object)}
+ * <!-- begin-user-doc --> The <b>Switch</b> for the model's inheritance
+ * hierarchy. It supports the call {@link #doSwitch(EObject) doSwitch(object)}
  * to invoke the <code>caseXXX</code> method for each class of the model,
- * starting with the actual class of the object
- * and proceeding up the inheritance hierarchy
- * until a non-null result is returned,
- * which is the result of the switch.
- * <!-- end-user-doc -->
+ * starting with the actual class of the object and proceeding up the
+ * inheritance hierarchy until a non-null result is returned, which is the
+ * result of the switch. <!-- end-user-doc -->
+ * 
  * @see org.gervarro.democles.specification.emf.constraint.emf.emf.EMFTypePackage
  * @generated
  */
 public class EMFTypeSwitch<T> extends Switch<T> {
 	/**
-	 * The cached model package
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected static EMFTypePackage modelPackage;
 
 	/**
-	 * Creates an instance of the switch.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Creates an instance of the switch. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @generated
 	 */
 	public EMFTypeSwitch() {
@@ -53,9 +50,9 @@ public class EMFTypeSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Checks whether this is a switch for the given package.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Checks whether this is a switch for the given package. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * 
 	 * @parameter ePackage the package in question.
 	 * @return whether this is a switch for the given package.
 	 * @generated
@@ -66,76 +63,98 @@ public class EMFTypeSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Calls <code>caseXXX</code> for each class of the model until one returns a
+	 * non null result; it yields that result. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case EMFTypePackage.EMF_VARIABLE: {
-				EMFVariable emfVariable = (EMFVariable)theEObject;
-				T result = caseEMFVariable(emfVariable);
-				if (result == null) result = caseVariable(emfVariable);
-				if (result == null) result = caseConstraintVariable(emfVariable);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EMFTypePackage.EMF_CONSTRAINT: {
-				EMFConstraint<?> emfConstraint = (EMFConstraint<?>)theEObject;
-				T result = caseEMFConstraint(emfConstraint);
-				if (result == null) result = caseConstraint(emfConstraint);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EMFTypePackage.STRUCTURAL_FEATURE: {
-				StructuralFeature<?> structuralFeature = (StructuralFeature<?>)theEObject;
-				T result = caseStructuralFeature(structuralFeature);
-				if (result == null) result = caseEMFConstraint(structuralFeature);
-				if (result == null) result = caseConstraint(structuralFeature);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EMFTypePackage.ATTRIBUTE: {
-				Attribute attribute = (Attribute)theEObject;
-				T result = caseAttribute(attribute);
-				if (result == null) result = caseStructuralFeature(attribute);
-				if (result == null) result = caseEMFConstraint(attribute);
-				if (result == null) result = caseConstraint(attribute);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EMFTypePackage.REFERENCE: {
-				Reference reference = (Reference)theEObject;
-				T result = caseReference(reference);
-				if (result == null) result = caseStructuralFeature(reference);
-				if (result == null) result = caseEMFConstraint(reference);
-				if (result == null) result = caseConstraint(reference);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EMFTypePackage.OPERATION: {
-				Operation operation = (Operation)theEObject;
-				T result = caseOperation(operation);
-				if (result == null) result = caseEMFConstraint(operation);
-				if (result == null) result = caseConstraint(operation);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			default: return defaultCase(theEObject);
+		case EMFTypePackage.EMF_VARIABLE: {
+			EMFVariable emfVariable = (EMFVariable) theEObject;
+			T result = caseEMFVariable(emfVariable);
+			if (result == null)
+				result = caseVariable(emfVariable);
+			if (result == null)
+				result = caseConstraintVariable(emfVariable);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case EMFTypePackage.EMF_CONSTRAINT: {
+			EMFConstraint<?> emfConstraint = (EMFConstraint<?>) theEObject;
+			T result = caseEMFConstraint(emfConstraint);
+			if (result == null)
+				result = caseConstraint(emfConstraint);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case EMFTypePackage.STRUCTURAL_FEATURE: {
+			StructuralFeature<?> structuralFeature = (StructuralFeature<?>) theEObject;
+			T result = caseStructuralFeature(structuralFeature);
+			if (result == null)
+				result = caseEMFConstraint(structuralFeature);
+			if (result == null)
+				result = caseConstraint(structuralFeature);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case EMFTypePackage.ATTRIBUTE: {
+			Attribute attribute = (Attribute) theEObject;
+			T result = caseAttribute(attribute);
+			if (result == null)
+				result = caseStructuralFeature(attribute);
+			if (result == null)
+				result = caseEMFConstraint(attribute);
+			if (result == null)
+				result = caseConstraint(attribute);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case EMFTypePackage.REFERENCE: {
+			Reference reference = (Reference) theEObject;
+			T result = caseReference(reference);
+			if (result == null)
+				result = caseStructuralFeature(reference);
+			if (result == null)
+				result = caseEMFConstraint(reference);
+			if (result == null)
+				result = caseConstraint(reference);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case EMFTypePackage.OPERATION: {
+			Operation operation = (Operation) theEObject;
+			T result = caseOperation(operation);
+			if (result == null)
+				result = caseEMFConstraint(operation);
+			if (result == null)
+				result = caseConstraint(operation);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		default:
+			return defaultCase(theEObject);
 		}
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>EMF Variable</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>EMF Variable</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>EMF
+	 * Variable</em>'. <!-- begin-user-doc --> This implementation returns null;
+	 * returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>EMF
+	 *         Variable</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -144,13 +163,14 @@ public class EMFTypeSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>EMF Constraint</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>EMF Constraint</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>EMF
+	 * Constraint</em>'. <!-- begin-user-doc --> This implementation returns null;
+	 * returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>EMF
+	 *         Constraint</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -159,13 +179,15 @@ public class EMFTypeSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Structural Feature</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Structural Feature</em>'.
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>Structural Feature</em>'. <!-- begin-user-doc --> This implementation
+	 * returns null; returning a non-null result will terminate the switch. <!--
+	 * end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>Structural Feature</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -174,13 +196,15 @@ public class EMFTypeSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Attribute</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Attribute</em>'.
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>Attribute</em>'. <!-- begin-user-doc --> This implementation returns
+	 * null; returning a non-null result will terminate the switch. <!--
+	 * end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>Attribute</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -189,13 +213,15 @@ public class EMFTypeSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Reference</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Reference</em>'.
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>Reference</em>'. <!-- begin-user-doc --> This implementation returns
+	 * null; returning a non-null result will terminate the switch. <!--
+	 * end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>Reference</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -204,13 +230,15 @@ public class EMFTypeSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Operation</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Operation</em>'.
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>Operation</em>'. <!-- begin-user-doc --> This implementation returns
+	 * null; returning a non-null result will terminate the switch. <!--
+	 * end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>Operation</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -219,13 +247,15 @@ public class EMFTypeSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Constraint Variable</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Constraint Variable</em>'.
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>Constraint Variable</em>'. <!-- begin-user-doc --> This implementation
+	 * returns null; returning a non-null result will terminate the switch. <!--
+	 * end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>Constraint Variable</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -234,13 +264,15 @@ public class EMFTypeSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Variable</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Variable</em>'.
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>Variable</em>'. <!-- begin-user-doc --> This implementation returns
+	 * null; returning a non-null result will terminate the switch. <!--
+	 * end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>Variable</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -249,13 +281,15 @@ public class EMFTypeSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Constraint</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Constraint</em>'.
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>Constraint</em>'. <!-- begin-user-doc --> This implementation returns
+	 * null; returning a non-null result will terminate the switch. <!--
+	 * end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>Constraint</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -264,13 +298,15 @@ public class EMFTypeSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch, but this is the last case anyway.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
+	 * Returns the result of interpreting the object as an instance of
+	 * '<em>EObject</em>'. <!-- begin-user-doc --> This implementation returns null;
+	 * returning a non-null result will terminate the switch, but this is the last
+	 * case anyway. <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of
+	 *         '<em>EObject</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
@@ -279,4 +315,4 @@ public class EMFTypeSwitch<T> extends Switch<T> {
 		return null;
 	}
 
-} //EMFTypeSwitch
+} // EMFTypeSwitch

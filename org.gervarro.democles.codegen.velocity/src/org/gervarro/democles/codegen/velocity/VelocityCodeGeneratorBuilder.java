@@ -32,45 +32,48 @@ import org.gervarro.democles.codegen.CodeGeneratorProvider;
 import org.gervarro.democles.codegen.GeneratorOperation;
 
 public class VelocityCodeGeneratorBuilder extends AbstractCodeGeneratorBuilder<VelocityTemplateController> {
-	private final List<CodeGeneratorProvider<VelocityTemplateController>> constraintTypeSpecificProviders = 
-		new ArrayList<CodeGeneratorProvider<VelocityTemplateController>>();
+	private final List<CodeGeneratorProvider<VelocityTemplateController>> constraintTypeSpecificProviders = new ArrayList<CodeGeneratorProvider<VelocityTemplateController>>();
 	private final Template methodTemplate;
 	private final Template readVariableTemplate;
 	private final Template checkVariableTemplate;
 	private final Template writeVariableTemplate;
 	private final Template successfulMatchingTemplate;
-	
-	public VelocityCodeGeneratorBuilder(RuntimeInstance templateEngine) throws ResourceNotFoundException, ParseErrorException, Exception {
+
+	public VelocityCodeGeneratorBuilder(RuntimeInstance templateEngine)
+			throws ResourceNotFoundException, ParseErrorException, Exception {
 		methodTemplate = templateEngine.getTemplate("InterpretedMethod");
 		readVariableTemplate = templateEngine.getTemplate("InterpretedReadVariable");
 		checkVariableTemplate = templateEngine.getTemplate("InterpretedCheckVariable");
 		writeVariableTemplate = templateEngine.getTemplate("InterpretedWriteVariable");
 		successfulMatchingTemplate = templateEngine.getTemplate("InterpretedSuccessfulMatching");
 	}
-	
+
 	public void addCodeGeneratorProvider(CodeGeneratorProvider<VelocityTemplateController> provider) {
 		constraintTypeSpecificProviders.add(provider);
 	}
-	
+
 	protected VelocityTemplateController getSuccessfulMatchingController() {
 		return new VelocityTemplateController(successfulMatchingTemplate);
 	}
-	
-	protected VelocityTemplateController getWriteVariableController(GeneratorOperation operation, int index, VelocityTemplateController tail) {
-		ParameterizedVelocityTemplateControllerChain<GeneratorOperation> renderable = 
-			new ParameterizedVelocityTemplateControllerChain<GeneratorOperation>(writeVariableTemplate, operation, tail);
-		renderable.put("index", index);
-		return renderable;
-	}
-	
-	protected VelocityTemplateController getCheckVariableController(GeneratorOperation operation, int index, VelocityTemplateController tail) {
-		ParameterizedVelocityTemplateControllerChain<GeneratorOperation> renderable =
-			new ParameterizedVelocityTemplateControllerChain<GeneratorOperation>(checkVariableTemplate, operation, tail);
+
+	protected VelocityTemplateController getWriteVariableController(GeneratorOperation operation, int index,
+			VelocityTemplateController tail) {
+		ParameterizedVelocityTemplateControllerChain<GeneratorOperation> renderable = new ParameterizedVelocityTemplateControllerChain<GeneratorOperation>(
+				writeVariableTemplate, operation, tail);
 		renderable.put("index", index);
 		return renderable;
 	}
 
-	protected VelocityTemplateController getOperationController(GeneratorOperation operation, VelocityTemplateController tail) {
+	protected VelocityTemplateController getCheckVariableController(GeneratorOperation operation, int index,
+			VelocityTemplateController tail) {
+		ParameterizedVelocityTemplateControllerChain<GeneratorOperation> renderable = new ParameterizedVelocityTemplateControllerChain<GeneratorOperation>(
+				checkVariableTemplate, operation, tail);
+		renderable.put("index", index);
+		return renderable;
+	}
+
+	protected VelocityTemplateController getOperationController(GeneratorOperation operation,
+			VelocityTemplateController tail) {
 		for (CodeGeneratorProvider<VelocityTemplateController> constraintTypeSpecific : constraintTypeSpecificProviders) {
 			if (constraintTypeSpecific.isResponsibleFor(operation)) {
 				return constraintTypeSpecific.getTemplateController(operation, tail);
@@ -78,15 +81,17 @@ public class VelocityCodeGeneratorBuilder extends AbstractCodeGeneratorBuilder<V
 		}
 		throw new RuntimeException("No handler exists for " + operation.toString());
 	}
-	
-	protected VelocityTemplateController getReadVariableController(GeneratorOperation operation, int index, VelocityTemplateController tail) {
-		ParameterizedVelocityTemplateControllerChain<GeneratorOperation> renderable =
-			new ParameterizedVelocityTemplateControllerChain<GeneratorOperation>(readVariableTemplate, operation, tail);
+
+	protected VelocityTemplateController getReadVariableController(GeneratorOperation operation, int index,
+			VelocityTemplateController tail) {
+		ParameterizedVelocityTemplateControllerChain<GeneratorOperation> renderable = new ParameterizedVelocityTemplateControllerChain<GeneratorOperation>(
+				readVariableTemplate, operation, tail);
 		renderable.put("index", index);
 		return renderable;
 	}
-	
-	protected VelocityTemplateController getMethodController(GeneratorOperation operation, VelocityTemplateController tail) {
+
+	protected VelocityTemplateController getMethodController(GeneratorOperation operation,
+			VelocityTemplateController tail) {
 		return new ParameterizedVelocityTemplateControllerChain<GeneratorOperation>(methodTemplate, operation, tail);
 	}
 }

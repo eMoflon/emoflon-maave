@@ -27,12 +27,9 @@ public class TemplateInvocation {
 	private String template;
 	private String[] keys;
 	private Object[] values;
-	private final HashMap<String, Object> map =
-			new HashMap<String, Object>();
+	private final HashMap<String, Object> map = new HashMap<String, Object>();
 
-	public TemplateInvocation(final String template,
-			final String[] keys,
-			final Object[] values) {
+	public TemplateInvocation(final String template, final String[] keys, final Object[] values) {
 		if (keys.length != values.length) {
 			throw new RuntimeException();
 		}
@@ -43,19 +40,19 @@ public class TemplateInvocation {
 			this.map.put(keys[i], values[i]);
 		}
 	}
-	
+
 	public final String getTemplateName() {
 		return template;
 	}
-	
+
 	public final String[] getKeys() {
 		return keys;
 	}
-	
+
 	public final Object[] getValues() {
 		return values;
 	}
-	
+
 	public final Map<String, Object> getAttributes() {
 		return map;
 	}

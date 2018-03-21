@@ -22,7 +22,7 @@ package org.gervarro.democles.event;
 
 public enum MatchEventType {
 	INSERT, DELETE;
-	
+
 	public String toString() {
 		switch (this) {
 		case INSERT:

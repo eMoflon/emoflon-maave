@@ -34,7 +34,7 @@ public class SteinhausJohnsonTrotter implements Iterator<Integer[]> {
 	private int largestMobileIndex;
 	private final boolean[] direction;
 	private final Integer[] numbers;
-	
+
 	public SteinhausJohnsonTrotter(final int n) {
 		this.direction = new boolean[n];
 		this.numbers = new Integer[n];
@@ -49,45 +49,43 @@ public class SteinhausJohnsonTrotter implements Iterator<Integer[]> {
 	public final boolean hasNext() {
 		return previousMobileIndex > -1;
 	}
-	
+
 	@Override
 	public final Integer[] next() {
 		if (hasNext()) {
-			final Integer[] result =
-				Arrays.copyOf(numbers, numbers.length, Integer[].class); 
+			final Integer[] result = Arrays.copyOf(numbers, numbers.length, Integer[].class);
 			step();
 			return result;
 		} else {
 			throw new NoSuchElementException();
 		}
 	}
-	
+
 	@Override
 	public final void remove() {
 		throw new UnsupportedOperationException();
 	}
-	
+
 	public final int size() {
 		return numbers.length;
 	}
-	
+
 	protected final void reset() {
 		step(0, 1);
 		recalculateLargestMobileIndex();
 		this.previousMobileIndex = 0;
 	}
-	
+
 	protected final void step() {
 		if (largestMobileIndex > -1) {
-			final int neighbourIndex = 
-				direction[largestMobileIndex] ? largestMobileIndex + 1 : largestMobileIndex - 1;
+			final int neighbourIndex = direction[largestMobileIndex] ? largestMobileIndex + 1 : largestMobileIndex - 1;
 			step(largestMobileIndex, neighbourIndex);
 			recalculateLargestMobileIndex();
 		} else {
 			previousMobileIndex = largestMobileIndex;
 		}
 	}
-	
+
 	protected void swapPerformed(final int firstIndex, final int secondIndex) {
 		// Do nothing
 	}
@@ -101,7 +99,7 @@ public class SteinhausJohnsonTrotter implements Iterator<Integer[]> {
 		numbers[secondIndex] = tempNumber;
 		swapPerformed(firstIndex, secondIndex);
 	}
-	
+
 	private final void step(final int largestMobileIndex, final int neighbourIndex) {
 		assert numbers.length == direction.length;
 		final int largestMobileNumber = numbers[largestMobileIndex];
@@ -114,13 +112,15 @@ public class SteinhausJohnsonTrotter implements Iterator<Integer[]> {
 			}
 		}
 	}
-	
+
 	private final void recalculateLargestMobileIndex() {
 		previousMobileIndex = largestMobileIndex;
 		largestMobileIndex = -1;
 		for (int i = 0; i < numbers.length; i++) {
-			// A directed integer is said to be mobile if it is greater than its immediate neighbor in the direction it is looking at
-			final boolean isMobileInteger = direction[i] ? (i < numbers.length - 1 && numbers[i] > numbers[i+1]) : (i > 0 && numbers[i] > numbers[i-1]);
+			// A directed integer is said to be mobile if it is greater than its immediate
+			// neighbor in the direction it is looking at
+			final boolean isMobileInteger = direction[i] ? (i < numbers.length - 1 && numbers[i] > numbers[i + 1])
+					: (i > 0 && numbers[i] > numbers[i - 1]);
 			if (isMobileInteger && (largestMobileIndex == -1 || numbers[i] > numbers[largestMobileIndex])) {
 				largestMobileIndex = i;
 			}

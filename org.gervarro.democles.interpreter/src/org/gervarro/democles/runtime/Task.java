@@ -21,5 +21,5 @@
 package org.gervarro.democles.runtime;
 
 public interface Task {
-	public void perform() ;
+	public void perform();
 }

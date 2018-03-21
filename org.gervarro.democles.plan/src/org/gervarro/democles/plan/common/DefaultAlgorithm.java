@@ -34,42 +34,42 @@ import org.gervarro.democles.plan.WeightedOperation;
 import org.gervarro.democles.plan.WeightedOperationBuilder;
 import org.gervarro.democles.specification.impl.Constraint;
 
-public class DefaultAlgorithm<C extends OperationCombiner<C, O>, O extends OperationRuntime> implements SearchPlanAlgorithm<C, O> {
+public class DefaultAlgorithm<C extends OperationCombiner<C, O>, O extends OperationRuntime>
+		implements SearchPlanAlgorithm<C, O> {
 	private WeightedOperationBuilder<O> builder;
-	
+
 	public DefaultAlgorithm(WeightedOperationBuilder<O> builder) {
 		this.builder = builder;
 	}
 
 	public C generateSearchPlan(C combiner, List<O> operations, Adornment inputAdornment) {
 		// Build unchecked constraints and weighted operations
-		final Set<Constraint> uncheckedConstraints =
-				new HashSet<Constraint>();
-		ArrayList<WeightedOperation<O,Integer>> weightedOperations =
-			new ArrayList<WeightedOperation<O,Integer>>(operations.size());
+		final Set<Constraint> uncheckedConstraints = new HashSet<Constraint>();
+		ArrayList<WeightedOperation<O, Integer>> weightedOperations = new ArrayList<WeightedOperation<O, Integer>>(
+				operations.size());
 		for (O operation : operations) {
 			Object origin = operation.getOrigin();
 			if (origin instanceof Constraint) {
 				uncheckedConstraints.add((Constraint) origin);
 			}
-			
+
 			// Prepare past and present masks
 			int weight = builder.getWeight(operation);
-			WeightedOperation<O,Integer> weightedOperation = WeightedOperation.createOperation(operation, weight); 
+			WeightedOperation<O, Integer> weightedOperation = WeightedOperation.createOperation(operation, weight);
 			if (weightedOperation != null) {
 				weightedOperations.add(weightedOperation);
 			}
 		}
-		
+
 		// Prepare the initial state
-		List<WeightedOperation<O,Integer>> present = Collections.emptyList();
+		List<WeightedOperation<O, Integer>> present = Collections.emptyList();
 		Collections.sort(weightedOperations);
 
-		DefaultSearchPlan<C,O> initialPlan = 
-			new DefaultSearchPlan<C,O>(combiner, inputAdornment, uncheckedConstraints, 0, present, weightedOperations);
+		DefaultSearchPlan<C, O> initialPlan = new DefaultSearchPlan<C, O>(combiner, inputAdornment,
+				uncheckedConstraints, 0, present, weightedOperations);
 		initialPlan.refreshOperationLists();
 		Algorithm<C, O> algo = new Algorithm<C, O>();
-		
+
 		return algo.generatePlan(initialPlan).getRoot();
 	}
 }

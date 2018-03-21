@@ -25,21 +25,20 @@ import org.apache.velocity.Template;
 public class ParameterizedVelocityTemplateController<V> extends VelocityTemplateController {
 	public static final String VALUE = "value";
 	private final V value;
-	
-	public ParameterizedVelocityTemplateController(Template template,
-			V value) {
+
+	public ParameterizedVelocityTemplateController(Template template, V value) {
 		super(template);
 		this.value = value;
 	}
-	
+
 	public V getValue() {
 		return value;
 	}
 
-    public Object internalGet(String key) {
-    	if (VALUE.equals(key)) {
-    		return value;
-    	}
-    	return super.internalGet(key);
-    }
+	public Object internalGet(String key) {
+		if (VALUE.equals(key)) {
+			return value;
+		}
+		return super.internalGet(key);
+	}
 }

@@ -11,57 +11,56 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.gervarro.democles.specification.emf.SpecificationPackage;
 
 /**
- * <!-- begin-user-doc -->
- * The <b>Package</b> for the model.
- * It contains accessors for the meta objects to represent
+ * <!-- begin-user-doc --> The <b>Package</b> for the model. It contains
+ * accessors for the meta objects to represent
  * <ul>
- *   <li>each class,</li>
- *   <li>each feature of each class,</li>
- *   <li>each enum,</li>
- *   <li>and each data type</li>
+ * <li>each class,</li>
+ * <li>each feature of each class,</li>
+ * <li>each enum,</li>
+ * <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
+ * 
  * @see org.gervarro.democles.specification.emf.constraint.emf.emf.EMFTypeFactory
  * @model kind="package"
  * @generated
  */
 public class EMFTypePackage extends EPackageImpl {
 	/**
-	 * The package name.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The package name. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String eNAME = "emf";
 
 	/**
-	 * The package namespace URI.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The package namespace URI. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String eNS_URI = "http://gervarro.org/democles/constraint/emf.ecore";
 
 	/**
-	 * The package namespace name.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The package namespace name. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String eNS_PREFIX = "emf";
 
 	/**
-	 * The singleton instance of the package.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The singleton instance of the package. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public static final EMFTypePackage eINSTANCE = org.gervarro.democles.specification.emf.constraint.emf.emf.EMFTypePackage.init();
+	public static final EMFTypePackage eINSTANCE = org.gervarro.democles.specification.emf.constraint.emf.emf.EMFTypePackage
+			.init();
 
 	/**
-	 * The meta object id for the '{@link org.gervarro.democles.specification.emf.constraint.emf.emf.EMFVariable <em>EMF Variable</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The meta object id for the
+	 * '{@link org.gervarro.democles.specification.emf.constraint.emf.emf.EMFVariable
+	 * <em>EMF Variable</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see org.gervarro.democles.specification.emf.constraint.emf.emf.EMFVariable
 	 * @see org.gervarro.democles.specification.emf.constraint.emf.emf.EMFTypePackage#getEMFVariable()
 	 * @generated
@@ -69,36 +68,38 @@ public class EMFTypePackage extends EPackageImpl {
 	public static final int EMF_VARIABLE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	public static final int EMF_VARIABLE__NAME = SpecificationPackage.VARIABLE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>EClassifier</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>EClassifier</b></em>' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	public static final int EMF_VARIABLE__ECLASSIFIER = SpecificationPackage.VARIABLE_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>EMF Variable</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The number of structural features of the '<em>EMF Variable</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	public static final int EMF_VARIABLE_FEATURE_COUNT = SpecificationPackage.VARIABLE_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.gervarro.democles.specification.emf.constraint.emf.emf.EMFConstraint <em>EMF Constraint</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The meta object id for the
+	 * '{@link org.gervarro.democles.specification.emf.constraint.emf.emf.EMFConstraint
+	 * <em>EMF Constraint</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see org.gervarro.democles.specification.emf.constraint.emf.emf.EMFConstraint
 	 * @see org.gervarro.democles.specification.emf.constraint.emf.emf.EMFTypePackage#getEMFConstraint()
 	 * @generated
@@ -106,18 +107,18 @@ public class EMFTypePackage extends EPackageImpl {
 	public static final int EMF_CONSTRAINT = 1;
 
 	/**
-	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	public static final int EMF_CONSTRAINT__PARAMETERS = SpecificationPackage.CONSTRAINT__PARAMETERS;
 
 	/**
-	 * The feature id for the '<em><b>EModel Element</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>EModel Element</b></em>' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -125,17 +126,19 @@ public class EMFTypePackage extends EPackageImpl {
 
 	/**
 	 * The number of structural features of the '<em>EMF Constraint</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	public static final int EMF_CONSTRAINT_FEATURE_COUNT = SpecificationPackage.CONSTRAINT_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.gervarro.democles.specification.emf.constraint.emf.emf.StructuralFeature <em>Structural Feature</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The meta object id for the
+	 * '{@link org.gervarro.democles.specification.emf.constraint.emf.emf.StructuralFeature
+	 * <em>Structural Feature</em>}' class. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see org.gervarro.democles.specification.emf.constraint.emf.emf.StructuralFeature
 	 * @see org.gervarro.democles.specification.emf.constraint.emf.emf.EMFTypePackage#getStructuralFeature()
 	 * @generated
@@ -143,18 +146,18 @@ public class EMFTypePackage extends EPackageImpl {
 	public static final int STRUCTURAL_FEATURE = 2;
 
 	/**
-	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	public static final int STRUCTURAL_FEATURE__PARAMETERS = EMF_CONSTRAINT__PARAMETERS;
 
 	/**
-	 * The feature id for the '<em><b>EModel Element</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>EModel Element</b></em>' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -162,17 +165,18 @@ public class EMFTypePackage extends EPackageImpl {
 
 	/**
 	 * The number of structural features of the '<em>Structural Feature</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	public static final int STRUCTURAL_FEATURE_FEATURE_COUNT = EMF_CONSTRAINT_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.gervarro.democles.specification.emf.constraint.emf.emf.Attribute <em>Attribute</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The meta object id for the
+	 * '{@link org.gervarro.democles.specification.emf.constraint.emf.emf.Attribute
+	 * <em>Attribute</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see org.gervarro.democles.specification.emf.constraint.emf.emf.Attribute
 	 * @see org.gervarro.democles.specification.emf.constraint.emf.emf.EMFTypePackage#getAttribute()
 	 * @generated
@@ -180,36 +184,37 @@ public class EMFTypePackage extends EPackageImpl {
 	public static final int ATTRIBUTE = 3;
 
 	/**
-	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	public static final int ATTRIBUTE__PARAMETERS = STRUCTURAL_FEATURE__PARAMETERS;
 
 	/**
-	 * The feature id for the '<em><b>EModel Element</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>EModel Element</b></em>' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	public static final int ATTRIBUTE__EMODEL_ELEMENT = STRUCTURAL_FEATURE__EMODEL_ELEMENT;
 
 	/**
-	 * The number of structural features of the '<em>Attribute</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The number of structural features of the '<em>Attribute</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	public static final int ATTRIBUTE_FEATURE_COUNT = STRUCTURAL_FEATURE_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.gervarro.democles.specification.emf.constraint.emf.emf.Reference <em>Reference</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The meta object id for the
+	 * '{@link org.gervarro.democles.specification.emf.constraint.emf.emf.Reference
+	 * <em>Reference</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see org.gervarro.democles.specification.emf.constraint.emf.emf.Reference
 	 * @see org.gervarro.democles.specification.emf.constraint.emf.emf.EMFTypePackage#getReference()
 	 * @generated
@@ -217,36 +222,37 @@ public class EMFTypePackage extends EPackageImpl {
 	public static final int REFERENCE = 4;
 
 	/**
-	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	public static final int REFERENCE__PARAMETERS = STRUCTURAL_FEATURE__PARAMETERS;
 
 	/**
-	 * The feature id for the '<em><b>EModel Element</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>EModel Element</b></em>' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	public static final int REFERENCE__EMODEL_ELEMENT = STRUCTURAL_FEATURE__EMODEL_ELEMENT;
 
 	/**
-	 * The number of structural features of the '<em>Reference</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The number of structural features of the '<em>Reference</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	public static final int REFERENCE_FEATURE_COUNT = STRUCTURAL_FEATURE_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.gervarro.democles.specification.emf.constraint.emf.emf.Operation <em>Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The meta object id for the
+	 * '{@link org.gervarro.democles.specification.emf.constraint.emf.emf.Operation
+	 * <em>Operation</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see org.gervarro.democles.specification.emf.constraint.emf.emf.Operation
 	 * @see org.gervarro.democles.specification.emf.constraint.emf.emf.EMFTypePackage#getOperation()
 	 * @generated
@@ -254,84 +260,84 @@ public class EMFTypePackage extends EPackageImpl {
 	public static final int OPERATION = 5;
 
 	/**
-	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	public static final int OPERATION__PARAMETERS = EMF_CONSTRAINT__PARAMETERS;
 
 	/**
-	 * The feature id for the '<em><b>EModel Element</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>EModel Element</b></em>' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	public static final int OPERATION__EMODEL_ELEMENT = EMF_CONSTRAINT__EMODEL_ELEMENT;
 
 	/**
-	 * The number of structural features of the '<em>Operation</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The number of structural features of the '<em>Operation</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	public static final int OPERATION_FEATURE_COUNT = EMF_CONSTRAINT_FEATURE_COUNT + 0;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass emfVariableEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass emfConstraintEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass structuralFeatureEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass attributeEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass referenceEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass operationEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
-	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
-	 * package URI value.
-	 * <p>Note: the correct way to create the package is via the static
-	 * factory method {@link #init init()}, which also performs
-	 * initialization of the package, or returns the registered package,
-	 * if one already exists.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the
+	 * package package URI value.
+	 * <p>
+	 * Note: the correct way to create the package is via the static factory method
+	 * {@link #init init()}, which also performs initialization of the package, or
+	 * returns the registered package, if one already exists. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
 	 * @see org.gervarro.democles.specification.emf.constraint.emf.emf.EMFTypePackage#eNS_URI
 	 * @see #init()
@@ -342,29 +348,35 @@ public class EMFTypePackage extends EPackageImpl {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private static boolean isInited = false;
 
 	/**
-	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
+	 * Creates, registers, and initializes the <b>Package</b> for this model, and
+	 * for any others upon which it depends.
 	 * 
-	 * <p>This method is used to initialize {@link EMFTypePackage#eINSTANCE} when that field is accessed.
-	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <p>
+	 * This method is used to initialize {@link EMFTypePackage#eINSTANCE} when that
+	 * field is accessed. Clients should not invoke it directly. Instead, they
+	 * should simply access that field to obtain the package. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #eNS_URI
 	 * @see #createPackageContents()
 	 * @see #initializePackageContents()
 	 * @generated
 	 */
 	public static EMFTypePackage init() {
-		if (isInited) return (EMFTypePackage)EPackage.Registry.INSTANCE.getEPackage(EMFTypePackage.eNS_URI);
+		if (isInited)
+			return (EMFTypePackage) EPackage.Registry.INSTANCE.getEPackage(EMFTypePackage.eNS_URI);
 
 		// Obtain or create and register package
-		EMFTypePackage theEMFTypePackage = (EMFTypePackage)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof EMFTypePackage ? EPackage.Registry.INSTANCE.get(eNS_URI) : new EMFTypePackage());
+		EMFTypePackage theEMFTypePackage = (EMFTypePackage) (EPackage.Registry.INSTANCE
+				.get(eNS_URI) instanceof EMFTypePackage ? EPackage.Registry.INSTANCE.get(eNS_URI)
+						: new EMFTypePackage());
 
 		isInited = true;
 
@@ -380,17 +392,16 @@ public class EMFTypePackage extends EPackageImpl {
 		// Mark meta-data to indicate it can't be changed
 		theEMFTypePackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(EMFTypePackage.eNS_URI, theEMFTypePackage);
 		return theEMFTypePackage;
 	}
 
-
 	/**
-	 * Returns the meta object for class '{@link org.gervarro.democles.specification.emf.constraint.emf.emf.EMFVariable <em>EMF Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for class
+	 * '{@link org.gervarro.democles.specification.emf.constraint.emf.emf.EMFVariable
+	 * <em>EMF Variable</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>EMF Variable</em>'.
 	 * @see org.gervarro.democles.specification.emf.constraint.emf.emf.EMFVariable
 	 * @generated
@@ -400,22 +411,24 @@ public class EMFTypePackage extends EPackageImpl {
 	}
 
 	/**
-	 * Returns the meta object for the reference '{@link org.gervarro.democles.specification.emf.constraint.emf.emf.EMFVariable#getEClassifier <em>EClassifier</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for the reference
+	 * '{@link org.gervarro.democles.specification.emf.constraint.emf.emf.EMFVariable#getEClassifier
+	 * <em>EClassifier</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for the reference '<em>EClassifier</em>'.
 	 * @see org.gervarro.democles.specification.emf.constraint.emf.emf.EMFVariable#getEClassifier()
 	 * @see #getEMFVariable()
 	 * @generated
 	 */
 	public EReference getEMFVariable_EClassifier() {
-		return (EReference)emfVariableEClass.getEStructuralFeatures().get(0);
+		return (EReference) emfVariableEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * Returns the meta object for class '{@link org.gervarro.democles.specification.emf.constraint.emf.emf.EMFConstraint <em>EMF Constraint</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for class
+	 * '{@link org.gervarro.democles.specification.emf.constraint.emf.emf.EMFConstraint
+	 * <em>EMF Constraint</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>EMF Constraint</em>'.
 	 * @see org.gervarro.democles.specification.emf.constraint.emf.emf.EMFConstraint
 	 * @generated
@@ -425,22 +438,24 @@ public class EMFTypePackage extends EPackageImpl {
 	}
 
 	/**
-	 * Returns the meta object for the reference '{@link org.gervarro.democles.specification.emf.constraint.emf.emf.EMFConstraint#getEModelElement <em>EModel Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for the reference
+	 * '{@link org.gervarro.democles.specification.emf.constraint.emf.emf.EMFConstraint#getEModelElement
+	 * <em>EModel Element</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for the reference '<em>EModel Element</em>'.
 	 * @see org.gervarro.democles.specification.emf.constraint.emf.emf.EMFConstraint#getEModelElement()
 	 * @see #getEMFConstraint()
 	 * @generated
 	 */
 	public EReference getEMFConstraint_EModelElement() {
-		return (EReference)emfConstraintEClass.getEStructuralFeatures().get(0);
+		return (EReference) emfConstraintEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * Returns the meta object for class '{@link org.gervarro.democles.specification.emf.constraint.emf.emf.StructuralFeature <em>Structural Feature</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for class
+	 * '{@link org.gervarro.democles.specification.emf.constraint.emf.emf.StructuralFeature
+	 * <em>Structural Feature</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>Structural Feature</em>'.
 	 * @see org.gervarro.democles.specification.emf.constraint.emf.emf.StructuralFeature
 	 * @generated
@@ -450,9 +465,10 @@ public class EMFTypePackage extends EPackageImpl {
 	}
 
 	/**
-	 * Returns the meta object for class '{@link org.gervarro.democles.specification.emf.constraint.emf.emf.Attribute <em>Attribute</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for class
+	 * '{@link org.gervarro.democles.specification.emf.constraint.emf.emf.Attribute
+	 * <em>Attribute</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>Attribute</em>'.
 	 * @see org.gervarro.democles.specification.emf.constraint.emf.emf.Attribute
 	 * @generated
@@ -462,9 +478,10 @@ public class EMFTypePackage extends EPackageImpl {
 	}
 
 	/**
-	 * Returns the meta object for class '{@link org.gervarro.democles.specification.emf.constraint.emf.emf.Reference <em>Reference</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for class
+	 * '{@link org.gervarro.democles.specification.emf.constraint.emf.emf.Reference
+	 * <em>Reference</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>Reference</em>'.
 	 * @see org.gervarro.democles.specification.emf.constraint.emf.emf.Reference
 	 * @generated
@@ -474,9 +491,10 @@ public class EMFTypePackage extends EPackageImpl {
 	}
 
 	/**
-	 * Returns the meta object for class '{@link org.gervarro.democles.specification.emf.constraint.emf.emf.Operation <em>Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for class
+	 * '{@link org.gervarro.democles.specification.emf.constraint.emf.emf.Operation
+	 * <em>Operation</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>Operation</em>'.
 	 * @see org.gervarro.democles.specification.emf.constraint.emf.emf.Operation
 	 * @generated
@@ -486,32 +504,33 @@ public class EMFTypePackage extends EPackageImpl {
 	}
 
 	/**
-	 * Returns the factory that creates the instances of the model.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the factory that creates the instances of the model. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the factory that creates the instances of the model.
 	 * @generated
 	 */
 	public EMFTypeFactory getEMFTypeFactory() {
-		return (EMFTypeFactory)getEFactoryInstance();
+		return (EMFTypeFactory) getEFactoryInstance();
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private boolean isCreated = false;
 
 	/**
-	 * Creates the meta-model objects for the package.  This method is
-	 * guarded to have no affect on any invocation but its first.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Creates the meta-model objects for the package. This method is guarded to
+	 * have no affect on any invocation but its first. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void createPackageContents() {
-		if (isCreated) return;
+		if (isCreated)
+			return;
 		isCreated = true;
 
 		// Create classes and their features
@@ -531,21 +550,22 @@ public class EMFTypePackage extends EPackageImpl {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private boolean isInitialized = false;
 
 	/**
-	 * Complete the initialization of the package and its meta-model.  This
-	 * method is guarded to have no affect on any invocation but its first.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Complete the initialization of the package and its meta-model. This method is
+	 * guarded to have no affect on any invocation but its first. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void initializePackageContents() {
-		if (isInitialized) return;
+		if (isInitialized)
+			return;
 		isInitialized = true;
 
 		// Initialize package
@@ -554,7 +574,8 @@ public class EMFTypePackage extends EPackageImpl {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		SpecificationPackage theSpecificationPackage = (SpecificationPackage)EPackage.Registry.INSTANCE.getEPackage(SpecificationPackage.eNS_URI);
+		SpecificationPackage theSpecificationPackage = (SpecificationPackage) EPackage.Registry.INSTANCE
+				.getEPackage(SpecificationPackage.eNS_URI);
 
 		// Create type parameters
 		ETypeParameter emfConstraintEClass_E = addETypeParameter(emfConstraintEClass, "E");
@@ -587,42 +608,53 @@ public class EMFTypePackage extends EPackageImpl {
 		operationEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(emfVariableEClass, EMFVariable.class, "EMFVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEMFVariable_EClassifier(), ecorePackage.getEClassifier(), null, "eClassifier", null, 1, 1, EMFVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(emfVariableEClass, EMFVariable.class, "EMFVariable", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEMFVariable_EClassifier(), ecorePackage.getEClassifier(), null, "eClassifier", null, 1, 1,
+				EMFVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(emfConstraintEClass, EMFConstraint.class, "EMFConstraint", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(emfConstraintEClass, EMFConstraint.class, "EMFConstraint", IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 		g1 = createEGenericType(emfConstraintEClass_E);
-		initEReference(getEMFConstraint_EModelElement(), g1, null, "eModelElement", null, 1, 1, EMFConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEMFConstraint_EModelElement(), g1, null, "eModelElement", null, 1, 1, EMFConstraint.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(structuralFeatureEClass, StructuralFeature.class, "StructuralFeature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(structuralFeatureEClass, StructuralFeature.class, "StructuralFeature", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(referenceEClass, Reference.class, "Reference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(referenceEClass, Reference.class, "Reference", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(operationEClass, Operation.class, "Operation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(operationEClass, Operation.class, "Operation", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * Defines literals for the meta objects that represent
+	 * <!-- begin-user-doc --> Defines literals for the meta objects that represent
 	 * <ul>
-	 *   <li>each class,</li>
-	 *   <li>each feature of each class,</li>
-	 *   <li>each enum,</li>
-	 *   <li>and each data type</li>
+	 * <li>each class,</li>
+	 * <li>each feature of each class,</li>
+	 * <li>each enum,</li>
+	 * <li>and each data type</li>
 	 * </ul>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public interface Literals {
 		/**
-		 * The meta object literal for the '{@link org.gervarro.democles.specification.emf.constraint.emf.emf.EMFVariable <em>EMF Variable</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the
+		 * '{@link org.gervarro.democles.specification.emf.constraint.emf.emf.EMFVariable
+		 * <em>EMF Variable</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see org.gervarro.democles.specification.emf.constraint.emf.emf.EMFVariable
 		 * @see org.gervarro.democles.specification.emf.constraint.emf.emf.EMFTypePackage#getEMFVariable()
 		 * @generated
@@ -630,17 +662,19 @@ public class EMFTypePackage extends EPackageImpl {
 		public static final EClass EMF_VARIABLE = eINSTANCE.getEMFVariable();
 
 		/**
-		 * The meta object literal for the '<em><b>EClassifier</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>EClassifier</b></em>' reference
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @generated
 		 */
 		public static final EReference EMF_VARIABLE__ECLASSIFIER = eINSTANCE.getEMFVariable_EClassifier();
 
 		/**
-		 * The meta object literal for the '{@link org.gervarro.democles.specification.emf.constraint.emf.emf.EMFConstraint <em>EMF Constraint</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the
+		 * '{@link org.gervarro.democles.specification.emf.constraint.emf.emf.EMFConstraint
+		 * <em>EMF Constraint</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc
+		 * -->
+		 * 
 		 * @see org.gervarro.democles.specification.emf.constraint.emf.emf.EMFConstraint
 		 * @see org.gervarro.democles.specification.emf.constraint.emf.emf.EMFTypePackage#getEMFConstraint()
 		 * @generated
@@ -648,17 +682,19 @@ public class EMFTypePackage extends EPackageImpl {
 		public static final EClass EMF_CONSTRAINT = eINSTANCE.getEMFConstraint();
 
 		/**
-		 * The meta object literal for the '<em><b>EModel Element</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>EModel Element</b></em>' reference
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @generated
 		 */
 		public static final EReference EMF_CONSTRAINT__EMODEL_ELEMENT = eINSTANCE.getEMFConstraint_EModelElement();
 
 		/**
-		 * The meta object literal for the '{@link org.gervarro.democles.specification.emf.constraint.emf.emf.StructuralFeature <em>Structural Feature</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the
+		 * '{@link org.gervarro.democles.specification.emf.constraint.emf.emf.StructuralFeature
+		 * <em>Structural Feature</em>}' class. <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
+		 * 
 		 * @see org.gervarro.democles.specification.emf.constraint.emf.emf.StructuralFeature
 		 * @see org.gervarro.democles.specification.emf.constraint.emf.emf.EMFTypePackage#getStructuralFeature()
 		 * @generated
@@ -666,9 +702,10 @@ public class EMFTypePackage extends EPackageImpl {
 		public static final EClass STRUCTURAL_FEATURE = eINSTANCE.getStructuralFeature();
 
 		/**
-		 * The meta object literal for the '{@link org.gervarro.democles.specification.emf.constraint.emf.emf.Attribute <em>Attribute</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the
+		 * '{@link org.gervarro.democles.specification.emf.constraint.emf.emf.Attribute
+		 * <em>Attribute</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see org.gervarro.democles.specification.emf.constraint.emf.emf.Attribute
 		 * @see org.gervarro.democles.specification.emf.constraint.emf.emf.EMFTypePackage#getAttribute()
 		 * @generated
@@ -676,9 +713,10 @@ public class EMFTypePackage extends EPackageImpl {
 		public static final EClass ATTRIBUTE = eINSTANCE.getAttribute();
 
 		/**
-		 * The meta object literal for the '{@link org.gervarro.democles.specification.emf.constraint.emf.emf.Reference <em>Reference</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the
+		 * '{@link org.gervarro.democles.specification.emf.constraint.emf.emf.Reference
+		 * <em>Reference</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see org.gervarro.democles.specification.emf.constraint.emf.emf.Reference
 		 * @see org.gervarro.democles.specification.emf.constraint.emf.emf.EMFTypePackage#getReference()
 		 * @generated
@@ -686,9 +724,10 @@ public class EMFTypePackage extends EPackageImpl {
 		public static final EClass REFERENCE = eINSTANCE.getReference();
 
 		/**
-		 * The meta object literal for the '{@link org.gervarro.democles.specification.emf.constraint.emf.emf.Operation <em>Operation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the
+		 * '{@link org.gervarro.democles.specification.emf.constraint.emf.emf.Operation
+		 * <em>Operation</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see org.gervarro.democles.specification.emf.constraint.emf.emf.Operation
 		 * @see org.gervarro.democles.specification.emf.constraint.emf.emf.EMFTypePackage#getOperation()
 		 * @generated
@@ -697,4 +736,4 @@ public class EMFTypePackage extends EPackageImpl {
 
 	}
 
-} //EMFTypePackage
+} // EMFTypePackage

@@ -27,13 +27,15 @@ import java.util.List;
 public final class OperationSequenceCompiler {
 	private final List<CodeGeneratorProvider<Chain<TemplateController>>> constraintTypeSpecificProviders;
 
-	public OperationSequenceCompiler(CodeGeneratorProvider<Chain<TemplateController>>... constraintTypeSpecificProviders) {
-		final List<CodeGeneratorProvider<Chain<TemplateController>>> list =
-				Arrays.asList(constraintTypeSpecificProviders);
+	public OperationSequenceCompiler(
+			CodeGeneratorProvider<Chain<TemplateController>>... constraintTypeSpecificProviders) {
+		final List<CodeGeneratorProvider<Chain<TemplateController>>> list = Arrays
+				.asList(constraintTypeSpecificProviders);
 		this.constraintTypeSpecificProviders = new LinkedList<CodeGeneratorProvider<Chain<TemplateController>>>(list);
 	}
-	
-	public final Chain<TemplateController> buildOperationChain(Chain<GeneratorOperation> operationChain, Chain<TemplateController> tail) {
+
+	public final Chain<TemplateController> buildOperationChain(Chain<GeneratorOperation> operationChain,
+			Chain<TemplateController> tail) {
 		if (operationChain == null) {
 			return tail;
 		}

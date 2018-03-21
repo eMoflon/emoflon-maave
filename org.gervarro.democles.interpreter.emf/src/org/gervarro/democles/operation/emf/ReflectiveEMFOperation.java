@@ -27,8 +27,8 @@ import org.gervarro.democles.constraint.emf.EMFConstraintModule;
 import org.gervarro.democles.interpreter.InterpretableOperation;
 import org.gervarro.democles.runtime.NativeOperation;
 
-abstract public class ReflectiveEMFOperation<E extends EModelElement> extends NativeOperation 
-	implements InterpretableOperation {
+abstract public class ReflectiveEMFOperation<E extends EModelElement> extends NativeOperation
+		implements InterpretableOperation {
 
 	protected final EMFConstraintModule module;
 	protected final E eModelElement;
@@ -37,23 +37,23 @@ abstract public class ReflectiveEMFOperation<E extends EModelElement> extends Na
 		this.module = module;
 		this.eModelElement = linkedElement;
 	}
-	
+
 	public final EMFConstraintModule getConstaintModule() {
 		return module;
 	}
-	
+
 	public final E getLinkedElement() {
 		return eModelElement;
 	}
-	
+
 	public TypeModule getModule() {
 		return module;
 	}
-	
+
 	public String toString() {
 		return EcoreUtil.getURI(eModelElement).toString();
 	}
-	
+
 	public String getID() {
 		return "democles:/emf#" + toString();
 	}

@@ -30,11 +30,8 @@ class MainTemplateController implements Generator {
 	private final String packageName;
 	private final String className;
 
-	MainTemplateController(TemplateEngine engine,
-			ImportManager importManager,
-			TemplateInvocation template,
-			String packageName,
-			String className) {
+	MainTemplateController(TemplateEngine engine, ImportManager importManager, TemplateInvocation template,
+			String packageName, String className) {
 		this.engine = engine;
 		this.importManager = importManager;
 		this.template = template;
@@ -42,18 +39,18 @@ class MainTemplateController implements Generator {
 		this.className = className;
 	}
 
-    public final void generateCode(WriterProvider trgDir) throws IOException {
-    	if (importManager instanceof MultiPhaseImportManager) {
-        	// Collect imports from the templates
-    		((MultiPhaseImportManager) importManager).setUploadPhase(true);
-    		engine.apply(template);
-    		((MultiPhaseImportManager) importManager).setUploadPhase(false);
-    	}
+	public final void generateCode(WriterProvider trgDir) throws IOException {
+		if (importManager instanceof MultiPhaseImportManager) {
+			// Collect imports from the templates
+			((MultiPhaseImportManager) importManager).setUploadPhase(true);
+			engine.apply(template);
+			((MultiPhaseImportManager) importManager).setUploadPhase(false);
+		}
 
 		// Generate code
-    	Writer writer = trgDir.getWriterForJavaFile(packageName, className);
+		Writer writer = trgDir.getWriterForJavaFile(packageName, className);
 		engine.apply(writer, template);
-    	writer.flush();
-    	writer.close();
-    }
+		writer.flush();
+		writer.close();
+	}
 }

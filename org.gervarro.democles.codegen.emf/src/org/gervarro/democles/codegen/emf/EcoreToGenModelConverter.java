@@ -37,13 +37,12 @@ import org.eclipse.emf.ecore.EcorePackage;
 
 public class EcoreToGenModelConverter {
 	private final GenModel genModel;
-	private final HashMap<EModelElement, GenBase> cache =
-			new HashMap<EModelElement, GenBase>();
+	private final HashMap<EModelElement, GenBase> cache = new HashMap<EModelElement, GenBase>();
 
 	public EcoreToGenModelConverter(GenModel genModel) {
 		this.genModel = genModel;
 	}
-	
+
 	public final GenBase getGenModelElement(EModelElement eModelElement) {
 		GenBase result = cache.get(eModelElement);
 		if (result == null) {
@@ -66,35 +65,36 @@ public class EcoreToGenModelConverter {
 		}
 		return result;
 	}
-	
+
 	public final String toString(EModelElement eModelElement) {
 		GenBase genModelElement = getGenModelElement(eModelElement);
 		return toString(genModelElement);
 	}
-	
+
 	public final String toString(GenBase genModelElement) {
 		if (genModelElement instanceof GenClass) {
 			GenClass genClass = (GenClass) genModelElement;
 			EClass eClass = genClass.getEcoreClass();
 			boolean includeTemplateArguments = false;
-		    return eClass.getInstanceClassName() != null ?
-		      includeTemplateArguments ? eClass.getInstanceTypeName() : eClass.getInstanceClassName() :
-		      genClass.getGenPackage().getInterfacePackageName() + "." + genClass.getInterfaceName();
-//		      if (!genClass.isExternalInterface() && (!genModel.isSuppressInterfaces() || genClass.isInterface())) {
-//		    	  StringBuilder sb = new StringBuilder();
-//		    	  sb.append(genClass.getGenPackage().getInterfacePackageName());
-//		    	  sb.append(".");
-//		    	  sb.append(genClass.getInterfaceName());
-//		    	  sb.append(genClass.getTypeParameters().trim());
-//		    	  return sb.toString();
-//		      } else if (!genClass.isInterface()) {
-//		    	  StringBuilder sb = new StringBuilder();
-//		    	  sb.append(genClass.getGenPackage().getClassPackageName());
-//		    	  sb.append(".");
-//		    	  sb.append(genClass.getClassName());
-//		    	  sb.append(genClass.getTypeParameters().trim());
-//		    	  return sb.toString();
-//		      }
+			return eClass.getInstanceClassName() != null
+					? includeTemplateArguments ? eClass.getInstanceTypeName() : eClass.getInstanceClassName()
+					: genClass.getGenPackage().getInterfacePackageName() + "." + genClass.getInterfaceName();
+			// if (!genClass.isExternalInterface() && (!genModel.isSuppressInterfaces() ||
+			// genClass.isInterface())) {
+			// StringBuilder sb = new StringBuilder();
+			// sb.append(genClass.getGenPackage().getInterfacePackageName());
+			// sb.append(".");
+			// sb.append(genClass.getInterfaceName());
+			// sb.append(genClass.getTypeParameters().trim());
+			// return sb.toString();
+			// } else if (!genClass.isInterface()) {
+			// StringBuilder sb = new StringBuilder();
+			// sb.append(genClass.getGenPackage().getClassPackageName());
+			// sb.append(".");
+			// sb.append(genClass.getClassName());
+			// sb.append(genClass.getTypeParameters().trim());
+			// return sb.toString();
+			// }
 		} else if (genModelElement instanceof GenEnum) {
 			GenEnum genEnum = (GenEnum) genModelElement;
 			StringBuilder sb = new StringBuilder();
@@ -104,7 +104,7 @@ public class EcoreToGenModelConverter {
 			return sb.toString();
 		} else if (genModelElement instanceof GenDataType) {
 			return ((GenDataType) genModelElement).getQualifiedInstanceClassName();
-		} 
+		}
 		return null;
 	}
 }

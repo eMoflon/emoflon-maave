@@ -37,7 +37,7 @@ public class DefaultPatternBody extends org.gervarro.democles.specification.impl
 		this.constraints = Collections.unmodifiableList(Arrays.asList(constraints));
 		this.constants = Collections.unmodifiableList(Arrays.asList(constants));
 	}
-	
+
 	public DefaultPattern getHeader() {
 		return parent;
 	}
@@ -45,23 +45,23 @@ public class DefaultPatternBody extends org.gervarro.democles.specification.impl
 	void setParent(DefaultPattern parent) {
 		this.parent = parent;
 	}
-	
+
 	public final List<Variable> getLocalVariables() {
-		return localVariables; 
+		return localVariables;
 	}
 
 	public final List<Constraint> getConstraints() {
-		return constraints; 
+		return constraints;
 	}
 
 	public final List<Constant> getConstants() {
 		return constants;
 	}
-	
+
 	public final int frameSize() {
 		return getHeader().getSymbolicParameters().size() + getLocalVariables().size();
 	}
-	
+
 	public Adornment calculateAdornment(Adornment input) {
 		int numberOfSymbolicParameters = getHeader().getSymbolicParameters().size();
 		int numberOfVariables = numberOfSymbolicParameters + getLocalVariables().size();
@@ -74,7 +74,8 @@ public class DefaultPatternBody extends org.gervarro.democles.specification.impl
 		for (int i = numberOfSymbolicParameters; i < numberOfVariables; i++) {
 			adornment.set(i, Adornment.FREE);
 		}
-		// Constants are bound (nothing to do as values of adornments are bound by default)
+		// Constants are bound (nothing to do as values of adornments are bound by
+		// default)
 		return adornment;
 	}
 

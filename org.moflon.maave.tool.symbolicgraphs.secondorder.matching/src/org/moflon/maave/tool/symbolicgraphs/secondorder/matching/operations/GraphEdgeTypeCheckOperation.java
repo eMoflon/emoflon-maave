@@ -9,21 +9,18 @@ import org.moflon.maave.tool.symbolicgraphs.SymbolicGraphs.SymbolicGraphsPackage
 import org.moflon.maave.tool.symbolicgraphs.secondorder.matching.emf.constraint.SymbolicGraphConstraintModule;
 
 public class GraphEdgeTypeCheckOperation extends GraphElementTypeCheckOperation {
-	
-	public GraphEdgeTypeCheckOperation(SymbolicGraphConstraintModule module,EModelElement typeGraphElement) {
+
+	public GraphEdgeTypeCheckOperation(SymbolicGraphConstraintModule module, EModelElement typeGraphElement) {
 		super(module, typeGraphElement);
 		// TODO Auto-generated constructor stub
 	}
 
-
-
 	@Override
-	public InternalDataFrameProvider getDataFrame(RemappedDataFrame frame,
-			Adornment adornment) {
+	public InternalDataFrameProvider getDataFrame(RemappedDataFrame frame, Adornment adornment) {
 		if (adornment.get(0) == Adornment.NOT_TYPECHECKED) {
 			org.eclipse.emf.ecore.EObject object = (org.eclipse.emf.ecore.EObject) frame.getValue(0);
-			if(SymbolicGraphsPackage.eINSTANCE.getGraphEdge().isInstance(object)){
-				GraphEdge graphEdge=(GraphEdge)object;
+			if (SymbolicGraphsPackage.eINSTANCE.getGraphEdge().isInstance(object)) {
+				GraphEdge graphEdge = (GraphEdge) object;
 				if (typeGraphElement.equals(graphEdge.getType())) {
 					return frame;
 				}

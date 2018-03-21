@@ -34,8 +34,8 @@ import org.gervarro.democles.emf.codegen.GenModelElementAdapter;
 public final class OldEMFTemplateProvider implements CodeGeneratorProvider<Chain<TemplateController>> {
 
 	@Override
-	public final Chain<TemplateController> getTemplateController(
-			GeneratorOperation operation, Chain<TemplateController> tail) {
+	public final Chain<TemplateController> getTemplateController(GeneratorOperation operation,
+			Chain<TemplateController> tail) {
 		GenModelElementAdapter<?, ?> type = (GenModelElementAdapter<?, ?>) operation.getType();
 		Adornment adornment = operation.getPrecondition();
 		if (type instanceof GenFeatureAdapter) {
@@ -48,15 +48,19 @@ public final class OldEMFTemplateProvider implements CodeGeneratorProvider<Chain
 				}
 			} else if (adornment.get(0) == Adornment.BOUND && adornment.get(1) == Adornment.FREE) {
 				if (gfa.getEModelElement().isMany()) {
-					return new Chain<TemplateController>(new TemplateController("/emf/ForwardExtendToMany", operation), tail);
+					return new Chain<TemplateController>(new TemplateController("/emf/ForwardExtendToMany", operation),
+							tail);
 				} else {
-					return new Chain<TemplateController>(new TemplateController("/emf/ForwardExtendToOne", operation), tail);
+					return new Chain<TemplateController>(new TemplateController("/emf/ForwardExtendToOne", operation),
+							tail);
 				}
 			} else if (adornment.get(0) == Adornment.FREE && adornment.get(1) == Adornment.BOUND) {
 				if (((EReference) gfa.getEModelElement()).getEOpposite().isMany()) {
-					return new Chain<TemplateController>(new TemplateController("/emf/BackwardExtendToMany", operation), tail);
+					return new Chain<TemplateController>(new TemplateController("/emf/BackwardExtendToMany", operation),
+							tail);
 				} else {
-					return new Chain<TemplateController>(new TemplateController("/emf/BackwardExtendToOne", operation), tail);
+					return new Chain<TemplateController>(new TemplateController("/emf/BackwardExtendToOne", operation),
+							tail);
 				}
 			}
 		} else if (type instanceof GenClassAdapter) {
@@ -70,7 +74,7 @@ public final class OldEMFTemplateProvider implements CodeGeneratorProvider<Chain
 		}
 		throw new RuntimeException("Invalid operation");
 	}
-	
+
 	public final boolean isResponsibleFor(GeneratorOperation operation) {
 		return operation.getType() instanceof GenModelElementAdapter<?, ?>;
 	}

@@ -29,16 +29,16 @@ public class PatternBodyDataFrame extends InterpretedDataFrame {
 		super(size);
 		this.specification = specification;
 	}
-	
+
 	public PatternBodyDataFrame(PatternBodyDataFrame original) {
 		super(original);
 		this.specification = original.specification;
 	}
-	
+
 	final int getPublicSize() {
 		return specification.frameSize();
 	}
-	
+
 	final Object handleFrameExternalGet(int index) {
 		return specification.getConstant(index);
 	}

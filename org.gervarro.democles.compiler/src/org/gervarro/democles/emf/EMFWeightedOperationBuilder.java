@@ -36,7 +36,7 @@ import org.gervarro.democles.specification.impl.Constraint;
 import org.gervarro.democles.specification.impl.Variable;
 
 public class EMFWeightedOperationBuilder<T extends OperationRuntime> extends WeightedOperationBuilder<T> {
-	
+
 	public int getWeight(T operation) {
 		Adornment adornment = operation.getPrecondition();
 		Object object = operation.getOrigin();
@@ -45,7 +45,8 @@ public class EMFWeightedOperationBuilder<T extends OperationRuntime> extends Wei
 			ConstraintType cType = constraint.getType();
 
 			if (adornment.numberOfFrees() == 0) {
-				if (cType instanceof PatternInvocationConstraintType && !((PatternInvocationConstraintType) cType).isPositive()) {
+				if (cType instanceof PatternInvocationConstraintType
+						&& !((PatternInvocationConstraintType) cType).isPositive()) {
 					return 5;
 				}
 				if (cType instanceof EMFConstraint<?>) {
@@ -53,7 +54,7 @@ public class EMFWeightedOperationBuilder<T extends OperationRuntime> extends Wei
 				}
 				return -10;
 			}
-			
+
 			if (cType instanceof Reference && ((Reference) cType).isBidirectional()) {
 				Reference emfType = (Reference) cType;
 				if (adornment.get(0) == Adornment.BOUND && adornment.get(1) == Adornment.FREE) {
@@ -74,7 +75,8 @@ public class EMFWeightedOperationBuilder<T extends OperationRuntime> extends Wei
 				return -5;
 			} else if (cType == CoreConstraintModule.EQUAL) {
 				return -5;
-			} else if (cType instanceof PatternInvocationConstraintType && ((PatternInvocationConstraintType) cType).isPositive()) {
+			} else if (cType instanceof PatternInvocationConstraintType
+					&& ((PatternInvocationConstraintType) cType).isPositive()) {
 				return 10;
 			}
 		} else if (object instanceof Variable) {

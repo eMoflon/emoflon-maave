@@ -34,14 +34,12 @@ import org.gervarro.democles.codegen.TemplateEngine;
 import org.gervarro.democles.codegen.TemplateInvocation;
 
 public final class VelocityModule extends VelocityEngine implements TemplateEngine {
-	
+
 	public static final VelocityModule createSession() {
 		return new VelocityModule();
 	}
-	
-	public static final String addMapping(String specification, 
-			String key,
-			String value) {
+
+	public static final String addMapping(String specification, String key, String value) {
 		if (specification == null) {
 			specification = new String();
 		}
@@ -50,19 +48,17 @@ public final class VelocityModule extends VelocityEngine implements TemplateEngi
 		entries[entries.length - 1] = key + "->" + value;
 		return StringUtils.join(entries, ',');
 	}
-	
+
 	public final void loadModule(String prefix, String fileName) {
 		final String oldSpec = (String) getProperty(PrefixRemapperResourceLoader.MAPPING_KEY);
 		final String newSpec = addMapping(oldSpec, prefix, fileName);
 		setProperty(PrefixRemapperResourceLoader.MAPPING_KEY, newSpec);
 	}
 
-	public final ParameterizedVelocityTemplate getTemplate(
-			String templateName,
-			String... parameterNames) {
+	public final ParameterizedVelocityTemplate getTemplate(String templateName, String... parameterNames) {
 		return new ParameterizedVelocityTemplate(this, templateName, parameterNames);
 	}
-	
+
 	public final Renderable applyTemplate(TemplateInvocation template) {
 		return new ParameterizedVelocityTemplateInvocation(this, template);
 	}
@@ -76,7 +72,7 @@ public final class VelocityModule extends VelocityEngine implements TemplateEngi
 		apply(engine, writer, template);
 		return writer.getBuffer().toString();
 	}
-	
+
 	public final void apply(Writer writer, TemplateInvocation template) {
 		apply(this, writer, template);
 	}

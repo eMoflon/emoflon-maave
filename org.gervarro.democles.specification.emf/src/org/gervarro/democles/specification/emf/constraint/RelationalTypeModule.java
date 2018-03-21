@@ -34,11 +34,11 @@ import org.gervarro.democles.specification.emf.constraint.relational.Unequal;
 import org.gervarro.democles.specification.emf.constraint.relational.util.RelationalConstraintSwitch;
 
 public final class RelationalTypeModule extends TypeModule {
-	
+
 	public RelationalTypeModule(CoreConstraintModule typeModule) {
 		super(typeModule);
 	}
-	
+
 	@Override
 	protected final Switch<VariableType> createVariableTypeSwitch() {
 		return null;
@@ -48,9 +48,9 @@ public final class RelationalTypeModule extends TypeModule {
 	protected final Switch<ConstraintType> createConstraintTypeSwitch() {
 		return new RelationalConstraintTypeSwitch();
 	}
-	
+
 	private class RelationalConstraintTypeSwitch extends RelationalConstraintSwitch<ConstraintType> {
-		
+
 		public ConstraintType caseEqual(Equal object) {
 			return ((CoreConstraintModule) typeModule).getConstraintType(CoreConstraintModule.EQUAL_STRING);
 		}

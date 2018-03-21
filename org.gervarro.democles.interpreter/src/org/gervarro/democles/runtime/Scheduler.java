@@ -25,26 +25,24 @@ import java.util.LinkedList;
 import org.gervarro.democles.interpreter.PatternMatchingSession;
 
 public class Scheduler {
-	private SchedulingStrategy strategy =
-		new DepthFirstTraversalStrategy();
-	private final LinkedList<PatternMatchingSession> activeSessions =
-		new LinkedList<PatternMatchingSession>();
+	private SchedulingStrategy strategy = new DepthFirstTraversalStrategy();
+	private final LinkedList<PatternMatchingSession> activeSessions = new LinkedList<PatternMatchingSession>();
 
 	public void addSession(PatternMatchingSession session) {
 		activeSessions.addFirst(session);
 	}
-	
+
 	public void removeSession(PatternMatchingSession session) {
 		int index = activeSessions.indexOf(session);
 		activeSessions.remove(index);
 	}
-	
+
 	public void schedule(Task task) {
 		if (!activeSessions.isEmpty()) {
 			activeSessions.getFirst().insertTask(task, strategy);
 		}
 	}
-	
+
 	public void run() {
 		if (!activeSessions.isEmpty()) {
 			PatternMatchingSession session = activeSessions.getFirst();
@@ -53,7 +51,7 @@ public class Scheduler {
 			}
 		}
 	}
-	
+
 	public final SchedulingStrategy getSchedulingStrategy() {
 		return strategy;
 	}

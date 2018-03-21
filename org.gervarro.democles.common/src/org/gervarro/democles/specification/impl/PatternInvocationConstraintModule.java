@@ -29,13 +29,12 @@ import org.gervarro.democles.constraint.PatternInvocationConstraintType;
 public class PatternInvocationConstraintModule<P extends Pattern, PB> implements TypeModule {
 	private final PatternBuilder<P, PB> patternModule;
 	private final Map<P, PatternInvocationConstraintType> constraintTypeMapping;
-	
+
 	public PatternInvocationConstraintModule(final PatternBuilder<P, PB> patternModule) {
 		this.patternModule = patternModule;
-		this.constraintTypeMapping =
-				new HashMap<P, PatternInvocationConstraintType>();
+		this.constraintTypeMapping = new HashMap<P, PatternInvocationConstraintType>();
 	}
-	
+
 	public final PatternInvocationConstraintType getConstraintType(String identifier, boolean isPositive) {
 		P pattern = patternModule.patternRegistry.get(identifier);
 		if (pattern != null) {

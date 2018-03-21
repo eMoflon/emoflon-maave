@@ -5,15 +5,13 @@ import org.gervarro.democles.interpreter.InterpretableOperation;
 import org.gervarro.democles.runtime.NativeOperation;
 import org.moflon.maave.tool.symbolicgraphs.secondorder.matching.emf.constraint.SymbolicGraphConstraintModule;
 
-public abstract class GraphElementTypeCheckOperation extends NativeOperation implements InterpretableOperation { 
-
-
+public abstract class GraphElementTypeCheckOperation extends NativeOperation implements InterpretableOperation {
 
 	protected final SymbolicGraphConstraintModule module;
 	protected final EModelElement typeGraphElement;
 
 	public GraphElementTypeCheckOperation(SymbolicGraphConstraintModule module, EModelElement typeGraphElement) {
-		this.module=module;
-		this.typeGraphElement=typeGraphElement;
+		this.module = module;
+		this.typeGraphElement = typeGraphElement;
 	}
 }

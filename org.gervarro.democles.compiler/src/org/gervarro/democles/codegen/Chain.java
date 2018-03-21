@@ -27,9 +27,8 @@ public class Chain<T> {
 	public Chain(T element) {
 		this(element, null);
 	}
-	
-	public Chain(T value,
-			Chain<T> next) {
+
+	public Chain(T value, Chain<T> next) {
 		this.value = value;
 		this.next = next;
 	}
@@ -37,23 +36,23 @@ public class Chain<T> {
 	public Chain(final Chain<T> origin) {
 		this(origin.value, origin.next != null ? origin.next.copy(false) : null);
 	}
-	
-    public final T getValue() {
-    	return value;
-    }
-    
-    public final Chain<T> getNext() {
-    	return next;
-    }
+
+	public final T getValue() {
+		return value;
+	}
+
+	public final Chain<T> getNext() {
+		return next;
+	}
 
 	public final Chain<T> copy(final boolean reverse) {
 		return internalCopy(reverse, null);
 	}
-	
+
 	private final Chain<T> internalCopy(final boolean reverse, final Chain<T> tail) {
 		if (next != null) {
-			return reverse ? next.internalCopy(reverse, new Chain<T>(value, tail)) :
-				new Chain<T>(value, next.internalCopy(reverse, tail));
+			return reverse ? next.internalCopy(reverse, new Chain<T>(value, tail))
+					: new Chain<T>(value, next.internalCopy(reverse, tail));
 		} else {
 			return new Chain<T>(value, tail);
 		}

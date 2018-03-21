@@ -28,10 +28,15 @@ import org.gervarro.democles.specification.impl.Variable;
 
 abstract public class AbstractCodeGeneratorBuilder<T> {
 	abstract protected T getSuccessfulMatchingController();
+
 	abstract protected T getWriteVariableController(GeneratorOperation operation, int index, T tail);
+
 	abstract protected T getCheckVariableController(GeneratorOperation operation, int index, T tail);
+
 	abstract protected T getOperationController(GeneratorOperation operation, T tail);
+
 	abstract protected T getReadVariableController(GeneratorOperation operation, int index, T tail);
+
 	abstract protected T getMethodController(GeneratorOperation operation, T tail);
 
 	public T getGeneralConstraintGenerator(GeneratorOperation operation) {
@@ -39,31 +44,34 @@ abstract public class AbstractCodeGeneratorBuilder<T> {
 
 		T renderable = getSuccessfulMatchingController();
 		ListIterator<GeneratorVariable> iterator = null;
-		for (iterator = params.listIterator(params.size()); iterator.hasPrevious(); ) {
+		for (iterator = params.listIterator(params.size()); iterator.hasPrevious();) {
 			int index = iterator.previousIndex();
 			GeneratorVariable current = iterator.previous();
-			if (operation.getPrecondition().get(index) == Adornment.FREE && current.getSpecification() instanceof Variable) {
+			if (operation.getPrecondition().get(index) == Adornment.FREE
+					&& current.getSpecification() instanceof Variable) {
 				renderable = getWriteVariableController(operation, index, renderable);
 			}
 		}
 
-		for (iterator = params.listIterator(params.size()); iterator.hasPrevious(); ) {
+		for (iterator = params.listIterator(params.size()); iterator.hasPrevious();) {
 			int index = iterator.previousIndex();
 			GeneratorVariable current = iterator.previous();
-			if (operation.getPrecondition().get(index) == Adornment.FREE && current.getSpecification() instanceof Variable) {
+			if (operation.getPrecondition().get(index) == Adornment.FREE
+					&& current.getSpecification() instanceof Variable) {
 				renderable = getCheckVariableController(operation, index, renderable);
 			}
 		}
 
 		renderable = getOperationController(operation, renderable);
 
-		for (iterator = params.listIterator(params.size()); iterator.hasPrevious(); ) {
+		for (iterator = params.listIterator(params.size()); iterator.hasPrevious();) {
 			int index = iterator.previousIndex();
 			GeneratorVariable current = iterator.previous();
-			if (operation.getPrecondition().get(index) == Adornment.BOUND && current.getSpecification() instanceof Variable) {
+			if (operation.getPrecondition().get(index) == Adornment.BOUND
+					&& current.getSpecification() instanceof Variable) {
 				renderable = getReadVariableController(operation, index, renderable);
 			}
 		}
-		 return getMethodController(operation, renderable);
+		return getMethodController(operation, renderable);
 	}
 }

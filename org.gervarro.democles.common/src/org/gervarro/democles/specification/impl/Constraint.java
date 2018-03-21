@@ -34,15 +34,15 @@ public class Constraint implements org.gervarro.democles.specification.Constrain
 		this.parameters = Collections.unmodifiableList(Arrays.asList(parameters));
 		this.type = type;
 	}
-	
+
 	public List<ConstraintVariable> getParameters() {
 		return parameters;
 	}
-	
+
 	public ConstraintType getType() {
 		return type;
 	}
-	
+
 	public String toString() {
 		StringBuilder result = new StringBuilder();
 		result.append(getParameters().toString());

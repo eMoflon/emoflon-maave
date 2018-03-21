@@ -9,15 +9,16 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
- * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Pattern Invocation Constraint</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Pattern
+ * Invocation Constraint</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.gervarro.democles.specification.emf.PatternInvocationConstraint#isPositive <em>Positive</em>}</li>
- *   <li>{@link org.gervarro.democles.specification.emf.PatternInvocationConstraint#getInvokedPattern <em>Invoked Pattern</em>}</li>
+ * <li>{@link org.gervarro.democles.specification.emf.PatternInvocationConstraint#isPositive
+ * <em>Positive</em>}</li>
+ * <li>{@link org.gervarro.democles.specification.emf.PatternInvocationConstraint#getInvokedPattern
+ * <em>Invoked Pattern</em>}</li>
  * </ul>
  * </p>
  *
@@ -28,8 +29,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public class PatternInvocationConstraint extends Constraint {
 	/**
 	 * The default value of the '{@link #isPositive() <em>Positive</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #isPositive()
 	 * @generated
 	 * @ordered
@@ -38,8 +39,8 @@ public class PatternInvocationConstraint extends Constraint {
 
 	/**
 	 * The cached value of the '{@link #isPositive() <em>Positive</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #isPositive()
 	 * @generated
 	 * @ordered
@@ -47,9 +48,9 @@ public class PatternInvocationConstraint extends Constraint {
 	protected boolean positive = POSITIVE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getInvokedPattern() <em>Invoked Pattern</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getInvokedPattern() <em>Invoked
+	 * Pattern</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getInvokedPattern()
 	 * @generated
 	 * @ordered
@@ -57,8 +58,8 @@ public class PatternInvocationConstraint extends Constraint {
 	protected Pattern invokedPattern;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected PatternInvocationConstraint() {
@@ -66,8 +67,8 @@ public class PatternInvocationConstraint extends Constraint {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -76,13 +77,14 @@ public class PatternInvocationConstraint extends Constraint {
 	}
 
 	/**
-	 * Returns the value of the '<em><b>Positive</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Positive</b></em>' attribute. <!--
+	 * begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Positive</em>' attribute isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Positive</em>' attribute isn't clear, there really
+	 * should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Positive</em>' attribute.
 	 * @see #setPositive(boolean)
 	 * @see org.gervarro.democles.specification.emf.SpecificationPackage#getPatternInvocationConstraint_Positive()
@@ -94,10 +96,12 @@ public class PatternInvocationConstraint extends Constraint {
 	}
 
 	/**
-	 * Sets the value of the '{@link org.gervarro.democles.specification.emf.PatternInvocationConstraint#isPositive <em>Positive</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Positive</em>' attribute.
+	 * Sets the value of the
+	 * '{@link org.gervarro.democles.specification.emf.PatternInvocationConstraint#isPositive
+	 * <em>Positive</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Positive</em>' attribute.
 	 * @see #isPositive()
 	 * @generated
 	 */
@@ -105,17 +109,19 @@ public class PatternInvocationConstraint extends Constraint {
 		boolean oldPositive = positive;
 		positive = newPositive;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SpecificationPackage.PATTERN_INVOCATION_CONSTRAINT__POSITIVE, oldPositive, positive));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					SpecificationPackage.PATTERN_INVOCATION_CONSTRAINT__POSITIVE, oldPositive, positive));
 	}
 
 	/**
-	 * Returns the value of the '<em><b>Invoked Pattern</b></em>' reference.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Invoked Pattern</b></em>' reference. <!--
+	 * begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Invoked Pattern</em>' reference isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Invoked Pattern</em>' reference isn't clear, there
+	 * really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Invoked Pattern</em>' reference.
 	 * @see #setInvokedPattern(Pattern)
 	 * @see org.gervarro.democles.specification.emf.SpecificationPackage#getPatternInvocationConstraint_InvokedPattern()
@@ -123,20 +129,22 @@ public class PatternInvocationConstraint extends Constraint {
 	 * @generated
 	 */
 	public Pattern getInvokedPattern() {
-		if (invokedPattern != null && ((EObject)invokedPattern).eIsProxy()) {
-			InternalEObject oldInvokedPattern = (InternalEObject)invokedPattern;
-			invokedPattern = (Pattern)eResolveProxy(oldInvokedPattern);
+		if (invokedPattern != null && ((EObject) invokedPattern).eIsProxy()) {
+			InternalEObject oldInvokedPattern = (InternalEObject) invokedPattern;
+			invokedPattern = (Pattern) eResolveProxy(oldInvokedPattern);
 			if (invokedPattern != oldInvokedPattern) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SpecificationPackage.PATTERN_INVOCATION_CONSTRAINT__INVOKED_PATTERN, oldInvokedPattern, invokedPattern));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+							SpecificationPackage.PATTERN_INVOCATION_CONSTRAINT__INVOKED_PATTERN, oldInvokedPattern,
+							invokedPattern));
 			}
 		}
 		return invokedPattern;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Pattern basicGetInvokedPattern() {
@@ -144,10 +152,13 @@ public class PatternInvocationConstraint extends Constraint {
 	}
 
 	/**
-	 * Sets the value of the '{@link org.gervarro.democles.specification.emf.PatternInvocationConstraint#getInvokedPattern <em>Invoked Pattern</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Invoked Pattern</em>' reference.
+	 * Sets the value of the
+	 * '{@link org.gervarro.democles.specification.emf.PatternInvocationConstraint#getInvokedPattern
+	 * <em>Invoked Pattern</em>}' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Invoked Pattern</em>' reference.
 	 * @see #getInvokedPattern()
 	 * @generated
 	 */
@@ -155,86 +166,90 @@ public class PatternInvocationConstraint extends Constraint {
 		Pattern oldInvokedPattern = invokedPattern;
 		invokedPattern = newInvokedPattern;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SpecificationPackage.PATTERN_INVOCATION_CONSTRAINT__INVOKED_PATTERN, oldInvokedPattern, invokedPattern));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					SpecificationPackage.PATTERN_INVOCATION_CONSTRAINT__INVOKED_PATTERN, oldInvokedPattern,
+					invokedPattern));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SpecificationPackage.PATTERN_INVOCATION_CONSTRAINT__POSITIVE:
-				return isPositive();
-			case SpecificationPackage.PATTERN_INVOCATION_CONSTRAINT__INVOKED_PATTERN:
-				if (resolve) return getInvokedPattern();
-				return basicGetInvokedPattern();
+		case SpecificationPackage.PATTERN_INVOCATION_CONSTRAINT__POSITIVE:
+			return isPositive();
+		case SpecificationPackage.PATTERN_INVOCATION_CONSTRAINT__INVOKED_PATTERN:
+			if (resolve)
+				return getInvokedPattern();
+			return basicGetInvokedPattern();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SpecificationPackage.PATTERN_INVOCATION_CONSTRAINT__POSITIVE:
-				setPositive((Boolean)newValue);
-				return;
-			case SpecificationPackage.PATTERN_INVOCATION_CONSTRAINT__INVOKED_PATTERN:
-				setInvokedPattern((Pattern)newValue);
-				return;
+		case SpecificationPackage.PATTERN_INVOCATION_CONSTRAINT__POSITIVE:
+			setPositive((Boolean) newValue);
+			return;
+		case SpecificationPackage.PATTERN_INVOCATION_CONSTRAINT__INVOKED_PATTERN:
+			setInvokedPattern((Pattern) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SpecificationPackage.PATTERN_INVOCATION_CONSTRAINT__POSITIVE:
-				setPositive(POSITIVE_EDEFAULT);
-				return;
-			case SpecificationPackage.PATTERN_INVOCATION_CONSTRAINT__INVOKED_PATTERN:
-				setInvokedPattern((Pattern)null);
-				return;
+		case SpecificationPackage.PATTERN_INVOCATION_CONSTRAINT__POSITIVE:
+			setPositive(POSITIVE_EDEFAULT);
+			return;
+		case SpecificationPackage.PATTERN_INVOCATION_CONSTRAINT__INVOKED_PATTERN:
+			setInvokedPattern((Pattern) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SpecificationPackage.PATTERN_INVOCATION_CONSTRAINT__POSITIVE:
-				return positive != POSITIVE_EDEFAULT;
-			case SpecificationPackage.PATTERN_INVOCATION_CONSTRAINT__INVOKED_PATTERN:
-				return invokedPattern != null;
+		case SpecificationPackage.PATTERN_INVOCATION_CONSTRAINT__POSITIVE:
+			return positive != POSITIVE_EDEFAULT;
+		case SpecificationPackage.PATTERN_INVOCATION_CONSTRAINT__INVOKED_PATTERN:
+			return invokedPattern != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if (eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (positive: ");

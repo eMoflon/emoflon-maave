@@ -23,84 +23,85 @@ import org.moflon.maave.wsconfig.WsInfo;
 
 import SDMLanguage.SDMLanguagePackage;
 
-
 public class TestRunner {
-
-
-
 
 	public static void main(String[] args) {
 
-
-
-
 		Result result = JUnitCore.runClasses(AllTests.class);
-
 
 		for (Failure failure : result.getFailures()) {
 			System.out.println(failure.toString());
 			failure.getException().printStackTrace();
 		}
-		if(result.wasSuccessful()){
+		if (result.wasSuccessful()) {
 			System.out.println("All tests were successful");
-		}else{
+		} else {
 			System.out.println("NOT all tests were successful");
 		}
 	}
 
-	public static EPackage loadTestMM(String pluginName, String projectName){
-		ResourceSet rs =new ResourceSetImpl();
+	public static EPackage loadTestMM(String pluginName, String projectName) {
+		ResourceSet rs = new ResourceSetImpl();
 		rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put("ecore", new XMIResourceFactoryImpl());
-		rs.getURIConverter().getURIMap().put(URI.createPlatformResourceURI("/", true), URI.createFileURI(WsInfo.getCurrentWsLoc()+ "\\"));
-		rs.getURIConverter().getURIMap().put(URI.createPlatformPluginURI("/"+pluginName+"/", true), URI.createPlatformResourceURI("/"+projectName+"/", true));
+		rs.getURIConverter().getURIMap().put(URI.createPlatformResourceURI("/", true),
+				URI.createFileURI(WsInfo.getCurrentWsLoc() + "\\"));
+		rs.getURIConverter().getURIMap().put(URI.createPlatformPluginURI("/" + pluginName + "/", true),
+				URI.createPlatformResourceURI("/" + projectName + "/", true));
 
-		//		URI uri3=URI.createURI("platform:/plugin/org.moflon.SDMLanguage/model/SDMLanguage.ecore",true);
-		//		PackageRemappingDependency pDependency3=new PackageRemappingDependency(uri3, true, true);
-		//		pDependency3.getResource(rs, true);
+		// URI
+		// uri3=URI.createURI("platform:/plugin/org.moflon.SDMLanguage/model/SDMLanguage.ecore",true);
+		// PackageRemappingDependency pDependency3=new PackageRemappingDependency(uri3,
+		// true, true);
+		// pDependency3.getResource(rs, true);
 
 		SDMLanguagePackage.eINSTANCE.getClass();
 
-		URI uri1=URI.createPlatformResourceURI("/"+pluginName+"/model/"+projectName+".ecore", true);
+		URI uri1 = URI.createPlatformResourceURI("/" + pluginName + "/model/" + projectName + ".ecore", true);
 
-
-		Resource resource=rs.getResource(uri1, true);
-		EPackage pack=(EPackage)resource.getContents().get(0);
+		Resource resource = rs.getResource(uri1, true);
+		EPackage pack = (EPackage) resource.getContents().get(0);
 
 		return pack;
 
 	}
-	public static SymbGTRule loadTestModel(String name){
-		ResourceSet rs=new ResourceSetImpl();
-		rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put("xmi", new XMIResourceFactoryImpl());
-		rs.getURIConverter().getURIMap().put(URI.createPlatformResourceURI("/", true), URI.createFileURI(WsInfo.getCurrentWsLoc() + "\\"));
-		rs.getURIConverter().getURIMap().put(URI.createPlatformPluginURI("/TestGenerator/", true), URI.createPlatformResourceURI("/TestGenerator/", true));
 
-		URI testGeneratorURI =URI.createURI("platform:/plugin/TestGenerator/model/TestGenerator.ecore",true);
+	public static SymbGTRule loadTestModel(String name) {
+		ResourceSet rs = new ResourceSetImpl();
+		rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put("xmi", new XMIResourceFactoryImpl());
+		rs.getURIConverter().getURIMap().put(URI.createPlatformResourceURI("/", true),
+				URI.createFileURI(WsInfo.getCurrentWsLoc() + "\\"));
+		rs.getURIConverter().getURIMap().put(URI.createPlatformPluginURI("/TestGenerator/", true),
+				URI.createPlatformResourceURI("/TestGenerator/", true));
+
+		URI testGeneratorURI = URI.createURI("platform:/plugin/TestGenerator/model/TestGenerator.ecore", true);
 		SDMLanguagePackage.eINSTANCE.getClass();
 		PackageRemappingDependency d = new PackageRemappingDependency(testGeneratorURI, true, false);
 
 		d.getResource(rs, true);
-		//TestLanguagePackage.eINSTANCE.getClass();
-		//TestGeneratorPackage.eINSTANCE.getClass();
+		// TestLanguagePackage.eINSTANCE.getClass();
+		// TestGeneratorPackage.eINSTANCE.getClass();
 		CategoryPackage.eINSTANCE.getClass();
 
-
-
-		URI uri1=URI.createPlatformResourceURI("CathegoryLanguageTestSuite/instances/"+name+".xmi",false);
-		Resource r=rs.getResource(uri1,true);
+		URI uri1 = URI.createPlatformResourceURI("CathegoryLanguageTestSuite/instances/" + name + ".xmi", false);
+		Resource r = rs.getResource(uri1, true);
 		EcoreUtil.resolveAll(r);
-		SymbGTRule rule=(SymbGTRule) r.getContents().get(0);
+		SymbGTRule rule = (SymbGTRule) r.getContents().get(0);
 		return rule;
 
 	}
-	public static void saveTestResult(EObject obj,String name) {
-		ResourceSet rs =new ResourceSetImpl();
-		rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put("xmi", new XMIResourceFactoryImpl());
-		rs.getURIConverter().getURIMap().put(URI.createPlatformResourceURI("/", true), URI.createFileURI(WsInfo.getCurrentWsLoc()+ "\\"));
-		//rs.getURIConverter().getURIMap().put(URI.createPlatformPluginURI(pluginName, true), URI.createPlatformResourceURI(projectName, true));
 
-		PackageRemappingDependency d = new PackageRemappingDependency(URI.createPlatformResourceURI("/org.moflon.maave.tests.testsuite/instances/"+name+".xmi", true), false, false);
-		Resource newRes=d.getResource(rs, false);
+	public static void saveTestResult(EObject obj, String name) {
+		ResourceSet rs = new ResourceSetImpl();
+		rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put("xmi", new XMIResourceFactoryImpl());
+		rs.getURIConverter().getURIMap().put(URI.createPlatformResourceURI("/", true),
+				URI.createFileURI(WsInfo.getCurrentWsLoc() + "\\"));
+		// rs.getURIConverter().getURIMap().put(URI.createPlatformPluginURI(pluginName,
+		// true), URI.createPlatformResourceURI(projectName, true));
+
+		PackageRemappingDependency d = new PackageRemappingDependency(
+				URI.createPlatformResourceURI("/org.moflon.maave.tests.testsuite/instances/" + name + ".xmi", true),
+				false, false);
+		Resource newRes = d.getResource(rs, false);
 		newRes.getContents().add(obj);
 		Map<String, Object> saveOptions = new HashMap<String, Object>();
 		saveOptions.put(SDMEnhancedEcoreResource.SAVE_GENERATED_PACKAGE_CROSSREF_URIS, Boolean.TRUE);
@@ -112,5 +113,3 @@ public class TestRunner {
 		}
 	}
 }
-
-

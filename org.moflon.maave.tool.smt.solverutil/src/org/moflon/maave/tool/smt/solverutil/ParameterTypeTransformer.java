@@ -5,12 +5,9 @@ import org.eclipse.emf.ecore.EcorePackage;
 
 public class ParameterTypeTransformer {
 
+	public static String getSMTLibDatatypeString(EDataType eDataType) {
 
-	public static String getSMTLibDatatypeString(EDataType eDataType){
-
-
-		switch (eDataType.getClassifierID())
-		{
+		switch (eDataType.getClassifierID()) {
 		case EcorePackage.EBIG_DECIMAL:
 			return "Real";
 		case EcorePackage.EBIG_INTEGER:
@@ -20,17 +17,23 @@ public class ParameterTypeTransformer {
 		case EcorePackage.EBOOLEAN_OBJECT:
 			return "Bool";
 		case EcorePackage.EBYTE:
-			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not supported from the SMT Solver");
+			throw new IllegalArgumentException(
+					"The datatype '" + eDataType.getName() + "' is not supported from the SMT Solver");
 		case EcorePackage.EBYTE_ARRAY:
-			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not supported from the SMT Solver");
+			throw new IllegalArgumentException(
+					"The datatype '" + eDataType.getName() + "' is not supported from the SMT Solver");
 		case EcorePackage.EBYTE_OBJECT:
-			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not supported from the SMT Solver");
+			throw new IllegalArgumentException(
+					"The datatype '" + eDataType.getName() + "' is not supported from the SMT Solver");
 		case EcorePackage.ECHAR:
-			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not supported from the SMT Solver");
+			throw new IllegalArgumentException(
+					"The datatype '" + eDataType.getName() + "' is not supported from the SMT Solver");
 		case EcorePackage.ECHARACTER_OBJECT:
-			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not supported from the SMT Solver");
+			throw new IllegalArgumentException(
+					"The datatype '" + eDataType.getName() + "' is not supported from the SMT Solver");
 		case EcorePackage.EDATE:
-			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not supported from the SMT Solver");
+			throw new IllegalArgumentException(
+					"The datatype '" + eDataType.getName() + "' is not supported from the SMT Solver");
 		case EcorePackage.EDOUBLE:
 			return "Real";
 		case EcorePackage.EDOUBLE_OBJECT:
@@ -44,9 +47,11 @@ public class ParameterTypeTransformer {
 		case EcorePackage.EINTEGER_OBJECT:
 			return "Int";
 		case EcorePackage.EJAVA_CLASS:
-			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not supported from the SMT Solver");
+			throw new IllegalArgumentException(
+					"The datatype '" + eDataType.getName() + "' is not supported from the SMT Solver");
 		case EcorePackage.EJAVA_OBJECT:
-			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not supported from the SMT Solver");
+			throw new IllegalArgumentException(
+					"The datatype '" + eDataType.getName() + "' is not supported from the SMT Solver");
 		case EcorePackage.ELONG:
 			return "Int";
 		case EcorePackage.ELONG_OBJECT:
@@ -56,7 +61,8 @@ public class ParameterTypeTransformer {
 		case EcorePackage.ESHORT_OBJECT:
 			return "Int";
 		case EcorePackage.ESTRING:
-			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not supported from the SMT Solver");
+			throw new IllegalArgumentException(
+					"The datatype '" + eDataType.getName() + "' is not supported from the SMT Solver");
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}

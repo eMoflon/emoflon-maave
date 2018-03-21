@@ -52,7 +52,7 @@ public abstract class GenModelElementAdapter<E extends EModelElement, Gen extend
 	public void setEModelElement(E newEModelElement) {
 		eModelElement = newEModelElement;
 	}
-	
+
 	public Notifier getTarget() {
 		return getEModelElement();
 	}

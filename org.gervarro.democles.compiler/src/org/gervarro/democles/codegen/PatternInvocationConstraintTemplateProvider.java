@@ -22,18 +22,17 @@ package org.gervarro.democles.codegen;
 
 import org.gervarro.democles.constraint.PatternInvocationConstraintType;
 
-public class PatternInvocationConstraintTemplateProvider implements
-		CodeGeneratorProvider<Chain<TemplateController>> {
+public class PatternInvocationConstraintTemplateProvider implements CodeGeneratorProvider<Chain<TemplateController>> {
 
 	@Override
-	public Chain<TemplateController> getTemplateController(
-			GeneratorOperation operation, Chain<TemplateController> tail) {
+	public Chain<TemplateController> getTemplateController(GeneratorOperation operation,
+			Chain<TemplateController> tail) {
 		return new Chain<TemplateController>(new TemplateController("/pattern/PatternCall", operation), tail);
 	}
 
 	@Override
 	public final boolean isResponsibleFor(GeneratorOperation operation) {
-		return operation != null && operation.getType() instanceof PatternInvocationConstraintType &&
-				!((PatternInvocationConstraintType) operation.getType()).isPositive();
+		return operation != null && operation.getType() instanceof PatternInvocationConstraintType
+				&& !((PatternInvocationConstraintType) operation.getType()).isPositive();
 	}
 }

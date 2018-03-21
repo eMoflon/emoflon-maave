@@ -26,17 +26,16 @@ import org.gervarro.democles.specification.impl.Pattern;
 public final class PatternInvocationConstraintType implements ConstraintType {
 	private final Pattern invokedPattern;
 	private final boolean isPositive;
-	
-	public PatternInvocationConstraintType(Pattern invokedPattern,
-			boolean isPositive) {
+
+	public PatternInvocationConstraintType(Pattern invokedPattern, boolean isPositive) {
 		this.invokedPattern = invokedPattern;
 		this.isPositive = isPositive;
 	}
-	
+
 	public final Pattern getInvokedPattern() {
 		return invokedPattern;
 	}
-	
+
 	public final boolean isPositive() {
 		return isPositive;
 	}

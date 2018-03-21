@@ -24,24 +24,22 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-
 public class PatternMatcherPlugin {
-	private final List<TypeModuleProxy> typeModuleProxies =
-		new ArrayList<TypeModuleProxy>();
+	private final List<TypeModuleProxy> typeModuleProxies = new ArrayList<TypeModuleProxy>();
 
 	public final void setTypeModuleProxies(TypeModuleProxy... builders) {
 		typeModuleProxies.clear();
 		typeModuleProxies.addAll(Arrays.asList(builders));
 	}
-	
+
 	public final List<TypeModuleProxy> getTypeModuleProxies() {
 		return typeModuleProxies;
 	}
-	
+
 	public static final PatternMatcherPlugin createPlugin() {
 		return new PatternMatcherPlugin();
 	}
-	
+
 	public static final String getIdentifier(String name, int numberOfSymbolicParameters) {
 		return name + "/" + numberOfSymbolicParameters;
 	}

@@ -30,7 +30,8 @@ import org.gervarro.democles.specification.emf.TypeModule;
 import org.gervarro.democles.specification.emf.util.SpecificationSwitch;
 import org.gervarro.democles.specification.impl.PatternInvocationConstraintModule;
 
-public class PatternInvocationTypeModule<P extends org.gervarro.democles.specification.impl.Pattern, PB> extends TypeModule {
+public class PatternInvocationTypeModule<P extends org.gervarro.democles.specification.impl.Pattern, PB>
+		extends TypeModule {
 
 	public PatternInvocationTypeModule(PatternInvocationConstraintModule<P, PB> typeModule) {
 		super(typeModule);
@@ -45,13 +46,15 @@ public class PatternInvocationTypeModule<P extends org.gervarro.democles.specifi
 	protected final PatternInvocationTypeSwitch createConstraintTypeSwitch() {
 		return new PatternInvocationTypeSwitch();
 	}
-	
+
 	private class PatternInvocationTypeSwitch extends SpecificationSwitch<ConstraintType> {
 		@SuppressWarnings("unchecked")
 		public ConstraintType casePatternInvocationConstraint(PatternInvocationConstraint patternInvocationConstraint) {
 			Pattern invokedPattern = patternInvocationConstraint.getInvokedPattern();
-			String identifier = PatternMatcherPlugin.getIdentifier(invokedPattern.getName(), invokedPattern.getSymbolicParameters().size());
-			return ((PatternInvocationConstraintModule<P,PB>) typeModule).getConstraintType(identifier, patternInvocationConstraint.isPositive());
+			String identifier = PatternMatcherPlugin.getIdentifier(invokedPattern.getName(),
+					invokedPattern.getSymbolicParameters().size());
+			return ((PatternInvocationConstraintModule<P, PB>) typeModule).getConstraintType(identifier,
+					patternInvocationConstraint.isPositive());
 		}
 	}
 }

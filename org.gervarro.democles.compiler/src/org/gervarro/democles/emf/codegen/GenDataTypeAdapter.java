@@ -42,7 +42,7 @@ public class GenDataTypeAdapter extends GenModelElementAdapter<EDataType, GenDat
 	public final String getPackageName() {
 		return getParent().getPackageName();
 	}
-	
+
 	public final String getClassName() {
 		return getGenElement().getName() + "Operation";
 	}

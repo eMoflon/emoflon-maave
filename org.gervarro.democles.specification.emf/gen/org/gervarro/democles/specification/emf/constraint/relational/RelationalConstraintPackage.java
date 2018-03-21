@@ -8,57 +8,57 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.gervarro.democles.specification.emf.SpecificationPackage;
 
 /**
- * <!-- begin-user-doc -->
- * The <b>Package</b> for the model.
- * It contains accessors for the meta objects to represent
+ * <!-- begin-user-doc --> The <b>Package</b> for the model. It contains
+ * accessors for the meta objects to represent
  * <ul>
- *   <li>each class,</li>
- *   <li>each feature of each class,</li>
- *   <li>each enum,</li>
- *   <li>and each data type</li>
+ * <li>each class,</li>
+ * <li>each feature of each class,</li>
+ * <li>each enum,</li>
+ * <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
+ * 
  * @see org.gervarro.democles.specification.emf.constraint.relational.RelationalConstraintFactory
  * @model kind="package"
  * @generated
  */
 public class RelationalConstraintPackage extends EPackageImpl {
 	/**
-	 * The package name.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The package name. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String eNAME = "relational";
 
 	/**
-	 * The package namespace URI.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The package namespace URI. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String eNS_URI = "http://gervarro.org/democles/specification/constraint/relational.ecore";
 
 	/**
-	 * The package namespace name.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The package namespace name. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String eNS_PREFIX = "relational";
 
 	/**
-	 * The singleton instance of the package.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The singleton instance of the package. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public static final RelationalConstraintPackage eINSTANCE = org.gervarro.democles.specification.emf.constraint.relational.RelationalConstraintPackage.init();
+	public static final RelationalConstraintPackage eINSTANCE = org.gervarro.democles.specification.emf.constraint.relational.RelationalConstraintPackage
+			.init();
 
 	/**
-	 * The meta object id for the '{@link org.gervarro.democles.specification.emf.constraint.relational.RelationalConstraint <em>Relational Constraint</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The meta object id for the
+	 * '{@link org.gervarro.democles.specification.emf.constraint.relational.RelationalConstraint
+	 * <em>Relational Constraint</em>}' class. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see org.gervarro.democles.specification.emf.constraint.relational.RelationalConstraint
 	 * @see org.gervarro.democles.specification.emf.constraint.relational.RelationalConstraintPackage#getRelationalConstraint()
 	 * @generated
@@ -66,27 +66,28 @@ public class RelationalConstraintPackage extends EPackageImpl {
 	public static final int RELATIONAL_CONSTRAINT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	public static final int RELATIONAL_CONSTRAINT__PARAMETERS = SpecificationPackage.CONSTRAINT__PARAMETERS;
 
 	/**
-	 * The number of structural features of the '<em>Relational Constraint</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The number of structural features of the '<em>Relational Constraint</em>'
+	 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	public static final int RELATIONAL_CONSTRAINT_FEATURE_COUNT = SpecificationPackage.CONSTRAINT_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.gervarro.democles.specification.emf.constraint.relational.Equal <em>Equal</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The meta object id for the
+	 * '{@link org.gervarro.democles.specification.emf.constraint.relational.Equal
+	 * <em>Equal</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see org.gervarro.democles.specification.emf.constraint.relational.Equal
 	 * @see org.gervarro.democles.specification.emf.constraint.relational.RelationalConstraintPackage#getEqual()
 	 * @generated
@@ -94,27 +95,28 @@ public class RelationalConstraintPackage extends EPackageImpl {
 	public static final int EQUAL = 1;
 
 	/**
-	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	public static final int EQUAL__PARAMETERS = RELATIONAL_CONSTRAINT__PARAMETERS;
 
 	/**
-	 * The number of structural features of the '<em>Equal</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The number of structural features of the '<em>Equal</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	public static final int EQUAL_FEATURE_COUNT = RELATIONAL_CONSTRAINT_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.gervarro.democles.specification.emf.constraint.relational.Unequal <em>Unequal</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The meta object id for the
+	 * '{@link org.gervarro.democles.specification.emf.constraint.relational.Unequal
+	 * <em>Unequal</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see org.gervarro.democles.specification.emf.constraint.relational.Unequal
 	 * @see org.gervarro.democles.specification.emf.constraint.relational.RelationalConstraintPackage#getUnequal()
 	 * @generated
@@ -122,27 +124,28 @@ public class RelationalConstraintPackage extends EPackageImpl {
 	public static final int UNEQUAL = 2;
 
 	/**
-	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	public static final int UNEQUAL__PARAMETERS = RELATIONAL_CONSTRAINT__PARAMETERS;
 
 	/**
-	 * The number of structural features of the '<em>Unequal</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The number of structural features of the '<em>Unequal</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	public static final int UNEQUAL_FEATURE_COUNT = RELATIONAL_CONSTRAINT_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.gervarro.democles.specification.emf.constraint.relational.Smaller <em>Smaller</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The meta object id for the
+	 * '{@link org.gervarro.democles.specification.emf.constraint.relational.Smaller
+	 * <em>Smaller</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see org.gervarro.democles.specification.emf.constraint.relational.Smaller
 	 * @see org.gervarro.democles.specification.emf.constraint.relational.RelationalConstraintPackage#getSmaller()
 	 * @generated
@@ -150,27 +153,29 @@ public class RelationalConstraintPackage extends EPackageImpl {
 	public static final int SMALLER = 3;
 
 	/**
-	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	public static final int SMALLER__PARAMETERS = RELATIONAL_CONSTRAINT__PARAMETERS;
 
 	/**
-	 * The number of structural features of the '<em>Smaller</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The number of structural features of the '<em>Smaller</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	public static final int SMALLER_FEATURE_COUNT = RELATIONAL_CONSTRAINT_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.gervarro.democles.specification.emf.constraint.relational.SmallerOrEqual <em>Smaller Or Equal</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The meta object id for the
+	 * '{@link org.gervarro.democles.specification.emf.constraint.relational.SmallerOrEqual
+	 * <em>Smaller Or Equal</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see org.gervarro.democles.specification.emf.constraint.relational.SmallerOrEqual
 	 * @see org.gervarro.democles.specification.emf.constraint.relational.RelationalConstraintPackage#getSmallerOrEqual()
 	 * @generated
@@ -178,9 +183,9 @@ public class RelationalConstraintPackage extends EPackageImpl {
 	public static final int SMALLER_OR_EQUAL = 4;
 
 	/**
-	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -188,17 +193,18 @@ public class RelationalConstraintPackage extends EPackageImpl {
 
 	/**
 	 * The number of structural features of the '<em>Smaller Or Equal</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	public static final int SMALLER_OR_EQUAL_FEATURE_COUNT = RELATIONAL_CONSTRAINT_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.gervarro.democles.specification.emf.constraint.relational.Larger <em>Larger</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The meta object id for the
+	 * '{@link org.gervarro.democles.specification.emf.constraint.relational.Larger
+	 * <em>Larger</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see org.gervarro.democles.specification.emf.constraint.relational.Larger
 	 * @see org.gervarro.democles.specification.emf.constraint.relational.RelationalConstraintPackage#getLarger()
 	 * @generated
@@ -206,27 +212,29 @@ public class RelationalConstraintPackage extends EPackageImpl {
 	public static final int LARGER = 5;
 
 	/**
-	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	public static final int LARGER__PARAMETERS = RELATIONAL_CONSTRAINT__PARAMETERS;
 
 	/**
-	 * The number of structural features of the '<em>Larger</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The number of structural features of the '<em>Larger</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	public static final int LARGER_FEATURE_COUNT = RELATIONAL_CONSTRAINT_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.gervarro.democles.specification.emf.constraint.relational.LargerOrEqual <em>Larger Or Equal</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The meta object id for the
+	 * '{@link org.gervarro.democles.specification.emf.constraint.relational.LargerOrEqual
+	 * <em>Larger Or Equal</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see org.gervarro.democles.specification.emf.constraint.relational.LargerOrEqual
 	 * @see org.gervarro.democles.specification.emf.constraint.relational.RelationalConstraintPackage#getLargerOrEqual()
 	 * @generated
@@ -234,9 +242,9 @@ public class RelationalConstraintPackage extends EPackageImpl {
 	public static final int LARGER_OR_EQUAL = 6;
 
 	/**
-	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -244,72 +252,72 @@ public class RelationalConstraintPackage extends EPackageImpl {
 
 	/**
 	 * The number of structural features of the '<em>Larger Or Equal</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	public static final int LARGER_OR_EQUAL_FEATURE_COUNT = RELATIONAL_CONSTRAINT_FEATURE_COUNT + 0;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass relationalConstraintEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass equalEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass unequalEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass smallerEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass smallerOrEqualEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass largerEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass largerOrEqualEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
-	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
-	 * package URI value.
-	 * <p>Note: the correct way to create the package is via the static
-	 * factory method {@link #init init()}, which also performs
-	 * initialization of the package, or returns the registered package,
-	 * if one already exists.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the
+	 * package package URI value.
+	 * <p>
+	 * Note: the correct way to create the package is via the static factory method
+	 * {@link #init init()}, which also performs initialization of the package, or
+	 * returns the registered package, if one already exists. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
 	 * @see org.gervarro.democles.specification.emf.constraint.relational.RelationalConstraintPackage#eNS_URI
 	 * @see #init()
@@ -320,29 +328,37 @@ public class RelationalConstraintPackage extends EPackageImpl {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private static boolean isInited = false;
 
 	/**
-	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
+	 * Creates, registers, and initializes the <b>Package</b> for this model, and
+	 * for any others upon which it depends.
 	 * 
-	 * <p>This method is used to initialize {@link RelationalConstraintPackage#eINSTANCE} when that field is accessed.
-	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <p>
+	 * This method is used to initialize
+	 * {@link RelationalConstraintPackage#eINSTANCE} when that field is accessed.
+	 * Clients should not invoke it directly. Instead, they should simply access
+	 * that field to obtain the package. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #eNS_URI
 	 * @see #createPackageContents()
 	 * @see #initializePackageContents()
 	 * @generated
 	 */
 	public static RelationalConstraintPackage init() {
-		if (isInited) return (RelationalConstraintPackage)EPackage.Registry.INSTANCE.getEPackage(RelationalConstraintPackage.eNS_URI);
+		if (isInited)
+			return (RelationalConstraintPackage) EPackage.Registry.INSTANCE
+					.getEPackage(RelationalConstraintPackage.eNS_URI);
 
 		// Obtain or create and register package
-		RelationalConstraintPackage theRelationalConstraintPackage = (RelationalConstraintPackage)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof RelationalConstraintPackage ? EPackage.Registry.INSTANCE.get(eNS_URI) : new RelationalConstraintPackage());
+		RelationalConstraintPackage theRelationalConstraintPackage = (RelationalConstraintPackage) (EPackage.Registry.INSTANCE
+				.get(eNS_URI) instanceof RelationalConstraintPackage ? EPackage.Registry.INSTANCE.get(eNS_URI)
+						: new RelationalConstraintPackage());
 
 		isInited = true;
 
@@ -358,17 +374,17 @@ public class RelationalConstraintPackage extends EPackageImpl {
 		// Mark meta-data to indicate it can't be changed
 		theRelationalConstraintPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(RelationalConstraintPackage.eNS_URI, theRelationalConstraintPackage);
 		return theRelationalConstraintPackage;
 	}
 
-
 	/**
-	 * Returns the meta object for class '{@link org.gervarro.democles.specification.emf.constraint.relational.RelationalConstraint <em>Relational Constraint</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for class
+	 * '{@link org.gervarro.democles.specification.emf.constraint.relational.RelationalConstraint
+	 * <em>Relational Constraint</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @return the meta object for class '<em>Relational Constraint</em>'.
 	 * @see org.gervarro.democles.specification.emf.constraint.relational.RelationalConstraint
 	 * @generated
@@ -378,9 +394,10 @@ public class RelationalConstraintPackage extends EPackageImpl {
 	}
 
 	/**
-	 * Returns the meta object for class '{@link org.gervarro.democles.specification.emf.constraint.relational.Equal <em>Equal</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for class
+	 * '{@link org.gervarro.democles.specification.emf.constraint.relational.Equal
+	 * <em>Equal</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>Equal</em>'.
 	 * @see org.gervarro.democles.specification.emf.constraint.relational.Equal
 	 * @generated
@@ -390,9 +407,10 @@ public class RelationalConstraintPackage extends EPackageImpl {
 	}
 
 	/**
-	 * Returns the meta object for class '{@link org.gervarro.democles.specification.emf.constraint.relational.Unequal <em>Unequal</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for class
+	 * '{@link org.gervarro.democles.specification.emf.constraint.relational.Unequal
+	 * <em>Unequal</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>Unequal</em>'.
 	 * @see org.gervarro.democles.specification.emf.constraint.relational.Unequal
 	 * @generated
@@ -402,9 +420,10 @@ public class RelationalConstraintPackage extends EPackageImpl {
 	}
 
 	/**
-	 * Returns the meta object for class '{@link org.gervarro.democles.specification.emf.constraint.relational.Smaller <em>Smaller</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for class
+	 * '{@link org.gervarro.democles.specification.emf.constraint.relational.Smaller
+	 * <em>Smaller</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>Smaller</em>'.
 	 * @see org.gervarro.democles.specification.emf.constraint.relational.Smaller
 	 * @generated
@@ -414,9 +433,10 @@ public class RelationalConstraintPackage extends EPackageImpl {
 	}
 
 	/**
-	 * Returns the meta object for class '{@link org.gervarro.democles.specification.emf.constraint.relational.SmallerOrEqual <em>Smaller Or Equal</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for class
+	 * '{@link org.gervarro.democles.specification.emf.constraint.relational.SmallerOrEqual
+	 * <em>Smaller Or Equal</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>Smaller Or Equal</em>'.
 	 * @see org.gervarro.democles.specification.emf.constraint.relational.SmallerOrEqual
 	 * @generated
@@ -426,9 +446,10 @@ public class RelationalConstraintPackage extends EPackageImpl {
 	}
 
 	/**
-	 * Returns the meta object for class '{@link org.gervarro.democles.specification.emf.constraint.relational.Larger <em>Larger</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for class
+	 * '{@link org.gervarro.democles.specification.emf.constraint.relational.Larger
+	 * <em>Larger</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>Larger</em>'.
 	 * @see org.gervarro.democles.specification.emf.constraint.relational.Larger
 	 * @generated
@@ -438,9 +459,10 @@ public class RelationalConstraintPackage extends EPackageImpl {
 	}
 
 	/**
-	 * Returns the meta object for class '{@link org.gervarro.democles.specification.emf.constraint.relational.LargerOrEqual <em>Larger Or Equal</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for class
+	 * '{@link org.gervarro.democles.specification.emf.constraint.relational.LargerOrEqual
+	 * <em>Larger Or Equal</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>Larger Or Equal</em>'.
 	 * @see org.gervarro.democles.specification.emf.constraint.relational.LargerOrEqual
 	 * @generated
@@ -450,32 +472,33 @@ public class RelationalConstraintPackage extends EPackageImpl {
 	}
 
 	/**
-	 * Returns the factory that creates the instances of the model.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the factory that creates the instances of the model. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the factory that creates the instances of the model.
 	 * @generated
 	 */
 	public RelationalConstraintFactory getRelationalConstraintFactory() {
-		return (RelationalConstraintFactory)getEFactoryInstance();
+		return (RelationalConstraintFactory) getEFactoryInstance();
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private boolean isCreated = false;
 
 	/**
-	 * Creates the meta-model objects for the package.  This method is
-	 * guarded to have no affect on any invocation but its first.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Creates the meta-model objects for the package. This method is guarded to
+	 * have no affect on any invocation but its first. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void createPackageContents() {
-		if (isCreated) return;
+		if (isCreated)
+			return;
 		isCreated = true;
 
 		// Create classes and their features
@@ -495,21 +518,22 @@ public class RelationalConstraintPackage extends EPackageImpl {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private boolean isInitialized = false;
 
 	/**
-	 * Complete the initialization of the package and its meta-model.  This
-	 * method is guarded to have no affect on any invocation but its first.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Complete the initialization of the package and its meta-model. This method is
+	 * guarded to have no affect on any invocation but its first. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void initializePackageContents() {
-		if (isInitialized) return;
+		if (isInitialized)
+			return;
 		isInitialized = true;
 
 		// Initialize package
@@ -518,7 +542,8 @@ public class RelationalConstraintPackage extends EPackageImpl {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		SpecificationPackage theSpecificationPackage = (SpecificationPackage)EPackage.Registry.INSTANCE.getEPackage(SpecificationPackage.eNS_URI);
+		SpecificationPackage theSpecificationPackage = (SpecificationPackage) EPackage.Registry.INSTANCE
+				.getEPackage(SpecificationPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -534,7 +559,8 @@ public class RelationalConstraintPackage extends EPackageImpl {
 		largerOrEqualEClass.getESuperTypes().add(this.getRelationalConstraint());
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(relationalConstraintEClass, RelationalConstraint.class, "RelationalConstraint", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(relationalConstraintEClass, RelationalConstraint.class, "RelationalConstraint", IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(equalEClass, Equal.class, "Equal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -542,33 +568,37 @@ public class RelationalConstraintPackage extends EPackageImpl {
 
 		initEClass(smallerEClass, Smaller.class, "Smaller", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(smallerOrEqualEClass, SmallerOrEqual.class, "SmallerOrEqual", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(smallerOrEqualEClass, SmallerOrEqual.class, "SmallerOrEqual", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(largerEClass, Larger.class, "Larger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(largerOrEqualEClass, LargerOrEqual.class, "LargerOrEqual", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(largerOrEqualEClass, LargerOrEqual.class, "LargerOrEqual", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * Defines literals for the meta objects that represent
+	 * <!-- begin-user-doc --> Defines literals for the meta objects that represent
 	 * <ul>
-	 *   <li>each class,</li>
-	 *   <li>each feature of each class,</li>
-	 *   <li>each enum,</li>
-	 *   <li>and each data type</li>
+	 * <li>each class,</li>
+	 * <li>each feature of each class,</li>
+	 * <li>each enum,</li>
+	 * <li>and each data type</li>
 	 * </ul>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public interface Literals {
 		/**
-		 * The meta object literal for the '{@link org.gervarro.democles.specification.emf.constraint.relational.RelationalConstraint <em>Relational Constraint</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the
+		 * '{@link org.gervarro.democles.specification.emf.constraint.relational.RelationalConstraint
+		 * <em>Relational Constraint</em>}' class. <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
+		 * 
 		 * @see org.gervarro.democles.specification.emf.constraint.relational.RelationalConstraint
 		 * @see org.gervarro.democles.specification.emf.constraint.relational.RelationalConstraintPackage#getRelationalConstraint()
 		 * @generated
@@ -576,9 +606,10 @@ public class RelationalConstraintPackage extends EPackageImpl {
 		public static final EClass RELATIONAL_CONSTRAINT = eINSTANCE.getRelationalConstraint();
 
 		/**
-		 * The meta object literal for the '{@link org.gervarro.democles.specification.emf.constraint.relational.Equal <em>Equal</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the
+		 * '{@link org.gervarro.democles.specification.emf.constraint.relational.Equal
+		 * <em>Equal</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see org.gervarro.democles.specification.emf.constraint.relational.Equal
 		 * @see org.gervarro.democles.specification.emf.constraint.relational.RelationalConstraintPackage#getEqual()
 		 * @generated
@@ -586,9 +617,10 @@ public class RelationalConstraintPackage extends EPackageImpl {
 		public static final EClass EQUAL = eINSTANCE.getEqual();
 
 		/**
-		 * The meta object literal for the '{@link org.gervarro.democles.specification.emf.constraint.relational.Unequal <em>Unequal</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the
+		 * '{@link org.gervarro.democles.specification.emf.constraint.relational.Unequal
+		 * <em>Unequal</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see org.gervarro.democles.specification.emf.constraint.relational.Unequal
 		 * @see org.gervarro.democles.specification.emf.constraint.relational.RelationalConstraintPackage#getUnequal()
 		 * @generated
@@ -596,9 +628,10 @@ public class RelationalConstraintPackage extends EPackageImpl {
 		public static final EClass UNEQUAL = eINSTANCE.getUnequal();
 
 		/**
-		 * The meta object literal for the '{@link org.gervarro.democles.specification.emf.constraint.relational.Smaller <em>Smaller</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the
+		 * '{@link org.gervarro.democles.specification.emf.constraint.relational.Smaller
+		 * <em>Smaller</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see org.gervarro.democles.specification.emf.constraint.relational.Smaller
 		 * @see org.gervarro.democles.specification.emf.constraint.relational.RelationalConstraintPackage#getSmaller()
 		 * @generated
@@ -606,9 +639,11 @@ public class RelationalConstraintPackage extends EPackageImpl {
 		public static final EClass SMALLER = eINSTANCE.getSmaller();
 
 		/**
-		 * The meta object literal for the '{@link org.gervarro.democles.specification.emf.constraint.relational.SmallerOrEqual <em>Smaller Or Equal</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the
+		 * '{@link org.gervarro.democles.specification.emf.constraint.relational.SmallerOrEqual
+		 * <em>Smaller Or Equal</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc
+		 * -->
+		 * 
 		 * @see org.gervarro.democles.specification.emf.constraint.relational.SmallerOrEqual
 		 * @see org.gervarro.democles.specification.emf.constraint.relational.RelationalConstraintPackage#getSmallerOrEqual()
 		 * @generated
@@ -616,9 +651,10 @@ public class RelationalConstraintPackage extends EPackageImpl {
 		public static final EClass SMALLER_OR_EQUAL = eINSTANCE.getSmallerOrEqual();
 
 		/**
-		 * The meta object literal for the '{@link org.gervarro.democles.specification.emf.constraint.relational.Larger <em>Larger</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the
+		 * '{@link org.gervarro.democles.specification.emf.constraint.relational.Larger
+		 * <em>Larger</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see org.gervarro.democles.specification.emf.constraint.relational.Larger
 		 * @see org.gervarro.democles.specification.emf.constraint.relational.RelationalConstraintPackage#getLarger()
 		 * @generated
@@ -626,9 +662,11 @@ public class RelationalConstraintPackage extends EPackageImpl {
 		public static final EClass LARGER = eINSTANCE.getLarger();
 
 		/**
-		 * The meta object literal for the '{@link org.gervarro.democles.specification.emf.constraint.relational.LargerOrEqual <em>Larger Or Equal</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the
+		 * '{@link org.gervarro.democles.specification.emf.constraint.relational.LargerOrEqual
+		 * <em>Larger Or Equal</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc
+		 * -->
+		 * 
 		 * @see org.gervarro.democles.specification.emf.constraint.relational.LargerOrEqual
 		 * @see org.gervarro.democles.specification.emf.constraint.relational.RelationalConstraintPackage#getLargerOrEqual()
 		 * @generated
@@ -637,4 +675,4 @@ public class RelationalConstraintPackage extends EPackageImpl {
 
 	}
 
-} //RelationalConstraintPackage
+} // RelationalConstraintPackage

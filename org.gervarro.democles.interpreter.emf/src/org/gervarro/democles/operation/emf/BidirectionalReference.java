@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.gervarro.democles.constraint.emf.EMFConstraintModule;
 
 abstract public class BidirectionalReference extends StructuralFeature<EReference> {
-	
+
 	protected BidirectionalReference(EMFConstraintModule module, EReference eReference) {
 		super(module, eReference);
 	}

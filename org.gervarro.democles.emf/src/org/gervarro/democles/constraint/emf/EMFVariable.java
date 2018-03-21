@@ -28,7 +28,7 @@ import org.gervarro.democles.specification.VariableType;
 public final class EMFVariable implements VariableType {
 	private final EMFConstraintModule module;
 	private final EClassifier eClassifier;
-	
+
 	public EMFVariable(EMFConstraintModule module, EClassifier eClassifier) {
 		this.module = module;
 		this.eClassifier = eClassifier;
@@ -37,11 +37,11 @@ public final class EMFVariable implements VariableType {
 	public TypeModule getModule() {
 		return module;
 	}
-	
+
 	public final EClassifier getLinkedElement() {
 		return eClassifier;
 	}
-	
+
 	public String toString() {
 		return EcoreUtil.getURI(eClassifier).toString();
 	}

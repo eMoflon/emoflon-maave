@@ -45,9 +45,9 @@ import org.gervarro.democles.specification.impl.Constraint;
 import org.gervarro.democles.specification.impl.ConstraintVariable;
 import org.gervarro.democles.specification.impl.Variable;
 
-public class PatternBody extends MatchEventSource implements org.gervarro.democles.specification.PatternBody, MatchEventListener {
-	private final Map<Adornment, Operation> roots =
-		new HashMap<Adornment, Operation>();
+public class PatternBody extends MatchEventSource
+		implements org.gervarro.democles.specification.PatternBody, MatchEventListener {
+	private final Map<Adornment, Operation> roots = new HashMap<Adornment, Operation>();
 	private Pattern parent = null;
 	private final List<Variable> localVariables;
 	private final List<Constraint> constraints;
@@ -59,11 +59,11 @@ public class PatternBody extends MatchEventSource implements org.gervarro.democl
 		this.localVariables = localVariables;
 		this.constraints = constraints;
 	}
-	
+
 	public Pattern getHeader() {
 		return parent;
 	}
-	
+
 	void setParent(Pattern parent) {
 		if (this.parent != null) {
 			removeEventListener(this.parent);
@@ -73,33 +73,33 @@ public class PatternBody extends MatchEventSource implements org.gervarro.democl
 			addEventListener(this.parent);
 		}
 	}
-	
+
 	public final List<Variable> getLocalVariables() {
 		return localVariables;
 	}
 
 	public final List<Constraint> getConstraints() {
-		return constraints; 
+		return constraints;
 	}
 
 	public List<Constant> getConstants() {
 		return Collections.emptyList();
 	}
-	
+
 	final List<VariableRuntime> getRuntimeLocalVariables() {
 		if (localVariableRuntimes == null) {
-			localVariableRuntimes = parent.getEngine().createVariableRuntimes(getLocalVariables(), parent.getSymbolicParameters().size());
+			localVariableRuntimes = parent.getEngine().createVariableRuntimes(getLocalVariables(),
+					parent.getSymbolicParameters().size());
 		}
 		return localVariableRuntimes;
 	}
-	
+
 	final List<RemappingOperation> getLocalVariableOperations() {
 		if (localVariableOperations == null) {
-			localVariableOperations =
-				new ArrayList<RemappingOperation>(getLocalVariables().size());
+			localVariableOperations = new ArrayList<RemappingOperation>(getLocalVariables().size());
 			for (int i = 0; i < getLocalVariables().size(); i++) {
-				final RemappingOperation newOperation =
-					parent.getEngine().buildVariableOperation(getLocalVariables().get(i), getRuntimeLocalVariables().get(i));
+				final RemappingOperation newOperation = parent.getEngine()
+						.buildVariableOperation(getLocalVariables().get(i), getRuntimeLocalVariables().get(i));
 				localVariableOperations.add(newOperation);
 			}
 		}
@@ -119,13 +119,14 @@ public class PatternBody extends MatchEventSource implements org.gervarro.democl
 			if (getConstants().size() > 0) {
 				throw new RuntimeException("Constants are not yet supported");
 			}
-			//			List<Constant> constants = body.getConstants();
-			//			Constant[] newConstants = new Constant[constants.size()];
-			//			constants.toArray(newConstants);
-			//			for (int i = 0; i < constants.size(); i++) {
-			//				// Object value = constants.get(i).getValue();
-			//				slotMap.put(constants.get(i), createConstant((Constant) constants.get(i), i));
-			//			}
+			// List<Constant> constants = body.getConstants();
+			// Constant[] newConstants = new Constant[constants.size()];
+			// constants.toArray(newConstants);
+			// for (int i = 0; i < constants.size(); i++) {
+			// // Object value = constants.get(i).getValue();
+			// slotMap.put(constants.get(i), createConstant((Constant) constants.get(i),
+			// i));
+			// }
 
 			this.operations = new LinkedList<RemappingOperation>();
 			for (int i = 0; i < constraints.size(); i++) {
@@ -135,7 +136,7 @@ public class PatternBody extends MatchEventSource implements org.gervarro.democl
 		}
 		return operations;
 	}
-	
+
 	private final void initialize(JoinOperation root) {
 		List<Operation> queue = new LinkedList<Operation>();
 		root.setDepth(0);
@@ -163,10 +164,9 @@ public class PatternBody extends MatchEventSource implements org.gervarro.democl
 			}
 		}
 	}
-	
+
 	private final List<RemappingOperation> getOperations() {
-		final List<RemappingOperation> result =
-			new LinkedList<RemappingOperation>();
+		final List<RemappingOperation> result = new LinkedList<RemappingOperation>();
 		result.addAll(getHeader().getSymbolicParameterOperations());
 		result.addAll(getLocalVariableOperations());
 		result.addAll(getConstraintOperations());
@@ -176,21 +176,20 @@ public class PatternBody extends MatchEventSource implements org.gervarro.democl
 	Operation getSearchPlan(Adornment patternAdornment) {
 		Operation root = roots.get(patternAdornment);
 		if (root == null) {
-			List<VariableRuntime> runtimeVariables =
-				new ArrayList<VariableRuntime>(getHeader().getRuntimeSymbolicParameters().size());
-			for (RemappingOperation op: getHeader().getSymbolicParameterOperations()) {
+			List<VariableRuntime> runtimeVariables = new ArrayList<VariableRuntime>(
+					getHeader().getRuntimeSymbolicParameters().size());
+			for (RemappingOperation op : getHeader().getSymbolicParameterOperations()) {
 				runtimeVariables.add(op.getParameters().get(0));
 			}
 			Adornment bodyAdornment = calculateAdornment(patternAdornment);
 			MagicSet magicSet = getHeader().getMagicSet(patternAdornment);
-			RemappingOperation magicSetOperation =
-				new RemappingOperation();
+			RemappingOperation magicSetOperation = new RemappingOperation();
 			magicSetOperation.setInput(magicSet);
 			magicSetOperation.setPatternBody(this);
 			magicSetOperation.setParameters(runtimeVariables);
 			MagicSetCombiner msc = new MagicSetCombiner(magicSetOperation, bodyAdornment);
-			SearchPlanAlgorithm<InterpreterCombiner, RemappingOperation> searchPlanAlgorithm =
-				getHeader().getEngine().getAlgorithm();
+			SearchPlanAlgorithm<InterpreterCombiner, RemappingOperation> searchPlanAlgorithm = getHeader().getEngine()
+					.getAlgorithm();
 			root = searchPlanAlgorithm.generateSearchPlan(msc, getOperations(), bodyAdornment).getRoot();
 			if (root instanceof JoinOperation) {
 				initialize((JoinOperation) root);
@@ -205,7 +204,7 @@ public class PatternBody extends MatchEventSource implements org.gervarro.democl
 	public final int frameSize() {
 		return getHeader().getSymbolicParameters().size() + getLocalVariables().size();
 	}
-	
+
 	public Adornment calculateAdornment(Adornment input) {
 		int numberOfSymbolicParameters = getHeader().getSymbolicParameters().size();
 		int numberOfVariables = numberOfSymbolicParameters + getLocalVariables().size();
@@ -218,10 +217,11 @@ public class PatternBody extends MatchEventSource implements org.gervarro.democl
 		for (int i = numberOfSymbolicParameters; i < numberOfVariables; i++) {
 			adornment.set(i, Adornment.FREE);
 		}
-		// Constants are bound (nothing to do as values of adornments are bound by default)
+		// Constants are bound (nothing to do as values of adornments are bound by
+		// default)
 		return adornment;
 	}
-	
+
 	public PatternBodyDataFrame createDataFrame(PatternBodyDataFrame original) {
 		if (original == null) {
 			int numberOfSymbolicParameters = getHeader().getSymbolicParameters().size();

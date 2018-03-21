@@ -25,16 +25,16 @@ import org.gervarro.democles.common.PatternMatcherPlugin;
 
 public class PatternMatcherPluginAdapter extends AdapterImpl {
 	private PatternMatcherPlugin plugin;
-	
+
 	public PatternMatcherPluginAdapter(PatternMatcherPlugin plugin) {
 		super();
 		this.plugin = plugin;
 	}
-	
+
 	public final PatternMatcherPlugin getPlugin() {
 		return plugin;
 	}
-	
+
 	public boolean isAdapterForType(Object type) {
 		return type instanceof Class<?> && getClass().isAssignableFrom((Class<?>) type);
 	}

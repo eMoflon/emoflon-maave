@@ -25,11 +25,11 @@ import java.util.List;
 
 public interface ImportManager {
 	public static final ImportManager EMPTY_IMPORT_MANAGER = new ImportManager() {
-		
+
 		public String getImportedName(String fullyQualifiedName) {
 			return fullyQualifiedName;
 		}
-		
+
 		public List<String> getImportList() {
 			return Collections.emptyList();
 		}
@@ -38,8 +38,10 @@ public interface ImportManager {
 			// Do nothing
 		}
 	};
-	
+
 	public List<String> getImportList();
+
 	public String getImportedName(String fullyQualifiedName);
+
 	public void upload(String fullyQualifiedName);
 }

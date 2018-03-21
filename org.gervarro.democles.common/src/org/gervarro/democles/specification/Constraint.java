@@ -24,5 +24,6 @@ import java.util.List;
 
 public interface Constraint {
 	List<? extends ConstraintVariable> getParameters();
+
 	ConstraintType getType();
 } // Constraint

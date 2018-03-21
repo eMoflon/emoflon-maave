@@ -26,15 +26,15 @@ import org.gervarro.democles.common.DataFrame;
 
 public class IteratorBasedSingleFreeVariableHandler<T> extends IteratorBasedHandler<T, Iterator<T>> {
 	private int index;
-	
+
 	public IteratorBasedSingleFreeVariableHandler(RemappedDataFrame frame, Iterator<T> iterator, int index) {
 		super(frame, iterator);
 		this.index = index;
 	}
-	
+
 	protected final DataFrame getNextFrame() {
 		T next = iterator.next();
-		RemappedDataFrame newRemappedFrame = createDataFrame(); 
+		RemappedDataFrame newRemappedFrame = createDataFrame();
 		newRemappedFrame.setValue(index, next);
 		return newRemappedFrame.getDataFrame();
 	}

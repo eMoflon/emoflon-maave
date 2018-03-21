@@ -27,7 +27,7 @@ import org.gervarro.democles.specification.Pattern;
 abstract public class PatternBody implements org.gervarro.democles.specification.PatternBody {
 
 	abstract public Pattern getHeader();
-	
+
 	abstract public List<Variable> getLocalVariables();
 
 	abstract public List<Constraint> getConstraints();

@@ -22,49 +22,42 @@ import SDMLanguage.activities.MoflonEOperation;
 import SDMLanguage.activities.StoryNode;
 
 public class SubgraphBuilderTest {
-   private EPackage pack;  
-   @Before
-   public void setUp() throws Exception {
-	   DiachasePackage.eINSTANCE.getClass();
-      MnoqPackage.eINSTANCE.getClass();
-      pack=TestRunner.loadTestMM("org.moflon.maave.tests.testgen.diachase", "Diachase");
-   }
+	private EPackage pack;
 
-   @Test
-   public void test1() {
-	   System.out.println("Starting SubgraphBuilderTest/Test1" );
-      
-         EClass cls=(EClass) pack.getEClassifier("DirectDerivationTestCases");
-         
-        
-         MoflonEOperation opG=(MoflonEOperation) cls.getEOperations().stream().filter(x->x.getName().equals("testModel1")).findFirst().get();
-         Assert.assertTrue(opG!=null);
-         
-         
-         StoryNode stnG=(StoryNode) opG.getActivity().getOwnedActivityNode().stream().filter(x->x instanceof StoryNode).collect(Collectors.toList()).get(0);
-         
-         Transformer transformer=StptransformationFactory.eINSTANCE.createTransformer();
-         
-         
-         SymbGTRule ruleForG=transformer.transformStpToSymbGTRule(stnG.getStoryPattern());
-         
-         
-         SymbolicGraph G=ruleForG.getLeft().getCodom();
-         G.setName("G");
-         
-         SubgraphBuilder subgraphBuilder=new SubgraphBuilder(G);
-         MorphismsSet morSet=subgraphBuilder.getAllSubgraphs();
-         
-         
-        System.out.println("Number of Subgraphs for model DirectDerivationTestCases/testModel1="+morSet.getMorphisms().size());
-         assertTrue(true);
-         
-         
-      
+	@Before
+	public void setUp() throws Exception {
+		DiachasePackage.eINSTANCE.getClass();
+		MnoqPackage.eINSTANCE.getClass();
+		pack = TestRunner.loadTestMM("org.moflon.maave.tests.testgen.diachase", "Diachase");
+	}
 
+	@Test
+	public void test1() {
+		System.out.println("Starting SubgraphBuilderTest/Test1");
 
-   }
-   
-   
-   
+		EClass cls = (EClass) pack.getEClassifier("DirectDerivationTestCases");
+
+		MoflonEOperation opG = (MoflonEOperation) cls.getEOperations().stream()
+				.filter(x -> x.getName().equals("testModel1")).findFirst().get();
+		Assert.assertTrue(opG != null);
+
+		StoryNode stnG = (StoryNode) opG.getActivity().getOwnedActivityNode().stream()
+				.filter(x -> x instanceof StoryNode).collect(Collectors.toList()).get(0);
+
+		Transformer transformer = StptransformationFactory.eINSTANCE.createTransformer();
+
+		SymbGTRule ruleForG = transformer.transformStpToSymbGTRule(stnG.getStoryPattern());
+
+		SymbolicGraph G = ruleForG.getLeft().getCodom();
+		G.setName("G");
+
+		SubgraphBuilder subgraphBuilder = new SubgraphBuilder(G);
+		MorphismsSet morSet = subgraphBuilder.getAllSubgraphs();
+
+		System.out.println(
+				"Number of Subgraphs for model DirectDerivationTestCases/testModel1=" + morSet.getMorphisms().size());
+		assertTrue(true);
+
+	}
+
 }

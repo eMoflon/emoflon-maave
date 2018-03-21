@@ -15,59 +15,50 @@ import org.gervarro.democles.specification.impl.Constraint;
 import org.gervarro.democles.specification.impl.Variable;
 import org.moflon.maave.tool.symbolicgraphs.secondorder.matching.emf.constraint.SymbolicGraphConstraintModule;
 
-public class EGraphInterpreterOperationBuilder implements	OperationBuilder<RemappingOperation,VariableRuntime>{
-	private final Map<EModelElement, DelegatingAdornedOperation> graphNodeTypeCheckOperationMap =
-			new HashMap<EModelElement, DelegatingAdornedOperation>();
-	private final Map<EModelElement, DelegatingAdornedOperation> labelNodeTypeCheckOperationMap =
-			new HashMap<EModelElement, DelegatingAdornedOperation>();
-	private final Map<EModelElement, DelegatingAdornedOperation> labelEdgeTypeCheckOperationMap =
-			new HashMap<EModelElement, DelegatingAdornedOperation>();
-	private final Map<EModelElement, DelegatingAdornedOperation> graphEdgeTypeCheckOperationMap =
-			new HashMap<EModelElement, DelegatingAdornedOperation>();
+public class EGraphInterpreterOperationBuilder implements OperationBuilder<RemappingOperation, VariableRuntime> {
+	private final Map<EModelElement, DelegatingAdornedOperation> graphNodeTypeCheckOperationMap = new HashMap<EModelElement, DelegatingAdornedOperation>();
+	private final Map<EModelElement, DelegatingAdornedOperation> labelNodeTypeCheckOperationMap = new HashMap<EModelElement, DelegatingAdornedOperation>();
+	private final Map<EModelElement, DelegatingAdornedOperation> labelEdgeTypeCheckOperationMap = new HashMap<EModelElement, DelegatingAdornedOperation>();
+	private final Map<EModelElement, DelegatingAdornedOperation> graphEdgeTypeCheckOperationMap = new HashMap<EModelElement, DelegatingAdornedOperation>();
 	private final SymbolicGraphConstraintModule module;
 
-
-
 	public EGraphInterpreterOperationBuilder(SymbolicGraphConstraintModule module) {
-		this.module=module;
+		this.module = module;
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public RemappingOperation getVariableOperation(Variable variable, VariableRuntime runtimeVariable) {
-		DelegatingAdornedOperation adornedOperation=null;
+		DelegatingAdornedOperation adornedOperation = null;
 		if (variable.getType() instanceof GraphNodeVariableType) {
-			adornedOperation =getAdornedOperationForGraphNodeVariable((GraphNodeVariableType) variable.getType());
+			adornedOperation = getAdornedOperationForGraphNodeVariable((GraphNodeVariableType) variable.getType());
+		} else if (variable.getType() instanceof GraphEdgeVariableType) {
+			adornedOperation = getAdornedOperationForGraphEdgeVariable((GraphEdgeVariableType) variable.getType());
+		} else if (variable.getType() instanceof LabelNodeVariableType) {
+			adornedOperation = getAdornedOperationForLabelNodeVariable((LabelNodeVariableType) variable.getType());
+		} else if (variable.getType() instanceof LabelEdgeVariableType) {
+			adornedOperation = getAdornedOperationForLabelEdgeVariable((LabelEdgeVariableType) variable.getType());
 		}
-		else if (variable.getType() instanceof GraphEdgeVariableType) {
-			adornedOperation =getAdornedOperationForGraphEdgeVariable((GraphEdgeVariableType) variable.getType());
-		}
-		else if (variable.getType() instanceof LabelNodeVariableType) {
-			adornedOperation =getAdornedOperationForLabelNodeVariable((LabelNodeVariableType) variable.getType());
-		}
-		else if (variable.getType() instanceof LabelEdgeVariableType) {
-			adornedOperation =getAdornedOperationForLabelEdgeVariable((LabelEdgeVariableType) variable.getType());
-		}
-		if(adornedOperation!=null){
-		RemappingOperation operation = new RemappingOperation();
-		operation.setOrigin(variable);
-		operation.setInput(adornedOperation);
-		List<VariableRuntime> parameters = new LinkedList<VariableRuntime>();
-		parameters.add(0, runtimeVariable);
-		operation.setParameters(parameters);
-		return operation;
+		if (adornedOperation != null) {
+			RemappingOperation operation = new RemappingOperation();
+			operation.setOrigin(variable);
+			operation.setInput(adornedOperation);
+			List<VariableRuntime> parameters = new LinkedList<VariableRuntime>();
+			parameters.add(0, runtimeVariable);
+			operation.setParameters(parameters);
+			return operation;
 		}
 		return null;
-		
+
 	}
+
 	private DelegatingAdornedOperation getAdornedOperationForLabelEdgeVariable(GraphElementVariableType variableType) {
-		EModelElement typeGraphElement=variableType.getTypeGraphElement();
+		EModelElement typeGraphElement = variableType.getTypeGraphElement();
 		DelegatingAdornedOperation adornedOperation = labelEdgeTypeCheckOperationMap.get(typeGraphElement);
 		if (adornedOperation == null) {
 			GraphElementTypeCheckOperation nativeOperation = new LabelEdgeTypeCheckOperation(module, typeGraphElement);
 			adornedOperation = new DelegatingAdornedOperation(nativeOperation,
-					Adornment.create(Adornment.NOT_TYPECHECKED),
-					Adornment.create(Adornment.BOUND));
+					Adornment.create(Adornment.NOT_TYPECHECKED), Adornment.create(Adornment.BOUND));
 			nativeOperation.addEventListener(adornedOperation);
 			labelEdgeTypeCheckOperationMap.put(typeGraphElement, adornedOperation);
 		}
@@ -75,13 +66,12 @@ public class EGraphInterpreterOperationBuilder implements	OperationBuilder<Remap
 	}
 
 	private DelegatingAdornedOperation getAdornedOperationForLabelNodeVariable(GraphElementVariableType variableType) {
-		EModelElement typeGraphElement=variableType.getTypeGraphElement();
+		EModelElement typeGraphElement = variableType.getTypeGraphElement();
 		DelegatingAdornedOperation adornedOperation = labelNodeTypeCheckOperationMap.get(typeGraphElement);
 		if (adornedOperation == null) {
 			GraphElementTypeCheckOperation nativeOperation = new LabelNodeTypeCheckOperation(module, typeGraphElement);
 			adornedOperation = new DelegatingAdornedOperation(nativeOperation,
-					Adornment.create(Adornment.NOT_TYPECHECKED),
-					Adornment.create(Adornment.BOUND));
+					Adornment.create(Adornment.NOT_TYPECHECKED), Adornment.create(Adornment.BOUND));
 			nativeOperation.addEventListener(adornedOperation);
 			labelNodeTypeCheckOperationMap.put(typeGraphElement, adornedOperation);
 		}
@@ -89,13 +79,12 @@ public class EGraphInterpreterOperationBuilder implements	OperationBuilder<Remap
 	}
 
 	private DelegatingAdornedOperation getAdornedOperationForGraphEdgeVariable(GraphElementVariableType variableType) {
-		EModelElement typeGraphElement=variableType.getTypeGraphElement();
+		EModelElement typeGraphElement = variableType.getTypeGraphElement();
 		DelegatingAdornedOperation adornedOperation = graphEdgeTypeCheckOperationMap.get(typeGraphElement);
 		if (adornedOperation == null) {
 			GraphElementTypeCheckOperation nativeOperation = new GraphEdgeTypeCheckOperation(module, typeGraphElement);
 			adornedOperation = new DelegatingAdornedOperation(nativeOperation,
-					Adornment.create(Adornment.NOT_TYPECHECKED),
-					Adornment.create(Adornment.BOUND));
+					Adornment.create(Adornment.NOT_TYPECHECKED), Adornment.create(Adornment.BOUND));
 			nativeOperation.addEventListener(adornedOperation);
 			graphEdgeTypeCheckOperationMap.put(typeGraphElement, adornedOperation);
 		}
@@ -103,13 +92,12 @@ public class EGraphInterpreterOperationBuilder implements	OperationBuilder<Remap
 	}
 
 	private DelegatingAdornedOperation getAdornedOperationForGraphNodeVariable(GraphElementVariableType variableType) {
-		EModelElement typeGraphElement=variableType.getTypeGraphElement();
+		EModelElement typeGraphElement = variableType.getTypeGraphElement();
 		DelegatingAdornedOperation adornedOperation = graphNodeTypeCheckOperationMap.get(typeGraphElement);
 		if (adornedOperation == null) {
 			GraphElementTypeCheckOperation nativeOperation = new GraphNodeTypeCheckOperation(module, typeGraphElement);
 			adornedOperation = new DelegatingAdornedOperation(nativeOperation,
-					Adornment.create(Adornment.NOT_TYPECHECKED),
-					Adornment.create(Adornment.BOUND));
+					Adornment.create(Adornment.NOT_TYPECHECKED), Adornment.create(Adornment.BOUND));
 			nativeOperation.addEventListener(adornedOperation);
 			graphNodeTypeCheckOperationMap.put(typeGraphElement, adornedOperation);
 		}
@@ -121,6 +109,5 @@ public class EGraphInterpreterOperationBuilder implements	OperationBuilder<Remap
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 
 }

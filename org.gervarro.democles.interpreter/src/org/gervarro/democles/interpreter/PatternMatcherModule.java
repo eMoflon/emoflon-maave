@@ -33,32 +33,31 @@ import org.gervarro.democles.specification.impl.Constraint;
 import org.gervarro.democles.specification.impl.ConstraintVariable;
 import org.gervarro.democles.specification.impl.Variable;
 
-public class PatternMatcherModule extends PatternMatcherBuilder<Pattern, PatternBody, RemappingOperation, VariableRuntime, OperationBuilder<RemappingOperation,VariableRuntime>, InterpreterCombiner> {
+public class PatternMatcherModule extends
+		PatternMatcherBuilder<Pattern, PatternBody, RemappingOperation, VariableRuntime, OperationBuilder<RemappingOperation, VariableRuntime>, InterpreterCombiner> {
 	private Scheduler scheduler;
-	
+
 	public PatternMatcherModule() {
 		addOperationBuilder(this);
 	}
-	
+
 	public final Scheduler getScheduler() {
 		return scheduler;
 	}
-	
+
 	public final void setScheduler(Scheduler scheduler) {
 		this.scheduler = scheduler;
 	}
 
-	protected final Pattern createPattern(String name,
-			List<? extends Variable> symbolicParameters) {
+	protected final Pattern createPattern(String name, List<? extends Variable> symbolicParameters) {
 		return new Pattern(this, name, symbolicParameters);
 	}
-	
+
 	protected final void setBodies(Pattern pattern, List<PatternBody> bodies) {
 		pattern.setBodies(bodies);
 	}
 
-	protected final PatternBody createPatternBody(List<Variable> localVariables,
-			List<Constant> constants,
+	protected final PatternBody createPatternBody(List<Variable> localVariables, List<Constant> constants,
 			List<Constraint> constraints) {
 		if (constants.size() > 0) {
 			// TODO Add constant support
@@ -66,14 +65,13 @@ public class PatternMatcherModule extends PatternMatcherBuilder<Pattern, Pattern
 		}
 		return new PatternBody(localVariables, constraints);
 	}
-	
+
 	protected final VariableRuntime createVariableRuntime(ConstraintVariable variable, int index) {
 		return new VariableRuntime(index);
 	}
 
 	@Override
-	public List<RemappingOperation> getConstraintOperations(
-			Constraint constraint, List<VariableRuntime> parameters) {
+	public List<RemappingOperation> getConstraintOperations(Constraint constraint, List<VariableRuntime> parameters) {
 		// TODO Auto-generated method stub
 		return null;
 	}

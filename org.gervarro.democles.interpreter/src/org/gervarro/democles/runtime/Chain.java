@@ -33,12 +33,12 @@ public class Chain<V> implements Iterable<V> {
 	public Chain(V value) {
 		this.value = value;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	final <E extends Chain<V>> E getNext() {
 		return (E) next;
 	}
-	
+
 	public Iterator<V> iterator() {
 		return new ChainIterator<Chain<V>, V>(this);
 	}

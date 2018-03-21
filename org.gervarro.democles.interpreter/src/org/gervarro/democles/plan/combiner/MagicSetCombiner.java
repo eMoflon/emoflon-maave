@@ -27,12 +27,12 @@ import org.gervarro.democles.runtime.RemappingOperation;
 
 public class MagicSetCombiner extends InterpreterCombiner {
 	private final RemappingOperation root;
-	
+
 	public MagicSetCombiner(RemappingOperation root, Adornment adornment) {
 		super(adornment);
 		this.root = root;
 	}
-	
+
 	public final Operation getRoot() {
 		return root;
 	}

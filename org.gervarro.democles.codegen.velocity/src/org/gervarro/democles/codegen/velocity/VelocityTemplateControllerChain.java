@@ -31,10 +31,10 @@ public class VelocityTemplateControllerChain extends VelocityTemplateController 
 		this.next = next;
 	}
 
-    public Object internalGet(String key) {
-    	if (NEXT.equals(key)) {
-    		return next;
-    	}
-    	return super.internalGet(key);
-    }
+	public Object internalGet(String key) {
+		if (NEXT.equals(key)) {
+			return next;
+		}
+		return super.internalGet(key);
+	}
 }

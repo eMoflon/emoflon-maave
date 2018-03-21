@@ -10,45 +10,44 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 /**
- * <!-- begin-user-doc -->
- * The <b>Factory</b> for the model.
- * It provides a create method for each non-abstract class of the model.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> The <b>Factory</b> for the model. It provides a
+ * create method for each non-abstract class of the model. <!-- end-user-doc -->
+ * 
  * @see org.gervarro.democles.specification.emf.constraint.emf.emf.EMFTypePackage
  * @generated
  */
 public class EMFTypeFactory extends EFactoryImpl {
 	/**
-	 * The singleton instance of the factory.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The singleton instance of the factory. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final EMFTypeFactory eINSTANCE = init();
 
 	/**
-	 * Creates the default factory implementation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Creates the default factory implementation. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static EMFTypeFactory init() {
 		try {
-			EMFTypeFactory theEMFTypeFactory = (EMFTypeFactory)EPackage.Registry.INSTANCE.getEFactory(EMFTypePackage.eNS_URI);
+			EMFTypeFactory theEMFTypeFactory = (EMFTypeFactory) EPackage.Registry.INSTANCE
+					.getEFactory(EMFTypePackage.eNS_URI);
 			if (theEMFTypeFactory != null) {
 				return theEMFTypeFactory;
 			}
-		}
-		catch (Exception exception) {
+		} catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new EMFTypeFactory();
 	}
 
 	/**
-	 * Creates an instance of the factory.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @generated
 	 */
 	public EMFTypeFactory() {
@@ -56,26 +55,31 @@ public class EMFTypeFactory extends EFactoryImpl {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case EMFTypePackage.EMF_VARIABLE: return createEMFVariable();
-			case EMFTypePackage.STRUCTURAL_FEATURE: return createStructuralFeature();
-			case EMFTypePackage.ATTRIBUTE: return createAttribute();
-			case EMFTypePackage.REFERENCE: return createReference();
-			case EMFTypePackage.OPERATION: return createOperation();
-			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		case EMFTypePackage.EMF_VARIABLE:
+			return createEMFVariable();
+		case EMFTypePackage.STRUCTURAL_FEATURE:
+			return createStructuralFeature();
+		case EMFTypePackage.ATTRIBUTE:
+			return createAttribute();
+		case EMFTypePackage.REFERENCE:
+			return createReference();
+		case EMFTypePackage.OPERATION:
+			return createOperation();
+		default:
+			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EMFVariable createEMFVariable() {
@@ -84,8 +88,8 @@ public class EMFTypeFactory extends EFactoryImpl {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public <E extends EStructuralFeature> StructuralFeature<E> createStructuralFeature() {
@@ -94,8 +98,8 @@ public class EMFTypeFactory extends EFactoryImpl {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Attribute createAttribute() {
@@ -104,8 +108,8 @@ public class EMFTypeFactory extends EFactoryImpl {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Reference createReference() {
@@ -114,8 +118,8 @@ public class EMFTypeFactory extends EFactoryImpl {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Operation createOperation() {
@@ -124,17 +128,17 @@ public class EMFTypeFactory extends EFactoryImpl {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EMFTypePackage getEMFTypePackage() {
-		return (EMFTypePackage)getEPackage();
+		return (EMFTypePackage) getEPackage();
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @deprecated
 	 * @generated
 	 */
@@ -143,4 +147,4 @@ public class EMFTypeFactory extends EFactoryImpl {
 		return EMFTypePackage.eINSTANCE;
 	}
 
-} //EMFTypeFactory
+} // EMFTypeFactory

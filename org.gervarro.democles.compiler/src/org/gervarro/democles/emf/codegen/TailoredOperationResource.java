@@ -55,7 +55,8 @@ import org.gervarro.democles.constraint.emf.StructuralFeature;
 import org.gervarro.democles.specification.impl.Constraint;
 import org.gervarro.democles.specification.impl.Variable;
 
-public class TailoredOperationResource implements AdapterFactory, OperationBuilder<GeneratorOperation,GeneratorVariable> {
+public class TailoredOperationResource
+		implements AdapterFactory, OperationBuilder<GeneratorOperation, GeneratorVariable> {
 	private final GenModel genModel;
 
 	private final EcoreSwitch<Adapter> modelSwitch = new EcoreSwitch<Adapter>() {
@@ -85,7 +86,7 @@ public class TailoredOperationResource implements AdapterFactory, OperationBuild
 			System.out.println("Warning: Unsuccessful GenClassAdapter creation for " + eClass.getName());
 			return null;
 		}
-		
+
 		public Adapter caseEDataType(EDataType eDataType) {
 			GenClassifier genClassifier = genModel.findGenClassifier(eDataType);
 			if (genClassifier != null && genClassifier instanceof GenDataType) {
@@ -110,35 +111,38 @@ public class TailoredOperationResource implements AdapterFactory, OperationBuild
 			return null;
 		}
 	};
-	
+
 	public TailoredOperationResource(GenModel genModel) {
 		genModel.reconcile();
 		this.genModel = genModel;
 		for (GenPackage genPackage : genModel.getGenPackages()) {
 			EPackage ePackage = genPackage.getEcorePackage();
 			adapt(ePackage, GenPackageAdapter.class);
-			
+
 			for (GenEnum genEnum : genPackage.getGenEnums()) {
 				EEnum eEnum = genEnum.getEcoreEnum();
 				adapt(eEnum, GenDataTypeAdapter.class);
 			}
-			
+
 			for (GenDataType genDataType : genPackage.getGenDataTypes()) {
 				EDataType eDataType = genDataType.getEcoreDataType();
 				adapt(eDataType, GenDataTypeAdapter.class);
 			}
-			
+
 			for (GenClass genClass : genPackage.getGenClasses()) {
 				EClass eClass = genClass.getEcoreClass();
 				adapt(eClass, GenClassAdapter.class);
 				for (GenFeature genFeature : genClass.getGenFeatures()) {
-					if (genFeature.isGet() && (!genClass.isExternalInterface() && (!genModel.isSuppressInterfaces() || genClass.isInterface()) || !genFeature.isSuppressedGetVisibility())) {
+					if (genFeature.isGet() && (!genClass.isExternalInterface()
+							&& (!genModel.isSuppressInterfaces() || genClass.isInterface())
+							|| !genFeature.isSuppressedGetVisibility())) {
 						EStructuralFeature eStructuralFeature = genFeature.getEcoreFeature();
 						adapt(eStructuralFeature, GenFeatureAdapter.class);
-//						if (genFeature.isBidirectional()) {
-//							EReference ref = (EReference) genFeature.getEcoreFeature();
-//							EcoreUtil.getRegisteredAdapter(ref.getEOpposite(), EMFPackage.Literals.STRUCTURAL_FEATURE_CONSTRAINT);
-//						}
+						// if (genFeature.isBidirectional()) {
+						// EReference ref = (EReference) genFeature.getEcoreFeature();
+						// EcoreUtil.getRegisteredAdapter(ref.getEOpposite(),
+						// EMFPackage.Literals.STRUCTURAL_FEATURE_CONSTRAINT);
+						// }
 					}
 				}
 			}
@@ -152,30 +156,25 @@ public class TailoredOperationResource implements AdapterFactory, OperationBuild
 			EClassifier eClassifier = ((EMFVariable) variable.getType()).getLinkedElement();
 			if (eClassifier instanceof EClass) {
 				GenClassAdapter type = (GenClassAdapter) adapt(eClassifier, GenClassAdapter.class);
-				return new GeneratorOperation(variable,
-						Collections.singletonList(runtimeVariable),
-						Adornment.create(Adornment.NOT_TYPECHECKED),
-						Adornment.create(Adornment.BOUND),
-						type);
+				return new GeneratorOperation(variable, Collections.singletonList(runtimeVariable),
+						Adornment.create(Adornment.NOT_TYPECHECKED), Adornment.create(Adornment.BOUND), type);
 			} else if (eClassifier instanceof EDataType) {
 				GenDataTypeAdapter type = (GenDataTypeAdapter) adapt(eClassifier, GenDataTypeAdapter.class);
-				return new GeneratorOperation(variable,
-						Collections.singletonList(runtimeVariable),
-						Adornment.create(Adornment.NOT_TYPECHECKED),
-						Adornment.create(Adornment.BOUND),
-						type);
+				return new GeneratorOperation(variable, Collections.singletonList(runtimeVariable),
+						Adornment.create(Adornment.NOT_TYPECHECKED), Adornment.create(Adornment.BOUND), type);
 			}
 		}
 		return null;
 	}
-	
+
 	private final EClass lookupEClass(GeneratorVariable runtimeVariable) {
 		Variable variable = (Variable) runtimeVariable.getSpecification();
 		EMFVariable emfVariable = (EMFVariable) variable.getType();
 		return (EClass) emfVariable.getLinkedElement();
 	}
 
-	public final List<GeneratorOperation> getConstraintOperations(Constraint constraint, List<GeneratorVariable> parameters) {
+	public final List<GeneratorOperation> getConstraintOperations(Constraint constraint,
+			List<GeneratorVariable> parameters) {
 		if (constraint.getType() instanceof EMFConstraint<?>) {
 			List<GeneratorOperation> result = new LinkedList<GeneratorOperation>();
 			EMFConstraint<?> cType = (EMFConstraint<?>) constraint.getType();
@@ -184,17 +183,21 @@ public class TailoredOperationResource implements AdapterFactory, OperationBuild
 				GenFeatureAdapter forwardType = (GenFeatureAdapter) adapt(eReference, GenFeatureAdapter.class);
 				result.add(new GeneratorOperation(constraint, parameters,
 						Adornment.create(Adornment.BOUND, Adornment.BOUND),
-						Adornment.create(Adornment.BOUND, Adornment.BOUND),
-						forwardType));
-				final boolean isTargetTypeCheckNeeded = !lookupEClass(parameters.get(1)).isSuperTypeOf((EClass) eReference.getEType());
-				result.add(new GeneratorOperation(constraint, parameters,
-						Adornment.create(Adornment.BOUND, Adornment.FREE),
-						Adornment.create(Adornment.BOUND, isTargetTypeCheckNeeded ? Adornment.NOT_TYPECHECKED : Adornment.BOUND),
-						forwardType));
-				final boolean isSourceTypeCheckNeeded = !lookupEClass(parameters.get(0)).isSuperTypeOf(eReference.getEContainingClass());
+						Adornment.create(Adornment.BOUND, Adornment.BOUND), forwardType));
+				final boolean isTargetTypeCheckNeeded = !lookupEClass(parameters.get(1))
+						.isSuperTypeOf((EClass) eReference.getEType());
+				result.add(
+						new GeneratorOperation(constraint, parameters,
+								Adornment.create(Adornment.BOUND, Adornment.FREE),
+								Adornment.create(Adornment.BOUND,
+										isTargetTypeCheckNeeded ? Adornment.NOT_TYPECHECKED : Adornment.BOUND),
+								forwardType));
+				final boolean isSourceTypeCheckNeeded = !lookupEClass(parameters.get(0))
+						.isSuperTypeOf(eReference.getEContainingClass());
 				result.add(new GeneratorOperation(constraint, parameters,
 						Adornment.create(Adornment.FREE, Adornment.BOUND),
-						Adornment.create(isSourceTypeCheckNeeded ? Adornment.NOT_TYPECHECKED : Adornment.BOUND, Adornment.BOUND),
+						Adornment.create(isSourceTypeCheckNeeded ? Adornment.NOT_TYPECHECKED : Adornment.BOUND,
+								Adornment.BOUND),
 						forwardType));
 				return result;
 			} else if (cType instanceof StructuralFeature<?>) {
@@ -202,48 +205,55 @@ public class TailoredOperationResource implements AdapterFactory, OperationBuild
 				GenFeatureAdapter forwardType = (GenFeatureAdapter) adapt(eStructuralFeature, GenFeatureAdapter.class);
 				result.add(new GeneratorOperation(constraint, parameters,
 						Adornment.create(Adornment.BOUND, Adornment.BOUND),
-						Adornment.create(Adornment.BOUND, Adornment.BOUND),
-						forwardType));
-				final boolean isTargetTypeCheckNeeded = eStructuralFeature instanceof EReference && 
-					!lookupEClass(parameters.get(1)).isSuperTypeOf((EClass) eStructuralFeature.getEType());
-				result.add(new GeneratorOperation(constraint, parameters,
-						Adornment.create(Adornment.BOUND, Adornment.FREE),
-						Adornment.create(Adornment.BOUND, isTargetTypeCheckNeeded ? Adornment.NOT_TYPECHECKED : Adornment.BOUND),
-						forwardType));
-				//		} else if (constraint instanceof ClassConstraint) {
-				//			EClass eClass = ((ClassConstraint) constraint).getType();
-				//			GenClassAdapter classType = (GenClassAdapter) adapt(eClass, CodegenPackage.Literals.GEN_CLASS_ADAPTER);
-				//			boolean includeTemplateArguments = false;
-				//			final String typeName = eClass.getInstanceClassName() != null ?
-				//		      includeTemplateArguments ? eClass.getInstanceTypeName() : eClass.getInstanceClassName() :
-				//		      classType.getGenElement().getGenPackage().getInterfacePackageName() + "." + classType.getGenElement().getInterfaceName();
-				//			result.add(new GeneratorOperation(constraint, parameters, Adornment.BOUND, typeName));
-				//		} else if (constraint instanceof DataTypeConstraint) {
-				//			EDataType eDataType = ((DataTypeConstraint) constraint).getType();
-				//			GenDataTypeAdapter dataTypeType = (GenDataTypeAdapter) adapt(eDataType, CodegenPackage.Literals.GEN_DATA_TYPE_ADAPTER);
-				//			result.add(new GeneratorOperation(constraint, parameters, Adornment.BOUND, dataTypeType.getGenElement().getQualifiedInstanceClassName()));
+						Adornment.create(Adornment.BOUND, Adornment.BOUND), forwardType));
+				final boolean isTargetTypeCheckNeeded = eStructuralFeature instanceof EReference
+						&& !lookupEClass(parameters.get(1)).isSuperTypeOf((EClass) eStructuralFeature.getEType());
+				result.add(
+						new GeneratorOperation(constraint, parameters,
+								Adornment.create(Adornment.BOUND, Adornment.FREE),
+								Adornment.create(Adornment.BOUND,
+										isTargetTypeCheckNeeded ? Adornment.NOT_TYPECHECKED : Adornment.BOUND),
+								forwardType));
+				// } else if (constraint instanceof ClassConstraint) {
+				// EClass eClass = ((ClassConstraint) constraint).getType();
+				// GenClassAdapter classType = (GenClassAdapter) adapt(eClass,
+				// CodegenPackage.Literals.GEN_CLASS_ADAPTER);
+				// boolean includeTemplateArguments = false;
+				// final String typeName = eClass.getInstanceClassName() != null ?
+				// includeTemplateArguments ? eClass.getInstanceTypeName() :
+				// eClass.getInstanceClassName() :
+				// classType.getGenElement().getGenPackage().getInterfacePackageName() + "." +
+				// classType.getGenElement().getInterfaceName();
+				// result.add(new GeneratorOperation(constraint, parameters, Adornment.BOUND,
+				// typeName));
+				// } else if (constraint instanceof DataTypeConstraint) {
+				// EDataType eDataType = ((DataTypeConstraint) constraint).getType();
+				// GenDataTypeAdapter dataTypeType = (GenDataTypeAdapter) adapt(eDataType,
+				// CodegenPackage.Literals.GEN_DATA_TYPE_ADAPTER);
+				// result.add(new GeneratorOperation(constraint, parameters, Adornment.BOUND,
+				// dataTypeType.getGenElement().getQualifiedInstanceClassName()));
 			}
 			return result;
 		}
 		return null;
 	}
-	
+
 	protected void unloaded(InternalEObject internalEObject) {
 		internalEObject.eAdapters().clear();
 	}
-	
+
 	// AdapterFactory methods
 	public Adapter createAdapter(Notifier target) {
-		return modelSwitch.doSwitch((EObject)target);
+		return modelSwitch.doSwitch((EObject) target);
 	}
-	
+
 	public boolean isFactoryForType(Object type) {
 		return false;
 	}
 
 	public Object adapt(Object target, Object type) {
 		if (target instanceof Notifier) {
-			return adapt((Notifier)target, type);
+			return adapt((Notifier) target, type);
 		} else {
 			return target;
 		}

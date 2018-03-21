@@ -30,9 +30,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class DefaultImportManager implements MultiPhaseImportManager {
-	// TODO handling of inner classes, and classes in the java.lang package; (String -> local, java.lang, etc.)
-	private static final Pattern CLASS_NAME_PATTERN = 
-		Pattern.compile("^(([a-z0-9]+[\\.])*)(([A-Z][a-z0-9]*)+([\\.]([A-Z][a-z0-9]*)+)*)$");
+	// TODO handling of inner classes, and classes in the java.lang package; (String
+	// -> local, java.lang, etc.)
+	private static final Pattern CLASS_NAME_PATTERN = Pattern
+			.compile("^(([a-z0-9]+[\\.])*)(([A-Z][a-z0-9]*)+([\\.]([A-Z][a-z0-9]*)+)*)$");
 	private boolean inUploadPhase = false;
 	private final String packageName;
 	private final String className;
@@ -48,13 +49,12 @@ public class DefaultImportManager implements MultiPhaseImportManager {
 				return 2;
 			}
 		}
-		
+
 		public final int compare(String left, String right) {
 			return evaluate(left) - evaluate(right);
 		}
 	};
-	private final Map<String, String> map =
-		new HashMap<String, String>();
+	private final Map<String, String> map = new HashMap<String, String>();
 	private List<String> cachedImportList;
 
 	public DefaultImportManager(DefaultImportManager importManager) {
@@ -67,7 +67,7 @@ public class DefaultImportManager implements MultiPhaseImportManager {
 		this.fullyQualifiedName = this.packageName + "." + this.className;
 		this.map.put(this.className, fullyQualifiedName);
 	}
-	
+
 	public DefaultImportManager(String fullyQualifiedName) {
 		fullyQualifiedName = fullyQualifiedName.replace('$', '.');
 		Matcher matcher = CLASS_NAME_PATTERN.matcher(fullyQualifiedName);
@@ -80,11 +80,11 @@ public class DefaultImportManager implements MultiPhaseImportManager {
 			throw new RuntimeException();
 		}
 	}
-	
+
 	public final void upload(String newValue) {
 		if (newValue == null)
 			return;
-		
+
 		newValue = newValue.replace('$', '.');
 		Matcher matcher = CLASS_NAME_PATTERN.matcher(newValue);
 		if (matcher.matches()) {
@@ -96,15 +96,13 @@ public class DefaultImportManager implements MultiPhaseImportManager {
 			cachedImportList = null;
 		}
 	}
-	
+
 	public final List<String> getImportList() {
 		if (cachedImportList == null) {
-			cachedImportList =
-				new ArrayList<String>(map.size());
+			cachedImportList = new ArrayList<String>(map.size());
 			for (String importedForm : map.values()) {
 				String packageName = getPackageName(importedForm);
-				if (!this.packageName.equals(packageName) 
-						&& !"java.lang".equals(packageName)) {
+				if (!this.packageName.equals(packageName) && !"java.lang".equals(packageName)) {
 					cachedImportList.add(importedForm);
 				}
 			}
@@ -112,7 +110,7 @@ public class DefaultImportManager implements MultiPhaseImportManager {
 		}
 		return cachedImportList;
 	}
-	
+
 	public final String getImportedName(String fullyQualifiedName) {
 		String result = lookup(fullyQualifiedName);
 		if (inUploadPhase) {
@@ -120,7 +118,7 @@ public class DefaultImportManager implements MultiPhaseImportManager {
 		}
 		return result;
 	}
-	
+
 	public final String lookup(String fullyQualifiedName) {
 		assert fullyQualifiedName != null;
 		fullyQualifiedName = fullyQualifiedName.replace('$', '.');
@@ -128,12 +126,12 @@ public class DefaultImportManager implements MultiPhaseImportManager {
 		String fqnInMap = map.get(className);
 		return fqnInMap != null && fqnInMap.equals(fullyQualifiedName) ? className : fullyQualifiedName;
 	}
-	
+
 	private static final String getPackageName(Matcher matcher) {
 		String packageName = matcher.group(1);
 		return packageName.substring(0, packageName.length() - 1);
 	}
-	
+
 	public static final String getPackageName(String fullyQualifiedName) {
 		Matcher matcher = CLASS_NAME_PATTERN.matcher(fullyQualifiedName);
 		return matcher.matches() ? getPackageName(matcher) : null;
@@ -142,16 +140,16 @@ public class DefaultImportManager implements MultiPhaseImportManager {
 	private static final String getClassName(Matcher matcher) {
 		return matcher.group(3).replace('$', '.');
 	}
-	
+
 	public static final String getClassName(String fullyQualifiedName) {
 		Matcher matcher = CLASS_NAME_PATTERN.matcher(fullyQualifiedName);
 		return matcher.matches() ? getClassName(matcher) : null;
 	}
-	
+
 	public static final String[] getClassNameSegments(String fullyQualifiedName) {
 		return getClassName(fullyQualifiedName).split("[\\.]");
 	}
-	
+
 	public String toString() {
 		return map.toString();
 	}

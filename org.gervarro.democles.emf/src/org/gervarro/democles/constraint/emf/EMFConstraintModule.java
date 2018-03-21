@@ -36,27 +36,25 @@ import org.gervarro.democles.common.TypeModule;
 
 public class EMFConstraintModule implements TypeModule {
 	private final EPackage.Registry registry;
-	private final Map<EModelElement, EMFConstraint<?>> constraintTypeMapping =
-		new HashMap<EModelElement, EMFConstraint<?>>();
-	private final Map<EClassifier, EMFVariable> variableTypeMapping =
-		new HashMap<EClassifier, EMFVariable>();
-	
+	private final Map<EModelElement, EMFConstraint<?>> constraintTypeMapping = new HashMap<EModelElement, EMFConstraint<?>>();
+	private final Map<EClassifier, EMFVariable> variableTypeMapping = new HashMap<EClassifier, EMFVariable>();
+
 	public EMFConstraintModule(Registry registry) {
 		this.registry = registry;
 	}
-	
+
 	public EMFConstraintModule(ResourceSet resourceSet) {
 		this(resourceSet.getPackageRegistry());
 	}
-	
+
 	public boolean isAdapterForType(Object type) {
 		return type instanceof Class<?> && getClass().isAssignableFrom((Class<?>) type);
 	}
-	
+
 	public final String getName() {
 		return "emf";
 	}
-	
+
 	public final EMFConstraint<?> getConstraintType(EModelElement eModelElement) {
 		EMFConstraint<?> constraintType = constraintTypeMapping.get(eModelElement);
 		if (constraintType == null) {
@@ -85,7 +83,7 @@ public class EMFConstraintModule implements TypeModule {
 		}
 		return variableType;
 	}
-	
+
 	public final Registry getRegistry() {
 		return registry;
 	}

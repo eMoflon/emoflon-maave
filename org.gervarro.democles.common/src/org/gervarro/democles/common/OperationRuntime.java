@@ -26,7 +26,10 @@ import org.gervarro.democles.common.runtime.VariableRuntime;
 
 public interface OperationRuntime {
 	public Object getOrigin();
+
 	public Adornment getPrecondition();
+
 	public Adornment getPostcondition();
+
 	public List<? extends VariableRuntime> getParameters();
 }

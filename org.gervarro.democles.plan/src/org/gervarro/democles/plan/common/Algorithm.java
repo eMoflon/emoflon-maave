@@ -25,24 +25,25 @@ import org.gervarro.democles.common.OperationRuntime;
 import org.gervarro.democles.plan.WeightedOperation;
 
 public class Algorithm<C extends OperationCombiner<C, O>, O extends OperationRuntime> {
-	
-	public DefaultSearchPlan<C,O> generatePlan(DefaultSearchPlan<C,O> initial) {
-		DefaultSearchPlan<C,O> primerSolution = findFirstSolutionInTree(initial);
+
+	public DefaultSearchPlan<C, O> generatePlan(DefaultSearchPlan<C, O> initial) {
+		DefaultSearchPlan<C, O> primerSolution = findFirstSolutionInTree(initial);
 		if (primerSolution != null) {
 			return primerSolution;
 		} else {
 			throw new RuntimeException("No valid search plan is available");
 		}
 	}
-	
-	private DefaultSearchPlan<C,O> findFirstSolutionInTree(DefaultSearchPlan<C,O> root) {
-		if (root.getAdornment().cardinality() == 0 && root.getUncheckedConstraints().isEmpty() /* && root.getPresentOperations().isEmpty() */) {
+
+	private DefaultSearchPlan<C, O> findFirstSolutionInTree(DefaultSearchPlan<C, O> root) {
+		if (root.getAdornment().cardinality() == 0
+				&& root.getUncheckedConstraints().isEmpty() /* && root.getPresentOperations().isEmpty() */) {
 			return root;
 		}
-		for (WeightedOperation<O,Integer> operation : root.getPresentOperations()) {
-			DefaultSearchPlan<C,O> newPlan = root.combine(operation);
+		for (WeightedOperation<O, Integer> operation : root.getPresentOperations()) {
+			DefaultSearchPlan<C, O> newPlan = root.combine(operation);
 			newPlan.refreshOperationLists();
-			DefaultSearchPlan<C,O> result = findFirstSolutionInTree(newPlan);
+			DefaultSearchPlan<C, O> result = findFirstSolutionInTree(newPlan);
 			if (result != null) {
 				return result;
 			}

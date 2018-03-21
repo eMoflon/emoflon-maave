@@ -41,9 +41,8 @@ public class TraversalIterator<E> implements Iterator<E> {
 	};
 	private final boolean dfs;
 	private E nextResult;
-	private LinkedList<Iterator<E>> iterators =
-		new LinkedList<Iterator<E>>();
-	
+	private LinkedList<Iterator<E>> iterators = new LinkedList<Iterator<E>>();
+
 	@SuppressWarnings("unchecked")
 	protected static final <E> Iterator<E> emptyIterator() {
 		return (Iterator<E>) EMPTY_ITERATOR;
@@ -53,7 +52,7 @@ public class TraversalIterator<E> implements Iterator<E> {
 	public TraversalIterator(Iterable<E> iterable, final boolean dfs) {
 		this(iterable != null ? iterable.iterator() : (Iterator<E>) emptyIterator(), dfs);
 	}
-	
+
 	public TraversalIterator(final Iterator<E> iterator, final boolean dfs) {
 		this.dfs = dfs;
 		if (iterator != null && iterator.hasNext()) {
@@ -69,7 +68,7 @@ public class TraversalIterator<E> implements Iterator<E> {
 			this.nextResult = null;
 		}
 	}
-	
+
 	public TraversalIterator(final E root, final boolean dfs, final boolean includeRoot) {
 		this.dfs = dfs;
 		this.nextResult = root;
@@ -85,7 +84,7 @@ public class TraversalIterator<E> implements Iterator<E> {
 			next();
 		}
 	}
-	
+
 	public boolean hasNext() {
 		return nextResult != null;
 	}
@@ -120,7 +119,7 @@ public class TraversalIterator<E> implements Iterator<E> {
 	public void remove() {
 		throw new UnsupportedOperationException();
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	protected Iterator<E> getIterator(E element) {
 		return (Iterator<E>) EMPTY_ITERATOR;

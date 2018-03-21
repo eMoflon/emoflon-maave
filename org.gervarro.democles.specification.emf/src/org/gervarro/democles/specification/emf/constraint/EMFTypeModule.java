@@ -31,11 +31,11 @@ import org.gervarro.democles.specification.emf.constraint.emf.emf.EMFVariable;
 import org.gervarro.democles.specification.emf.constraint.emf.emf.util.EMFTypeSwitch;
 
 public final class EMFTypeModule extends org.gervarro.democles.specification.emf.TypeModule {
-	
+
 	public EMFTypeModule(EMFConstraintModule typeModule) {
 		super(typeModule);
 	}
-	
+
 	@Override
 	protected final EMFVariableTypeSwitch createVariableTypeSwitch() {
 		return new EMFVariableTypeSwitch();
@@ -45,17 +45,17 @@ public final class EMFTypeModule extends org.gervarro.democles.specification.emf
 	protected final Switch<ConstraintType> createConstraintTypeSwitch() {
 		return new EMFConstraintTypeSwitch();
 	}
-	
+
 	private class EMFVariableTypeSwitch extends EMFTypeSwitch<VariableType> {
-		
+
 		public VariableType caseEMFVariable(EMFVariable emfVariable) {
 			EClassifier eClassifier = emfVariable.getEClassifier();
 			return ((EMFConstraintModule) typeModule).getVariableType(eClassifier);
 		}
 	}
-	
+
 	private class EMFConstraintTypeSwitch extends EMFTypeSwitch<ConstraintType> {
-		
+
 		public <E extends ETypedElement> ConstraintType caseEMFConstraint(EMFConstraint<E> emfConstraint) {
 			ETypedElement typedElement = emfConstraint.getEModelElement();
 			return ((EMFConstraintModule) typeModule).getConstraintType(typedElement);

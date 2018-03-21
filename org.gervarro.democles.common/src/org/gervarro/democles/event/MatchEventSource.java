@@ -28,32 +28,32 @@ import org.gervarro.democles.common.DataFrame;
 
 // TODO Operation (JoinOperation, RemappingOperation), PatternBody, Pattern, Indexer, MagicSet, NativeOperation
 abstract public class MatchEventSource {
-	private final List<MatchEventListener> listeners =
-		Collections.synchronizedList(new LinkedList<MatchEventListener>());
-		// new LinkedList<MatchEventListener>();
+	private final List<MatchEventListener> listeners = Collections
+			.synchronizedList(new LinkedList<MatchEventListener>());
+	// new LinkedList<MatchEventListener>();
 
 	public final List<MatchEventListener> getMatchEventListeners() {
 		return listeners;
 	}
-	
+
 	public synchronized final void addEventListener(MatchEventListener listener) {
 		listeners.add(listener);
 	}
-	
+
 	public synchronized final void removeEventListener(MatchEventListener listener) {
 		listeners.remove(listener);
 	}
-	
+
 	public synchronized final void clearListeners() {
 		listeners.clear();
 	}
-	
+
 	private final void deliverEvent(MatchEvent event) {
 		for (MatchEventListener listener : listeners) {
 			listener.handleEvent(event);
 		}
 	}
-	
+
 	protected final void sendEvent(final DataFrame data, final String eventType) {
 		MatchEvent event = new MatchEvent(this, data, eventType);
 		deliverEvent(event);

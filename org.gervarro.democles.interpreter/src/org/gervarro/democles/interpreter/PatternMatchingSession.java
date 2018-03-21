@@ -33,11 +33,10 @@ import org.gervarro.democles.runtime.MagicSet;
 import org.gervarro.democles.runtime.Scheduler;
 import org.gervarro.democles.runtime.Task;
 
-public abstract class PatternMatchingSession implements MatchEventListener,Iterator<Task> {
+public abstract class PatternMatchingSession implements MatchEventListener, Iterator<Task> {
 	protected Pattern pattern;
-	protected final ArrayList<Task> tasks =
-		new ArrayList<Task>();
-	
+	protected final ArrayList<Task> tasks = new ArrayList<Task>();
+
 	protected MagicSet init(Adornment adornment) {
 		MagicSet ms = pattern.getMagicSet(adornment);
 		if (ms == null) {
@@ -52,12 +51,12 @@ public abstract class PatternMatchingSession implements MatchEventListener,Itera
 	public final void insertTask(Task task, Comparator<Task> comparator) {
 		int index = Collections.binarySearch(tasks, task, comparator);
 		if (index < 0) {
-			tasks.add(- index - 1, task);
+			tasks.add(-index - 1, task);
 		} else {
 			throw new RuntimeException("Unable to add task.");
 		}
 	}
-	
+
 	protected final void performPatternMatching(InterpretedDataFrame input, Adornment adornment) {
 		assert pattern.getSymbolicParameters().size() == input.size();
 		// Initialization
@@ -65,16 +64,16 @@ public abstract class PatternMatchingSession implements MatchEventListener,Itera
 		Scheduler scheduler = pattern.getEngine().getScheduler();
 		scheduler.addSession(this);
 		pattern.addEventListener(this);
-		
+
 		// Perform pattern matching
 		ms.submitDataFrame(input);
 		scheduler.run();
-		
+
 		// Cleanup
 		pattern.removeEventListener(this);
 		scheduler.removeSession(this);
 	}
-	
+
 	public boolean hasNext() {
 		return !tasks.isEmpty();
 	}

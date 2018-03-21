@@ -24,11 +24,11 @@ import org.gervarro.democles.event.MatchEventSource;
 
 abstract public class PatternMatcher<T extends DataFrame> extends MatchEventSource {
 	private final String name;
-	
+
 	protected PatternMatcher(String name) {
 		this.name = name;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
@@ -40,7 +40,7 @@ abstract public class PatternMatcher<T extends DataFrame> extends MatchEventSour
 		result.append(')');
 		return result.toString();
 	}
-	
+
 	protected final Adornment calculateAdornment(T input) {
 		Adornment adornment = new Adornment(input.size());
 		for (int i = 0; i < input.size(); i++) {
@@ -48,30 +48,30 @@ abstract public class PatternMatcher<T extends DataFrame> extends MatchEventSour
 		}
 		return adornment;
 	}
-	
+
 	public final T matchSingle() {
 		final T input = createDataFrame();
 		final Adornment adornment = calculateAdornment(input);
 		return matchSingle(input, adornment);
 	}
-	
+
 	public final Iterable<T> matchAll() {
 		final T input = createDataFrame();
 		final Adornment adornment = calculateAdornment(input);
 		return matchAll(input, adornment);
 	}
-	
+
 	public final T matchSingle(T input) {
 		final Adornment adornment = calculateAdornment(input);
 		return matchSingle(input, adornment);
 	}
-	
+
 	public final Iterable<T> matchAll(T input) {
 		final Adornment adornment = calculateAdornment(input);
 		return matchAll(input, adornment);
 	}
-	
-	public final T matchSingle(Object... input){
+
+	public final T matchSingle(Object... input) {
 		// TODO check input.length
 		T initialFrame = createDataFrame();
 		Adornment adornment = new Adornment(initialFrame.size());
@@ -81,7 +81,7 @@ abstract public class PatternMatcher<T extends DataFrame> extends MatchEventSour
 		}
 		return matchSingle(initialFrame, adornment);
 	}
-	
+
 	public final Iterable<T> matchAll(Object... input) {
 		// TODO check input.length
 		T initialFrame = createDataFrame();
@@ -92,10 +92,10 @@ abstract public class PatternMatcher<T extends DataFrame> extends MatchEventSour
 		}
 		return matchAll(initialFrame, adornment);
 	}
-	
+
 	abstract protected T matchSingle(T input, Adornment adornment);
-	
+
 	abstract protected Iterable<T> matchAll(T input, Adornment adornment);
-	
+
 	abstract public T createDataFrame();
 }

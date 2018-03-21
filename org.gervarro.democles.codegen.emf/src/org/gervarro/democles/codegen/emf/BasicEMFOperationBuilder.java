@@ -41,29 +41,24 @@ import org.gervarro.democles.constraint.emf.Operation;
 import org.gervarro.democles.specification.impl.Constraint;
 import org.gervarro.democles.specification.impl.Variable;
 
-public class BasicEMFOperationBuilder implements
-		OperationBuilder<GeneratorOperation,GeneratorVariable> {
+public class BasicEMFOperationBuilder implements OperationBuilder<GeneratorOperation, GeneratorVariable> {
 
 	public GeneratorOperation getVariableOperation(Variable variable, GeneratorVariable runtimeVariable) {
 		if (variable.getType() instanceof EMFVariable) {
 			EClassifier eClassifier = ((EMFVariable) variable.getType()).getLinkedElement();
 			if (eClassifier instanceof EClass) {
-				return new GeneratorOperation(variable,
-						Collections.singletonList(runtimeVariable),
-						Adornment.create(Adornment.NOT_TYPECHECKED),
-						Adornment.create(Adornment.BOUND),
+				return new GeneratorOperation(variable, Collections.singletonList(runtimeVariable),
+						Adornment.create(Adornment.NOT_TYPECHECKED), Adornment.create(Adornment.BOUND),
 						variable.getType());
 			} else if (eClassifier instanceof EDataType) {
-				return new GeneratorOperation(variable,
-						Collections.singletonList(runtimeVariable),
-						Adornment.create(Adornment.NOT_TYPECHECKED),
-						Adornment.create(Adornment.BOUND),
+				return new GeneratorOperation(variable, Collections.singletonList(runtimeVariable),
+						Adornment.create(Adornment.NOT_TYPECHECKED), Adornment.create(Adornment.BOUND),
 						variable.getType());
 			}
 		}
 		return null;
 	}
-	
+
 	protected EClass lookupEClass(GeneratorVariable runtimeVariable) {
 		Variable variable = (Variable) runtimeVariable.getSpecification();
 		EMFVariable emfVariable = (EMFVariable) variable.getType();
@@ -77,8 +72,8 @@ public class BasicEMFOperationBuilder implements
 			if (cType instanceof Attribute) {
 				result.add(new GeneratorOperation(constraint, parameters,
 						Adornment.create(Adornment.BOUND, Adornment.FREE),
-						Adornment.create(Adornment.BOUND, Adornment.BOUND),
-						cType, GeneratorOperation.ALWAYS_SUCCESSFUL));
+						Adornment.create(Adornment.BOUND, Adornment.BOUND), cType,
+						GeneratorOperation.ALWAYS_SUCCESSFUL));
 				return result;
 			} else if (cType instanceof Operation) {
 				EOperation eOperation = ((Operation) cType).getLinkedElement();
@@ -88,23 +83,21 @@ public class BasicEMFOperationBuilder implements
 					Arrays.fill(precondition, Adornment.BOUND);
 					precondition[0] = Adornment.FREE;
 					EClassifier returnType = eOperation.getEType();
-					final boolean isTypeCheckNeeded = EcorePackage.eINSTANCE.getEClass().isInstance(returnType) ? 
-							!lookupEClass(parameters.get(0)).isSuperTypeOf((EClass) returnType) : false;
+					final boolean isTypeCheckNeeded = EcorePackage.eINSTANCE.getEClass().isInstance(returnType)
+							? !lookupEClass(parameters.get(0)).isSuperTypeOf((EClass) returnType)
+							: false;
 					int[] postcondition = new int[arraySize];
 					Arrays.fill(postcondition, Adornment.BOUND);
 					postcondition[0] = isTypeCheckNeeded ? Adornment.NOT_TYPECHECKED : Adornment.BOUND;
-					result.add(new GeneratorOperation(constraint, parameters,
-							new Adornment(precondition),
-							new Adornment(postcondition),
-							cType, isTypeCheckNeeded ? 0 : GeneratorOperation.ALWAYS_SUCCESSFUL));
+					result.add(new GeneratorOperation(constraint, parameters, new Adornment(precondition),
+							new Adornment(postcondition), cType,
+							isTypeCheckNeeded ? 0 : GeneratorOperation.ALWAYS_SUCCESSFUL));
 					return result;
 				} else {
 					int[] bindings = new int[eOperation.getEParameters().size() + 1];
 					Arrays.fill(bindings, Adornment.BOUND);
-					result.add(new GeneratorOperation(constraint, parameters,
-							new Adornment(bindings),
-							new Adornment(bindings),
-							cType, GeneratorOperation.ALWAYS_SUCCESSFUL));
+					result.add(new GeneratorOperation(constraint, parameters, new Adornment(bindings),
+							new Adornment(bindings), cType, GeneratorOperation.ALWAYS_SUCCESSFUL));
 					return result;
 				}
 			}

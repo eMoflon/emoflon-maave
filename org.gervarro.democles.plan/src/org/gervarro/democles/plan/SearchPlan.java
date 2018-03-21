@@ -20,7 +20,8 @@
  */
 package org.gervarro.democles.plan;
 
-public interface SearchPlan<O,W extends Comparable<W>, SP extends SearchPlan<O,W,SP>> {
+public interface SearchPlan<O, W extends Comparable<W>, SP extends SearchPlan<O, W, SP>> {
 	public Iterable<SP> getNextPlans();
+
 	public void refreshOperationLists();
 }

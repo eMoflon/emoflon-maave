@@ -11,14 +11,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.gervarro.democles.specification.emf.Variable;
 
 /**
- * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>EMF Variable</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>EMF
+ * Variable</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.gervarro.democles.specification.emf.constraint.emf.emf.EMFVariable#getEClassifier <em>EClassifier</em>}</li>
+ * <li>{@link org.gervarro.democles.specification.emf.constraint.emf.emf.EMFVariable#getEClassifier
+ * <em>EClassifier</em>}</li>
  * </ul>
  * </p>
  *
@@ -28,9 +28,9 @@ import org.gervarro.democles.specification.emf.Variable;
  */
 public class EMFVariable extends Variable implements EObject {
 	/**
-	 * The cached value of the '{@link #getEClassifier() <em>EClassifier</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getEClassifier() <em>EClassifier</em>}'
+	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getEClassifier()
 	 * @generated
 	 * @ordered
@@ -38,8 +38,8 @@ public class EMFVariable extends Variable implements EObject {
 	protected EClassifier eClassifier;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected EMFVariable() {
@@ -47,8 +47,8 @@ public class EMFVariable extends Variable implements EObject {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -57,13 +57,14 @@ public class EMFVariable extends Variable implements EObject {
 	}
 
 	/**
-	 * Returns the value of the '<em><b>EClassifier</b></em>' reference.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>EClassifier</b></em>' reference. <!--
+	 * begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>EClassifier</em>' reference isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>EClassifier</em>' reference isn't clear, there
+	 * really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>EClassifier</em>' reference.
 	 * @see #setEClassifier(EClassifier)
 	 * @see org.gervarro.democles.specification.emf.constraint.emf.emf.EMFTypePackage#getEMFVariable_EClassifier()
@@ -72,19 +73,20 @@ public class EMFVariable extends Variable implements EObject {
 	 */
 	public EClassifier getEClassifier() {
 		if (eClassifier != null && eClassifier.eIsProxy()) {
-			InternalEObject oldEClassifier = (InternalEObject)eClassifier;
-			eClassifier = (EClassifier)eResolveProxy(oldEClassifier);
+			InternalEObject oldEClassifier = (InternalEObject) eClassifier;
+			eClassifier = (EClassifier) eResolveProxy(oldEClassifier);
 			if (eClassifier != oldEClassifier) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EMFTypePackage.EMF_VARIABLE__ECLASSIFIER, oldEClassifier, eClassifier));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EMFTypePackage.EMF_VARIABLE__ECLASSIFIER,
+							oldEClassifier, eClassifier));
 			}
 		}
 		return eClassifier;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClassifier basicGetEClassifier() {
@@ -92,10 +94,13 @@ public class EMFVariable extends Variable implements EObject {
 	}
 
 	/**
-	 * Sets the value of the '{@link org.gervarro.democles.specification.emf.constraint.emf.emf.EMFVariable#getEClassifier <em>EClassifier</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>EClassifier</em>' reference.
+	 * Sets the value of the
+	 * '{@link org.gervarro.democles.specification.emf.constraint.emf.emf.EMFVariable#getEClassifier
+	 * <em>EClassifier</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>EClassifier</em>' reference.
 	 * @see #getEClassifier()
 	 * @generated
 	 */
@@ -103,64 +108,66 @@ public class EMFVariable extends Variable implements EObject {
 		EClassifier oldEClassifier = eClassifier;
 		eClassifier = newEClassifier;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EMFTypePackage.EMF_VARIABLE__ECLASSIFIER, oldEClassifier, eClassifier));
+			eNotify(new ENotificationImpl(this, Notification.SET, EMFTypePackage.EMF_VARIABLE__ECLASSIFIER,
+					oldEClassifier, eClassifier));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case EMFTypePackage.EMF_VARIABLE__ECLASSIFIER:
-				if (resolve) return getEClassifier();
-				return basicGetEClassifier();
+		case EMFTypePackage.EMF_VARIABLE__ECLASSIFIER:
+			if (resolve)
+				return getEClassifier();
+			return basicGetEClassifier();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case EMFTypePackage.EMF_VARIABLE__ECLASSIFIER:
-				setEClassifier((EClassifier)newValue);
-				return;
+		case EMFTypePackage.EMF_VARIABLE__ECLASSIFIER:
+			setEClassifier((EClassifier) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case EMFTypePackage.EMF_VARIABLE__ECLASSIFIER:
-				setEClassifier((EClassifier)null);
-				return;
+		case EMFTypePackage.EMF_VARIABLE__ECLASSIFIER:
+			setEClassifier((EClassifier) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case EMFTypePackage.EMF_VARIABLE__ECLASSIFIER:
-				return eClassifier != null;
+		case EMFTypePackage.EMF_VARIABLE__ECLASSIFIER:
+			return eClassifier != null;
 		}
 		return super.eIsSet(featureID);
 	}

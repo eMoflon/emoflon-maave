@@ -20,6 +20,6 @@
  */
 package org.gervarro.democles.common;
 
-public interface OperationCombiner<U,V> extends Combiner<U,V> {
+public interface OperationCombiner<U, V> extends Combiner<U, V> {
 	public V getLast();
 }

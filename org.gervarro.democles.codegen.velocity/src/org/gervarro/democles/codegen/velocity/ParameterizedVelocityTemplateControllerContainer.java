@@ -25,24 +25,25 @@ import java.util.List;
 
 import org.apache.velocity.Template;
 
-public class ParameterizedVelocityTemplateControllerContainer<V> extends
-		ParameterizedVelocityTemplateController<V> {
+public class ParameterizedVelocityTemplateControllerContainer<V> extends ParameterizedVelocityTemplateController<V> {
 	public static final String CHILDREN = "children";
 	private final List<VelocityTemplateController> children;
-	
-	public ParameterizedVelocityTemplateControllerContainer(Template template, V element, List<VelocityTemplateController> children) {
+
+	public ParameterizedVelocityTemplateControllerContainer(Template template, V element,
+			List<VelocityTemplateController> children) {
 		super(template, element);
 		this.children = children;
 	}
 
-	public ParameterizedVelocityTemplateControllerContainer(Template template, V element, VelocityTemplateController... children) {
+	public ParameterizedVelocityTemplateControllerContainer(Template template, V element,
+			VelocityTemplateController... children) {
 		this(template, element, Arrays.asList(children));
 	}
-	
-    public Object internalGet(String key) {
-    	if (CHILDREN.equals(key)) {
-    		return children;
-    	}
-    	return super.internalGet(key);
-    }
+
+	public Object internalGet(String key) {
+		if (CHILDREN.equals(key)) {
+			return children;
+		}
+		return super.internalGet(key);
+	}
 }

@@ -53,33 +53,38 @@ public class ModelHelper {
 	public static GlobalConstraint getUserDefConstraints(EPackage pack) {
 		// UserDefConstraints
 		EClass clsConstr = (EClass) pack.getEClassifier("UserDefinedConstraints");
-		List<EOperation> ncOps = clsConstr.getEOperations().stream().filter(x -> x.getName().startsWith("_NC_")).collect(Collectors.toList());
+		List<EOperation> ncOps = clsConstr.getEOperations().stream().filter(x -> x.getName().startsWith("_NC_"))
+				.collect(Collectors.toList());
 
-		ConfigurableMorphismClassFactory morClassFac = MatchingUtilsFactory.eINSTANCE.createConfigurableMorphismClassFactory();
-		
-		GlobalConstraint gc=GraphtransformationFactory.eINSTANCE.createGlobalConstraint();
+		ConfigurableMorphismClassFactory morClassFac = MatchingUtilsFactory.eINSTANCE
+				.createConfigurableMorphismClassFactory();
+
+		GlobalConstraint gc = GraphtransformationFactory.eINSTANCE.createGlobalConstraint();
 		gc.setMatchMorphismClass(morClassFac.createMorphismClass("I", "I", "I", "I", "=>"));
-		
-		MetaModelConstraintBuilder constraintBuilder=StptransformationFactory.eINSTANCE.createMetaModelConstraintBuilder();
-		SymbolicGraph initialObject=CategoryFactory.eINSTANCE.createSymbolicGraphCat().getInitalInitalSG();
+
+		MetaModelConstraintBuilder constraintBuilder = StptransformationFactory.eINSTANCE
+				.createMetaModelConstraintBuilder();
+		SymbolicGraph initialObject = CategoryFactory.eINSTANCE.createSymbolicGraphCat().getInitalInitalSG();
 		for (EOperation eOperation : ncOps) {
 			MoflonEOperation mEOp = (MoflonEOperation) eOperation;
-			StoryNode constraintStn = (StoryNode) mEOp.getActivity().getOwnedActivityNode().stream().filter(x -> x instanceof StoryNode).findAny().get();
+			StoryNode constraintStn = (StoryNode) mEOp.getActivity().getOwnedActivityNode().stream()
+					.filter(x -> x instanceof StoryNode).findAny().get();
 			SymbGTRule ruleC = transformer.transformStpToProjGTRule(constraintStn.getStoryPattern());
-			SymbolicGraph nC=ruleC.getLeft().getCodom();
+			SymbolicGraph nC = ruleC.getLeft().getCodom();
 			nC.setName(ruleC.getName());
-			gc.setConstraint(constraintBuilder.addNC(initialObject,nC));
+			gc.setConstraint(constraintBuilder.addNC(initialObject, nC));
 
 		}
 
 		return gc;
 	}
-	public static void addCardinalityConstraintsToGTS(EPackage pack, GraphTransformationSystem gts)
-   {
-      MetaModelConstraintBuilder constraintBuilder=StptransformationFactory.eINSTANCE.createMetaModelConstraintBuilder();
-      GlobalConstraint mmC=constraintBuilder.buildConstraints(pack);
-      NacAndPacMinimizer nacAndPacMinimizer=AcenforcmentFactory.eINSTANCE.createNacAndPacMinimizer();
-      nacAndPacMinimizer.removeSubsumedAc(mmC.getConstraint(), gts);
-      gts.getGlobalConstraints().add(mmC);
-   }
+
+	public static void addCardinalityConstraintsToGTS(EPackage pack, GraphTransformationSystem gts) {
+		MetaModelConstraintBuilder constraintBuilder = StptransformationFactory.eINSTANCE
+				.createMetaModelConstraintBuilder();
+		GlobalConstraint mmC = constraintBuilder.buildConstraints(pack);
+		NacAndPacMinimizer nacAndPacMinimizer = AcenforcmentFactory.eINSTANCE.createNacAndPacMinimizer();
+		nacAndPacMinimizer.removeSubsumedAc(mmC.getConstraint(), gts);
+		gts.getGlobalConstraints().add(mmC);
+	}
 }

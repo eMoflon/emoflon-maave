@@ -24,31 +24,25 @@ import org.gervarro.democles.common.TypeModule;
 import org.gervarro.democles.specification.ConstraintType;
 
 public final class CoreConstraintModule implements TypeModule {
-	public static final CoreConstraintModule INSTANCE =
-			new CoreConstraintModule();
-	
+	public static final CoreConstraintModule INSTANCE = new CoreConstraintModule();
+
 	public static final String EQUAL_STRING = "equal";
 	public static final String UNEQUAL_STRING = "unequal";
 	public static final String SMALLER_STRING = "smaller";
 	public static final String SMALLER_OR_EQUAL_STRING = "smallerOrEqual";
 	public static final String LARGER_STRING = "larger";
 	public static final String LARGER_OR_EQUAL_STRING = "largerOrEqual";
-	
-	public static final CoreConstraintType EQUAL =
-			new CoreConstraintType(EQUAL_STRING);
-	public static final CoreConstraintType UNEQUAL =
-			new CoreConstraintType(UNEQUAL_STRING);
-	public static final CoreConstraintType SMALLER =
-			new CoreConstraintType(SMALLER_STRING);
-	public static final CoreConstraintType SMALLER_OR_EQUAL =
-			new CoreConstraintType(SMALLER_OR_EQUAL_STRING);
-	public static final CoreConstraintType LARGER =
-			new CoreConstraintType(LARGER_STRING);
-	public static final CoreConstraintType LARGER_OR_EQUAL =
-			new CoreConstraintType(LARGER_OR_EQUAL_STRING);
-	
-	private CoreConstraintModule() { }
-	
+
+	public static final CoreConstraintType EQUAL = new CoreConstraintType(EQUAL_STRING);
+	public static final CoreConstraintType UNEQUAL = new CoreConstraintType(UNEQUAL_STRING);
+	public static final CoreConstraintType SMALLER = new CoreConstraintType(SMALLER_STRING);
+	public static final CoreConstraintType SMALLER_OR_EQUAL = new CoreConstraintType(SMALLER_OR_EQUAL_STRING);
+	public static final CoreConstraintType LARGER = new CoreConstraintType(LARGER_STRING);
+	public static final CoreConstraintType LARGER_OR_EQUAL = new CoreConstraintType(LARGER_OR_EQUAL_STRING);
+
+	private CoreConstraintModule() {
+	}
+
 	@Override
 	public final String getName() {
 		return "core";

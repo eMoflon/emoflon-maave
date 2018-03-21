@@ -34,7 +34,7 @@ public class Variable extends ConstraintVariable implements org.gervarro.democle
 	public String getName() {
 		return name;
 	}
-	
+
 	public VariableType getType() {
 		return type;
 	}

@@ -33,8 +33,8 @@ import org.gervarro.democles.constraint.emf.StructuralFeature;
 
 public class EMFTemplateProvider implements CodeGeneratorProvider<Chain<TemplateController>> {
 
-	public Chain<TemplateController> getTemplateController(
-			GeneratorOperation operation, Chain<TemplateController> tail) {
+	public Chain<TemplateController> getTemplateController(GeneratorOperation operation,
+			Chain<TemplateController> tail) {
 		Object type = operation.getType();
 		Adornment adornment = operation.getPrecondition();
 		if (type instanceof StructuralFeature<?>) {
@@ -47,15 +47,19 @@ public class EMFTemplateProvider implements CodeGeneratorProvider<Chain<Template
 				}
 			} else if (adornment.get(0) == Adornment.BOUND && adornment.get(1) == Adornment.FREE) {
 				if (sf.getLinkedElement().isMany()) {
-					return new Chain<TemplateController>(new TemplateController("/emf/ForwardExtendToMany", operation), tail);
+					return new Chain<TemplateController>(new TemplateController("/emf/ForwardExtendToMany", operation),
+							tail);
 				} else {
-					return new Chain<TemplateController>(new TemplateController("/emf/ForwardExtendToOne", operation), tail);
+					return new Chain<TemplateController>(new TemplateController("/emf/ForwardExtendToOne", operation),
+							tail);
 				}
 			} else if (adornment.get(0) == Adornment.FREE && adornment.get(1) == Adornment.BOUND) {
 				if (((EReference) sf.getLinkedElement()).getEOpposite().isMany()) {
-					return new Chain<TemplateController>(new TemplateController("/emf/BackwardExtendToMany", operation), tail);
+					return new Chain<TemplateController>(new TemplateController("/emf/BackwardExtendToMany", operation),
+							tail);
 				} else {
-					return new Chain<TemplateController>(new TemplateController("/emf/BackwardExtendToOne", operation), tail);
+					return new Chain<TemplateController>(new TemplateController("/emf/BackwardExtendToOne", operation),
+							tail);
 				}
 			}
 		} else if (type instanceof Operation) {
@@ -67,7 +71,7 @@ public class EMFTemplateProvider implements CodeGeneratorProvider<Chain<Template
 		}
 		throw new RuntimeException("Invalid operation");
 	}
-	
+
 	public boolean isResponsibleFor(GeneratorOperation operation) {
 		return operation.getType() instanceof EMFConstraint<?> || operation.getType() instanceof EMFVariable;
 	}

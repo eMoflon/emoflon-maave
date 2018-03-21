@@ -45,30 +45,24 @@ import org.gervarro.democles.runtime.RemappingOperation;
 import org.gervarro.democles.specification.impl.Constraint;
 import org.gervarro.democles.specification.impl.Variable;
 
-public class ReflectiveInterpreterOperationBuilder implements OperationBuilder<RemappingOperation,VariableRuntime> {
+public class ReflectiveInterpreterOperationBuilder implements OperationBuilder<RemappingOperation, VariableRuntime> {
 	private final EMFConstraintModule emfBuilder;
-	private final Map<EModelElement, ReflectiveEMFOperation<?>> constraintTypeMapping =
-			new HashMap<EModelElement, ReflectiveEMFOperation<?>>();
-	private final Map<EClassifier, ReflectiveEMFOperation<?>> variableTypeMapping =
-			new HashMap<EClassifier, ReflectiveEMFOperation<?>>();
-	private final Map<EModelElement, List<AdornedOperation>> constraintTypeToAdornedOperation =
-			new HashMap<EModelElement, List<AdornedOperation>>();
-	private final Map<EClassifier, DelegatingAdornedOperation> variableTypeToAdornedOperation =
-			new HashMap<EClassifier, DelegatingAdornedOperation>();
-	
+	private final Map<EModelElement, ReflectiveEMFOperation<?>> constraintTypeMapping = new HashMap<EModelElement, ReflectiveEMFOperation<?>>();
+	private final Map<EClassifier, ReflectiveEMFOperation<?>> variableTypeMapping = new HashMap<EClassifier, ReflectiveEMFOperation<?>>();
+	private final Map<EModelElement, List<AdornedOperation>> constraintTypeToAdornedOperation = new HashMap<EModelElement, List<AdornedOperation>>();
+	private final Map<EClassifier, DelegatingAdornedOperation> variableTypeToAdornedOperation = new HashMap<EClassifier, DelegatingAdornedOperation>();
+
 	public ReflectiveInterpreterOperationBuilder(EMFConstraintModule emfBuilder) {
 		this.emfBuilder = emfBuilder;
 	}
 
 	// OperationBuilder methods
-	public RemappingOperation getVariableOperation(Variable variable,
-			VariableRuntime runtimeVariable) {
+	public RemappingOperation getVariableOperation(Variable variable, VariableRuntime runtimeVariable) {
 		if (variable.getType() instanceof EMFVariable) {
 			EMFVariable vType = (EMFVariable) variable.getType();
 			EClassifier eClassifier = vType.getLinkedElement();
-			DelegatingAdornedOperation adornedOperation =
-					getAdornedOperationForVariable(eClassifier);
-			
+			DelegatingAdornedOperation adornedOperation = getAdornedOperationForVariable(eClassifier);
+
 			RemappingOperation operation = new RemappingOperation();
 			operation.setOrigin(variable);
 			operation.setInput(adornedOperation);
@@ -79,7 +73,7 @@ public class ReflectiveInterpreterOperationBuilder implements OperationBuilder<R
 		}
 		return null;
 	}
-	
+
 	public List<RemappingOperation> getConstraintOperations(Constraint constraint, List<VariableRuntime> parameters) {
 		if (constraint.getType() instanceof EMFConstraint<?>) {
 			List<RemappingOperation> result = new LinkedList<RemappingOperation>();
@@ -96,70 +90,68 @@ public class ReflectiveInterpreterOperationBuilder implements OperationBuilder<R
 				}
 			} else if (cType instanceof Operation) {
 				// TODO
-//				EOperation eOperation = ((Operation) cType).getLinkedElement();
-//				ReflectiveEMFOperation<?> nOperation = getConstraintType(eOperation);
-//				RemappingOperation operation0 = new RemappingOperation();
-//				operation0.setOrigin(constraint);
-//				operation0.setPrecondition(Adornment.create(Adornment.BOUND, Adornment.BOUND));
-//				operation0.setPostcondition(Adornment.create(Adornment.BOUND, Adornment.BOUND));
-//				operation0.setInput(nOperation);
-//				operation0.setParameters(parameters);
-//				nOperation.addEventListener(operation0);
-//				result.add(operation0);
-//				RemappingOperation operation1 = new RemappingOperation();
-//				operation1.setOrigin(constraint);
-//				operation1.setPrecondition(Adornment.create(Adornment.BOUND, Adornment.FREE));
-//				operation1.setPostcondition(Adornment.create(Adornment.BOUND, Adornment.NOT_TYPECHECKED));
-//				operation1.setInput(nOperation);
-//				operation1.setParameters(parameters);
-//				nOperation.addEventListener(operation1);
-//				result.add(operation1);
+				// EOperation eOperation = ((Operation) cType).getLinkedElement();
+				// ReflectiveEMFOperation<?> nOperation = getConstraintType(eOperation);
+				// RemappingOperation operation0 = new RemappingOperation();
+				// operation0.setOrigin(constraint);
+				// operation0.setPrecondition(Adornment.create(Adornment.BOUND,
+				// Adornment.BOUND));
+				// operation0.setPostcondition(Adornment.create(Adornment.BOUND,
+				// Adornment.BOUND));
+				// operation0.setInput(nOperation);
+				// operation0.setParameters(parameters);
+				// nOperation.addEventListener(operation0);
+				// result.add(operation0);
+				// RemappingOperation operation1 = new RemappingOperation();
+				// operation1.setOrigin(constraint);
+				// operation1.setPrecondition(Adornment.create(Adornment.BOUND,
+				// Adornment.FREE));
+				// operation1.setPostcondition(Adornment.create(Adornment.BOUND,
+				// Adornment.NOT_TYPECHECKED));
+				// operation1.setInput(nOperation);
+				// operation1.setParameters(parameters);
+				// nOperation.addEventListener(operation1);
+				// result.add(operation1);
 			}
 			return result;
 		}
 		return null;
 	}
-	
+
 	private final List<AdornedOperation> getAdornedOperationsForConstraints(
 			final EStructuralFeature eStructuralFeature) {
-		List<AdornedOperation> adornedOperations =
-				constraintTypeToAdornedOperation.get(eStructuralFeature);
+		List<AdornedOperation> adornedOperations = constraintTypeToAdornedOperation.get(eStructuralFeature);
 		if (adornedOperations == null) {
 			adornedOperations = new LinkedList<AdornedOperation>();
-		
+
 			ReflectiveEMFOperation<?> nativeOperation = getConstraintType(eStructuralFeature);
 			if (nativeOperation instanceof BidirectionalReference) {
 				// Bidirectional
-				DelegatingAdornedOperation checkOperation =
-						new DelegatingAdornedOperation(nativeOperation,
-								Adornment.create(Adornment.BOUND, Adornment.BOUND),
-								Adornment.create(Adornment.BOUND, Adornment.BOUND));
+				DelegatingAdornedOperation checkOperation = new DelegatingAdornedOperation(nativeOperation,
+						Adornment.create(Adornment.BOUND, Adornment.BOUND),
+						Adornment.create(Adornment.BOUND, Adornment.BOUND));
 				adornedOperations.add(checkOperation);
 				nativeOperation.addEventListener(checkOperation);
-				DelegatingAdornedOperation extendForwardOperation =
-						new DelegatingAdornedOperation(nativeOperation,
-								Adornment.create(Adornment.BOUND, Adornment.FREE),
-								Adornment.create(Adornment.BOUND, Adornment.NOT_TYPECHECKED));
+				DelegatingAdornedOperation extendForwardOperation = new DelegatingAdornedOperation(nativeOperation,
+						Adornment.create(Adornment.BOUND, Adornment.FREE),
+						Adornment.create(Adornment.BOUND, Adornment.NOT_TYPECHECKED));
 				adornedOperations.add(extendForwardOperation);
 				nativeOperation.addEventListener(extendForwardOperation);
-				DelegatingAdornedOperation extendBackwardOperation =
-						new DelegatingAdornedOperation(nativeOperation,
-								Adornment.create(Adornment.FREE, Adornment.BOUND),
-								Adornment.create(Adornment.NOT_TYPECHECKED, Adornment.BOUND));
+				DelegatingAdornedOperation extendBackwardOperation = new DelegatingAdornedOperation(nativeOperation,
+						Adornment.create(Adornment.FREE, Adornment.BOUND),
+						Adornment.create(Adornment.NOT_TYPECHECKED, Adornment.BOUND));
 				adornedOperations.add(extendBackwardOperation);
 				nativeOperation.addEventListener(extendBackwardOperation);
 			} else {
 				// Unidirectional
-				DelegatingAdornedOperation checkOperation =
-						new DelegatingAdornedOperation(nativeOperation,
-								Adornment.create(Adornment.BOUND, Adornment.BOUND),
-								Adornment.create(Adornment.BOUND, Adornment.BOUND));
+				DelegatingAdornedOperation checkOperation = new DelegatingAdornedOperation(nativeOperation,
+						Adornment.create(Adornment.BOUND, Adornment.BOUND),
+						Adornment.create(Adornment.BOUND, Adornment.BOUND));
 				adornedOperations.add(checkOperation);
 				nativeOperation.addEventListener(checkOperation);
-				DelegatingAdornedOperation extendForwardOperation =
-						new DelegatingAdornedOperation(nativeOperation,
-								Adornment.create(Adornment.BOUND, Adornment.FREE),
-								Adornment.create(Adornment.BOUND, Adornment.NOT_TYPECHECKED));
+				DelegatingAdornedOperation extendForwardOperation = new DelegatingAdornedOperation(nativeOperation,
+						Adornment.create(Adornment.BOUND, Adornment.FREE),
+						Adornment.create(Adornment.BOUND, Adornment.NOT_TYPECHECKED));
 				adornedOperations.add(extendForwardOperation);
 				nativeOperation.addEventListener(extendForwardOperation);
 			}
@@ -167,7 +159,7 @@ public class ReflectiveInterpreterOperationBuilder implements OperationBuilder<R
 		}
 		return adornedOperations;
 	}
-	
+
 	private final ReflectiveEMFOperation<? extends EModelElement> getConstraintType(EModelElement eModelElement) {
 		ReflectiveEMFOperation<? extends EModelElement> constraintType = constraintTypeMapping.get(eModelElement);
 		if (constraintType == null) {
@@ -183,7 +175,7 @@ public class ReflectiveInterpreterOperationBuilder implements OperationBuilder<R
 					constraintType = new UnidirectionalToOneOperation(emfBuilder, eAttribute);
 				}
 			}
-			break;
+				break;
 			case EcorePackage.EREFERENCE: {
 				EReference eReference = (EReference) eModelElement;
 				if (eReference.getEOpposite() != null) {
@@ -215,7 +207,7 @@ public class ReflectiveInterpreterOperationBuilder implements OperationBuilder<R
 					}
 				}
 			}
-			break;
+				break;
 			default:
 				return null;
 			}
@@ -224,21 +216,18 @@ public class ReflectiveInterpreterOperationBuilder implements OperationBuilder<R
 		return constraintType;
 	}
 
-	private final DelegatingAdornedOperation getAdornedOperationForVariable(
-			final EClassifier eClassifier) {
-		DelegatingAdornedOperation adornedOperation =
-				variableTypeToAdornedOperation.get(eClassifier);
+	private final DelegatingAdornedOperation getAdornedOperationForVariable(final EClassifier eClassifier) {
+		DelegatingAdornedOperation adornedOperation = variableTypeToAdornedOperation.get(eClassifier);
 		if (adornedOperation == null) {
 			ReflectiveEMFOperation<?> nativeOperation = getVariableType(eClassifier);
 			adornedOperation = new DelegatingAdornedOperation(nativeOperation,
-					Adornment.create(Adornment.NOT_TYPECHECKED),
-					Adornment.create(Adornment.BOUND));
+					Adornment.create(Adornment.NOT_TYPECHECKED), Adornment.create(Adornment.BOUND));
 			nativeOperation.addEventListener(adornedOperation);
 			variableTypeToAdornedOperation.put(eClassifier, adornedOperation);
 		}
 		return adornedOperation;
 	}
-	
+
 	private final ReflectiveEMFOperation<? extends EModelElement> getVariableType(EClassifier eClassifier) {
 		ReflectiveEMFOperation<? extends EModelElement> variableType = variableTypeMapping.get(eClassifier);
 		if (variableType == null) {

@@ -30,11 +30,11 @@ public abstract class AbstractTreeIterator<E> implements Iterator<E> {
 	private boolean isPostorder;
 	protected final Stack<E> objectStack = new Stack<E>();
 	protected final Stack<Iterator<E>> iteratorStack = new Stack<Iterator<E>>();
-	
+
 	public AbstractTreeIterator(E root) {
 		this(root, POSTORDER);
 	}
-	
+
 	public AbstractTreeIterator(E root, boolean order) {
 		this.isPostorder = order;
 		objectStack.push(root);
@@ -43,9 +43,9 @@ public abstract class AbstractTreeIterator<E> implements Iterator<E> {
 			step();
 		}
 	}
-	
+
 	protected abstract Iterator<E> getChildren(E object);
-	
+
 	public boolean hasNext() {
 		return !objectStack.empty() && objectStack.peek() != null;
 	}

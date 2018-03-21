@@ -6,9 +6,8 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 
 /**
- * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Attribute</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object
+ * '<em><b>Attribute</b></em>'. <!-- end-user-doc -->
  *
  *
  * @see org.gervarro.democles.specification.emf.constraint.emf.emf.EMFTypePackage#getAttribute()
@@ -17,8 +16,8 @@ import org.eclipse.emf.ecore.EClass;
  */
 public class Attribute extends StructuralFeature<EAttribute> {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected Attribute() {
@@ -26,8 +25,8 @@ public class Attribute extends StructuralFeature<EAttribute> {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

@@ -25,16 +25,14 @@ public class BitVector implements Iterable<Boolean> {
 
 	private static final int RIGHT_BITS = ELM_SIZE - 1;
 
-	private static final int[] TWO_N_ARRAY = new int[] { 0x1, 0x2, 0x4,
-		0x8, 0x10, 0x20, 0x40, 0x80, 0x100, 0x200, 0x400, 0x800,
-		0x1000, 0x2000, 0x4000, 0x8000, 0x10000, 0x20000, 0x40000,
-		0x80000, 0x100000, 0x200000, 0x400000, 0x800000, 0x1000000,
-		0x2000000, 0x4000000, 0x8000000, 0x10000000, 0x20000000,
-		0x40000000, 0x80000000 };
-	
+	private static final int[] TWO_N_ARRAY = new int[] { 0x1, 0x2, 0x4, 0x8, 0x10, 0x20, 0x40, 0x80, 0x100, 0x200,
+			0x400, 0x800, 0x1000, 0x2000, 0x4000, 0x8000, 0x10000, 0x20000, 0x40000, 0x80000, 0x100000, 0x200000,
+			0x400000, 0x800000, 0x1000000, 0x2000000, 0x4000000, 0x8000000, 0x10000000, 0x20000000, 0x40000000,
+			0x80000000 };
+
 	private final int[] bits;
 	private final int length;
-	
+
 	public BitVector() {
 		this(0);
 	}
@@ -62,8 +60,8 @@ public class BitVector implements Iterable<Boolean> {
 
 	/**
 	 * Compares the argument to this {@code BitSet} and returns whether they are
-	 * equal. The object must be an instance of {@code BitSet} with the same
-	 * bits set.
+	 * equal. The object must be an instance of {@code BitSet} with the same bits
+	 * set.
 	 * 
 	 * @param obj
 	 *            the {@code BitSet} object to compare.
@@ -94,11 +92,10 @@ public class BitVector implements Iterable<Boolean> {
 	}
 
 	/**
-	 * Computes the hash code for this {@code BitSet}. If two {@code BitSet}s are equal
-	 * the have to return the same result for {@code hashCode()}.
+	 * Computes the hash code for this {@code BitSet}. If two {@code BitSet}s are
+	 * equal the have to return the same result for {@code hashCode()}.
 	 * 
-	 * @return the {@code int} representing the hash code for this bit
-	 *         set.
+	 * @return the {@code int} representing the hash code for this bit set.
 	 * @see #equals
 	 * @see java.util.Hashtable
 	 */
@@ -121,12 +118,9 @@ public class BitVector implements Iterable<Boolean> {
 		bytes[index++] = (byte) (length >>> 24);
 		return MurmurHash.hash32(bytes, bytes.length);
 		/*
-		long x = 1234;
-		for (int i = 0; i < bits.length; i++) {
-			x ^= bits[i] * (i + 1);
-		}
-		return (int) ((x >> 32) ^ x);
-		*/
+		 * long x = 1234; for (int i = 0; i < bits.length; i++) { x ^= bits[i] * (i +
+		 * 1); } return (int) ((x >> 32) ^ x);
+		 */
 	}
 
 	/**
@@ -135,8 +129,8 @@ public class BitVector implements Iterable<Boolean> {
 	 * 
 	 * @param pos
 	 *            the index of the bit to be retrieved.
-	 * @return {@code true} if the bit at {@code pos} is set,
-	 *         {@code false} otherwise.
+	 * @return {@code true} if the bit at {@code pos} is set, {@code false}
+	 *         otherwise.
 	 * @throws IndexOutOfBoundsException
 	 *             if {@code pos} is negative.
 	 * @see #clear(int)
@@ -249,8 +243,8 @@ public class BitVector implements Iterable<Boolean> {
 	 * @param pos2
 	 *            ending position.
 	 * @throws IndexOutOfBoundsException
-	 *             if {@code pos1} or {@code pos2} is negative, or if
-	 *             {@code pos2} is smaller than {@code pos1}.
+	 *             if {@code pos1} or {@code pos2} is negative, or if {@code pos2}
+	 *             is smaller than {@code pos1}.
 	 * @see #clear(int)
 	 */
 	public void clear(int pos1, int pos2) {
@@ -299,8 +293,8 @@ public class BitVector implements Iterable<Boolean> {
 	 * @param pos2
 	 *            ending position.
 	 * @throws IndexOutOfBoundsException
-	 *             if {@code pos1} or {@code pos2} is negative, or if
-	 *             {@code pos2} is smaller than {@code pos1}.
+	 *             if {@code pos1} or {@code pos2} is negative, or if {@code pos2}
+	 *             is smaller than {@code pos1}.
 	 * @see #flip(int)
 	 */
 	public void flip(int pos1, int pos2) {
@@ -342,7 +336,7 @@ public class BitVector implements Iterable<Boolean> {
 		}
 		return sb.toString();
 	}
-	
+
 	public String toString(boolean firstCapital, boolean allCapital, String separator) {
 		StringBuilder sb = new StringBuilder(length);
 		for (int i = 0; i < length; i++) {
@@ -359,11 +353,13 @@ public class BitVector implements Iterable<Boolean> {
 	}
 
 	/**
-	 * Returns the position of the first bit that is {@code true} on or after {@code pos}.
+	 * Returns the position of the first bit that is {@code true} on or after
+	 * {@code pos}.
 	 * 
 	 * @param pos
 	 *            the starting position (inclusive).
-	 * @return -1 if there is no bits that are set to {@code true} on or after {@code pos}.
+	 * @return -1 if there is no bits that are set to {@code true} on or after
+	 *         {@code pos}.
 	 */
 	public int nextSetBit(int pos) {
 		if (pos < 0 || pos >= length) {
@@ -404,12 +400,13 @@ public class BitVector implements Iterable<Boolean> {
 	}
 
 	/**
-	 * Returns the position of the first bit that is {@code false} on or after {@code pos}.
+	 * Returns the position of the first bit that is {@code false} on or after
+	 * {@code pos}.
 	 * 
 	 * @param pos
 	 *            the starting position (inclusive).
-	 * @return the position of the next bit set to {@code false}, even if it is further
-	 *         than this {@code BitSet}'s size.
+	 * @return the position of the next bit set to {@code false}, even if it is
+	 *         further than this {@code BitSet}'s size.
 	 */
 	public int nextClearBit(int pos) {
 		if (pos < 0 || pos >= length) {
@@ -451,8 +448,7 @@ public class BitVector implements Iterable<Boolean> {
 	/**
 	 * Returns true if all the bits in this {@code BitSet} are set to false.
 	 * 
-	 * @return {@code true} if the {@code BitSet} is empty,
-	 *         {@code false} otherwise.
+	 * @return {@code true} if the {@code BitSet} is empty, {@code false} otherwise.
 	 */
 	public boolean isEmpty() {
 		for (int idx = 0; idx < bits.length; idx++) {
@@ -462,16 +458,16 @@ public class BitVector implements Iterable<Boolean> {
 		}
 		return true;
 	}
-	
+
 	public final BitVector and(BitVector other) {
 		return new BitVector(this).internalAnd(other);
 	}
-	
+
 	private final BitVector internalAnd(BitVector other) {
 		if (length != other.length) {
 			throw new IllegalArgumentException("The lengths of bit arrays differ");
 		}
-		for (int i = 0; i < bits.length; i ++) {
+		for (int i = 0; i < bits.length; i++) {
 			bits[i] &= other.bits[i];
 		}
 		int mask = (~0) >>> (RIGHT_BITS - ((length - 1) & RIGHT_BITS));
@@ -482,12 +478,12 @@ public class BitVector implements Iterable<Boolean> {
 	public final BitVector xor(BitVector other) {
 		return new BitVector(this).internalXor(other);
 	}
-	
+
 	private final BitVector internalXor(BitVector other) {
 		if (length != other.length) {
 			throw new IllegalArgumentException("The lengths of bit arrays differ");
 		}
-		for (int i = 0; i < bits.length; i ++) {
+		for (int i = 0; i < bits.length; i++) {
 			bits[i] ^= other.bits[i];
 		}
 		int mask = (~0) >>> (RIGHT_BITS - ((length - 1) & RIGHT_BITS));
@@ -498,12 +494,12 @@ public class BitVector implements Iterable<Boolean> {
 	public final BitVector or(BitVector other) {
 		return new BitVector(this).internalOr(other);
 	}
-	
+
 	private final BitVector internalOr(BitVector other) {
 		if (length != other.length) {
 			throw new IllegalArgumentException("The lengths of bit arrays differ");
 		}
-		for (int i = 0; i < bits.length; i ++) {
+		for (int i = 0; i < bits.length; i++) {
 			bits[i] |= other.bits[i];
 		}
 		int mask = (~0) >>> (RIGHT_BITS - ((length - 1) & RIGHT_BITS));
@@ -514,9 +510,9 @@ public class BitVector implements Iterable<Boolean> {
 	public final BitVector not() {
 		return new BitVector(this).internalNot();
 	}
-	
+
 	private final BitVector internalNot() {
-		for (int i = 0; i < bits.length; i ++) {
+		for (int i = 0; i < bits.length; i++) {
 			bits[i] = ~bits[i];
 		}
 		int mask = (~0) >>> (RIGHT_BITS - ((length - 1) & RIGHT_BITS));
@@ -549,12 +545,10 @@ public class BitVector implements Iterable<Boolean> {
 	}
 
 	/*
-	final int numberOfSetBits(int i) {
-		i = i - ((i >> 1) & 0x55555555);
-		i = (i & 0x33333333) + ((i >> 2) & 0x33333333);
-		return ((i + (i >> 4) & 0xF0F0F0F) * 0x1010101) >> 24;
-	}
-	*/
+	 * final int numberOfSetBits(int i) { i = i - ((i >> 1) & 0x55555555); i = (i &
+	 * 0x33333333) + ((i >> 2) & 0x33333333); return ((i + (i >> 4) & 0xF0F0F0F) *
+	 * 0x1010101) >> 24; }
+	 */
 
 	public boolean fulfills(BitVector constraint) {
 		if (length != constraint.length) {
@@ -584,7 +578,7 @@ public class BitVector implements Iterable<Boolean> {
 			public void remove() {
 				throw new UnsupportedOperationException();
 			}
-			
+
 		};
 	}
 }

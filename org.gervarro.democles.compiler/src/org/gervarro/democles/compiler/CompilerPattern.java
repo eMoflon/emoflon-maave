@@ -39,20 +39,17 @@ public final class CompilerPattern extends Pattern {
 	private List<CompilerPatternBody> bodies;
 	private List<GeneratorVariable> symbolicParameterRuntimes;
 	private List<GeneratorOperation> symbolicParameterOperations;
-	
-	CompilerPattern(CompilerPatternBuilder module,
-			String name,
-			List<? extends Variable> symbolicParameters) {
+
+	CompilerPattern(CompilerPatternBuilder module, String name, List<? extends Variable> symbolicParameters) {
 		super(name, null);
 		this.module = module;
-		this.symbolicParameters =
-			new ArrayList<Variable>(symbolicParameters);
+		this.symbolicParameters = new ArrayList<Variable>(symbolicParameters);
 	}
-	
+
 	public final CompilerPatternBuilder getBuilder() {
 		return module;
 	}
-	
+
 	public final List<CompilerPatternBody> getBodies() {
 		if (this.bodies != null) {
 			return bodies;
@@ -61,88 +58,86 @@ public final class CompilerPattern extends Pattern {
 			return emptyList;
 		}
 	}
-	
+
 	final void setBodies(List<CompilerPatternBody> bodies) {
 		if (this.bodies == null) {
 			this.bodies = bodies;
-			for (int i = 0; i < this.bodies.size(); ) {
+			for (int i = 0; i < this.bodies.size();) {
 				CompilerPatternBody body = this.bodies.get(i);
 				body.setHeader(this);
 				body.setIndex(++i);
 			}
 		}
 	}
-	
+
 	public List<Variable> getSymbolicParameters() {
 		return symbolicParameters;
 	}
-	
+
 	final List<GeneratorVariable> getRuntimeSymbolicParameters() {
 		if (symbolicParameterRuntimes == null) {
 			symbolicParameterRuntimes = getBuilder().createVariableRuntimes(getSymbolicParameters(), 0);
 		}
 		return symbolicParameterRuntimes;
 	}
-	
+
 	final Map<ConstraintVariable, GeneratorVariable> getVariableMap() {
-		final Map<ConstraintVariable, GeneratorVariable> variableMap =
-				new HashMap<ConstraintVariable, GeneratorVariable>();
+		final Map<ConstraintVariable, GeneratorVariable> variableMap = new HashMap<ConstraintVariable, GeneratorVariable>();
 		for (int i = 0; i < getSymbolicParameters().size(); i++) {
 			variableMap.put(getSymbolicParameters().get(i), getRuntimeSymbolicParameters().get(i));
 		}
 		return variableMap;
 	}
-	
+
 	final List<GeneratorOperation> getSymbolicParameterOperations() {
 		if (symbolicParameterOperations == null) {
-			symbolicParameterOperations =
-				new ArrayList<GeneratorOperation>(getSymbolicParameters().size());
+			symbolicParameterOperations = new ArrayList<GeneratorOperation>(getSymbolicParameters().size());
 			for (int i = 0; i < getSymbolicParameters().size(); i++) {
-				final GeneratorOperation newOperation =
-					getBuilder().buildVariableOperation(getSymbolicParameters().get(i), getRuntimeSymbolicParameters().get(i));
+				final GeneratorOperation newOperation = getBuilder()
+						.buildVariableOperation(getSymbolicParameters().get(i), getRuntimeSymbolicParameters().get(i));
 				symbolicParameterOperations.add(newOperation);
 			}
 		}
 		return symbolicParameterOperations;
 	}
-	
+
 	public List<GeneratorOperation> getInternalSymbolicParameters() {
 		return getSymbolicParameterOperations();
 	}
-	
+
 	public final VariableRuntime getRuntimeVariable(int index) {
 		return getRuntimeSymbolicParameters().get(index);
 	}
-	
+
 	public final String getClassName() {
 		StringBuilder builder = new StringBuilder(getName());
 		builder.replace(0, 1, builder.substring(0, 1).toUpperCase());
 		builder.append(module.getPatternSuffix());
 		return builder.toString();
 	}
-	
+
 	public final String getBodyName() {
 		StringBuilder builder = new StringBuilder(getClassName());
 		builder.append(module.getBodySuffix());
 		return builder.toString();
 	}
-	
+
 	public final String getDataFrameName() {
 		return getClassName() + module.getDataFrameSuffix();
 	}
-	
+
 	public final String getFullyQualifiedClassName() {
 		StringBuilder builder = new StringBuilder(module.getPackagePrefix());
 		builder.append(getClassName());
 		return builder.toString();
 	}
-	
+
 	public final String getFullyQualifiedBodyName() {
 		StringBuilder builder = new StringBuilder(module.getPackagePrefix());
 		builder.append(getBodyName());
 		return builder.toString();
 	}
-	
+
 	public final String getFullyQualifiedDataFrameName() {
 		StringBuilder builder = new StringBuilder(module.getPackagePrefix());
 		builder.append(getDataFrameName());

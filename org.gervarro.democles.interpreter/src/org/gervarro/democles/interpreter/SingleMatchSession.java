@@ -36,7 +36,7 @@ public class SingleMatchSession extends PatternMatchingSession {
 		performPatternMatching(input, adornment);
 		return result;
 	}
-	
+
 	public void handleEvent(MatchEvent event) {
 		result = (PatternBodyDataFrame) event.getMatching();
 		tasks.clear();

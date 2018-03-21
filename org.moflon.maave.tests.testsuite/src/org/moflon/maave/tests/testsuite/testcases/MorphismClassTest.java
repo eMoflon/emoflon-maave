@@ -28,90 +28,91 @@ import SDMLanguage.activities.MoflonEOperation;
 import SDMLanguage.activities.StoryNode;
 
 public class MorphismClassTest {
-     
 
-   @Test
-   public void test1() {
-      System.out.println("Starting MorphismClassTest/Test1" );
-      DiachasePackage.eINSTANCE.getClass();
-      MnoqPackage.eINSTANCE.getClass();
-      
-      EPackage pack=TestRunner.loadTestMM("org.moflon.maave.tests.testgen.diachase", "Diachase");
-      EClass cls=(EClass) pack.getEClassifier("MorphismClassTestPatterns");
-      MoflonEOperation op1=(MoflonEOperation) cls.getEOperations().stream().filter(x->x.getName().equals("testPattern1")).findFirst().get();
-      MoflonEOperation op2=(MoflonEOperation) cls.getEOperations().stream().filter(x->x.getName().equals("testPattern3")).findFirst().get();
-      Assert.assertTrue("FailedAssert: 0",op1!=null && op2!=null);
-      StoryNode stn1=(StoryNode) op1.getActivity().getOwnedActivityNode().stream().filter(x->x instanceof StoryNode).collect(Collectors.toList()).get(0);
-      StoryNode stn2=(StoryNode) op2.getActivity().getOwnedActivityNode().stream().filter(x->x instanceof StoryNode).collect(Collectors.toList()).get(0);
+	@Test
+	public void test1() {
+		System.out.println("Starting MorphismClassTest/Test1");
+		DiachasePackage.eINSTANCE.getClass();
+		MnoqPackage.eINSTANCE.getClass();
 
-      Transformer transformer=StptransformationFactory.eINSTANCE.createTransformer();
-      SymbGTRule rule1=transformer.transformStpToProjGTRule(stn1.getStoryPattern());
-      SymbGTRule rule2=transformer.transformStpToProjGTRule(stn2.getStoryPattern());
-      SymbolicGraph graphA=rule1.getLeft().getCodom();
-      SymbolicGraph graphB=rule2.getLeft().getCodom();
-      
-      ConfigurableMorphismClassFactory morClassFac =MatchingUtilsFactory.eINSTANCE.createConfigurableMorphismClassFactory();
-      MorphismFinderFactory mofFindFac=MatchingFactory.eINSTANCE.createMorphismFinderFactory();
-      
-      ConfigurableMorphismClass morclass=morClassFac.createMorphismClass("I", "I", "I", "I", "=>");
-      ConfigurableMorphismFinder morFinderForA = mofFindFac.createMorphismFinder(graphA, morclass);
-      SymbolicGraphMorphism emptyMorA_B=SymbolicGraphMorphismsFactory.eINSTANCE.createSymbolicGraphMorphism();
-      emptyMorA_B.setDom(graphA);
-      emptyMorA_B.setCodom(graphB);
-      MorphismsSet morSetA_B=morFinderForA.getAllMorphisms(emptyMorA_B);
-      ConfigurableMorphismClass morclassProj=morClassFac.createMorphismClass("I", "I", "I", "I", "Proj");
-      
-      assertTrue(morSetA_B.getMorphisms().size()>0);
-      for (SymbolicGraphMorphism mor : morSetA_B.getMorphisms())
-      {
-         assertTrue(morclassProj.isMember(mor).isValid()==false);
-      }
-      
+		EPackage pack = TestRunner.loadTestMM("org.moflon.maave.tests.testgen.diachase", "Diachase");
+		EClass cls = (EClass) pack.getEClassifier("MorphismClassTestPatterns");
+		MoflonEOperation op1 = (MoflonEOperation) cls.getEOperations().stream()
+				.filter(x -> x.getName().equals("testPattern1")).findFirst().get();
+		MoflonEOperation op2 = (MoflonEOperation) cls.getEOperations().stream()
+				.filter(x -> x.getName().equals("testPattern3")).findFirst().get();
+		Assert.assertTrue("FailedAssert: 0", op1 != null && op2 != null);
+		StoryNode stn1 = (StoryNode) op1.getActivity().getOwnedActivityNode().stream()
+				.filter(x -> x instanceof StoryNode).collect(Collectors.toList()).get(0);
+		StoryNode stn2 = (StoryNode) op2.getActivity().getOwnedActivityNode().stream()
+				.filter(x -> x instanceof StoryNode).collect(Collectors.toList()).get(0);
 
+		Transformer transformer = StptransformationFactory.eINSTANCE.createTransformer();
+		SymbGTRule rule1 = transformer.transformStpToProjGTRule(stn1.getStoryPattern());
+		SymbGTRule rule2 = transformer.transformStpToProjGTRule(stn2.getStoryPattern());
+		SymbolicGraph graphA = rule1.getLeft().getCodom();
+		SymbolicGraph graphB = rule2.getLeft().getCodom();
 
+		ConfigurableMorphismClassFactory morClassFac = MatchingUtilsFactory.eINSTANCE
+				.createConfigurableMorphismClassFactory();
+		MorphismFinderFactory mofFindFac = MatchingFactory.eINSTANCE.createMorphismFinderFactory();
 
-   }
-   
-   @Test
-   public void test2() {
-      System.out.println("Starting MorphismClassTest/Test2" );
-      DiachasePackage.eINSTANCE.getClass();
-      MnoqPackage.eINSTANCE.getClass();
-      
-      EPackage pack=TestRunner.loadTestMM("org.moflon.maave.tests.testgen.diachase", "Diachase");
-      EClass cls=(EClass) pack.getEClassifier("MorphismClassTestPatterns");
-      MoflonEOperation op1=(MoflonEOperation) cls.getEOperations().stream().filter(x->x.getName().equals("testPattern2")).findFirst().get();
-      MoflonEOperation op2=(MoflonEOperation) cls.getEOperations().stream().filter(x->x.getName().equals("testPattern3")).findFirst().get();
-      Assert.assertTrue("FailedAssert: 0",op1!=null && op2!=null);
-      StoryNode stn1=(StoryNode) op1.getActivity().getOwnedActivityNode().stream().filter(x->x instanceof StoryNode).collect(Collectors.toList()).get(0);
-      StoryNode stn2=(StoryNode) op2.getActivity().getOwnedActivityNode().stream().filter(x->x instanceof StoryNode).collect(Collectors.toList()).get(0);
+		ConfigurableMorphismClass morclass = morClassFac.createMorphismClass("I", "I", "I", "I", "=>");
+		ConfigurableMorphismFinder morFinderForA = mofFindFac.createMorphismFinder(graphA, morclass);
+		SymbolicGraphMorphism emptyMorA_B = SymbolicGraphMorphismsFactory.eINSTANCE.createSymbolicGraphMorphism();
+		emptyMorA_B.setDom(graphA);
+		emptyMorA_B.setCodom(graphB);
+		MorphismsSet morSetA_B = morFinderForA.getAllMorphisms(emptyMorA_B);
+		ConfigurableMorphismClass morclassProj = morClassFac.createMorphismClass("I", "I", "I", "I", "Proj");
 
-      Transformer transformer=StptransformationFactory.eINSTANCE.createTransformer();
-      SymbGTRule rule1=transformer.transformStpToProjGTRule(stn1.getStoryPattern());
-      SymbGTRule rule2=transformer.transformStpToProjGTRule(stn2.getStoryPattern());
-      SymbolicGraph graphA=rule1.getLeft().getCodom();
-      SymbolicGraph graphB=rule2.getLeft().getCodom();
-      
-      ConfigurableMorphismClassFactory morClassFac =MatchingUtilsFactory.eINSTANCE.createConfigurableMorphismClassFactory();
-      MorphismFinderFactory mofFindFac=MatchingFactory.eINSTANCE.createMorphismFinderFactory();
-      
-      ConfigurableMorphismClass morclass=morClassFac.createMorphismClass("I", "I", "I", "I", "=>");
-      ConfigurableMorphismFinder morFinderForA = mofFindFac.createMorphismFinder(graphA, morclass);
-      SymbolicGraphMorphism emptyMorA_B=SymbolicGraphMorphismsFactory.eINSTANCE.createSymbolicGraphMorphism();
-      emptyMorA_B.setDom(graphA);
-      emptyMorA_B.setCodom(graphB);
-      MorphismsSet morSetA_B=morFinderForA.getAllMorphisms(emptyMorA_B);
-      ConfigurableMorphismClass morclassProj=morClassFac.createMorphismClass("I", "I", "I", "I", "Proj");
-      
-      assertTrue(morSetA_B.getMorphisms().size()>0);
-      for (SymbolicGraphMorphism mor : morSetA_B.getMorphisms())
-      {
-         assertTrue(morclassProj.isMember(mor).isValid());
-      }
-      
+		assertTrue(morSetA_B.getMorphisms().size() > 0);
+		for (SymbolicGraphMorphism mor : morSetA_B.getMorphisms()) {
+			assertTrue(morclassProj.isMember(mor).isValid() == false);
+		}
 
+	}
 
+	@Test
+	public void test2() {
+		System.out.println("Starting MorphismClassTest/Test2");
+		DiachasePackage.eINSTANCE.getClass();
+		MnoqPackage.eINSTANCE.getClass();
 
-   }
+		EPackage pack = TestRunner.loadTestMM("org.moflon.maave.tests.testgen.diachase", "Diachase");
+		EClass cls = (EClass) pack.getEClassifier("MorphismClassTestPatterns");
+		MoflonEOperation op1 = (MoflonEOperation) cls.getEOperations().stream()
+				.filter(x -> x.getName().equals("testPattern2")).findFirst().get();
+		MoflonEOperation op2 = (MoflonEOperation) cls.getEOperations().stream()
+				.filter(x -> x.getName().equals("testPattern3")).findFirst().get();
+		Assert.assertTrue("FailedAssert: 0", op1 != null && op2 != null);
+		StoryNode stn1 = (StoryNode) op1.getActivity().getOwnedActivityNode().stream()
+				.filter(x -> x instanceof StoryNode).collect(Collectors.toList()).get(0);
+		StoryNode stn2 = (StoryNode) op2.getActivity().getOwnedActivityNode().stream()
+				.filter(x -> x instanceof StoryNode).collect(Collectors.toList()).get(0);
+
+		Transformer transformer = StptransformationFactory.eINSTANCE.createTransformer();
+		SymbGTRule rule1 = transformer.transformStpToProjGTRule(stn1.getStoryPattern());
+		SymbGTRule rule2 = transformer.transformStpToProjGTRule(stn2.getStoryPattern());
+		SymbolicGraph graphA = rule1.getLeft().getCodom();
+		SymbolicGraph graphB = rule2.getLeft().getCodom();
+
+		ConfigurableMorphismClassFactory morClassFac = MatchingUtilsFactory.eINSTANCE
+				.createConfigurableMorphismClassFactory();
+		MorphismFinderFactory mofFindFac = MatchingFactory.eINSTANCE.createMorphismFinderFactory();
+
+		ConfigurableMorphismClass morclass = morClassFac.createMorphismClass("I", "I", "I", "I", "=>");
+		ConfigurableMorphismFinder morFinderForA = mofFindFac.createMorphismFinder(graphA, morclass);
+		SymbolicGraphMorphism emptyMorA_B = SymbolicGraphMorphismsFactory.eINSTANCE.createSymbolicGraphMorphism();
+		emptyMorA_B.setDom(graphA);
+		emptyMorA_B.setCodom(graphB);
+		MorphismsSet morSetA_B = morFinderForA.getAllMorphisms(emptyMorA_B);
+		ConfigurableMorphismClass morclassProj = morClassFac.createMorphismClass("I", "I", "I", "I", "Proj");
+
+		assertTrue(morSetA_B.getMorphisms().size() > 0);
+		for (SymbolicGraphMorphism mor : morSetA_B.getMorphisms()) {
+			assertTrue(morclassProj.isMember(mor).isValid());
+		}
+
+	}
 
 }

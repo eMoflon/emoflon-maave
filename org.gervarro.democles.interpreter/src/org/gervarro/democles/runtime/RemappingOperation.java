@@ -32,7 +32,7 @@ public class RemappingOperation extends Operation implements OperationRuntime {
 	private AdornedOperation input;
 	private List<VariableRuntime> parameters;
 	private Object origin;
-	
+
 	public final void setInput(AdornedOperation input) {
 		this.input = input;
 	}
@@ -44,12 +44,12 @@ public class RemappingOperation extends Operation implements OperationRuntime {
 	public Adornment getPostcondition() {
 		return input.getPostcondition();
 	}
-	
+
 	public void execute(DataFrame oldFrame, Operation dataSource, String eventType) {
 		// TODO Delete operation
 		sendEvent(oldFrame, eventType);
 	}
-	
+
 	public Object getOrigin() {
 		return origin;
 	}
@@ -57,7 +57,7 @@ public class RemappingOperation extends Operation implements OperationRuntime {
 	public void setOrigin(Object origin) {
 		this.origin = origin;
 	}
-	
+
 	public String toString() {
 		final Adornment precondition = getPrecondition();
 		StringBuilder result = new StringBuilder();
@@ -70,11 +70,11 @@ public class RemappingOperation extends Operation implements OperationRuntime {
 	public List<VariableRuntime> getParameters() {
 		return parameters;
 	}
-	
+
 	public void setParameters(List<VariableRuntime> parameters) {
 		this.parameters = parameters;
 	}
-	
+
 	InternalDataFrameProvider getDataFrameProvider(DataFrame data) {
 		if (data instanceof PatternBodyDataFrame) {
 			RemappedDataFrame newFrame = new RemappedDataFrame(this, (PatternBodyDataFrame) data);
@@ -83,7 +83,7 @@ public class RemappingOperation extends Operation implements OperationRuntime {
 			return null;
 		}
 	}
-	
+
 	public void handleEvent(MatchEvent event) {
 		DataFrame frame = event.getMatching();
 		int size = getParameters().size();
@@ -95,13 +95,14 @@ public class RemappingOperation extends Operation implements OperationRuntime {
 			PatternBodyDataFrame newFrame = factory.createDataFrame(null);
 			for (int i = 0; i < size; i++) {
 				newFrame.internalSet(i, frame.getValue(i));
-				// TODO newFrame.internalSet(getParameters().get(i).getIndex(), frame.getValue(i));
+				// TODO newFrame.internalSet(getParameters().get(i).getIndex(),
+				// frame.getValue(i));
 			}
 			sendEvent(newFrame, event.getEventType());
 		} catch (ClassCastException cce) {
-			
+
 		} catch (IndexOutOfBoundsException ioobe) {
-			
+
 		}
 	}
 

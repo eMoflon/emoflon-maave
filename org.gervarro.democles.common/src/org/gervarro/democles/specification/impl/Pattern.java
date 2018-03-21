@@ -24,13 +24,13 @@ import java.util.List;
 
 abstract public class Pattern implements org.gervarro.democles.specification.Pattern {
 	private final String name;
-	
+
 	protected Pattern(String name, Variable[] symbolicParameters) {
 		this.name = name;
 	}
-	
+
 	abstract public List<? extends PatternBody> getBodies();
-	
+
 	abstract public List<? extends Variable> getSymbolicParameters();
 
 	public String getName() {

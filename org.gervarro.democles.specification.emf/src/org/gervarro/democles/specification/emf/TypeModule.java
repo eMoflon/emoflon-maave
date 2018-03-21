@@ -28,21 +28,22 @@ abstract public class TypeModule {
 	protected final org.gervarro.democles.common.TypeModule typeModule;
 	private final Switch<VariableType> variableTypeSwitch;
 	private final Switch<ConstraintType> constraintTypeSwitch;
-	
+
 	protected TypeModule(org.gervarro.democles.common.TypeModule typeModule) {
 		this.typeModule = typeModule;
 		this.variableTypeSwitch = createVariableTypeSwitch();
 		this.constraintTypeSwitch = createConstraintTypeSwitch();
 	}
-	
+
 	public final Switch<VariableType> getVariableTypeSwitch() {
 		return variableTypeSwitch;
 	}
-	
+
 	public final Switch<ConstraintType> getConstraintTypeSwitch() {
 		return constraintTypeSwitch;
 	}
-	
+
 	abstract protected Switch<VariableType> createVariableTypeSwitch();
+
 	abstract protected Switch<ConstraintType> createConstraintTypeSwitch();
 }

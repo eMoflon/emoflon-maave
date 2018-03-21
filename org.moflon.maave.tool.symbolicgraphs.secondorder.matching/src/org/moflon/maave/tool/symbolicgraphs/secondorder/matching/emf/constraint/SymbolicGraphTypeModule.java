@@ -30,11 +30,11 @@ import org.moflon.maave.tool.symbolicgraphs.secondorder.constraints.LabelNodeVar
 import org.moflon.maave.tool.symbolicgraphs.secondorder.constraints.util.ConstraintsSwitch;
 
 public final class SymbolicGraphTypeModule extends org.gervarro.democles.specification.emf.TypeModule {
-	
+
 	public SymbolicGraphTypeModule(SymbolicGraphConstraintModule typeModule) {
 		super(typeModule);
 	}
-	
+
 	@Override
 	protected final SymbolicGraphsVariableSwitch createVariableTypeSwitch() {
 		return new SymbolicGraphsVariableSwitch();
@@ -42,9 +42,9 @@ public final class SymbolicGraphTypeModule extends org.gervarro.democles.specifi
 
 	@Override
 	protected final Switch<ConstraintType> createConstraintTypeSwitch() {
-		return  null;
+		return null;
 	}
-	
+
 	private class SymbolicGraphsVariableSwitch extends ConstraintsSwitch<VariableType> {
 
 		@Override
@@ -71,13 +71,6 @@ public final class SymbolicGraphTypeModule extends org.gervarro.democles.specifi
 			return ((SymbolicGraphConstraintModule) typeModule).getVariableType(object);
 		}
 
-		
-		
-		
-
-		
 	}
-	
-	
 
 }

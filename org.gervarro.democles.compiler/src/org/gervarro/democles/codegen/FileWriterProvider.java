@@ -27,14 +27,13 @@ import java.io.Writer;
 
 public class FileWriterProvider implements WriterProvider {
 	private final File root;
-	
+
 	public FileWriterProvider(File root) {
 		this.root = root;
 	}
 
-	public Writer getWriterForJavaFile(String packageName, String className)
-			throws IOException {
-		File packageDir = new File(root, packageName.replace('.','/'));
+	public Writer getWriterForJavaFile(String packageName, String className) throws IOException {
+		File packageDir = new File(root, packageName.replace('.', '/'));
 		if (!packageDir.exists()) {
 			packageDir.mkdirs();
 		}

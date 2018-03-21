@@ -22,6 +22,8 @@ package org.gervarro.democles.specification.impl;
 
 public interface PatternFactory<P, PB> {
 	public P createPattern(String name, Variable[] symbolicParameters);
+
 	public void setBodies(P pattern, PB[] bodies);
+
 	public PB createPatternBody(Variable[] localVariables, Constraint[] constraints, Constant[] constants);
 }

@@ -29,13 +29,12 @@ import org.gervarro.extension.ExtensionLoader;
 
 public class ConstructorWithResourceSetParameter implements ExtensionLoader {
 	private final ResourceSet resourceSet;
-	
+
 	public ConstructorWithResourceSetParameter(ResourceSet resourceSet) {
 		this.resourceSet = resourceSet;
 	}
 
-	public final Object create(Class<?> clazz) throws InstantiationException,
-			IllegalAccessException {
+	public final Object create(Class<?> clazz) throws InstantiationException, IllegalAccessException {
 		try {
 			Constructor<?> constructor = clazz.getConstructor(ResourceSet.class);
 			Object result = constructor.newInstance(resourceSet);

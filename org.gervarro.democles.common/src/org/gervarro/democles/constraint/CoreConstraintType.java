@@ -25,11 +25,11 @@ import org.gervarro.democles.specification.ConstraintType;
 
 public final class CoreConstraintType implements ConstraintType {
 	private final String id;
-	
+
 	CoreConstraintType(String id) {
 		this.id = id;
 	}
-	
+
 	public final String getID() {
 		return id;
 	}
@@ -37,7 +37,7 @@ public final class CoreConstraintType implements ConstraintType {
 	public final TypeModule getModule() {
 		return CoreConstraintModule.INSTANCE;
 	}
-	
+
 	public final String toString() {
 		return id;
 	}

@@ -31,7 +31,7 @@ public class BidirectionalOneToOneOperation extends BidirectionalReference {
 	public BidirectionalOneToOneOperation(EMFConstraintModule module, EReference eReference) {
 		super(module, eReference);
 	}
-	
+
 	public final InternalDataFrameProvider getDataFrame(RemappedDataFrame frame, Adornment adornment) {
 		if (adornment.get(0) == Adornment.BOUND && adornment.get(1) == Adornment.BOUND) {
 			org.eclipse.emf.ecore.EObject src = (org.eclipse.emf.ecore.EObject) frame.getValue(0);

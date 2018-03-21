@@ -24,6 +24,8 @@ import java.util.List;
 
 public interface Pattern {
 	List<? extends PatternBody> getBodies();
+
 	List<? extends Variable> getSymbolicParameters();
+
 	String getName();
 } // Pattern

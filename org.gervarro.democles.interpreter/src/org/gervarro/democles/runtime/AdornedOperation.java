@@ -25,14 +25,12 @@ import org.gervarro.democles.event.MatchEventSource;
 import org.gervarro.democles.interpreter.InterpretableOperation;
 
 abstract public class AdornedOperation extends MatchEventSource implements InterpretableOperation {
-	protected static final Adornment BOUND_BOUND =
-			new Adornment(new int[] { Adornment.BOUND, Adornment.BOUND });
-	
+	protected static final Adornment BOUND_BOUND = new Adornment(new int[] { Adornment.BOUND, Adornment.BOUND });
+
 	private final Adornment precondition;
 	private final Adornment postcondition;
-	
-	protected AdornedOperation(final Adornment precondition,
-			final Adornment postcondition) {
+
+	protected AdornedOperation(final Adornment precondition, final Adornment postcondition) {
 		this.precondition = precondition;
 		this.postcondition = postcondition;
 	}
@@ -44,7 +42,7 @@ abstract public class AdornedOperation extends MatchEventSource implements Inter
 	public final Adornment getPostcondition() {
 		return postcondition;
 	}
-	
+
 	public InternalDataFrameProvider getDataFrame(RemappedDataFrame frame) {
 		return getDataFrame(frame, precondition);
 	}

@@ -31,7 +31,7 @@ public class JoinOperationCombiner extends InterpreterCombiner {
 		super(adornment);
 		this.root = op;
 	}
-	
+
 	public final JoinOperation getRoot() {
 		return root;
 	}

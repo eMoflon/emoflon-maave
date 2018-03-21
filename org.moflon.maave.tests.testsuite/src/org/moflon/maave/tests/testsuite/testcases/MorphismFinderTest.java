@@ -26,90 +26,82 @@ import SDMLanguage.activities.MoflonEOperation;
 import SDMLanguage.activities.StoryNode;
 
 public class MorphismFinderTest {
-   private EPackage pack;  
-   @Before
-   public void setUp() throws Exception {
-	   DiachasePackage.eINSTANCE.getClass();
-      AbcPackage.eINSTANCE.getClass();
-      pack=TestRunner.loadTestMM("org.moflon.maave.tests.testgen.diachase", "Diachase");
-   }
+	private EPackage pack;
 
-   @Test
-   public void test() {
-	   System.out.println("Starting MorphismFinderTest/Test" );
-      for (int i=1; i<=7 ;i++) {
-         EClass cls=(EClass) pack.getEClassifier("PatternGenerator");
-         int n=i;
-         MoflonEOperation operation=(MoflonEOperation) cls.getEOperations().stream().filter(x->x.getName().equals("testPattern"+n)).findFirst().get();
-         Assert.assertTrue("FailedAssert: 0",operation!=null);
-         StoryNode stn=(StoryNode) operation.getActivity().getOwnedActivityNode().stream().filter(x->x instanceof StoryNode).collect(Collectors.toList()).get(0);
-         Transformer transformer=StptransformationFactory.eINSTANCE.createTransformer();
-         SymbGTRule rule=transformer.transformStpToSymbGTRule(stn.getStoryPattern());
-        
-         
-         SymbolicGraph L=rule.getLeft().getCodom();
-         SymbolicGraph K=rule.getLeft().getDom();
-         SymbolicGraph R=rule.getRight().getCodom();
-         SymbolicGraphMorphism left=rule.getLeft();
-         SymbolicGraphMorphism right=rule.getRight();
+	@Before
+	public void setUp() throws Exception {
+		DiachasePackage.eINSTANCE.getClass();
+		AbcPackage.eINSTANCE.getClass();
+		pack = TestRunner.loadTestMM("org.moflon.maave.tests.testgen.diachase", "Diachase");
+	}
 
+	@Test
+	public void test() {
+		System.out.println("Starting MorphismFinderTest/Test");
+		for (int i = 1; i <= 7; i++) {
+			EClass cls = (EClass) pack.getEClassifier("PatternGenerator");
+			int n = i;
+			MoflonEOperation operation = (MoflonEOperation) cls.getEOperations().stream()
+					.filter(x -> x.getName().equals("testPattern" + n)).findFirst().get();
+			Assert.assertTrue("FailedAssert: 0", operation != null);
+			StoryNode stn = (StoryNode) operation.getActivity().getOwnedActivityNode().stream()
+					.filter(x -> x instanceof StoryNode).collect(Collectors.toList()).get(0);
+			Transformer transformer = StptransformationFactory.eINSTANCE.createTransformer();
+			SymbGTRule rule = transformer.transformStpToSymbGTRule(stn.getStoryPattern());
 
-         GenericMorphismFinder morFinder = MatchingFactory.eINSTANCE.createInjectiveEGraphMorphismFinder();
-         MorphismsSet morListLeft=morFinder.getAllMorphisms(K, L);
-         MorphismsSet morListRight=morFinder.getAllMorphisms(K, R);
-         assertTrue("Failed testModel"+i+" assert 1", containsMorphism(left, morListLeft));
-         assertTrue("Failed testModel"+i+" assert 2", containsMorphism(right, morListRight));
-         
-         
-            
-         
-         
-         
-         
-      }
+			SymbolicGraph L = rule.getLeft().getCodom();
+			SymbolicGraph K = rule.getLeft().getDom();
+			SymbolicGraph R = rule.getRight().getCodom();
+			SymbolicGraphMorphism left = rule.getLeft();
+			SymbolicGraphMorphism right = rule.getRight();
 
+			GenericMorphismFinder morFinder = MatchingFactory.eINSTANCE.createInjectiveEGraphMorphismFinder();
+			MorphismsSet morListLeft = morFinder.getAllMorphisms(K, L);
+			MorphismsSet morListRight = morFinder.getAllMorphisms(K, R);
+			assertTrue("Failed testModel" + i + " assert 1", containsMorphism(left, morListLeft));
+			assertTrue("Failed testModel" + i + " assert 2", containsMorphism(right, morListRight));
 
-   }
+		}
 
-   @Test
-   public void nacTest() {
-	   System.out.println("Starting MorphismFinderTest/nacTest" );
-      for (int i=1; i<=3 ;i++) {
-         EClass cls=(EClass) pack.getEClassifier("NacPatternGenerator");
-         int n=i;
-         MoflonEOperation operation=(MoflonEOperation) cls.getEOperations().stream().filter(x->x.getName().equals("nacTestPattern"+n)).findFirst().get();
-         Assert.assertTrue("FailedAssert: 0",operation!=null);
-         StoryNode stn=(StoryNode) operation.getActivity().getOwnedActivityNode().stream().filter(x->x instanceof StoryNode).collect(Collectors.toList()).get(0);
-         Transformer transformer=StptransformationFactory.eINSTANCE.createTransformer();
-         SymbGTRule rule=transformer.transformStpToSymbGTRule(stn.getStoryPattern());
-        
-         SymbolicGraph L=rule.getLeft().getCodom();
-         SymbolicGraph K=rule.getLeft().getDom();
-         SymbolicGraph R=rule.getRight().getCodom();
-         SymbolicGraphMorphism left=rule.getLeft();
-         SymbolicGraphMorphism right=rule.getRight();
+	}
 
+	@Test
+	public void nacTest() {
+		System.out.println("Starting MorphismFinderTest/nacTest");
+		for (int i = 1; i <= 3; i++) {
+			EClass cls = (EClass) pack.getEClassifier("NacPatternGenerator");
+			int n = i;
+			MoflonEOperation operation = (MoflonEOperation) cls.getEOperations().stream()
+					.filter(x -> x.getName().equals("nacTestPattern" + n)).findFirst().get();
+			Assert.assertTrue("FailedAssert: 0", operation != null);
+			StoryNode stn = (StoryNode) operation.getActivity().getOwnedActivityNode().stream()
+					.filter(x -> x instanceof StoryNode).collect(Collectors.toList()).get(0);
+			Transformer transformer = StptransformationFactory.eINSTANCE.createTransformer();
+			SymbGTRule rule = transformer.transformStpToSymbGTRule(stn.getStoryPattern());
 
-         GenericMorphismFinder morFinder = MatchingFactory.eINSTANCE.createInjectiveEGraphMorphismFinder();
-         MorphismsSet morListLeft=morFinder.getAllMorphisms(K, L);
-         MorphismsSet morListRight=morFinder.getAllMorphisms(K, R);
-         assertTrue("Failed testModel"+i+" assert 1", containsMorphism(left, morListLeft));
-         assertTrue("Failed testModel"+i+" assert 2", containsMorphism(right, morListRight));
-      }
+			SymbolicGraph L = rule.getLeft().getCodom();
+			SymbolicGraph K = rule.getLeft().getDom();
+			SymbolicGraph R = rule.getRight().getCodom();
+			SymbolicGraphMorphism left = rule.getLeft();
+			SymbolicGraphMorphism right = rule.getRight();
 
+			GenericMorphismFinder morFinder = MatchingFactory.eINSTANCE.createInjectiveEGraphMorphismFinder();
+			MorphismsSet morListLeft = morFinder.getAllMorphisms(K, L);
+			MorphismsSet morListRight = morFinder.getAllMorphisms(K, R);
+			assertTrue("Failed testModel" + i + " assert 1", containsMorphism(left, morListLeft));
+			assertTrue("Failed testModel" + i + " assert 2", containsMorphism(right, morListRight));
+		}
 
-   }
+	}
 
-   public boolean containsMorphism(SymbolicGraphMorphism mor, MorphismsSet morList){
-      CategoryUtil helper=MatchingUtilsFactory.eINSTANCE.createCategoryUtil();
-      for (SymbolicGraphMorphism mor2 : morList.getMorphisms()) {
-         if(helper.areSimilarEGraphMorphisms(mor, mor2)){
-            return true;
-         }
-      }
-      return false;
-   }
-   
-   
-   
+	public boolean containsMorphism(SymbolicGraphMorphism mor, MorphismsSet morList) {
+		CategoryUtil helper = MatchingUtilsFactory.eINSTANCE.createCategoryUtil();
+		for (SymbolicGraphMorphism mor2 : morList.getMorphisms()) {
+			if (helper.areSimilarEGraphMorphisms(mor, mor2)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 }

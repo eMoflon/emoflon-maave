@@ -21,8 +21,7 @@
 package org.gervarro.extension;
 
 public interface ExtensionLoader {
-	public static final ExtensionLoader NO_ARG_CONSTRUCTOR = 
-		new NoArgumentConstructor();
-	
+	public static final ExtensionLoader NO_ARG_CONSTRUCTOR = new NoArgumentConstructor();
+
 	public Object create(Class<?> clazz) throws InstantiationException, IllegalAccessException;
 }

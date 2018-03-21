@@ -27,22 +27,21 @@ import org.gervarro.democles.interpreter.Pattern;
 
 public class MagicSet extends AdornedOperation {
 	private Pattern pattern;
-	
+
 	public MagicSet(Pattern pattern, Adornment adornment) {
 		super(adornment, adornment);
 		this.pattern = pattern;
 	}
-	
+
 	public String toString() {
 		return "MagicSet";
 	}
-	
+
 	public void submitDataFrame(DataFrame data) {
 		sendEvent(data, MatchEvent.INSERT);
 	}
 
-	public final InternalDataFrameProvider getDataFrame(RemappedDataFrame frame,
-			Adornment adornment) {
+	public final InternalDataFrameProvider getDataFrame(RemappedDataFrame frame, Adornment adornment) {
 		return null;
 	}
 }

@@ -39,23 +39,19 @@ public class ParameterizedVelocityTemplateInvocation implements Renderable {
 	private final VelocityEngine engine;
 	private final TemplateInvocation origin;
 
-	public ParameterizedVelocityTemplateInvocation(VelocityEngine engine,
-			TemplateInvocation origin) {
+	public ParameterizedVelocityTemplateInvocation(VelocityEngine engine, TemplateInvocation origin) {
 		this.engine = engine;
 		this.origin = origin;
 	}
-	
-	public ParameterizedVelocityTemplateInvocation(VelocityEngine engine,
-			String template,
-			String[] keys,
+
+	public ParameterizedVelocityTemplateInvocation(VelocityEngine engine, String template, String[] keys,
 			Object[] values) {
 		this(engine, new TemplateInvocation(template, keys, values));
 	}
 
 	@Override
 	public final boolean render(InternalContextAdapter context, Writer writer)
-			throws IOException, MethodInvocationException, ParseErrorException,
-			ResourceNotFoundException {
+			throws IOException, MethodInvocationException, ParseErrorException, ResourceNotFoundException {
 		try {
 			Template st = engine.getTemplate(origin.getTemplateName());
 			VelocityContext newContext = new VelocityContext();
@@ -68,7 +64,7 @@ public class ParameterizedVelocityTemplateInvocation implements Renderable {
 			throw new RuntimeException(e.getMessage(), e);
 		}
 	}
-	
+
 	public final String apply() {
 		try {
 			StringWriter writer = new StringWriter();

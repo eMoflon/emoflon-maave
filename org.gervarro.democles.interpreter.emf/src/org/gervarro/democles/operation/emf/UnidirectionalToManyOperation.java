@@ -33,7 +33,7 @@ public class UnidirectionalToManyOperation extends UnidirectionalStructuralFeatu
 	public UnidirectionalToManyOperation(EMFConstraintModule module, EStructuralFeature eStructuralFeature) {
 		super(module, eStructuralFeature);
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public final InternalDataFrameProvider getDataFrame(RemappedDataFrame frame, Adornment adornment) {
 		if (adornment.get(0) == Adornment.BOUND && adornment.get(1) == Adornment.BOUND) {

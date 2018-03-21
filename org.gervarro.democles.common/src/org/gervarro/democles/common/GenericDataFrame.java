@@ -27,38 +27,38 @@ public class GenericDataFrame extends DataFrame {
 	public GenericDataFrame(final Object... mappings) {
 		this(mappings, mappings.length);
 	}
-	
+
 	public GenericDataFrame(final int size, final Object... mappings) {
 		this(mappings, size);
 	}
-	
+
 	public GenericDataFrame(final Object[] mappings, final int size) {
 		this.size = size;
 		this.tuple = new Object[mappings.length];
 		System.arraycopy(mappings, 0, tuple, 0, mappings.length);
 	}
-	
+
 	public final int size() {
 		return getPublicSize();
 	}
-	
+
 	public final int internalSize() {
 		return tuple.length;
 	}
-	
+
 	public final Object internalGet(int index) {
 		int diff = index - internalSize();
 		return diff < 0 ? tuple[index] : handleFrameExternalGet(diff);
 	}
-	
+
 	public final void internalSet(int index, Object value) {
 		tuple[index] = value;
 	}
-	
+
 	int getPublicSize() {
 		return size;
 	}
-	
+
 	Object handleFrameExternalGet(int index) {
 		throw new IndexOutOfBoundsException("No such variable: " + index);
 	}

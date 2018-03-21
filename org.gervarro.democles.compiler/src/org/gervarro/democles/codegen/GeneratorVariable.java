@@ -25,12 +25,12 @@ import org.gervarro.democles.specification.impl.ConstraintVariable;
 
 public class GeneratorVariable extends VariableRuntime {
 	private final ConstraintVariable constraintVariable;
-	
+
 	public GeneratorVariable(ConstraintVariable constraintVariable, int index) {
 		super(index);
 		this.constraintVariable = constraintVariable;
 	}
-	
+
 	public final ConstraintVariable getSpecification() {
 		return constraintVariable;
 	}

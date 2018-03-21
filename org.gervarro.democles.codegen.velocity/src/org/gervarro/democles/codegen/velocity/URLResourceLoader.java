@@ -30,25 +30,24 @@ import org.apache.velocity.runtime.resource.Resource;
 import org.apache.velocity.runtime.resource.loader.ResourceLoader;
 
 public class URLResourceLoader extends ResourceLoader {
-	
+
 	@Override
 	public void init(ExtendedProperties configuration) {
 		// Do nothing
 	}
-	
-    public synchronized InputStream getResourceStream(String name)
-            throws ResourceNotFoundException {
-    	try {
-    		return new URL(name).openConnection().getInputStream();
-    	} catch (IOException e) {
-    		// Do nothing
-    	}
-        throw new ResourceNotFoundException("PrefixRemapperResourceLoader : cannot find " + name);
+
+	public synchronized InputStream getResourceStream(String name) throws ResourceNotFoundException {
+		try {
+			return new URL(name).openConnection().getInputStream();
+		} catch (IOException e) {
+			// Do nothing
+		}
+		throw new ResourceNotFoundException("PrefixRemapperResourceLoader : cannot find " + name);
 	}
 
-    public long getModificationCheckInterval() {
-    	return 0;
-    }
+	public long getModificationCheckInterval() {
+		return 0;
+	}
 
 	@Override
 	public boolean isSourceModified(Resource resource) {

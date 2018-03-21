@@ -6,9 +6,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
- * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Constraint Variable</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object
+ * '<em><b>Constraint Variable</b></em>'. <!-- end-user-doc -->
  *
  *
  * @see org.gervarro.democles.specification.emf.SpecificationPackage#getConstraintVariable()
@@ -17,8 +16,8 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  */
 public abstract class ConstraintVariable extends EObjectImpl {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ConstraintVariable() {
@@ -26,8 +25,8 @@ public abstract class ConstraintVariable extends EObjectImpl {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

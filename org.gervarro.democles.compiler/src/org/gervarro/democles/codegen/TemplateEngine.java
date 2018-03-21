@@ -24,5 +24,6 @@ import java.io.Writer;
 
 public interface TemplateEngine {
 	public String apply(TemplateInvocation template);
+
 	public void apply(Writer writer, TemplateInvocation template);
 }

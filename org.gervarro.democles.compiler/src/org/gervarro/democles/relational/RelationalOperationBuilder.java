@@ -32,62 +32,53 @@ import org.gervarro.democles.specification.ConstraintType;
 import org.gervarro.democles.specification.impl.Constraint;
 import org.gervarro.democles.specification.impl.Variable;
 
-public final class RelationalOperationBuilder implements
-		OperationBuilder<GeneratorOperation,GeneratorVariable> {
+public final class RelationalOperationBuilder implements OperationBuilder<GeneratorOperation, GeneratorVariable> {
 
 	@Override
-	public List<GeneratorOperation> getConstraintOperations(
-			Constraint constraint, List<GeneratorVariable> parameters) {
+	public List<GeneratorOperation> getConstraintOperations(Constraint constraint, List<GeneratorVariable> parameters) {
 		ConstraintType cType = constraint.getType();
 		if (cType == CoreConstraintModule.EQUAL) {
 			List<GeneratorOperation> result = new LinkedList<GeneratorOperation>();
-			result.add(new GeneratorOperation(constraint, parameters,
-					Adornment.create(Adornment.BOUND, Adornment.BOUND),
-					Adornment.create(Adornment.BOUND, Adornment.BOUND),
-					CoreConstraintModule.EQUAL));
+			result.add(
+					new GeneratorOperation(constraint, parameters, Adornment.create(Adornment.BOUND, Adornment.BOUND),
+							Adornment.create(Adornment.BOUND, Adornment.BOUND), CoreConstraintModule.EQUAL));
 			return result;
 		} else if (cType == CoreConstraintModule.UNEQUAL) {
 			List<GeneratorOperation> result = new LinkedList<GeneratorOperation>();
-			result.add(new GeneratorOperation(constraint, parameters,
-					Adornment.create(Adornment.BOUND, Adornment.BOUND),
-					Adornment.create(Adornment.BOUND, Adornment.BOUND),
-					CoreConstraintModule.UNEQUAL));
+			result.add(
+					new GeneratorOperation(constraint, parameters, Adornment.create(Adornment.BOUND, Adornment.BOUND),
+							Adornment.create(Adornment.BOUND, Adornment.BOUND), CoreConstraintModule.UNEQUAL));
 			return result;
 		} else if (cType == CoreConstraintModule.SMALLER) {
 			List<GeneratorOperation> result = new LinkedList<GeneratorOperation>();
-			result.add(new GeneratorOperation(constraint, parameters,
-					Adornment.create(Adornment.BOUND, Adornment.BOUND),
-					Adornment.create(Adornment.BOUND, Adornment.BOUND),
-					CoreConstraintModule.SMALLER));
+			result.add(
+					new GeneratorOperation(constraint, parameters, Adornment.create(Adornment.BOUND, Adornment.BOUND),
+							Adornment.create(Adornment.BOUND, Adornment.BOUND), CoreConstraintModule.SMALLER));
 			return result;
 		} else if (cType == CoreConstraintModule.SMALLER_OR_EQUAL) {
 			List<GeneratorOperation> result = new LinkedList<GeneratorOperation>();
-			result.add(new GeneratorOperation(constraint, parameters,
-					Adornment.create(Adornment.BOUND, Adornment.BOUND),
-					Adornment.create(Adornment.BOUND, Adornment.BOUND),
-					CoreConstraintModule.SMALLER_OR_EQUAL));
+			result.add(
+					new GeneratorOperation(constraint, parameters, Adornment.create(Adornment.BOUND, Adornment.BOUND),
+							Adornment.create(Adornment.BOUND, Adornment.BOUND), CoreConstraintModule.SMALLER_OR_EQUAL));
 			return result;
 		} else if (cType == CoreConstraintModule.LARGER) {
 			List<GeneratorOperation> result = new LinkedList<GeneratorOperation>();
-			result.add(new GeneratorOperation(constraint, parameters,
-					Adornment.create(Adornment.BOUND, Adornment.BOUND),
-					Adornment.create(Adornment.BOUND, Adornment.BOUND),
-					CoreConstraintModule.LARGER));
+			result.add(
+					new GeneratorOperation(constraint, parameters, Adornment.create(Adornment.BOUND, Adornment.BOUND),
+							Adornment.create(Adornment.BOUND, Adornment.BOUND), CoreConstraintModule.LARGER));
 			return result;
 		} else if (cType == CoreConstraintModule.LARGER_OR_EQUAL) {
 			List<GeneratorOperation> result = new LinkedList<GeneratorOperation>();
-			result.add(new GeneratorOperation(constraint, parameters,
-					Adornment.create(Adornment.BOUND, Adornment.BOUND),
-					Adornment.create(Adornment.BOUND, Adornment.BOUND),
-					CoreConstraintModule.LARGER_OR_EQUAL));
+			result.add(
+					new GeneratorOperation(constraint, parameters, Adornment.create(Adornment.BOUND, Adornment.BOUND),
+							Adornment.create(Adornment.BOUND, Adornment.BOUND), CoreConstraintModule.LARGER_OR_EQUAL));
 			return result;
 		}
 		return null;
 	}
 
 	@Override
-	public final GeneratorOperation getVariableOperation(Variable variable,
-			GeneratorVariable runtimeVariable) {
+	public final GeneratorOperation getVariableOperation(Variable variable, GeneratorVariable runtimeVariable) {
 		return null;
 	}
 }

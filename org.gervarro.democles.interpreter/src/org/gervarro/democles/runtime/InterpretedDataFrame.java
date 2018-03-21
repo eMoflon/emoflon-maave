@@ -28,33 +28,33 @@ public class InterpretedDataFrame extends DataFrame {
 	public InterpretedDataFrame(int size) {
 		this.tuple = new Object[size];
 	}
-	
+
 	public InterpretedDataFrame(InterpretedDataFrame original) {
 		this(original.tuple.length);
 		System.arraycopy(original.tuple, 0, this.tuple, 0, original.tuple.length);
 	}
-	
+
 	public final int size() {
 		return getPublicSize();
 	}
-	
+
 	public final int internalSize() {
 		return tuple.length;
 	}
-	
+
 	public final Object internalGet(int index) {
 		int diff = index - internalSize();
 		return diff < 0 ? tuple[index] : handleFrameExternalGet(diff);
 	}
-	
+
 	public final void internalSet(int index, Object value) {
 		tuple[index] = value;
 	}
-	
+
 	int getPublicSize() {
 		return tuple.length;
 	}
-	
+
 	Object handleFrameExternalGet(int index) {
 		throw new IndexOutOfBoundsException("No such variable: " + index);
 	}

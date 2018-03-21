@@ -7,9 +7,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.gervarro.democles.specification.emf.Constraint;
 
 /**
- * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Relational Constraint</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object
+ * '<em><b>Relational Constraint</b></em>'. <!-- end-user-doc -->
  *
  *
  * @see org.gervarro.democles.specification.emf.constraint.relational.RelationalConstraintPackage#getRelationalConstraint()
@@ -18,8 +17,8 @@ import org.gervarro.democles.specification.emf.Constraint;
  */
 public abstract class RelationalConstraint extends Constraint implements EObject {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected RelationalConstraint() {
@@ -27,8 +26,8 @@ public abstract class RelationalConstraint extends Constraint implements EObject
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

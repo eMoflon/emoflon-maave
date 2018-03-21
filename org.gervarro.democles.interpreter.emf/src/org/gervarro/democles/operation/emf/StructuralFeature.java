@@ -31,6 +31,6 @@ public abstract class StructuralFeature<E extends EStructuralFeature> extends Re
 	protected StructuralFeature(EMFConstraintModule module, E eStructuralFeature) {
 		super(module, eStructuralFeature);
 	}
-	
+
 	abstract public InternalDataFrameProvider getDataFrame(RemappedDataFrame frame, Adornment adornment);
 }

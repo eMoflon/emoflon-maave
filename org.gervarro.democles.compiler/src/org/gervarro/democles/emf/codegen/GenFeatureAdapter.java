@@ -44,14 +44,14 @@ public class GenFeatureAdapter extends GenModelElementAdapter<EStructuralFeature
 	public final String getMethod() {
 		return getGenElement().getGetAccessor() + "()";
 	}
-	
+
 	public final String getReturnType() {
 		if (getGenElement().isListType()) {
 			return getGenElement().getQualifiedListItemType(getContext(getGenElement()));
 		}
 		return getGenElement().getRawBoundType();
 	}
-	
+
 	public final String[] getTypes() {
 		return new String[] { getParent().getTypeName(), getReturnType() };
 	}
@@ -59,32 +59,32 @@ public class GenFeatureAdapter extends GenModelElementAdapter<EStructuralFeature
 	public final String getForwardMethod() {
 		return getGenElement().getGetAccessor() + "()";
 	}
-	
+
 	public final String getBackwardMethod() {
 		return getGenElement().getReverse().getGetAccessor() + "()";
 	}
-	
+
 	public final String getFullyQualifiedClassName() {
 		return getPackageName() + "." + getClassName();
 	}
-	
+
 	public final String getPackageName() {
 		return getParent().getParent().getPackageName();
 	}
-	
+
 	public final String getClassName() {
 		return getParent().getGenElement().getName() + getGenElement().getCapName() + "Operation";
 	}
-	
+
 	private GenClass getContext(GenFeature feature) {
 		for (EObject context = feature.eContainer(); context != null; context = context.eContainer()) {
 			if (context instanceof GenClass) {
-				return (GenClass)context;
+				return (GenClass) context;
 			}
 		}
 		return null;
 	}
-	
+
 	public String toString() {
 		return getEModelElement() != null ? getEModelElement().toString() : super.toString();
 	}

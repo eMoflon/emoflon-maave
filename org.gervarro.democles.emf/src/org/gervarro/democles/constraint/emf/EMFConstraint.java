@@ -26,17 +26,16 @@ import org.gervarro.democles.specification.ConstraintType;
 abstract public class EMFConstraint<E extends ETypedElement> implements ConstraintType {
 	private final EMFConstraintModule module;
 	private final E linkedElement;
-	
-	protected EMFConstraint(final EMFConstraintModule module,
-			final E linkedElement) {
+
+	protected EMFConstraint(final EMFConstraintModule module, final E linkedElement) {
 		this.module = module;
 		this.linkedElement = linkedElement;
 	}
-	
+
 	public final EMFConstraintModule getTypeModule() {
 		return module;
 	}
-	
+
 	public final E getLinkedElement() {
 		return linkedElement;
 	}

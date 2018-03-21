@@ -32,7 +32,7 @@ import org.apache.velocity.exception.ResourceNotFoundException;
 import org.apache.velocity.runtime.Renderable;
 
 public class VelocityTemplateController extends VelocityContext implements Renderable {
-	public static final String IMPORT_MANAGER_KEY = "import"; 
+	public static final String IMPORT_MANAGER_KEY = "import";
 	final Template template;
 
 	public VelocityTemplateController(Template template) {
@@ -40,14 +40,13 @@ public class VelocityTemplateController extends VelocityContext implements Rende
 	}
 
 	public final boolean render(InternalContextAdapter context, Writer writer)
-			throws IOException, MethodInvocationException,
-			ParseErrorException, ResourceNotFoundException {
+			throws IOException, MethodInvocationException, ParseErrorException, ResourceNotFoundException {
 		put(IMPORT_MANAGER_KEY, context.get(IMPORT_MANAGER_KEY));
 		template.merge(this, writer);
 		return true;
 	}
-	
-    public final void generateCode(Writer writer) throws IOException {
-    	template.merge(this, writer);
-    }
+
+	public final void generateCode(Writer writer) throws IOException {
+		template.merge(this, writer);
+	}
 }

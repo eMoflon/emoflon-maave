@@ -34,7 +34,7 @@ public class BidirectionalOneToManyOperation extends BidirectionalReference {
 	public BidirectionalOneToManyOperation(EMFConstraintModule module, EReference eReference) {
 		super(module, eReference);
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public final InternalDataFrameProvider getDataFrame(RemappedDataFrame frame, Adornment adornment) {
 		if (adornment.get(0) == Adornment.BOUND && adornment.get(1) == Adornment.BOUND) {

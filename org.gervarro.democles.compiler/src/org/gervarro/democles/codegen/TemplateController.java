@@ -27,16 +27,16 @@ public final class TemplateController {
 	public TemplateController(final String templateName) {
 		this(templateName, null);
 	}
-	
+
 	public TemplateController(final String templateName, final GeneratorOperation operation) {
 		this.templateName = templateName;
 		this.operation = operation;
 	}
-	
+
 	public final String getTemplate() {
 		return templateName;
 	}
-	
+
 	public final GeneratorOperation getOperation() {
 		return operation;
 	}

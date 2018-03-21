@@ -30,16 +30,14 @@ public class Adornment {
 
 	private static final int RIGHT_BITS = ELM_SIZE - 1;
 
-	private static final int[] TWO_N_ARRAY = new int[] { 0x1, 0x2, 0x4,
-		0x8, 0x10, 0x20, 0x40, 0x80, 0x100, 0x200, 0x400, 0x800,
-		0x1000, 0x2000, 0x4000, 0x8000, 0x10000, 0x20000, 0x40000,
-		0x80000, 0x100000, 0x200000, 0x400000, 0x800000, 0x1000000,
-		0x2000000, 0x4000000, 0x8000000, 0x10000000, 0x20000000,
-		0x40000000, 0x80000000 };
+	private static final int[] TWO_N_ARRAY = new int[] { 0x1, 0x2, 0x4, 0x8, 0x10, 0x20, 0x40, 0x80, 0x100, 0x200,
+			0x400, 0x800, 0x1000, 0x2000, 0x4000, 0x8000, 0x10000, 0x20000, 0x40000, 0x80000, 0x100000, 0x200000,
+			0x400000, 0x800000, 0x1000000, 0x2000000, 0x4000000, 0x8000000, 0x10000000, 0x20000000, 0x40000000,
+			0x80000000 };
 
 	private final int[] bits;
 	private final int length;
-	
+
 	public Adornment() {
 		this(0);
 	}
@@ -67,8 +65,8 @@ public class Adornment {
 
 	/**
 	 * Compares the argument to this {@code BitSet} and returns whether they are
-	 * equal. The object must be an instance of {@code BitSet} with the same
-	 * bits set.
+	 * equal. The object must be an instance of {@code BitSet} with the same bits
+	 * set.
 	 * 
 	 * @param obj
 	 *            the {@code BitSet} object to compare.
@@ -99,11 +97,10 @@ public class Adornment {
 	}
 
 	/**
-	 * Computes the hash code for this {@code BitSet}. If two {@code BitSet}s are equal
-	 * the have to return the same result for {@code hashCode()}.
+	 * Computes the hash code for this {@code BitSet}. If two {@code BitSet}s are
+	 * equal the have to return the same result for {@code hashCode()}.
 	 * 
-	 * @return the {@code int} representing the hash code for this bit
-	 *         set.
+	 * @return the {@code int} representing the hash code for this bit set.
 	 * @see #equals
 	 * @see java.util.Hashtable
 	 */
@@ -124,12 +121,9 @@ public class Adornment {
 		bytes[index++] = (byte) (length >>> 24);
 		return MurmurHash.hash32(bytes, bytes.length);
 		/*
-		long x = 1234;
-		for (int i = 0; i < bits.length; i++) {
-			x ^= bits[i] * (i + 1);
-		}
-		return (int) ((x >> 32) ^ x);
-		*/
+		 * long x = 1234; for (int i = 0; i < bits.length; i++) { x ^= bits[i] * (i +
+		 * 1); } return (int) ((x >> 32) ^ x);
+		 */
 	}
 
 	/**
@@ -138,8 +132,8 @@ public class Adornment {
 	 * 
 	 * @param pos
 	 *            the index of the bit to be retrieved.
-	 * @return {@code true} if the bit at {@code pos} is set,
-	 *         {@code false} otherwise.
+	 * @return {@code true} if the bit at {@code pos} is set, {@code false}
+	 *         otherwise.
 	 * @throws IndexOutOfBoundsException
 	 *             if {@code pos} is negative.
 	 * @see #clear(int)
@@ -252,8 +246,8 @@ public class Adornment {
 	 * @param pos2
 	 *            ending position.
 	 * @throws IndexOutOfBoundsException
-	 *             if {@code pos1} or {@code pos2} is negative, or if
-	 *             {@code pos2} is smaller than {@code pos1}.
+	 *             if {@code pos1} or {@code pos2} is negative, or if {@code pos2}
+	 *             is smaller than {@code pos1}.
 	 * @see #clear(int)
 	 */
 	public void clear(int pos1, int pos2) {
@@ -302,8 +296,8 @@ public class Adornment {
 	 * @param pos2
 	 *            ending position.
 	 * @throws IndexOutOfBoundsException
-	 *             if {@code pos1} or {@code pos2} is negative, or if
-	 *             {@code pos2} is smaller than {@code pos1}.
+	 *             if {@code pos1} or {@code pos2} is negative, or if {@code pos2}
+	 *             is smaller than {@code pos1}.
 	 * @see #flip(int)
 	 */
 	public void flip(int pos1, int pos2) {
@@ -347,11 +341,13 @@ public class Adornment {
 	}
 
 	/**
-	 * Returns the position of the first bit that is {@code true} on or after {@code pos}.
+	 * Returns the position of the first bit that is {@code true} on or after
+	 * {@code pos}.
 	 * 
 	 * @param pos
 	 *            the starting position (inclusive).
-	 * @return -1 if there is no bits that are set to {@code true} on or after {@code pos}.
+	 * @return -1 if there is no bits that are set to {@code true} on or after
+	 *         {@code pos}.
 	 */
 	public int nextSetBit(int pos) {
 		if (pos < 0 || pos >= length) {
@@ -392,12 +388,13 @@ public class Adornment {
 	}
 
 	/**
-	 * Returns the position of the first bit that is {@code false} on or after {@code pos}.
+	 * Returns the position of the first bit that is {@code false} on or after
+	 * {@code pos}.
 	 * 
 	 * @param pos
 	 *            the starting position (inclusive).
-	 * @return the position of the next bit set to {@code false}, even if it is further
-	 *         than this {@code BitSet}'s size.
+	 * @return the position of the next bit set to {@code false}, even if it is
+	 *         further than this {@code BitSet}'s size.
 	 */
 	public int nextClearBit(int pos) {
 		if (pos < 0 || pos >= length) {
@@ -439,8 +436,7 @@ public class Adornment {
 	/**
 	 * Returns true if all the bits in this {@code BitSet} are set to false.
 	 * 
-	 * @return {@code true} if the {@code BitSet} is empty,
-	 *         {@code false} otherwise.
+	 * @return {@code true} if the {@code BitSet} is empty, {@code false} otherwise.
 	 */
 	public boolean isEmpty() {
 		for (int idx = 0; idx < bits.length; idx++) {
@@ -450,16 +446,16 @@ public class Adornment {
 		}
 		return true;
 	}
-	
+
 	public final Adornment and(Adornment other, boolean copy) {
 		return copy ? new Adornment(this).and(other) : and(other);
 	}
-	
+
 	public final Adornment and(Adornment other) {
 		if (length != other.length) {
 			throw new IllegalArgumentException("The lengths of bit arrays differ");
 		}
-		for (int i = 0; i < bits.length; i ++) {
+		for (int i = 0; i < bits.length; i++) {
 			bits[i] &= other.bits[i];
 		}
 		int mask = (~0) >>> (RIGHT_BITS - ((length - 1) & RIGHT_BITS));
@@ -470,12 +466,12 @@ public class Adornment {
 	public final Adornment xor(Adornment other, boolean copy) {
 		return copy ? new Adornment(this).xor(other) : xor(other);
 	}
-	
+
 	public final Adornment xor(Adornment other) {
 		if (length != other.length) {
 			throw new IllegalArgumentException("The lengths of bit arrays differ");
 		}
-		for (int i = 0; i < bits.length; i ++) {
+		for (int i = 0; i < bits.length; i++) {
 			bits[i] ^= other.bits[i];
 		}
 		int mask = (~0) >>> (RIGHT_BITS - ((length - 1) & RIGHT_BITS));
@@ -486,12 +482,12 @@ public class Adornment {
 	public final Adornment or(Adornment other, boolean copy) {
 		return copy ? new Adornment(this).or(other) : or(other);
 	}
-	
+
 	public final Adornment or(Adornment other) {
 		if (length != other.length) {
 			throw new IllegalArgumentException("The lengths of bit arrays differ");
 		}
-		for (int i = 0; i < bits.length; i ++) {
+		for (int i = 0; i < bits.length; i++) {
 			bits[i] |= other.bits[i];
 		}
 		int mask = (~0) >>> (RIGHT_BITS - ((length - 1) & RIGHT_BITS));
@@ -502,9 +498,9 @@ public class Adornment {
 	public final Adornment not(Adornment other, boolean copy) {
 		return copy ? new Adornment(this).not() : not();
 	}
-	
+
 	public final Adornment not() {
-		for (int i = 0; i < bits.length; i ++) {
+		for (int i = 0; i < bits.length; i++) {
 			bits[i] = ~bits[i];
 		}
 		int mask = (~0) >>> (RIGHT_BITS - ((length - 1) & RIGHT_BITS));
@@ -537,12 +533,10 @@ public class Adornment {
 	}
 
 	/*
-	final int numberOfSetBits(int i) {
-		i = i - ((i >> 1) & 0x55555555);
-		i = (i & 0x33333333) + ((i >> 2) & 0x33333333);
-		return ((i + (i >> 4) & 0xF0F0F0F) * 0x1010101) >> 24;
-	}
-	*/
+	 * final int numberOfSetBits(int i) { i = i - ((i >> 1) & 0x55555555); i = (i &
+	 * 0x33333333) + ((i >> 2) & 0x33333333); return ((i + (i >> 4) & 0xF0F0F0F) *
+	 * 0x1010101) >> 24; }
+	 */
 
 	public boolean fulfills(Adornment constraint) {
 		if (length != constraint.length) {

@@ -27,14 +27,15 @@ import org.gervarro.democles.runtime.RemappingOperation;
 
 abstract public class InterpreterCombiner implements OperationCombiner<InterpreterCombiner, RemappingOperation> {
 	private final Adornment adornment;
-	
+
 	protected InterpreterCombiner(final Adornment adornment) {
 		this.adornment = adornment;
 	}
-	
+
 	abstract public InterpreterCombiner combine(RemappingOperation second);
+
 	abstract public Operation getRoot();
-	
+
 	public final Adornment getAdornment() {
 		return adornment;
 	}

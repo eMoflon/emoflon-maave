@@ -31,7 +31,7 @@ public class TypeCheckOperation extends ReflectiveEMFOperation<EClassifier> {
 	public TypeCheckOperation(EMFConstraintModule module, EClassifier eClassifier) {
 		super(module, eClassifier);
 	}
-	
+
 	public final InternalDataFrameProvider getDataFrame(RemappedDataFrame frame, Adornment adornment) {
 		if (adornment.get(0) == Adornment.NOT_TYPECHECKED) {
 			org.eclipse.emf.ecore.EObject object = (org.eclipse.emf.ecore.EObject) frame.getValue(0);

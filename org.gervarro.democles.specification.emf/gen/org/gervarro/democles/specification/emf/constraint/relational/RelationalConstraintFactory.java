@@ -9,45 +9,44 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 /**
- * <!-- begin-user-doc -->
- * The <b>Factory</b> for the model.
- * It provides a create method for each non-abstract class of the model.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> The <b>Factory</b> for the model. It provides a
+ * create method for each non-abstract class of the model. <!-- end-user-doc -->
+ * 
  * @see org.gervarro.democles.specification.emf.constraint.relational.RelationalConstraintPackage
  * @generated
  */
 public class RelationalConstraintFactory extends EFactoryImpl {
 	/**
-	 * The singleton instance of the factory.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The singleton instance of the factory. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final RelationalConstraintFactory eINSTANCE = init();
 
 	/**
-	 * Creates the default factory implementation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Creates the default factory implementation. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static RelationalConstraintFactory init() {
 		try {
-			RelationalConstraintFactory theRelationalConstraintFactory = (RelationalConstraintFactory)EPackage.Registry.INSTANCE.getEFactory(RelationalConstraintPackage.eNS_URI);
+			RelationalConstraintFactory theRelationalConstraintFactory = (RelationalConstraintFactory) EPackage.Registry.INSTANCE
+					.getEFactory(RelationalConstraintPackage.eNS_URI);
 			if (theRelationalConstraintFactory != null) {
 				return theRelationalConstraintFactory;
 			}
-		}
-		catch (Exception exception) {
+		} catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new RelationalConstraintFactory();
 	}
 
 	/**
-	 * Creates an instance of the factory.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @generated
 	 */
 	public RelationalConstraintFactory() {
@@ -55,27 +54,33 @@ public class RelationalConstraintFactory extends EFactoryImpl {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case RelationalConstraintPackage.EQUAL: return createEqual();
-			case RelationalConstraintPackage.UNEQUAL: return createUnequal();
-			case RelationalConstraintPackage.SMALLER: return createSmaller();
-			case RelationalConstraintPackage.SMALLER_OR_EQUAL: return createSmallerOrEqual();
-			case RelationalConstraintPackage.LARGER: return createLarger();
-			case RelationalConstraintPackage.LARGER_OR_EQUAL: return createLargerOrEqual();
-			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		case RelationalConstraintPackage.EQUAL:
+			return createEqual();
+		case RelationalConstraintPackage.UNEQUAL:
+			return createUnequal();
+		case RelationalConstraintPackage.SMALLER:
+			return createSmaller();
+		case RelationalConstraintPackage.SMALLER_OR_EQUAL:
+			return createSmallerOrEqual();
+		case RelationalConstraintPackage.LARGER:
+			return createLarger();
+		case RelationalConstraintPackage.LARGER_OR_EQUAL:
+			return createLargerOrEqual();
+		default:
+			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Equal createEqual() {
@@ -84,8 +89,8 @@ public class RelationalConstraintFactory extends EFactoryImpl {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Unequal createUnequal() {
@@ -94,8 +99,8 @@ public class RelationalConstraintFactory extends EFactoryImpl {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Smaller createSmaller() {
@@ -104,8 +109,8 @@ public class RelationalConstraintFactory extends EFactoryImpl {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public SmallerOrEqual createSmallerOrEqual() {
@@ -114,8 +119,8 @@ public class RelationalConstraintFactory extends EFactoryImpl {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Larger createLarger() {
@@ -124,8 +129,8 @@ public class RelationalConstraintFactory extends EFactoryImpl {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public LargerOrEqual createLargerOrEqual() {
@@ -134,17 +139,17 @@ public class RelationalConstraintFactory extends EFactoryImpl {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public RelationalConstraintPackage getRelationalConstraintPackage() {
-		return (RelationalConstraintPackage)getEPackage();
+		return (RelationalConstraintPackage) getEPackage();
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @deprecated
 	 * @generated
 	 */
@@ -153,4 +158,4 @@ public class RelationalConstraintFactory extends EFactoryImpl {
 		return RelationalConstraintPackage.eINSTANCE;
 	}
 
-} //RelationalConstraintFactory
+} // RelationalConstraintFactory
